@@ -1,3 +1,4 @@
+
 export interface NavItem {
     label: string;
     href: string;
@@ -41,4 +42,20 @@ export interface PartnerReason {
     iconColorClass: string;
     title: string;
     description: string;
+}
+
+export interface ResourceLink {
+    label: string;
+    url: string;
+    type: 'affiliate' | 'source' | 'social';
+    icon?: string;
+}
+
+export interface Video {
+    id: string;
+    title: string;
+    date: string;
+    category: 'Crypto' | 'Node Ops' | 'AI Automation' | 'Forex';
+    youtubeId: string;
+    resources: ResourceLink[];
 }

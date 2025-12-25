@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
@@ -6,6 +7,7 @@ import { Expertise } from './components/Expertise';
 import { Partnership } from './components/Partnership';
 import { Stats } from './components/Stats';
 import { Algorithms } from './components/Algorithms';
+import { VideoHub } from './components/VideoHub';
 import { Contact } from './components/Contact';
 
 function App() {
@@ -20,6 +22,7 @@ function App() {
         <Hero />
         <About />
         <Expertise />
+        <VideoHub />
         <Partnership />
         <Stats />
         <Algorithms />
