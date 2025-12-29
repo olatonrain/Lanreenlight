@@ -24,7 +24,7 @@ export const Hero: React.FC = () => {
                     <FadeIn delay={0} direction="down">
                         <div className="inline-flex items-center px-4 py-1.5 rounded-full border border-brand-border bg-white/90 backdrop-blur-md text-brand-accent text-xs font-semibold uppercase tracking-wider mb-8 hover:bg-brand-accent/5 transition-colors duration-300 cursor-default shadow-sm">
                             <span className="w-2 h-2 rounded-full bg-brand-accent mr-2 animate-pulse"></span>
-                            Available for Partnerships
+                            Open to long-term collaborations
                         </div>
                     </FadeIn>
                     
@@ -37,7 +37,7 @@ export const Hero: React.FC = () => {
                     
                     <FadeIn delay={400} direction="up">
                         <p className="mt-2 text-lg md:text-2xl text-gray-900 max-w-2xl leading-relaxed font-medium mx-auto bg-white/10 backdrop-blur-[2px] rounded-lg px-4 py-2">
-                            I’m Lanre, a digital strategist with a strong focus on technology, hosting infrastructure, crypto nodes, and performance-driven marketing systems.
+                            I’m Lanre, a digital strategist with a strong focus on blockchain infrastructure, AI Engineering and performance-driven content marketing systems.
                         </p>
                     </FadeIn>
 
