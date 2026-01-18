@@ -10,6 +10,7 @@ import { Algorithms } from './components/Algorithms';
 import { VideoHub } from './components/VideoHub';
 import { Contact } from './components/Contact';
 import { Blog } from './components/Blog';
+import { BlogPostPage } from './components/BlogPostPage';
 
 const HomePage = () => (
   <main>
@@ -36,6 +37,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:id" element={<BlogPostPage />} />
         </Routes>
       </div>
     </Router>

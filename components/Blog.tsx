@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { FadeIn } from './FadeIn';
 import { BLOG_POSTS as STATIC_POSTS, BlogPost } from '../data/blog';
 
@@ -95,12 +96,12 @@ export const Blog = () => {
                                     </p>
 
                                     <div className="pt-6 border-t border-gray-100 flex items-center justify-between">
-                                        <a href={`https://youtube.com/watch?v=${post.youtubeId}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-brand-black font-semibold hover:text-brand-accent transition-colors group/link">
-                                            Watch Video
+                                        <Link to={`/blog/${post.id}`} className="inline-flex items-center text-brand-black font-semibold hover:text-brand-accent transition-colors group/link">
+                                            Read Article
                                             <svg className="w-4 h-4 ml-2 transform group-hover/link:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                                             </svg>
-                                        </a>
+                                        </Link>
                                         <span className="text-xs font-medium text-gray-400">5 min read</span>
                                     </div>
                                 </div>
