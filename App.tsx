@@ -1,4 +1,4 @@
-// Deployment Trigger: 2026-01-18 21:50 - Final Permission Fix
+// Deployment Trigger: 2026-01-18 22:03 - Corrected Path Lanreenlight
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
