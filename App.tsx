@@ -1,4 +1,4 @@
-// Deployment Trigger: 2026-01-18 16:57 - Secrets Configured
+// Deployment Trigger: 2026-01-18 17:16 - Password Auth
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
