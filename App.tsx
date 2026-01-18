@@ -1,4 +1,4 @@
-// Deployment Trigger: 2026-01-18 21:38 - FINAL with metrohyp
+// Deployment Trigger: 2026-01-18 21:42 - Corrected Hestia Owner
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
