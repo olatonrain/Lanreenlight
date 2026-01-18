@@ -87,7 +87,7 @@ export const BlogPostPage = () => {
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Content */}
                 <FadeIn delay={0.4} direction="up">
-                    <div className="prose prose-lg prose-headings:font-serif prose-a:text-brand-accent hover:prose-a:text-brand-black prose-img:rounded-xl mx-auto bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-brand-border">
+                    <div className="article-content bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-brand-border">
                         {/* If we have a YouTube video, show it first */}
                         {post.youtubeId && post.youtubeId !== 'dQw4w9WgXcQ' && (
                             <div className="aspect-video w-full mb-8 rounded-xl overflow-hidden shadow-lg">
