@@ -1,4 +1,4 @@
-// Deployment Trigger: 2026-01-18 21:42 - Corrected Hestia Owner
+// Deployment Trigger: 2026-01-18 21:50 - Final Permission Fix
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
