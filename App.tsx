@@ -1,4 +1,3 @@
-// Deployment Trigger: 2026-01-18 22:07 - File Ownership Fixed
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
