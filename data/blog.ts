@@ -6,6 +6,7 @@ export interface BlogPost {
     imageUrl: string;
     youtubeId: string;
     content?: string; // Full HTML content from n8n
+    category?: string;
 }
 
 export const BLOG_POSTS: BlogPost[] = [
