@@ -7,6 +7,7 @@ const NAV_ITEMS: NavItem[] = [
     { label: 'What I Do', href: '#expertise' },
     { label: 'Why Partner', href: '#why-partner' },
     { label: 'Knowledge Hub', href: '#knowledge-hub' },
+    { label: 'Blog', href: '/blog' }
 ];
 
 export const Navbar: React.FC = () => {
@@ -26,19 +27,19 @@ export const Navbar: React.FC = () => {
                             LANRE<span className="text-brand-accent">.TECH</span>
                         </span>
                     </div>
-                    
+
                     <div className="hidden md:flex items-center space-x-10">
                         {NAV_ITEMS.map((item) => (
-                            <a 
+                            <a
                                 key={item.label}
-                                href={item.href} 
+                                href={item.href}
                                 className="text-gray-600 hover:text-brand-black transition-colors text-sm font-medium hover:underline hover:decoration-brand-accent hover:underline-offset-4 decoration-2"
                             >
                                 {item.label}
                             </a>
                         ))}
-                        <a 
-                            href="#contact" 
+                        <a
+                            href="#contact"
                             className="bg-brand-black text-white px-6 py-2.5 rounded-full font-bold text-sm hover:bg-gray-800 border border-transparent shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95 transition-all duration-300 ease-out"
                         >
                             Partner With Me
@@ -46,7 +47,7 @@ export const Navbar: React.FC = () => {
                     </div>
 
                     <div className="md:hidden flex items-center">
-                        <button 
+                        <button
                             onClick={toggleMobileMenu}
                             className="text-brand-black hover:text-brand-accent focus:outline-none transform active:scale-90 transition-transform"
                         >
@@ -61,17 +62,17 @@ export const Navbar: React.FC = () => {
                 <div className="md:hidden bg-white border-b border-brand-border absolute w-full shadow-xl">
                     <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                         {NAV_ITEMS.map((item) => (
-                            <a 
+                            <a
                                 key={item.label}
-                                href={item.href} 
+                                href={item.href}
                                 className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-brand-black hover:bg-brand-secondary transition-colors"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
                                 {item.label}
                             </a>
                         ))}
-                        <a 
-                            href="#contact" 
+                        <a
+                            href="#contact"
                             className="block px-3 py-2 mt-4 text-center rounded-md text-base font-bold bg-brand-black text-white hover:bg-gray-800 transition-colors"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >

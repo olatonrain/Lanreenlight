@@ -4,47 +4,63 @@ import { Video } from '../types';
 export const VIDEOS: Video[] = [
     {
         id: '1',
-        title: 'Setting up an Ethereum Validator Node (2025 Guide)',
-        date: 'Oct 12, 2024',
-        category: 'Node Ops',
-        youtubeId: 'dQw4w9WgXcQ', // Placeholder
+        title: 'N8N VPS Setup Blueprint and Charge Clients $500',
+        date: 'Feb 14, 2025',
+        category: 'AI Automation',
+        youtubeId: 'dbrjeJRxSco',
         resources: [
-            { label: 'Recommended VPS for Nodes', url: '#', type: 'affiliate' },
-            { label: 'Setup Script (GitHub)', url: '#', type: 'source' },
-            { label: 'Cloud Hosting Discount', url: '#', type: 'affiliate' }
+            { label: 'Cloud Hosting Discount', url: '#', type: 'affiliate' },
+            { label: 'N8N Setup Script', url: '#', type: 'source' }
         ]
     },
     {
         id: '2',
-        title: 'Automating Trading Alerts with AI Agents',
-        date: 'Nov 05, 2024',
+        title: 'Watch this before self-hosting n8n on Hostinger',
+        date: 'Feb 04, 2025',
         category: 'AI Automation',
-        youtubeId: 'dQw4w9WgXcQ',
+        youtubeId: 'RPPJkD452iU',
         resources: [
-            { label: 'AI Platform Access', url: '#', type: 'affiliate' },
-            { label: 'Bot Logic Blueprint', url: '#', type: 'source' }
+            { label: 'Hostinger Special Offer', url: '#', type: 'affiliate' }
         ]
     },
     {
         id: '3',
-        title: 'Forex Scalping Strategy with Custom EAs',
-        date: 'Dec 15, 2024',
-        category: 'Forex',
-        youtubeId: 'dQw4w9WgXcQ',
+        title: 'How to Use N8N Free Forever - n8n Self-Hosted Guide',
+        date: 'Feb 01, 2025',
+        category: 'AI Automation',
+        youtubeId: 'SvipG4uv0E4',
         resources: [
-            { label: 'Download EA Demo', url: '#', type: 'source' },
-            { label: 'Best Broker for Scalping', url: '#', type: 'affiliate' }
+            { label: 'Self-Hosting Checklist', url: '#', type: 'source' }
         ]
     },
     {
         id: '4',
-        title: 'Portfolio Diversification in the Bull Market',
-        date: 'Jan 02, 2025',
-        category: 'Crypto',
-        youtubeId: 'dQw4w9WgXcQ',
+        title: 'Automate your Trading using a bot That Made Me $1,023/Month',
+        date: 'Jan 15, 2025',
+        category: 'Forex',
+        youtubeId: 'ZNUfwpIVpPE',
         resources: [
-            { label: 'Join My Telegram Community', url: '#', type: 'social' },
-            { label: 'Exchange Referral Link', url: '#', type: 'affiliate' }
+            { label: 'Trading Bot Access', url: '#', type: 'affiliate' }
+        ]
+    },
+    {
+        id: '5',
+        title: 'How I made Bless network paid me $1000 (Setup & Proof)',
+        date: 'Dec 20, 2024',
+        category: 'Crypto',
+        youtubeId: '2fGFYe4DgR4',
+        resources: [
+            { label: 'Join Bless Network', url: '#', type: 'affiliate' }
+        ]
+    },
+    {
+        id: '6',
+        title: 'Cheapest VPS | BEST Cheap VPS in 2025 for less than $5',
+        date: 'Dec 05, 2024',
+        category: 'Node Ops',
+        youtubeId: '6aKpNFdb_Wk',
+        resources: [
+            { label: 'Top 5 Cheap VPS List', url: '#', type: 'affiliate' }
         ]
     }
 ];

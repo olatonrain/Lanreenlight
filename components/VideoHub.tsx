@@ -33,11 +33,11 @@ export const VideoHub: React.FC = () => {
                             <p className="text-gray-600 font-light text-lg">In-depth technical guides, market analysis, and node operations.</p>
                         </div>
                     </FadeIn>
-                    
+
                     <FadeIn direction="left" className="w-full md:w-auto">
                         <div className="relative group">
                             <i className="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-brand-accent transition-colors"></i>
-                            <input 
+                            <input
                                 type="text"
                                 placeholder="Search videos or resources..."
                                 className="w-full md:w-80 pl-12 pr-4 py-3 rounded-xl border border-brand-border focus:border-brand-accent focus:ring-1 focus:ring-brand-accent outline-none transition-all text-sm font-medium"
@@ -54,11 +54,10 @@ export const VideoHub: React.FC = () => {
                         <button
                             key={cat}
                             onClick={() => setSelectedCategory(cat)}
-                            className={`px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all transform active:scale-95 ${
-                                selectedCategory === cat 
-                                ? 'bg-brand-black text-white shadow-lg' 
-                                : 'bg-brand-secondary text-gray-500 hover:bg-gray-200'
-                            }`}
+                            className={`px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all transform active:scale-95 ${selectedCategory === cat
+                                    ? 'bg-brand-black text-white shadow-lg'
+                                    : 'bg-brand-secondary text-gray-500 hover:bg-gray-200'
+                                }`}
                         >
                             {cat}
                         </button>
@@ -67,21 +66,21 @@ export const VideoHub: React.FC = () => {
 
                 {/* Video Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {filteredVideos.map((video, index) => (
-                        <FadeIn key={video.id} delay={index * 100}>
+                    {filteredVideos.slice(0, 6).map((video, index) => (
+                        <FadeIn key={video.id} delay={index * 100} className={index >= 3 ? 'hidden lg:block' : ''}>
                             <div className="group bg-white border border-brand-border rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-500 flex flex-col h-full">
                                 {/* Thumbnail */}
                                 <div className="relative aspect-video overflow-hidden">
-                                    <img 
-                                        src={`https://img.youtube.com/vi/${video.youtubeId}/maxresdefault.jpg`} 
+                                    <img
+                                        src={`https://img.youtube.com/vi/${video.youtubeId}/maxresdefault.jpg`}
                                         alt={video.title}
                                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                                         loading="lazy"
                                     />
                                     <div className="absolute inset-0 bg-brand-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                                        <a 
-                                            href={`https://youtube.com/watch?v=${video.youtubeId}`} 
-                                            target="_blank" 
+                                        <a
+                                            href={`https://youtube.com/watch?v=${video.youtubeId}`}
+                                            target="_blank"
                                             rel="noopener noreferrer"
                                             className="w-16 h-16 bg-brand-accent text-white rounded-full flex items-center justify-center text-2xl shadow-xl hover:scale-110 active:scale-90 transition-transform"
                                         >
@@ -103,7 +102,7 @@ export const VideoHub: React.FC = () => {
                                     </h3>
 
                                     <div className="mt-auto space-y-2">
-                                        <button 
+                                        <button
                                             onClick={() => toggleResources(video.id)}
                                             className="w-full flex items-center justify-between p-3 rounded-lg bg-brand-secondary text-brand-black text-sm font-semibold hover:bg-gray-200 transition-colors"
                                         >
@@ -114,7 +113,7 @@ export const VideoHub: React.FC = () => {
                                         <div className={`overflow-hidden transition-all duration-500 ease-in-out ${expandedVideo === video.id ? 'max-h-60' : 'max-h-0'}`}>
                                             <div className="py-3 px-1 flex flex-wrap gap-2">
                                                 {video.resources.map((link, idx) => (
-                                                    <a 
+                                                    <a
                                                         key={idx}
                                                         href={link.url}
                                                         className="inline-flex items-center gap-2 px-3 py-2 rounded-md bg-white border border-brand-border text-xs font-bold text-gray-600 hover:border-brand-accent hover:text-brand-black hover:shadow-sm transition-all"

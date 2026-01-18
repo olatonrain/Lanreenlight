@@ -3,20 +3,25 @@ import React, { useState } from 'react';
 import { FadeIn } from './FadeIn';
 
 export const Contact: React.FC = () => {
+    const [isLoading, setIsLoading] = useState(false);
     const [email, setEmail] = useState('');
     const [subscribed, setSubscribed] = useState(false);
 
-    const handleSubscribe = (e: React.FormEvent) => {
+    const handleSubscribe = async (e: React.FormEvent) => {
         e.preventDefault();
         if (email) {
+            setIsLoading(true);
+            // Simulate API call for premium feel
+            await new Promise(resolve => setTimeout(resolve, 1200));
             setSubscribed(true);
+            setIsLoading(false);
             setEmail('');
         }
     };
 
     return (
         <>
-            <section className="py-24 bg-brand-secondary relative z-10">
+            <section className="py-16 md:py-24 bg-brand-secondary relative z-10">
                 <div className="max-w-4xl mx-auto px-4 text-center">
                     <FadeIn direction="up">
                         <h2 className="text-3xl md:text-4xl font-serif font-medium text-brand-black mb-10 tracking-tight">Affiliate Partnership Focus</h2>
@@ -24,7 +29,7 @@ export const Contact: React.FC = () => {
                             I aim to establish long-term partnerships with hosting and technology brands that value:
                         </p>
                     </FadeIn>
-                    
+
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-16 text-left">
                         {['Clear, educational content', 'High-quality leads', 'Brand consistency', 'Scalable strategies'].map((item, index) => (
                             <FadeIn key={item} delay={index * 100}>
@@ -33,7 +38,7 @@ export const Contact: React.FC = () => {
                                 </div>
                             </FadeIn>
                         ))}
-                         <FadeIn delay={400} className="md:col-span-2">
+                        <FadeIn delay={400} className="md:col-span-2">
                             <div className="flex items-center gap-4 text-gray-600 group">
                                 <i className="fa-solid fa-check-circle text-brand-accent group-hover:scale-110 transition-transform duration-300"></i> <span className="text-sm font-medium">Authentic product testing</span>
                             </div>
@@ -51,7 +56,7 @@ export const Contact: React.FC = () => {
             </section>
 
             {/* Newsletter Section */}
-            <section className="py-20 bg-white border-t border-brand-border overflow-hidden">
+            <section className="py-16 md:py-20 bg-white border-t border-brand-border overflow-hidden">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="bg-brand-black rounded-[2.5rem] p-12 md:p-20 text-white relative overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-12">
                         <div className="relative z-10 max-w-xl">
@@ -62,25 +67,29 @@ export const Contact: React.FC = () => {
                         <div className="relative z-10 w-full lg:w-auto">
                             {!subscribed ? (
                                 <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3 w-full">
-                                    <input 
-                                        type="email" 
-                                        placeholder="Enter your email" 
+                                    <input
+                                        type="email"
+                                        placeholder="Enter your email"
                                         required
-                                        className="bg-zinc-800 border-zinc-700 text-white px-6 py-4 rounded-full outline-none focus:ring-2 focus:ring-brand-accent transition-all min-w-[300px]"
+                                        className="bg-zinc-800 border-zinc-700 text-white px-6 py-4 rounded-full outline-none focus:ring-2 focus:ring-brand-accent transition-all min-w-[300px] disabled:opacity-50"
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
+                                        disabled={isLoading}
                                     />
-                                    <button 
+                                    <button
                                         type="submit"
-                                        className="bg-brand-accent text-white font-bold px-8 py-4 rounded-full hover:bg-yellow-600 transition-colors shadow-lg active:scale-95"
+                                        disabled={isLoading}
+                                        className="bg-brand-accent text-white font-bold px-8 py-4 rounded-full hover:bg-yellow-600 transition-colors shadow-lg active:scale-95 flex items-center justify-center min-w-[140px] disabled:opacity-70"
                                     >
-                                        Subscribe
+                                        {isLoading ? (
+                                            <i className="fa-solid fa-circle-notch animate-spin text-xl"></i>
+                                        ) : 'Subscribe'}
                                     </button>
                                 </form>
                             ) : (
-                                <div className="bg-system-success/20 border border-system-success/30 text-system-success px-8 py-4 rounded-full font-bold flex items-center gap-3 animate-bounce">
-                                    <i className="fa-solid fa-circle-check"></i>
-                                    Welcome to the list!
+                                <div className="bg-brand-accent/10 border border-brand-accent/20 text-brand-accent px-8 py-4 rounded-full font-bold flex items-center gap-3 animate-fade-in">
+                                    <i className="fa-solid fa-circle-check scale-125"></i>
+                                    <span className="tracking-tight">You&#39;re on the list. Welcome aboard!</span>
                                 </div>
                             )}
                         </div>
@@ -97,19 +106,19 @@ export const Contact: React.FC = () => {
                     <FadeIn direction="down">
                         <h2 className="text-5xl md:text-6xl font-serif text-brand-black mb-8 tracking-tighter">Let’s Work Together</h2>
                     </FadeIn>
-                    
+
                     <FadeIn delay={200} direction="up">
                         <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto font-light leading-relaxed">
                             If your brand offers hosting services, cloud infrastructure, crypto node tooling, SaaS solutions, or any tech-focused platform, I can help amplify your visibility.
                         </p>
                     </FadeIn>
-                    
+
                     <FadeIn delay={400} direction="up">
                         <p className="text-2xl text-brand-accent font-serif italic mb-16 tracking-tight">
                             Precision, scalability, and results.
                         </p>
                     </FadeIn>
-                    
+
                     <FadeIn delay={600} direction="up">
                         <div className="flex flex-col sm:flex-row justify-center gap-6">
                             <a href="mailto:contact@lanre.tech" className="px-12 py-5 bg-brand-black text-white font-bold text-lg rounded-full hover:bg-gray-800 shadow-xl hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 active:scale-95 transition-all duration-300 ease-out">
