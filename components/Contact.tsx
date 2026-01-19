@@ -5,17 +5,47 @@ import { FadeIn } from './FadeIn';
 export const Contact: React.FC = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [email, setEmail] = useState('');
+    const [name, setName] = useState('');
+    const [step, setStep] = useState<'email' | 'name'>('email');
     const [subscribed, setSubscribed] = useState(false);
 
     const handleSubscribe = async (e: React.FormEvent) => {
         e.preventDefault();
-        if (email) {
+
+        if (step === 'email' && email) {
+            setStep('name');
+            return;
+        }
+
+        if (step === 'name' && name && email) {
             setIsLoading(true);
-            // Simulate API call for premium feel
-            await new Promise(resolve => setTimeout(resolve, 1200));
-            setSubscribed(true);
-            setIsLoading(false);
-            setEmail('');
+            try {
+                // Send to n8n Webhook
+                // REPLACE THIS URL with your actual n8n Production Webhook URL
+                const WEBHOOK_URL = 'https://YOUR_N8N_INSTANCE_URL/webhook/newsletter-signup';
+
+                await fetch(WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, name, source: 'website_footer' })
+                }).catch(() => {
+                    // Ignore CORS errors for fire-and-forget webhooks if needed
+                    // or better: handle them
+                });
+
+                // Simulate delay if webhook is too fast or fails silently
+                await new Promise(resolve => setTimeout(resolve, 800));
+
+                setSubscribed(true);
+                setEmail('');
+                setName('');
+            } catch (error) {
+                console.error('Subscription failed:', error);
+                // Fallback success for UX even if webhook fails (optional)
+                setSubscribed(true);
+            } finally {
+                setIsLoading(false);
+            }
         }
     };
 
@@ -67,29 +97,54 @@ export const Contact: React.FC = () => {
                         <div className="relative z-10 w-full lg:w-auto">
                             {!subscribed ? (
                                 <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3 w-full">
-                                    <input
-                                        type="email"
-                                        placeholder="Enter your email"
-                                        required
-                                        className="bg-zinc-800 border-zinc-700 text-white px-6 py-4 rounded-full outline-none focus:ring-2 focus:ring-brand-accent transition-all min-w-[300px] disabled:opacity-50"
-                                        value={email}
-                                        onChange={(e) => setEmail(e.target.value)}
-                                        disabled={isLoading}
-                                    />
-                                    <button
-                                        type="submit"
-                                        disabled={isLoading}
-                                        className="bg-brand-accent text-white font-bold px-8 py-4 rounded-full hover:bg-yellow-600 transition-colors shadow-lg active:scale-95 flex items-center justify-center min-w-[140px] disabled:opacity-70"
-                                    >
-                                        {isLoading ? (
-                                            <i className="fa-solid fa-circle-notch animate-spin text-xl"></i>
-                                        ) : 'Subscribe'}
-                                    </button>
+                                    {step === 'email' ? (
+                                        <>
+                                            <input
+                                                type="email"
+                                                placeholder="Enter your email"
+                                                required
+                                                className="bg-zinc-800 border-zinc-700 text-white px-6 py-4 rounded-full outline-none focus:ring-2 focus:ring-brand-accent transition-all min-w-[300px] disabled:opacity-50"
+                                                value={email}
+                                                onChange={(e) => setEmail(e.target.value)}
+                                                disabled={isLoading}
+                                            />
+                                            <button
+                                                type="submit"
+                                                disabled={isLoading}
+                                                className="bg-brand-accent text-white font-bold px-8 py-4 rounded-full hover:bg-yellow-600 transition-colors shadow-lg active:scale-95 flex items-center justify-center min-w-[140px] disabled:opacity-70"
+                                            >
+                                                Next
+                                                <i className="fa-solid fa-arrow-right ml-2"></i>
+                                            </button>
+                                        </>
+                                    ) : (
+                                        <div className="animate-fade-in flex flex-col sm:flex-row gap-3 w-full">
+                                            <input
+                                                type="text"
+                                                placeholder="What's your name?"
+                                                required
+                                                autoFocus
+                                                className="bg-zinc-800 border-zinc-700 text-white px-6 py-4 rounded-full outline-none focus:ring-2 focus:ring-brand-accent transition-all min-w-[300px] disabled:opacity-50"
+                                                value={name}
+                                                onChange={(e) => setName(e.target.value)}
+                                                disabled={isLoading}
+                                            />
+                                            <button
+                                                type="submit"
+                                                disabled={isLoading}
+                                                className="bg-brand-accent text-white font-bold px-8 py-4 rounded-full hover:bg-yellow-600 transition-colors shadow-lg active:scale-95 flex items-center justify-center min-w-[140px] disabled:opacity-70"
+                                            >
+                                                {isLoading ? (
+                                                    <i className="fa-solid fa-circle-notch animate-spin text-xl"></i>
+                                                ) : 'Complete'}
+                                            </button>
+                                        </div>
+                                    )}
                                 </form>
                             ) : (
                                 <div className="bg-brand-accent/10 border border-brand-accent/20 text-brand-accent px-8 py-4 rounded-full font-bold flex items-center gap-3 animate-fade-in">
                                     <i className="fa-solid fa-circle-check scale-125"></i>
-                                    <span className="tracking-tight">You&#39;re on the list. Welcome aboard!</span>
+                                    <span className="tracking-tight">Thanks {name}! You're on the list.</span>
                                 </div>
                             )}
                         </div>
