@@ -22,7 +22,7 @@ export const Contact: React.FC = () => {
             try {
                 // Send to n8n Webhook
                 // REPLACE THIS URL with your actual n8n Production Webhook URL
-                const WEBHOOK_URL = 'https://YOUR_N8N_INSTANCE_URL/webhook/newsletter-signup';
+                const WEBHOOK_URL = 'https://n8n.metrohyp.com/webhook/newsletter-signup';
 
                 await fetch(WEBHOOK_URL, {
                     method: 'POST',
