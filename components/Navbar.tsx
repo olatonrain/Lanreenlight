@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavItem } from '../types';
 import { useLocation, Link } from 'react-router-dom';
 
@@ -13,8 +13,17 @@ const NAV_ITEMS: NavItem[] = [
 
 export const Navbar: React.FC = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
     const location = useLocation();
     const isHome = location.pathname === '/';
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 20);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     const toggleMobileMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -26,9 +35,10 @@ export const Navbar: React.FC = () => {
     };
 
     return (
-        <nav className="fixed w-full z-50 glass-nav transition-all duration-300">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex justify-between h-20 items-center">
+        <nav className={`fixed w-full z-50 transition-all duration-500 ease-cinematic ${isScrolled ? 'h-16 glass-nav shadow-lg py-2' : 'h-24 bg-transparent py-4'
+            }`}>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+                <div className="flex justify-between h-full items-center">
                     <Link to="/" className="flex-shrink-0 flex items-center gap-2 group cursor-pointer">
                         <i className="fa-solid fa-server text-brand-accent text-lg group-hover:rotate-12 transition-transform duration-300"></i>
                         <span className="font-bold text-xl tracking-tight text-brand-black">

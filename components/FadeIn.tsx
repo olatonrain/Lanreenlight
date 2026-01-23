@@ -8,12 +8,12 @@ interface FadeInProps {
     className?: string;
 }
 
-export const FadeIn: React.FC<FadeInProps> = ({ 
-    children, 
-    delay = 0, 
-    direction = 'up', 
+export const FadeIn: React.FC<FadeInProps> = ({
+    children,
+    delay = 0,
+    direction = 'up',
     fullWidth = false,
-    className = '' 
+    className = ''
 }) => {
     const [isVisible, setIsVisible] = useState(false);
     const domRef = useRef<HTMLDivElement>(null);
@@ -30,7 +30,7 @@ export const FadeIn: React.FC<FadeInProps> = ({
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         });
-        
+
         const currentElement = domRef.current;
         if (currentElement) {
             observer.observe(currentElement);
@@ -57,9 +57,8 @@ export const FadeIn: React.FC<FadeInProps> = ({
     return (
         <div
             ref={domRef}
-            className={`transition-all duration-700 ease-out ${fullWidth ? 'w-full' : ''} ${className} ${
-                isVisible ? 'opacity-100 translate-y-0 translate-x-0' : `opacity-0 ${getDirectionClasses()}`
-            }`}
+            className={`transition-all duration-[1000ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] ${fullWidth ? 'w-full' : ''} ${className} ${isVisible ? 'opacity-100 translate-y-0 translate-x-0' : `opacity-0 ${getDirectionClasses()}`
+                }`}
             style={{ transitionDelay: `${delay}ms` }}
         >
             {children}

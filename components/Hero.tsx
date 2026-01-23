@@ -4,59 +4,71 @@ import { FadeIn } from './FadeIn';
 
 export const Hero: React.FC = () => {
     return (
-        <section className="relative min-h-[90vh] md:min-h-screen flex items-center justify-center overflow-hidden tech-grid-bg border-b border-brand-border py-12 md:py-0">
-            {/* Background Portrait Image - Full Opacity */}
-            <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
-                <FadeIn delay={200} direction="none" className="w-full h-full flex items-center justify-center">
-                    <img
-                        src="image link"
-                        alt="Lanre - Digital Strategist"
-                        className="h-full w-full object-cover md:object-contain opacity-100 transition-opacity duration-1000"
-                    />
-                </FadeIn>
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-brand-white">
+            {/* Immersive Background Layers */}
+            <div className="absolute inset-0 z-0">
+                <div className="absolute inset-0 tech-grid-bg opacity-30"></div>
+
+                {/* Cinematic Ambient Lights */}
+                <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-brand-accent/10 rounded-full blur-[120px] animate-pulse"></div>
+                <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-brand-black/5 rounded-full blur-[100px]"></div>
+
+                {/* Main Subject Image Container */}
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <FadeIn delay={400} direction="none" className="h-full w-full flex items-center justify-center">
+                        <img
+                            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2000&auto=format&fit=crop"
+                            alt="Lanre - Digital Strategist"
+                            className="h-full w-full object-cover md:object-contain opacity-80 mix-blend-multiply grayscale-[20%] transition-transform duration-[3000ms] scale-105 hover:scale-100"
+                        />
+                    </FadeIn>
+                </div>
             </div>
 
-            {/* Subtle Gradient Overlays to ensure text contrast without muddying the image */}
-            <div className="absolute inset-0 z-10 bg-gradient-to-b from-white/40 via-transparent to-white/60 pointer-events-none"></div>
-
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+            {/* Content Overlay */}
+            <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
                 <div className="flex flex-col items-center text-center">
-                    <FadeIn delay={0} direction="down">
-                        <div className="inline-flex items-center px-4 py-1.5 rounded-full border border-brand-border bg-white/90 backdrop-blur-md text-brand-accent text-xs font-semibold uppercase tracking-wider mb-8 hover:bg-brand-accent/5 transition-colors duration-300 cursor-default shadow-sm">
-                            <span className="w-2 h-2 rounded-full bg-brand-accent mr-2 animate-pulse"></span>
-                            Open to long-term collaborations
+                    <FadeIn delay={600} direction="down">
+                        <div className="inline-flex items-center px-4 py-1.5 rounded-full border border-brand-accent/20 bg-white/40 backdrop-blur-xl text-brand-accent text-[10px] font-bold uppercase tracking-[0.2em] mb-10 shadow-sm">
+                            <span className="w-1.5 h-1.5 rounded-full bg-brand-accent mr-3 animate-ping"></span>
+                            Live Infrastructure & Growth Strategy
                         </div>
                     </FadeIn>
 
-                    <FadeIn delay={200} direction="up">
-                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-medium text-brand-black tracking-tight leading-[1.1] mb-8 max-w-5xl mx-auto drop-shadow-sm">
-                            Bridging <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent via-yellow-600 to-brand-black italic">Infrastructure</span> <br />
-                            & <span className="text-brand-black">Market Growth.</span>
+                    <FadeIn delay={800} direction="up">
+                        <h1 className="text-5xl md:text-8xl lg:text-9xl font-serif font-medium text-brand-black tracking-tighter leading-[0.9] mb-10 letter-spacing-cinematic">
+                            Bridging <span className="italic text-brand-accent text-glow">Code</span> <br />
+                            & <span className="relative">
+                                Capital.
+                                <svg className="absolute -bottom-2 left-0 w-full h-2 text-brand-accent/30" viewBox="0 0 100 10" preserveAspectRatio="none">
+                                    <path d="M0 5 Q 25 0, 50 5 T 100 5" fill="none" stroke="currentColor" strokeWidth="2" />
+                                </svg>
+                            </span>
                         </h1>
                     </FadeIn>
 
-                    <FadeIn delay={400} direction="up">
-                        <p className="mt-2 text-lg md:text-xl text-gray-900 max-w-2xl leading-relaxed font-medium mx-auto bg-white/10 backdrop-blur-[2px] rounded-lg px-4 py-2">
-                            I’m Lanre, a digital strategist with a strong focus on blockchain infrastructure, AI Engineering and performance-driven content marketing systems.
+                    <FadeIn delay={1000} direction="up">
+                        <p className="max-w-xl text-lg md:text-xl text-gray-500 font-light leading-relaxed mb-12">
+                            A technical strategist orchestrating high-performance <span className="text-brand-black font-medium">blockchain nodes</span>, AI systems, and aggressive growth frameworks.
                         </p>
                     </FadeIn>
 
-                    <FadeIn delay={600} direction="up">
-                        <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-                            <a href="#contact" className="px-6 py-3 bg-brand-black text-white rounded-full font-medium hover:bg-opacity-90 transition-all hover:scale-105 shadow-lg text-base">
-                                Partner With Me
+                    <FadeIn delay={1200} direction="up">
+                        <div className="flex flex-col sm:flex-row gap-6 items-center">
+                            <a href="#contact" className="group relative px-10 py-4 bg-brand-black text-white rounded-full font-bold overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-2xl">
+                                <span className="relative z-10 uppercase tracking-widest text-xs">Start Collaboration</span>
+                                <div className="absolute inset-0 bg-gradient-to-r from-brand-accent to-yellow-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                             </a>
-                            <a href="#media-kit" className="px-6 py-3 bg-white text-brand-black border border-gray-200 rounded-full font-medium hover:bg-gray-50 transition-all hover:scale-105 shadow-sm text-base">
-                                Request Media Kit
+                            <a href="#media-kit" className="text-xs uppercase tracking-[0.3em] font-bold text-gray-400 hover:text-brand-accent transition-colors duration-300">
+                                View Portfolio
                             </a>
                         </div>
                     </FadeIn>
                 </div>
             </div>
 
-            {/* Minimalist Ambient Lights to emphasize the subject */}
-            <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-brand-accent/10 rounded-full blur-[100px] pointer-events-none animate-pulse"></div>
-            <div className="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] bg-brand-black/5 rounded-full blur-[100px] pointer-events-none"></div>
+            {/* Bottom Section Divider - Cinematic Mask */}
+            <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-brand-white to-transparent z-10"></div>
         </section>
     );
 };

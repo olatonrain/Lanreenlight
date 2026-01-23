@@ -55,71 +55,71 @@
         body {
             background-color: #ffffff;
             color: #18181b;
+            cursor: default;
+        }
+
+        /* Cinematic Film Grain Overlay */
+        .film-grain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.8;
         }
 
         /* Refined Tech Grid for light theme */
         .tech-grid-bg {
             background-color: #ffffff;
-            background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
-            background-size: 40px 40px;
+            background-image: radial-gradient(#e5e7eb 1.5px, transparent 1.5px);
+            background-size: 60px 60px;
         }
 
         .glass-nav {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+            transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
 
-        /* Adjusted noise for light theme */
-        .bg-noise {
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.4'/%3E%3C/svg%3E");
-            opacity: 0.15;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
+        /* Custom Easing */
+        .ease-cinematic {
+            transition-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        /* Text Effects */
+        .text-glow {
+            text-shadow: 0 0 30px rgba(197, 160, 40, 0.2);
+        }
+
+        .letter-spacing-cinematic {
+            letter-spacing: -0.03em;
         }
 
         /* Float Animations */
         @keyframes float {
-            0% {
-                transform: translateY(0px);
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
             }
 
             50% {
-                transform: translateY(-20px);
-            }
-
-            100% {
-                transform: translateY(0px);
-            }
-        }
-
-        @keyframes float-delayed {
-            0% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-15px);
-            }
-
-            100% {
-                transform: translateY(0px);
+                transform: translateY(-25px) rotate(1deg);
             }
         }
 
         .animate-float {
-            animation: float 6s ease-in-out infinite;
+            animation: float 10s ease-in-out infinite;
         }
 
         @keyframes fade-in {
             from {
                 opacity: 0;
-                transform: translateY(10px);
+                transform: translateY(20px);
             }
 
             to {
@@ -129,7 +129,7 @@
         }
 
         .animate-fade-in {
-            animation: fade-in 0.5s ease-out forwards;
+            animation: fade-in 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
         }
 
         /* Article Content Styling */
@@ -209,6 +209,7 @@
 </head>
 
 <body class="antialiased relative">
+    <div class="film-grain"></div>
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
 </body>
