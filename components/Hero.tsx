@@ -17,7 +17,7 @@ export const Hero: React.FC = () => {
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                     <FadeIn delay={400} direction="none" className="h-full w-full flex items-center justify-center">
                         <img
-                            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2000&auto=format&fit=crop"
+                            src="/data/lanre.png"
                             alt="Lanre - Digital Strategist"
                             className="h-full w-full object-cover md:object-contain opacity-80 mix-blend-multiply grayscale-[20%] transition-transform duration-[3000ms] scale-105 hover:scale-100"
                         />
