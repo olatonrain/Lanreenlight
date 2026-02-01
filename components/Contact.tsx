@@ -190,27 +190,31 @@ export const Contact: React.FC = () => {
                             &copy; 2025 Lanre. All Rights Reserved.
                         </div>
                         <div className="flex flex-wrap justify-center gap-8">
-                            <a href="#" className="flex flex-col items-center gap-2 hover:text-brand-accent transition-all duration-300 group">
+                            <a href="https://www.youtube.com/@lanreenlight_official" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 hover:text-brand-accent transition-all duration-300 group">
                                 <i className="fa-brands fa-youtube text-2xl group-hover:-translate-y-1 transition-transform"></i>
                                 <span className="text-[10px] font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">YouTube</span>
                             </a>
-                            <a href="#" className="flex flex-col items-center gap-2 hover:text-brand-black transition-all duration-300 group">
+                            <a href="https://www.tiktok.com/@lanreenlight_official" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 hover:text-brand-black transition-all duration-300 group">
                                 <i className="fa-brands fa-tiktok text-2xl group-hover:-translate-y-1 transition-transform"></i>
                                 <span className="text-[10px] font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">TikTok</span>
                             </a>
-                            <a href="#" className="flex flex-col items-center gap-2 hover:text-brand-black transition-all duration-300 group">
+                            <a href="https://github.com/olatonrain" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 hover:text-brand-black transition-all duration-300 group">
                                 <i className="fa-brands fa-github text-2xl group-hover:-translate-y-1 transition-transform"></i>
                                 <span className="text-[10px] font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">GitHub</span>
                             </a>
-                            <a href="#" className="flex flex-col items-center gap-2 hover:text-[#E1306C] transition-all duration-300 group">
+                            <a href="https://www.linkedin.com/in/olatonrain" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 hover:text-[#0077B5] transition-all duration-300 group">
+                                <i className="fa-brands fa-linkedin text-2xl group-hover:-translate-y-1 transition-transform"></i>
+                                <span className="text-[10px] font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">LinkedIn</span>
+                            </a>
+                            <a href="https://www.instagram.com/lanreenlight_official" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 hover:text-[#E1306C] transition-all duration-300 group">
                                 <i className="fa-brands fa-instagram text-2xl group-hover:-translate-y-1 transition-transform"></i>
                                 <span className="text-[10px] font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">Instagram</span>
                             </a>
-                            <a href="#" className="flex flex-col items-center gap-2 hover:text-[#1877F2] transition-all duration-300 group">
+                            <a href="https://www.facebook.com/lanreenlight_official" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 hover:text-[#1877F2] transition-all duration-300 group">
                                 <i className="fa-brands fa-facebook text-2xl group-hover:-translate-y-1 transition-transform"></i>
                                 <span className="text-[10px] font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">Facebook</span>
                             </a>
-                            <a href="#" className="flex flex-col items-center gap-2 hover:text-[#24A1DE] transition-all duration-300 group">
+                            <a href="https://t.me/lanreenlight_official" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 hover:text-[#24A1DE] transition-all duration-300 group">
                                 <i className="fa-brands fa-telegram text-2xl group-hover:-translate-y-1 transition-transform"></i>
                                 <span className="text-[10px] font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">Telegram</span>
                             </a>

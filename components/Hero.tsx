@@ -49,7 +49,7 @@ export const Hero: React.FC = () => {
 
                     <FadeIn delay={1000} direction="up">
                         <p className="max-w-xl text-lg md:text-xl font-light leading-relaxed mb-12" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8), 0 0 40px rgba(0,0,0,0.5)' }}>
-                            <span className="text-white">Building AI automation systems with</span> <span className="text-brand-accent font-medium">n8n, APIs, and cloud infrastructure</span><span className="text-white"> eliminating manual work and scaling businesses without adding headcount.</span>
+                            <span className="text-white">Engineering intelligent pipelines with</span> <span className="text-brand-accent font-medium">n8n, APIs, and cloud infrastructure</span><span className="text-white">—eliminating manual work and scaling businesses effectively.</span>
                         </p>
                     </FadeIn>
 

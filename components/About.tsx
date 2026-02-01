@@ -20,7 +20,7 @@ export const About: React.FC = () => {
                         <div className="prose prose-lg text-gray-600 space-y-8 leading-loose font-light">
                             <FadeIn delay={100}>
                                 <p>
-                                    I'm Akeem (Lanre), an AI Automation Engineer and Full-Stack Developer focused on building revenue-generating systems that eliminate manual tasks and reduce operational costs. I'm the founder of <span className="text-brand-accent font-medium">MetroHyp Digital</span>, where I architect automation workflows, AI-powered systems, and scalable web applications.
+                                    I'm Akeem (Lanre), an AI Automation Engineer and Full-Stack Developer dedicated to creating efficient, high-impact solutions that drive growth. I'm the founder of <span className="text-brand-accent font-medium">MetroHyp Digital</span>, where I architect advanced workflows, AI-powered systems, and scalable web applications.
                                 </p>
                             </FadeIn>
                             <FadeIn delay={200}>

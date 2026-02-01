@@ -40,7 +40,7 @@ export const Expertise: React.FC = () => {
                     </FadeIn>
                     <FadeIn delay={200} direction="up">
                         <p className="text-gray-600 text-xl max-w-3xl font-light">
-                            I build automation workflows, AI-powered systems, and scalable web applications that generate revenue and eliminate manual work.
+                            I design seamless integrations, intelligent bots, and robust platforms that transform how businesses operate.
                         </p>
                     </FadeIn>
                 </div>
