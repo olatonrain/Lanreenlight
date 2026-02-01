@@ -17,7 +17,7 @@ export const Hero: React.FC = () => {
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                     <FadeIn delay={400} direction="none" className="h-full w-full flex items-center justify-center">
                         <img
-                            src="/data/lanre.jpg"
+                            src="/lanre.jpg"
                             alt="Lanre - AI Automation Engineer"
                             className="h-full w-full object-cover opacity-50 mix-blend-multiply grayscale-[20%] transition-transform duration-[3000ms] scale-105 hover:scale-100 will-change-transform"
                         />
@@ -31,7 +31,7 @@ export const Hero: React.FC = () => {
                     <FadeIn delay={600} direction="down">
                         <div className="inline-flex items-center px-4 py-2 rounded-full border border-brand-accent bg-brand-black/90 backdrop-blur-xl text-brand-accent text-[11px] font-bold uppercase tracking-[0.2em] mb-10 shadow-2xl">
                             <span className="w-1.5 h-1.5 rounded-full bg-brand-accent mr-3 animate-ping"></span>
-                            AI Automation Engineering | Systems Builder
+                            AI Automation | Systems Engineer
                         </div>
                     </FadeIn>
 
