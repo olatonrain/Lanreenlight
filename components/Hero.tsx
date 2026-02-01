@@ -19,7 +19,7 @@ export const Hero: React.FC = () => {
                         <img
                             src="/lanre.jpg"
                             alt="Lanre - AI Automation Engineer"
-                            className="h-full w-full object-cover opacity-40 mix-blend-multiply grayscale-[20%] transition-transform duration-[3000ms] scale-105 hover:scale-100 will-change-transform"
+                            className="h-full w-full object-cover opacity-90 mix-blend-multiply grayscale-[20%] transition-transform duration-[3000ms] scale-105 hover:scale-100 will-change-transform"
                         />
                     </FadeIn>
                 </div>
