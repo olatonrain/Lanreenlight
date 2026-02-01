@@ -41,8 +41,8 @@ export const Navbar: React.FC = () => {
                 <div className="flex justify-between h-full items-center">
                     <Link to="/" className="flex-shrink-0 flex items-center gap-2 group cursor-pointer">
                         <i className="fa-solid fa-server text-brand-accent text-lg group-hover:rotate-12 transition-transform duration-300"></i>
-                        <span className="font-bold text-xl tracking-tight text-brand-black">
-                            LANRE<span className="text-brand-accent">.TECH</span>
+                        <span className={`font-bold text-xl tracking-tight transition-colors duration-500 ${isScrolled ? 'text-brand-black' : 'text-white'}`}>
+                            LANRE<span className="text-brand-accent">.Enlight</span>
                         </span>
                     </Link>
 
@@ -51,7 +51,10 @@ export const Navbar: React.FC = () => {
                             <a
                                 key={item.label}
                                 href={getHref(item.href)}
-                                className="text-gray-600 hover:text-brand-black transition-colors text-sm font-medium hover:underline hover:decoration-brand-accent hover:underline-offset-4 decoration-2"
+                                className={`transition-colors duration-500 text-sm font-medium hover:underline hover:decoration-brand-accent hover:underline-offset-4 decoration-2 ${isScrolled
+                                        ? 'text-gray-600 hover:text-brand-black'
+                                        : 'text-white hover:text-brand-accent'
+                                    }`}
                             >
                                 {item.label}
                             </a>
@@ -67,7 +70,8 @@ export const Navbar: React.FC = () => {
                     <div className="md:hidden flex items-center">
                         <button
                             onClick={toggleMobileMenu}
-                            className="text-brand-black hover:text-brand-accent focus:outline-none transform active:scale-90 transition-transform"
+                            className={`hover:text-brand-accent focus:outline-none transform active:scale-90 transition-all duration-500 ${isScrolled ? 'text-brand-black' : 'text-white'
+                                }`}
                         >
                             <i className={`fa-solid ${isMobileMenuOpen ? 'fa-xmark' : 'fa-bars'} text-2xl`}></i>
                         </button>

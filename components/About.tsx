@@ -2,10 +2,10 @@ import React from 'react';
 import { FadeIn } from './FadeIn';
 
 const AREAS = [
-    { title: 'Crypto Nodes', icon: 'fa-network-wired', color: 'text-brand-accent' },
-    { title: 'VPS & Cloud', icon: 'fa-server', color: 'text-brand-black' },
-    { title: 'Automation', icon: 'fa-robot', color: 'text-gray-600' },
-    { title: 'Performance', icon: 'fa-bullhorn', color: 'text-gray-400' },
+    { title: 'n8n Workflows', icon: 'fa-diagram-project', color: 'text-brand-accent' },
+    { title: 'AI Integration', icon: 'fa-brain', color: 'text-brand-black' },
+    { title: 'VPS DevOps', icon: 'fa-server', color: 'text-gray-600' },
+    { title: 'Web Development', icon: 'fa-code', color: 'text-gray-400' },
 ];
 
 export const About: React.FC = () => {
@@ -20,17 +20,17 @@ export const About: React.FC = () => {
                         <div className="prose prose-lg text-gray-600 space-y-8 leading-loose font-light">
                             <FadeIn delay={100}>
                                 <p>
-                                    I’m Lanre, a digital strategist with a strong focus on technology, hosting infrastructure, crypto nodes, and performance-driven marketing systems. My work sits at the intersection of trading, automation, cloud computing, and online business growth—giving me a unique vantage point for promoting technical products to highly engaged audiences.
+                                    I'm Akeem (Lanre), an AI Automation Engineer and Full-Stack Developer focused on building revenue-generating systems that eliminate manual tasks and reduce operational costs. I'm the founder of <span className="text-brand-accent font-medium">MetroHyp Digital</span>, where I architect automation workflows, AI-powered systems, and scalable web applications.
                                 </p>
                             </FadeIn>
                             <FadeIn delay={200}>
                                 <p>
-                                    Over the years, I’ve built a reputation for turning complex technical concepts into clear, actionable insights, enabling developers, entrepreneurs, and digital creators to make informed decisions about the tools and platforms they use.
+                                    With over 3 years of specialized experience in <span className="text-brand-accent font-medium">n8n workflow automation</span>, I've built systems that produce 50-100 videos monthly, handle 1,000+ WhatsApp messages daily, and manage infrastructure serving 100,000+ monthly active users. My work combines AI API integration (Groq, OpenRouter, OpenAI), cloud infrastructure (Docker, VPS), and full-stack development.
                                 </p>
                             </FadeIn>
                             <FadeIn delay={300}>
                                 <p>
-                                    My marketing approach blends data-driven execution, hands-on server experience, and deep understanding of what modern online builders actually need.
+                                    My approach prioritizes <span className="text-brand-accent font-medium">clean architecture</span> and <span className="text-brand-accent font-medium">API-first design</span>, enabling me to deploy 30+ production applications and reduce client development costs by 40-60% through efficient system design.
                                 </p>
                             </FadeIn>
                         </div>

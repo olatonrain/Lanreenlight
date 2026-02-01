@@ -7,7 +7,7 @@ export const Hero: React.FC = () => {
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-brand-white">
             {/* Immersive Background Layers */}
             <div className="absolute inset-0 z-0">
-                <div className="absolute inset-0 tech-grid-bg opacity-30"></div>
+                <div className="absolute inset-0 tech-grid-bg opacity-25"></div>
 
                 {/* Cinematic Ambient Lights */}
                 <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-brand-accent/10 rounded-full blur-[120px] animate-pulse"></div>
@@ -17,9 +17,9 @@ export const Hero: React.FC = () => {
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                     <FadeIn delay={400} direction="none" className="h-full w-full flex items-center justify-center">
                         <img
-                            src="/data/lanre.png"
-                            alt="Lanre - Digital Strategist"
-                            className="h-full w-full object-cover md:object-contain opacity-80 mix-blend-multiply grayscale-[20%] transition-transform duration-[3000ms] scale-105 hover:scale-100"
+                            src="/data/lanre.jpg"
+                            alt="Lanre - AI Automation Engineer"
+                            className="h-full w-full object-cover opacity-80 mix-blend-multiply grayscale-[20%] transition-transform duration-[3000ms] scale-105 hover:scale-100 will-change-transform"
                         />
                     </FadeIn>
                 </div>
@@ -29,17 +29,17 @@ export const Hero: React.FC = () => {
             <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
                 <div className="flex flex-col items-center text-center">
                     <FadeIn delay={600} direction="down">
-                        <div className="inline-flex items-center px-4 py-1.5 rounded-full border border-brand-accent/20 bg-white/40 backdrop-blur-xl text-brand-accent text-[10px] font-bold uppercase tracking-[0.2em] mb-10 shadow-sm">
+                        <div className="inline-flex items-center px-4 py-2 rounded-full border border-brand-accent bg-brand-black/90 backdrop-blur-xl text-brand-accent text-[11px] font-bold uppercase tracking-[0.2em] mb-10 shadow-2xl">
                             <span className="w-1.5 h-1.5 rounded-full bg-brand-accent mr-3 animate-ping"></span>
-                            Live Infrastructure & Growth Strategy
+                            AI Automation Engineering | Systems Builder
                         </div>
                     </FadeIn>
 
                     <FadeIn delay={800} direction="up">
                         <h1 className="text-5xl md:text-8xl lg:text-9xl font-serif font-medium text-brand-black tracking-tighter leading-[0.9] mb-10 letter-spacing-cinematic">
-                            Bridging <span className="italic text-brand-accent text-glow">Code</span> <br />
-                            & <span className="relative">
-                                Capital.
+                            Architecting <span className="italic text-brand-accent text-glow">Systems</span> <br />
+                            That <span className="relative">
+                                Scale.
                                 <svg className="absolute -bottom-2 left-0 w-full h-2 text-brand-accent/30" viewBox="0 0 100 10" preserveAspectRatio="none">
                                     <path d="M0 5 Q 25 0, 50 5 T 100 5" fill="none" stroke="currentColor" strokeWidth="2" />
                                 </svg>
@@ -48,8 +48,8 @@ export const Hero: React.FC = () => {
                     </FadeIn>
 
                     <FadeIn delay={1000} direction="up">
-                        <p className="max-w-xl text-lg md:text-xl text-gray-500 font-light leading-relaxed mb-12">
-                            A technical strategist orchestrating high-performance <span className="text-brand-black font-medium">blockchain nodes</span>, AI systems, and aggressive growth frameworks.
+                        <p className="max-w-xl text-lg md:text-xl font-light leading-relaxed mb-12" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8), 0 0 40px rgba(0,0,0,0.5)' }}>
+                            <span className="text-white">Building AI automation systems with</span> <span className="text-brand-accent font-medium">n8n, APIs, and cloud infrastructure</span><span className="text-white"> eliminating manual work and scaling businesses without adding headcount.</span>
                         </p>
                     </FadeIn>
 
@@ -59,7 +59,7 @@ export const Hero: React.FC = () => {
                                 <span className="relative z-10 uppercase tracking-widest text-xs">Start Collaboration</span>
                                 <div className="absolute inset-0 bg-gradient-to-r from-brand-accent to-yellow-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                             </a>
-                            <a href="#media-kit" className="text-xs uppercase tracking-[0.3em] font-bold text-gray-400 hover:text-brand-accent transition-colors duration-300">
+                            <a href="#media-kit" className="text-xs uppercase tracking-[0.3em] font-bold border-2 border-white/70 px-6 py-3 rounded-full text-white hover:bg-white hover:text-brand-black transition-all duration-300 shadow-lg">
                                 View Portfolio
                             </a>
                         </div>

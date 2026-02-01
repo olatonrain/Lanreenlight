@@ -4,29 +4,29 @@ import { FadeIn } from './FadeIn';
 
 const SERVICES: ServiceItem[] = [
     {
-        iconClass: 'fa-file-code',
+        iconClass: 'fa-diagram-project',
         iconColorClass: 'text-brand-accent',
-        description: 'Creating content that explains hosting features, performance benchmarks, pricing advantages, and real-world use cases.'
+        description: 'Expert in n8n workflow automation with 3+ years experience building systems that handle 1,000+ daily WhatsApp messages and automated email campaigns.'
     },
     {
-        iconClass: 'fa-bullseye',
+        iconClass: 'fa-brain',
         iconColorClass: 'text-brand-black',
-        description: 'Running campaigns targeted at developers, crypto enthusiasts, and tech entrepreneurs.'
+        description: 'Integrating LLM APIs (Groq, OpenRouter, OpenAI) for AI-powered content generation, automation, and intelligent systems that produce 50-100 videos monthly.'
     },
     {
-        iconClass: 'fa-filter',
+        iconClass: 'fa-code',
         iconColorClass: 'text-gray-500',
-        description: 'Building automated funnels that convert technical audiences at scale.'
+        description: 'Deployed 30+ production web applications serving 100,000+ monthly active users using JavaScript, Python, PHP, Firebase, and Supabase.'
     },
     {
-        iconClass: 'fa-chalkboard-user',
+        iconClass: 'fa-server',
         iconColorClass: 'text-gray-400',
-        description: 'Educating users on VPS performance, node hosting, cloud reliability, and server optimization.'
+        description: 'Managing cloud infrastructure with Docker, VPS administration (HestiaCP, Dokploy, Coolify), and Ubuntu/Linux server optimization.'
     },
     {
-        iconClass: 'fa-lightbulb',
+        iconClass: 'fa-chart-line',
         iconColorClass: 'text-brand-accent',
-        description: 'Offering practical insights drawn from my own experience running crypto nodes, trading systems, and VPS-powered automation.'
+        description: 'Creating revenue-generating systems including trading bots (MT5/crypto/forex), automated content engines, and business process automation platforms.'
     }
 ];
 
@@ -40,7 +40,7 @@ export const Expertise: React.FC = () => {
                     </FadeIn>
                     <FadeIn delay={200} direction="up">
                         <p className="text-gray-600 text-xl max-w-3xl font-light">
-                            I specialize in promoting hosting services, cloud infrastructure, and online business tools through targeted, high-conversion digital marketing channels.
+                            I build automation workflows, AI-powered systems, and scalable web applications that generate revenue and eliminate manual work.
                         </p>
                     </FadeIn>
                 </div>
@@ -60,7 +60,7 @@ export const Expertise: React.FC = () => {
                     <FadeIn delay={SERVICES.length * 100}>
                         <div className="bg-brand-secondary p-10 rounded-3xl border border-brand-border flex items-center h-full">
                             <p className="text-brand-black font-serif italic text-xl leading-relaxed">
-                                "My ability to combine real server usage with digital marketing execution sets me apart from traditional affiliates."
+                                "My ability to combine clean architecture with API-first design enables me to reduce client development costs by 40-60%."
                             </p>
                         </div>
                     </FadeIn>

@@ -7,11 +7,11 @@ export const Stats: React.FC = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="mb-16 text-center">
                     <FadeIn direction="up">
-                        <h2 className="text-3xl md:text-4xl font-serif font-medium text-brand-black mb-6 tracking-tight">Audience & Reach</h2>
+                        <h2 className="text-3xl md:text-4xl font-serif font-medium text-brand-black mb-6 tracking-tight">Impact & Scale</h2>
                     </FadeIn>
                     <FadeIn delay={100} direction="up">
                         <p className="text-gray-600 max-w-3xl mx-auto text-xl font-light">
-                            My platforms attract a highly targeted tech audience that actively seeks tools to build, scale, and automate their online operations.
+                            Real-world results from building automation systems, AI-powered platforms, and scalable web applications.
                         </p>
                     </FadeIn>
                 </div>
@@ -19,20 +19,20 @@ export const Stats: React.FC = () => {
                 <FadeIn delay={200} direction="up">
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-gray-200 bg-brand-secondary p-10 rounded-3xl border border-brand-border">
                         <div className="p-4">
-                            <div className="text-5xl font-serif text-brand-accent mb-3">~500</div>
-                            <div className="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Active Telegram Users</div>
+                            <div className="text-5xl font-serif text-brand-accent mb-3">30+</div>
+                            <div className="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Production Apps Deployed</div>
                         </div>
                         <div className="p-4">
-                            <div className="text-5xl font-serif text-brand-black mb-3">200k</div>
-                            <div className="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Combined Followers</div>
+                            <div className="text-5xl font-serif text-brand-black mb-3">100K+</div>
+                            <div className="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Monthly Active Users</div>
                         </div>
                         <div className="p-4">
-                            <div className="text-5xl font-serif text-gray-700 mb-3">~2%</div>
-                            <div className="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Engagement Rate</div>
+                            <div className="text-5xl font-serif text-gray-700 mb-3">50-100</div>
+                            <div className="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Videos/Month (AI Engine)</div>
                         </div>
                         <div className="p-4">
-                            <div className="text-5xl font-serif text-brand-black mb-3">10k</div>
-                            <div className="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Avg Post Reach</div>
+                            <div className="text-5xl font-serif text-brand-black mb-3">40-60%</div>
+                            <div className="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Cost Reduction</div>
                         </div>
                     </div>
                 </FadeIn>
@@ -82,7 +82,7 @@ export const Stats: React.FC = () => {
                                 <h3 className="text-2xl font-serif text-brand-black mb-8">Primary Interest Areas</h3>
                                 <div className="flex flex-wrap gap-3">
                                     {['Technology', 'Web hosting', 'Online business', 'Automation', 'Crypto & trading'].map((tag, i) => (
-                                         <span key={i} className={`px-5 py-2.5 bg-brand-secondary rounded-full border border-brand-border text-sm font-medium hover:bg-brand-black hover:text-white transition-colors cursor-default ${tag === 'Technology' ? 'text-brand-accent' : 'text-gray-600'}`}>{tag}</span>
+                                        <span key={i} className={`px-5 py-2.5 bg-brand-secondary rounded-full border border-brand-border text-sm font-medium hover:bg-brand-black hover:text-white transition-colors cursor-default ${tag === 'Technology' ? 'text-brand-accent' : 'text-gray-600'}`}>{tag}</span>
                                     ))}
                                 </div>
                                 <div className="pt-10">
