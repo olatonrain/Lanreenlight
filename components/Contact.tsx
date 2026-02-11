@@ -28,10 +28,16 @@ export const Contact: React.FC = () => {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ email, name, source: 'website_footer' })
-                }).catch(() => {
-                    // Ignore CORS errors for fire-and-forget webhooks if needed
-                    // or better: handle them
                 });
+
+                // Track Event for Ads (GA4/GTM style)
+                if (typeof window !== 'undefined' && (window as any).gtag) {
+                    (window as any).gtag('event', 'generate_lead', {
+                        'event_category': 'engagement',
+                        'event_label': 'newsletter_signup',
+                        'source': 'website_footer'
+                    });
+                }
 
                 // Simulate delay if webhook is too fast or fails silently
                 await new Promise(resolve => setTimeout(resolve, 800));

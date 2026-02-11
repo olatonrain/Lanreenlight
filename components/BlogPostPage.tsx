@@ -41,6 +41,14 @@ export const BlogPostPage = () => {
         loadPost(id).then(data => {
             setPost(data);
             setLoading(false);
+            if (data) {
+                document.title = `${data.title} | Lanre Knowledge Hub`;
+                // Add meta description update if possible
+                const metaDescription = document.querySelector('meta[name="description"]');
+                if (metaDescription) {
+                    metaDescription.setAttribute('content', data.excerpt || data.title);
+                }
+            }
         });
     }, [id]);
 
