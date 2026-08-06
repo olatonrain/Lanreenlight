@@ -31,15 +31,15 @@ export const Hero: React.FC = () => {
                     <FadeIn delay={600} direction="down">
                         <div className="inline-flex items-center px-4 py-2 rounded-full border border-brand-accent bg-brand-black/90 backdrop-blur-xl text-brand-accent text-[11px] font-bold uppercase tracking-[0.2em] mb-10 shadow-2xl">
                             <span className="w-1.5 h-1.5 rounded-full bg-brand-accent mr-3 animate-ping"></span>
-                            AI Automation | Systems Engineer
+                            AI Automation Engineer | n8n Expert | VPS Infrastructure
                         </div>
                     </FadeIn>
 
                     <FadeIn delay={800} direction="up">
                         <h1 className="text-5xl md:text-8xl lg:text-9xl font-serif font-medium text-brand-black tracking-tighter leading-[0.9] mb-10 letter-spacing-cinematic">
-                            Architecting <span className="italic text-brand-accent text-glow">Systems</span> <br />
-                            That <span className="relative">
-                                Scale.
+                            n8n Automation & <br />
+                            <span className="italic text-brand-accent text-glow">AI Systems</span> That <br />
+                            Scale <span className="relative">Your Business
                                 <svg className="absolute -bottom-2 left-0 w-full h-2 text-brand-accent/30" viewBox="0 0 100 10" preserveAspectRatio="none">
                                     <path d="M0 5 Q 25 0, 50 5 T 100 5" fill="none" stroke="currentColor" strokeWidth="2" />
                                 </svg>
@@ -48,19 +48,19 @@ export const Hero: React.FC = () => {
                     </FadeIn>
 
                     <FadeIn delay={1000} direction="up">
-                        <p className="max-w-xl text-lg md:text-xl font-light leading-relaxed mb-12" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8), 0 0 40px rgba(0,0,0,0.5)' }}>
-                            <span className="text-white">Engineering intelligent pipelines with</span> <span className="text-brand-accent font-medium">n8n, APIs, and cloud infrastructure</span><span className="text-white"> eliminating manual work and scaling businesses effectively.</span>
+                        <p className="max-w-2xl text-lg md:text-xl font-light leading-relaxed mb-12" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8), 0 0 40px rgba(0,0,0,0.5)' }}>
+                            <span className="text-white">I build </span> <span className="text-brand-accent font-medium">n8n workflow automation</span><span className="text-white">, AI agents, and self-hosted VPS infrastructure — eliminating manual work and scaling businesses effectively. 3+ years of production automation experience.</span>
                         </p>
                     </FadeIn>
 
                     <FadeIn delay={1200} direction="up">
                         <div className="flex flex-col sm:flex-row gap-6 items-center">
-                            <a href="#contact" className="group relative px-10 py-4 bg-brand-black text-white rounded-full font-bold overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-2xl">
-                                <span className="relative z-10 uppercase tracking-widest text-xs">Start Collaboration</span>
-                                <div className="absolute inset-0 bg-gradient-to-r from-brand-accent to-yellow-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <a href="/guides/n8n-automation" className="group relative px-10 py-4 bg-brand-accent text-white rounded-full font-bold overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-2xl">
+                                <span className="relative z-10 uppercase tracking-widest text-xs">Get the n8n Automation Guide</span>
+                                <div className="absolute inset-0 bg-gradient-to-r from-yellow-600 to-brand-accent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                             </a>
-                            <a href="#media-kit" className="text-xs uppercase tracking-[0.3em] font-bold border-2 border-white/70 px-6 py-3 rounded-full text-white hover:bg-white hover:text-brand-black transition-all duration-300 shadow-lg">
-                                View Portfolio
+                            <a href="#knowledge-hub" className="text-xs uppercase tracking-[0.3em] font-bold border-2 border-white/70 px-6 py-3 rounded-full text-white hover:bg-white hover:text-brand-black transition-all duration-300 shadow-lg">
+                                View All Guides & Videos
                             </a>
                         </div>
                     </FadeIn>

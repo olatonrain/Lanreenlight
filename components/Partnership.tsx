@@ -8,14 +8,14 @@ const REASONS: PartnerReason[] = [
         iconColorClass: 'text-brand-accent',
         iconWrapperHoverBorder: 'group-hover:border-brand-accent',
         title: 'Technical Understanding',
-        description: 'I don’t just promote servers—I use them every day to run crypto nodes, EAs, automated processes, and backend tools. I understand uptime, processor allocation, RAM usage, network performance, and what buyers look for.'
+        description: 'I don\'t just promote servers—I use them every day to run crypto nodes, EAs, automated processes, and backend tools. I understand uptime, processor allocation, RAM usage, network performance, and what buyers look for.'
     },
     {
         iconClass: 'fa-chart-line',
         iconColorClass: 'text-brand-black',
         iconWrapperHoverBorder: 'group-hover:border-brand-black',
         title: 'Proven Marketing Expertise',
-        description: 'I’ve built and managed campaigns across multiple platforms, consistently driving high-quality traffic that converts.'
+        description: 'I\'ve built and managed campaigns across multiple platforms, consistently driving high-quality traffic that converts.'
     },
     {
         iconClass: 'fa-users-viewfinder',

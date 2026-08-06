@@ -11,6 +11,13 @@ const NAV_ITEMS: NavItem[] = [
     { label: 'Blog', href: '/blog' }
 ];
 
+const GUIDE_LINKS = [
+    { label: 'n8n Automation Guide', href: '/guides/n8n-automation' },
+    { label: 'Cheapest VPS Guide', href: '/guides/vps-hosting-guide' },
+    { label: 'Forex Trading Bots', href: '/guides/algorithmic-trading' },
+    { label: 'Crypto Node Guide', href: '/guides/crypto-node-ops' }
+];
+
 export const Navbar: React.FC = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
@@ -47,6 +54,25 @@ export const Navbar: React.FC = () => {
                     </Link>
 
                     <div className="hidden md:flex items-center space-x-10">
+                        <div className="relative group">
+                            <button className={`transition-colors duration-500 text-sm font-medium flex items-center gap-1 hover:underline hover:decoration-brand-accent hover:underline-offset-4 decoration-2 ${isScrolled ? 'text-gray-600 hover:text-brand-black' : 'text-white hover:text-brand-accent'}`}>
+                                Guides
+                                <i className="fa-solid fa-chevron-down text-[10px]"></i>
+                            </button>
+                            <div className="absolute top-full left-0 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                                <div className="bg-white rounded-2xl shadow-2xl border border-brand-border p-3 w-64">
+                                    {GUIDE_LINKS.map((guide) => (
+                                        <Link
+                                            key={guide.href}
+                                            to={guide.href}
+                                            className="block px-4 py-3 rounded-xl text-sm font-medium text-gray-600 hover:text-brand-black hover:bg-brand-secondary transition-colors"
+                                        >
+                                            {guide.label}
+                                        </Link>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
                         {NAV_ITEMS.map((item) => (
                             <a
                                 key={item.label}
@@ -92,6 +118,16 @@ export const Navbar: React.FC = () => {
                             >
                                 {item.label}
                             </a>
+                        ))}
+                        {GUIDE_LINKS.map((guide) => (
+                            <Link
+                                key={guide.href}
+                                to={guide.href}
+                                className="block px-3 py-2 rounded-md text-base font-medium text-brand-accent hover:text-brand-black hover:bg-brand-secondary transition-colors"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                            >
+                                {guide.label}
+                            </Link>
                         ))}
                         <a
                             href={isHome ? "#contact" : "/#contact"}

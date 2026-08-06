@@ -1,32 +1,33 @@
 import React from 'react';
 import { ServiceItem } from '../types';
 import { FadeIn } from './FadeIn';
+import { Link } from 'react-router-dom';
 
 const SERVICES: ServiceItem[] = [
     {
         iconClass: 'fa-diagram-project',
         iconColorClass: 'text-brand-accent',
-        description: 'Expert in n8n workflow automation with 3+ years experience building systems that handle 1,000+ daily WhatsApp messages and automated email campaigns.'
+        description: 'n8n workflow automation for business: self-hosted n8n on VPS, AI agents, webhooks, and API integrations. 3+ years building systems that handle 1,000+ daily WhatsApp messages and automated email campaigns.'
     },
     {
         iconClass: 'fa-brain',
         iconColorClass: 'text-brand-black',
-        description: 'Integrating LLM APIs (Groq, OpenRouter, OpenAI) for AI-powered content generation, automation, and intelligent systems that produce 50-100 videos monthly.'
+        description: 'AI integration with LLM APIs — Groq, OpenRouter, OpenAI — for automated content generation, AI chatbots, and intelligent business systems that produce 50-100 videos monthly.'
     },
     {
         iconClass: 'fa-code',
         iconColorClass: 'text-gray-500',
-        description: 'Deployed 30+ production web applications serving 100,000+ monthly active users using JavaScript, Python, PHP, Firebase, and Supabase.'
+        description: 'Full-stack web development in JavaScript, Python, PHP, Firebase, and Supabase. 30+ production applications deployed serving 100,000+ monthly active users.'
     },
     {
         iconClass: 'fa-server',
         iconColorClass: 'text-gray-400',
-        description: 'Managing cloud infrastructure with Docker, VPS administration (HestiaCP, Dokploy, Coolify), and Ubuntu/Linux server optimization.'
+        description: 'VPS hosting setup and Linux server administration — HestiaCP, Docker, Dokploy, Coolify. From choosing the cheapest VPS to deploying production-grade infrastructure.'
     },
     {
         iconClass: 'fa-chart-line',
         iconColorClass: 'text-brand-accent',
-        description: 'Creating revenue-generating systems including trading bots (MT5/crypto/forex), automated content engines, and business process automation platforms.'
+        description: 'Forex trading bots and algorithmic trading systems — MT5 Expert Advisors (EAs), crypto trading bots, and prop firm challenge automation for consistent returns.'
     }
 ];
 
@@ -40,7 +41,7 @@ export const Expertise: React.FC = () => {
                     </FadeIn>
                     <FadeIn delay={200} direction="up">
                         <p className="text-gray-600 text-xl max-w-3xl font-light">
-                            I design seamless integrations, intelligent bots, and robust platforms that transform how businesses operate.
+                            n8n automation, AI integration, VPS infrastructure, trading bots, and crypto node operations — I design seamless systems that transform how businesses operate.
                         </p>
                     </FadeIn>
                 </div>
@@ -60,11 +61,36 @@ export const Expertise: React.FC = () => {
                     <FadeIn delay={SERVICES.length * 100}>
                         <div className="bg-brand-secondary p-10 rounded-3xl border border-brand-border flex items-center h-full">
                             <p className="text-brand-black font-serif italic text-xl leading-relaxed">
-                                "My ability to combine clean architecture with API-first design enables me to reduce client development costs by 40-60%."
+                                "My combination of clean architecture and API-first design reduces client development costs by 40-60% while improving system reliability."
                             </p>
                         </div>
                     </FadeIn>
                 </div>
+
+                <FadeIn>
+                    <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <Link to="/guides/n8n-automation" className="block p-6 rounded-2xl border border-brand-border hover:border-brand-accent/50 hover:shadow-lg transition-all group">
+                            <i className="fa-solid fa-diagram-project text-brand-accent text-xl mb-3"></i>
+                            <h3 className="font-serif text-brand-black font-medium">n8n Automation Guide</h3>
+                            <p className="text-sm text-gray-500">Complete workflow automation guide</p>
+                        </Link>
+                        <Link to="/guides/vps-hosting-guide" className="block p-6 rounded-2xl border border-brand-border hover:border-brand-accent/50 hover:shadow-lg transition-all group">
+                            <i className="fa-solid fa-server text-brand-accent text-xl mb-3"></i>
+                            <h3 className="font-serif text-brand-black font-medium">Cheapest VPS Guide</h3>
+                            <p className="text-sm text-gray-500">Best VPS hosting 2026</p>
+                        </Link>
+                        <Link to="/guides/algorithmic-trading" className="block p-6 rounded-2xl border border-brand-border hover:border-brand-accent/50 hover:shadow-lg transition-all group">
+                            <i className="fa-solid fa-chart-line text-brand-accent text-xl mb-3"></i>
+                            <h3 className="font-serif text-brand-black font-medium">Forex Trading Bots</h3>
+                            <p className="text-sm text-gray-500">MT5 Expert Advisors</p>
+                        </Link>
+                        <Link to="/guides/crypto-node-ops" className="block p-6 rounded-2xl border border-brand-border hover:border-brand-accent/50 hover:shadow-lg transition-all group">
+                            <i className="fa-solid fa-coins text-brand-accent text-xl mb-3"></i>
+                            <h3 className="font-serif text-brand-black font-medium">Crypto Node Guide</h3>
+                            <p className="text-sm text-gray-500">DePIN passive income</p>
+                        </Link>
+                    </div>
+                </FadeIn>
             </div>
         </section>
     );

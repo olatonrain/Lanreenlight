@@ -1,11 +1,12 @@
 import React from 'react';
 import { FadeIn } from './FadeIn';
+import { Link } from 'react-router-dom';
 
 const AREAS = [
-    { title: 'n8n Workflows', icon: 'fa-diagram-project', color: 'text-brand-accent' },
-    { title: 'AI Integration', icon: 'fa-brain', color: 'text-brand-black' },
-    { title: 'VPS DevOps', icon: 'fa-server', color: 'text-gray-600' },
-    { title: 'Web Development', icon: 'fa-code', color: 'text-gray-400' },
+    { title: 'n8n Workflows', icon: 'fa-diagram-project', color: 'text-brand-accent', link: '/guides/n8n-automation' },
+    { title: 'AI Integration', icon: 'fa-brain', color: 'text-brand-black', link: '/guides/n8n-automation' },
+    { title: 'VPS DevOps', icon: 'fa-server', color: 'text-gray-600', link: '/guides/vps-hosting-guide' },
+    { title: 'Web Development', icon: 'fa-code', color: 'text-gray-400', link: '/guides/n8n-automation' },
 ];
 
 export const About: React.FC = () => {
@@ -30,7 +31,12 @@ export const About: React.FC = () => {
                             </FadeIn>
                             <FadeIn delay={300}>
                                 <p>
-                                    My approach prioritizes <span className="text-brand-accent font-medium">clean architecture</span> and <span className="text-brand-accent font-medium">API-first design</span>, enabling me to deploy 30+ production applications and reduce client development costs by 40-60% through efficient system design.
+                                    My approach prioritizes <span className="text-brand-accent font-medium">clean architecture</span> and <span className="text-brand-accent font-medium">API-first design</span>, enabling me to deploy 30+ production applications and reduce client development costs by 40-60% through efficient system design. Beyond client work, I build and run <span className="text-brand-accent font-medium">crypto node operations</span> (DePIN) and <span className="text-brand-accent font-medium">algorithmic trading systems</span> on my own VPS infrastructure.
+                                </p>
+                            </FadeIn>
+                            <FadeIn delay={400}>
+                                <p>
+                                    Explore my in-depth guides: <Link to="/guides/n8n-automation" className="text-brand-accent hover:underline font-medium">n8n Automation Guide</Link>, <Link to="/guides/vps-hosting-guide" className="text-brand-accent hover:underline font-medium">Cheapest VPS Guide</Link>, <Link to="/guides/algorithmic-trading" className="text-brand-accent hover:underline font-medium">Forex Trading Bots Guide</Link>, and <Link to="/guides/crypto-node-ops" className="text-brand-accent hover:underline font-medium">Crypto Node Operations Guide</Link>.
                                 </p>
                             </FadeIn>
                         </div>
@@ -39,10 +45,10 @@ export const About: React.FC = () => {
                     <div className="lg:col-span-5 grid grid-cols-2 gap-5">
                         {AREAS.map((area, index) => (
                             <FadeIn key={area.title} delay={400 + (index * 100)}>
-                                <div className="bg-white p-8 rounded-2xl border border-brand-border hover:border-brand-accent/50 hover:shadow-lg transition-all group h-full">
+                                <Link to={area.link} className="block bg-white p-8 rounded-2xl border border-brand-border hover:border-brand-accent/50 hover:shadow-lg transition-all group h-full">
                                     <i className={`fa-solid ${area.icon} text-3xl ${area.color} mb-6 group-hover:scale-110 transition-transform`}></i>
                                     <h3 className="font-serif text-brand-black text-xl italic">{area.title}</h3>
-                                </div>
+                                </Link>
                             </FadeIn>
                         ))}
                     </div>

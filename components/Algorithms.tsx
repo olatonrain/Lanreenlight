@@ -1,13 +1,14 @@
 import React from 'react';
 import { ExpertAdvisor } from '../types';
 import { FadeIn } from './FadeIn';
+import { Link } from 'react-router-dom';
 
 const EAS: ExpertAdvisor[] = [
     {
         id: 1,
         name: 'Flux Scalper Pro',
-        description: 'High-frequency scalp EA designed for low-spread pairs (EURUSD, USDJPY) during London session.',
-        type: 'ACTIVE',
+        description: 'High-frequency forex scalping bot for low-spread pairs (EURUSD, USDJPY) during London session.',
+        type: 'SCALP',
         typeColorClass: 'text-brand-accent',
         typeBgClass: 'bg-brand-accent/10 border-brand-accent/20',
         iconClass: 'fa-bolt',
@@ -23,7 +24,7 @@ const EAS: ExpertAdvisor[] = [
     {
         id: 2,
         name: 'Orbit Swing',
-        description: 'Multi-day trend follower. Captures large movements in Gold (XAUUSD) and Indices.',
+        description: 'Multi-day trend following forex EA. Captures large movements in Gold (XAUUSD) and Indices.',
         type: 'TREND',
         typeColorClass: 'text-brand-black',
         typeBgClass: 'bg-brand-black/5 border-brand-black/10',
@@ -40,7 +41,7 @@ const EAS: ExpertAdvisor[] = [
     {
         id: 3,
         name: 'Prop Guard v2',
-        description: 'Strict risk management EA specifically configured to pass prop firm challenges.',
+        description: 'Risk-managed trading bot designed to pass prop firm challenges — FTMO, FundedNext, and MyForexFunds.',
         type: 'PROP',
         typeColorClass: 'text-gray-500',
         typeBgClass: 'bg-gray-100 border-gray-200',
@@ -63,16 +64,16 @@ export const Algorithms: React.FC = () => {
                 <div className="flex justify-between items-end mb-16">
                     <FadeIn direction="right" fullWidth>
                         <div>
-                            <h2 className="text-4xl md:text-5xl font-serif font-medium text-brand-black mb-3 tracking-tight">Expert Advisors</h2>
-                            <p className="text-gray-600 font-light text-lg">Algorithmic trading systems built for specific market conditions.</p>
+                            <h2 className="text-4xl md:text-5xl font-serif font-medium text-brand-black mb-3 tracking-tight">Forex Trading Bots</h2>
+                            <p className="text-gray-600 font-light text-lg">MT5 Expert Advisors for algorithmic trading, gold (XAUUSD) strategies, and prop firm challenges.</p>
                         </div>
                     </FadeIn>
                     <div className="hidden md:block">
                         <FadeIn direction="left">
-                            <a href="#" className="group text-brand-black text-sm font-semibold hover:text-brand-accent transition-colors flex items-center gap-1">
-                                View Verified Myfxbook 
+                            <Link to="/guides/algorithmic-trading" className="group text-brand-black text-sm font-semibold hover:text-brand-accent transition-colors flex items-center gap-1">
+                                Full Algorithmic Trading Guide
                                 <i className="fa-solid fa-arrow-up-right-from-square text-xs transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
-                            </a>
+                            </Link>
                         </FadeIn>
                     </div>
                 </div>
@@ -111,6 +112,13 @@ export const Algorithms: React.FC = () => {
                         </FadeIn>
                     ))}
                 </div>
+
+                <FadeIn delay={600} className="mt-16">
+                    <Link to="/guides/algorithmic-trading" className="inline-flex items-center px-8 py-4 bg-brand-black text-white rounded-full font-bold hover:bg-gray-800 shadow-xl transition-all hover:scale-105">
+                        View Complete Trading Guide
+                        <i className="fa-solid fa-arrow-up-right-from-square ml-2"></i>
+                    </Link>
+                </FadeIn>
             </div>
         </section>
     );

@@ -1,23 +1,63 @@
-
-import React, { useState, useMemo } from 'react';
-import { VIDEOS } from '../data/videos';
+import React, { useState, useMemo, useEffect } from 'react';
+import { VIDEOS as STATIC_VIDEOS } from '../data/videos';
 import { FadeIn } from './FadeIn';
 import { Video } from '../types';
+import { Link } from 'react-router-dom';
 
 const CATEGORIES = ['All', 'Crypto', 'Node Ops', 'AI Automation', 'Forex'] as const;
 
+// Helper to load dynamic videos
+const loadDynamicVideos = async (): Promise<Video[]> => {
+    const modules = import.meta.glob('../data/videos/*.json');
+    const videos: Video[] = [];
+
+    for (const path in modules) {
+        try {
+            const mod = await modules[path]() as any;
+            const videoData = mod.default || mod;
+
+            if (videoData.title && videoData.youtubeId) {
+                videos.push({
+                    id: videoData.id || path.split('/').pop()?.replace('.json', '') || Math.random().toString(36).substr(2, 9),
+                    title: videoData.title,
+                    date: videoData.date || new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }),
+                    category: videoData.category || 'AI Automation',
+                    youtubeId: videoData.youtubeId,
+                    resources: videoData.resources || []
+                });
+            }
+        } catch (e) {
+            console.error("Error loading video data:", path, e);
+        }
+    }
+    return videos;
+};
+
 export const VideoHub: React.FC = () => {
+    const [dynamicVideos, setDynamicVideos] = useState<Video[]>([]);
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedCategory, setSelectedCategory] = useState<string>('All');
     const [expandedVideo, setExpandedVideo] = useState<string | null>(null);
 
+    useEffect(() => {
+        const fetchDynamicVideos = async () => {
+            const videos = await loadDynamicVideos();
+            setDynamicVideos(videos);
+        };
+        fetchDynamicVideos();
+    }, []);
+
+    const allVideos = useMemo(() => {
+        return [...dynamicVideos, ...STATIC_VIDEOS];
+    }, [dynamicVideos]);
+
     const filteredVideos = useMemo(() => {
-        return VIDEOS.filter(video => {
+        return allVideos.filter(video => {
             const matchesCategory = selectedCategory === 'All' || video.category === selectedCategory;
             const matchesSearch = video.title.toLowerCase().includes(searchQuery.toLowerCase());
             return matchesCategory && matchesSearch;
         });
-    }, [searchQuery, selectedCategory]);
+    }, [allVideos, searchQuery, selectedCategory]);
 
     const toggleResources = (id: string) => {
         setExpandedVideo(expandedVideo === id ? null : id);
@@ -30,7 +70,7 @@ export const VideoHub: React.FC = () => {
                     <FadeIn direction="right">
                         <div>
                             <h2 className="text-4xl md:text-5xl font-serif font-medium text-brand-black mb-3 tracking-tight">Knowledge Hub</h2>
-                            <p className="text-gray-600 font-light text-lg">In-depth technical guides, market analysis, and node operations.</p>
+                            <p className="text-gray-600 font-light text-lg">n8n tutorials, VPS hosting guides, forex trading bot breakdowns, and crypto node setups.</p>
                         </div>
                     </FadeIn>
 
@@ -55,8 +95,8 @@ export const VideoHub: React.FC = () => {
                             key={cat}
                             onClick={() => setSelectedCategory(cat)}
                             className={`px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all transform active:scale-95 ${selectedCategory === cat
-                                    ? 'bg-brand-black text-white shadow-lg'
-                                    : 'bg-brand-secondary text-gray-500 hover:bg-gray-200'
+                                ? 'bg-brand-black text-white shadow-lg'
+                                : 'bg-brand-secondary text-gray-500 hover:bg-gray-200'
                                 }`}
                         >
                             {cat}
@@ -64,10 +104,34 @@ export const VideoHub: React.FC = () => {
                     ))}
                 </div>
 
+                {/* Quick Links to Pillar Guides */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                    <Link to="/guides/n8n-automation" className="block p-4 bg-brand-secondary border border-brand-border rounded-xl hover:border-brand-accent/50 hover:shadow-md transition-all text-center">
+                        <i className="fa-solid fa-diagram-project text-brand-accent text-xl mb-2"></i>
+                        <p className="font-serif text-brand-black font-medium">n8n Automation</p>
+                        <p className="text-xs text-gray-500">Workflows & AI</p>
+                    </Link>
+                    <Link to="/guides/vps-hosting-guide" className="block p-4 bg-brand-secondary border border-brand-border rounded-xl hover:border-brand-accent/50 hover:shadow-md transition-all text-center">
+                        <i className="fa-solid fa-server text-brand-accent text-xl mb-2"></i>
+                        <p className="font-serif text-brand-black font-medium">VPS Hosting</p>
+                        <p className="text-xs text-gray-500">Cheapest VPS 2026</p>
+                    </Link>
+                    <Link to="/guides/algorithmic-trading" className="block p-4 bg-brand-secondary border border-brand-border rounded-xl hover:border-brand-accent/50 hover:shadow-md transition-all text-center">
+                        <i className="fa-solid fa-chart-line text-brand-accent text-xl mb-2"></i>
+                        <p className="font-serif text-brand-black font-medium">Trading Bots</p>
+                        <p className="text-xs text-gray-500">MT5 Expert Advisors</p>
+                    </Link>
+                    <Link to="/guides/crypto-node-ops" className="block p-4 bg-brand-secondary border border-brand-border rounded-xl hover:border-brand-accent/50 hover:shadow-md transition-all text-center">
+                        <i className="fa-solid fa-coins text-brand-accent text-xl mb-2"></i>
+                        <p className="font-serif text-brand-black font-medium">Crypto Nodes</p>
+                        <p className="text-xs text-gray-500">DePIN Passive Income</p>
+                    </Link>
+                </div>
+
                 {/* Video Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {filteredVideos.slice(0, 6).map((video, index) => (
-                        <FadeIn key={video.id} delay={index * 100} className={index >= 3 ? 'hidden lg:block' : ''}>
+                    {filteredVideos.slice(0, 9).map((video, index) => (
+                        <FadeIn key={video.id} delay={index * 100} className={index >= 6 ? 'hidden lg:block' : index >= 3 ? 'hidden md:block' : ''}>
                             <div className="group bg-white border border-brand-border rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-500 flex flex-col h-full">
                                 {/* Thumbnail */}
                                 <div className="relative aspect-video overflow-hidden">

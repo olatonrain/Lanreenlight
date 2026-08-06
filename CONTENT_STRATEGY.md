@@ -1,0 +1,287 @@
+# Content Strategy
+
+## Overview
+
+Portfolio and knowledge hub for Lanre (AI Automation & Systems Engineer). The site positions Lanre as an authority in n8n automation, VPS infrastructure, algorithmic trading, and crypto node operations — with a monetization model built on affiliate partnerships (hosting, VPS, trading tools) and digital products (Expert Advisors).
+
+## Current State (2026-07-11)
+
+### Page Inventory
+
+| Route | Type | Description |
+|-------|------|-------------|
+| `/` (Home) | Landing / mega-page | 8 one-page sections: Hero, About, Expertise, VideoHub, Partnership, Stats, Algorithms, Contact |
+| `/blog` | Listing | Blog post listing (static import from `data/posts/`) |
+| `/blog/:id` | Article | Individual blog post (loaded by ID from `data/posts/`) |
+
+### Homepage Sections
+
+| Section | Topic | Content Type |
+|---------|-------|-------------|
+| Hero | Brand positioning — "Architecting Systems That Scale" | Headline + CTA |
+| About | Founder intro, MetroHyp Digital, 3yr n8n experience | Bio copy |
+| Expertise | 5 service areas: n8n, AI, Web Dev, VPS, Revenue Systems | Cards |
+| VideoHub | Video library (13 videos: Forex 7, Crypto 3, AI Automation 1, Node Ops 0) | Video grid + filters |
+| Partnership | Affiliate value props for hosting/infra brands | Copy + reasons |
+| Stats | Metrics (30+ apps, 100K MAU, 40-60% cost reduction) | Data display |
+| Algorithms | 3 Expert Advisors (Flux Scalper Pro, Orbit Swing, Prop Guard v2) | Product cards |
+| Contact | Newsletter (Scalability Weekly) + partnership CTA | Form + CTAs |
+
+### Blog Posts
+
+| Title | Date | Category | Type |
+|-------|------|----------|------|
+| The Shift: Why I Left Traditional Marketing | 2026-01-20 | Philosophy | Personal narrative |
+| From Digital Marketing to AI Architecture: My Evolution | 2026-01-19 | My Journey | Personal narrative |
+
+### Video Library (by category)
+
+| Category | Count | Example Titles |
+|----------|-------|----------------|
+| Forex | 7 | n8n VPS Setup Blueprint, Automate Trading Bot, AI Is Changing Everything |
+| Crypto | 3 | Bless Network $1000, Nodepay $1000, Crypto Beginner Mistakes |
+| AI Automation | 1 | The Confidence Lie — AI Hallucination |
+| Node Ops | 0 | — |
+
+### Key Observations
+
+- **Zero pillar pages** — all content lives on the home page or in blog posts
+- **No topic clusters** — blog posts are personal narratives, not topical guides
+- **13 videos have no corresponding blog posts** — lost SEO opportunity
+- **Internal linking is absent** — no links between related content
+- **Video categories exist** but blog posts have no consistent taxonomy
+
+---
+
+## Content Clusters
+
+Four natural topic clusters emerge from existing content:
+
+### Cluster 1: n8n Automation
+
+**Target keywords:** n8n workflow automation, n8n self-hosted, n8n VPS setup, n8n AI integration, automate with n8n
+
+#### Pillar Page
+- **Route:** `/guides/n8n-automation`
+- **Title:** n8n Automation Guide — From Zero to Production Systems
+- **Scope:** What n8n is, self-hosting vs cloud, workflow design patterns, AI integration, webhooks, error handling, scaling
+- **Links to every cluster piece below**
+
+#### Cluster Content (convert videos → blog posts)
+
+| Priority | Title | Video Source | Notes |
+|----------|-------|-------------|-------|
+| P0 | n8n VPS Setup Blueprint — Charge Clients $500 | Video #6 | Step-by-step setup guide |
+| P0 | Is Self-Hosting n8n on $3.99 VPS a Mistake? | Video #7 (RPPJkD452iU) | Pros/cons comparison |
+| P1 | How to Use n8n Free Forever — Self-Hosted Guide | Video #8 (SvipG4uv0E4) | Getting started guide |
+| P1 | n8n + AI: Building Intelligent Workflows with LLMs | Expertise section + videos | AI integration deep-dive |
+| P2 | Your AI Agent Said "Done" — But Did It Actually Do Anything? | Video #4 (Gf6wQzVN2jg) | AI reliability in automation |
+
+### Cluster 2: VPS & Cloud Infrastructure
+
+**Target keywords:** cheapest VPS, VPS for automation, VPS comparison 2026, cloud hosting Africa, n8n VPS, Docker VPS
+
+#### Pillar Page
+- **Route:** `/guides/vps-hosting-guide`
+- **Title:** The Complete VPS Hosting Guide — Choosing, Setting Up, and Optimizing
+- **Scope:** VPS types, providers (OpenClaw, Hostinger, etc.), setup (HestiaCP, Docker), security, monitoring, cost comparison
+- **Location for affiliate link consolidation**
+
+#### Cluster Content
+
+| Priority | Title | Video Source | Notes |
+|----------|-------|-------------|-------|
+| P0 | I Found the CHEAPEST OpenClaw VPS | Video #1 | VPS review/comparison |
+| P0 | Cheapest VPS — Best Cheap VPS in 2025 for < $5 | Video #11 (6aKpNFdb_Wk) | Budget VPS roundup |
+| P1 | Docker, Coolify, Dokploy — Which Deployment Tool Wins? | From Expertise section | Deployment comparison |
+| P1 | Ubuntu Server Optimization for Production Apps | General expertise | Performance tuning guide |
+
+### Cluster 3: Algorithmic Trading & Forex Bots
+
+**Target keywords:** forex trading bot, algorithmic trading, Expert Advisor, MT5 automation, prop firm challenge EA, trading bot setup
+
+#### Pillar Page
+- **Route:** `/guides/algorithmic-trading`
+- **Title:** Algorithmic Trading Guide — Building, Testing, and Deploying Forex Bots
+- **Scope:** EA types, backtesting, prop firm challenges, risk management, MT5 vs cTrader, broker selection
+- **Product page for Expert Advisors lives here**
+
+#### Cluster Content
+
+| Priority | Title | Video Source | Notes |
+|----------|-------|-------------|-------|
+| P0 | Automate Your Trading — Bot That Made $1,023/Month | Video #9 (ZNUfwpIVpPE) | Bot setup case study |
+| P1 | Prop Guard v2 — Pass Prop Firm Challenges with 92% Success | From Algorithms section | Product deep-dive |
+| P1 | Flux Scalper Pro vs Orbit Swing — Which EA Is Right for You? | From Algorithms section | EA comparison |
+| P2 | AI in Trading — How LLMs Are Changing Algorithmic Strategies | Video #5 (REM5NipOtro) | AI+trading intersection |
+
+### Cluster 4: Crypto Node Operations (DePIN)
+
+**Target keywords:** crypto node passive income, DePIN nodes, blockchain node setup, VPS for crypto, Humanode, Bless Network
+
+#### Pillar Page
+- **Route:** `/guides/crypto-node-ops`
+- **Title:** Crypto Node Operations Guide — Passive Income Through DePIN
+- **Scope:** What is DePIN, node types, hardware/VPS requirements, project evaluation, income projections, tax considerations
+
+#### Cluster Content
+
+| Priority | Title | Video Source | Notes |
+|----------|-------|-------------|-------|
+| P0 | How I Made Bless Network Pay Me $1,000 | Video #10 | Case study with setup |
+| P0 | I Made Nodepay $1,000 on a $5 VPS (DePIN) | Video #13 | DePIN earnings guide |
+| P1 | $1,000 Mistakes Crypto Beginners Regret Making | Video #12 | Beginner pitfalls |
+| P2 | Humanode, Fizznode, Hemi — Node Operator Comparison | From blog post | Project comparison |
+
+---
+
+## Pillar Page Specification
+
+### Route Pattern
+```
+/guides/{cluster-slug}
+```
+
+### URL Structure
+```
+https://lanreenlight.com/guides/n8n-automation
+https://lanreenlight.com/guides/vps-hosting-guide
+https://lanreenlight.com/guides/algorithmic-trading
+https://lanreenlight.com/guides/crypto-node-ops
+```
+
+### Page Template
+Each pillar page follows this structure:
+
+```
+1. H1: Broad topic title
+2. Intro paragraph (200-300 words) — overview, what the reader will learn
+3. Table of contents (anchor links to sections)
+4. Main sections (3-6 sections covering subtopics)
+   - Each section: H2, body content, optional table/diagram
+   - Each section: link out to relevant cluster blog post
+5. Expert Advisor / Product showcase (if applicable)
+6. FAQ section (3-5 questions with answers)
+7. CTA — newsletter signup or partnership inquiry
+```
+
+### Internal Linking Rules
+- Each pillar page links to every cluster piece in its group
+- Each cluster blog post links back to its pillar page with anchor text matching the target keyword
+- Blog posts within the same cluster cross-link where relevant
+- Home page Expertise cards link to pillar pages (not #hash anchors)
+
+---
+
+## Content Creation Workflow
+
+### Video → Blog Post Conversion
+
+When a new YouTube video is published:
+
+1. **Transcribe** the video (YouTube transcript or Whisper)
+2. **Draft** blog post from the transcript — reformat as prose, add headings, expand concepts
+3. **Categorize** using the cluster taxonomy (one of: n8n, VPS, Trading, Crypto)
+4. **Tag** with subtopics
+5. **Add internal links** — link to pillar page + 1-2 related cluster posts
+6. **Save** to `data/posts/{slug}.json`
+7. **Update sitemap** with new URL
+
+### Blog Post JSON Schema
+
+```json
+{
+    "id": "kebab-case-slug",
+    "title": "SEO-Optimized Title Here",
+    "date": "2026-07-11",
+    "category": "One of: n8n | VPS | Trading | Crypto | Philosophy",
+    "excerpt": "Meta description (150-160 chars)",
+    "imageUrl": "https://images.unsplash.com/...",
+    "youtubeId": "YouTube video ID if applicable",
+    "content": "<h2>Section 1</h2><p>Full HTML content here...</p>"
+}
+```
+
+### Taxonomy
+
+| Cluster | Category Tag | Associated Nav Item |
+|---------|-------------|-------------------|
+| n8n Automation | n8n | What I Do |
+| VPS & Infrastructure | VPS | What I Do |
+| Algorithmic Trading | Trading | Expert Advisors |
+| Crypto Nodes | Crypto | Knowledge Hub |
+| — | Philosophy | Blog |
+
+---
+
+## SEO Guidelines
+
+### On-Page Basics
+- **Title tags:** `{Primary Keyword} | Lanre Enlight` (max 60 chars)
+- **Meta descriptions:** 150-160 chars, include primary keyword + CTA
+- **URLs:** kebab-case, no stop words (`/guides/vps-hosting-guide` not `/guides/the-vps-hosting-guide`)
+- **Headings:** One H1 per page, hierarchical H2/H3
+
+### Internal Linking
+- Every blog post: minimum 2 internal links (pillar page + 1 related post)
+- Every pillar page: link to ALL cluster pieces
+- Home page sections: link to pillar pages (currently uses `#hash` anchors only)
+
+### Sitemap
+- `public/sitemap.xml` — auto-updated with new routes and blog posts
+- Priority: pillar pages = 1.0, cluster blog posts = 0.8, listing pages = 0.9
+
+### Image Optimization
+- Use descriptive filenames (not `photo-1451187580459.jpg`)
+- Add `alt` text with keywords
+- Use WebP format where possible
+
+---
+
+## Implementation Roadmap
+
+### Phase 1 (Foundation)
+- [ ] Create 4 pillar pages as standalone routes in `App.tsx`
+- [ ] Add `GuidesLayout` component for pillar page template
+- [ ] Update navbar with "Guides" dropdown or section
+- [ ] Update sitemap with pillar URLs
+
+### Phase 2 (Fill Clusters)
+- [ ] Convert 8 priority videos into blog posts (P0 + P1 from each cluster)
+- [ ] Re-categorize existing blog posts into cluster taxonomy
+- [ ] Add internal links between all related content
+
+### Phase 3 (Polish)
+- [ ] Add structured data (Article, FAQ, Product schemas)
+- [ ] Create topic-specific landing pages for high-value keywords
+- [ ] Set up content performance tracking (GA4 events on pillar pages)
+
+---
+
+## Affiliate Link Strategy
+
+Affiliate links should live primarily within pillar pages and relevant cluster posts, not on the home page. This ensures:
+
+1. Visitors reach affiliate content with buying intent (they searched for it)
+2. Google sees topical relevance between the content and the link
+3. Links are contextual, not promotional
+
+### Currently Tracked Affiliate Routes (from `data/videos.ts`)
+- `https://lanreenlight.com/cheapestvps`
+- `https://lanreenlight.com/cheapestn8nvps`
+- `https://lanreenlight.com/forextrading`
+
+These redirects should point to the relevant pillar page or blog post — not directly to the affiliate offer.
+
+---
+
+## Maintenance
+
+- **Monthly:** Review Search Console for underperforming pages, update content
+- **Quarterly:** Audit internal links, refresh pillar page data (pricing, stats)
+- **Per video publish:** Convert to blog post within 48 hours
+- **Per blog post publish:** Add internal links, update sitemap
+
+---
+
+<!-- agent-updated: 2026-07-11 — Initial content strategy document with 4 clusters and pillar page specs -->

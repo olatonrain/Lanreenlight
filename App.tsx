@@ -11,6 +11,10 @@ import { VideoHub } from './components/VideoHub';
 import { Contact } from './components/Contact';
 import { Blog } from './components/Blog';
 import { BlogPostPage } from './components/BlogPostPage';
+import { N8nGuide } from './components/N8nGuide';
+import { VpsGuide } from './components/VpsGuide';
+import { TradingGuide } from './components/TradingGuide';
+import { CryptoNodeGuide } from './components/CryptoNodeGuide';
 
 const HomePage = () => (
   <main>
@@ -38,6 +42,10 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:id" element={<BlogPostPage />} />
+          <Route path="/guides/n8n-automation" element={<N8nGuide />} />
+          <Route path="/guides/vps-hosting-guide" element={<VpsGuide />} />
+          <Route path="/guides/algorithmic-trading" element={<TradingGuide />} />
+          <Route path="/guides/crypto-node-ops" element={<CryptoNodeGuide />} />
         </Routes>
       </div>
     </Router>
