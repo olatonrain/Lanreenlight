@@ -32,6 +32,7 @@ const SERVICES: ServiceItem[] = [
 ];
 
 export const Expertise: React.FC = () => {
+    const currentYear = new Date().getFullYear();
     return (
         <section id="expertise" className="py-24 bg-white relative z-10">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -77,7 +78,7 @@ export const Expertise: React.FC = () => {
                         <Link to="/guides/vps-hosting-guide" className="block p-6 rounded-2xl border border-brand-border hover:border-brand-accent/50 hover:shadow-lg transition-all group">
                             <i className="fa-solid fa-server text-brand-accent text-xl mb-3"></i>
                             <h3 className="font-serif text-brand-black font-medium">Cheapest VPS Guide</h3>
-                            <p className="text-sm text-gray-500">Best VPS hosting 2026</p>
+                            <p className="text-sm text-gray-500">Best VPS hosting {currentYear}</p>
                         </Link>
                         <Link to="/guides/algorithmic-trading" className="block p-6 rounded-2xl border border-brand-border hover:border-brand-accent/50 hover:shadow-lg transition-all group">
                             <i className="fa-solid fa-chart-line text-brand-accent text-xl mb-3"></i>

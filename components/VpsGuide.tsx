@@ -2,12 +2,13 @@ import React from 'react';
 import { GuidesLayout } from './GuidesLayout';
 
 export const VpsGuide: React.FC = () => {
+    const currentYear = new Date().getFullYear();
     return (
         <GuidesLayout
             eyebrow="VPS Hosting Guide"
-            title="Cheapest VPS Hosting 2026: Complete Budget Server Guide"
+            title={`Cheapest VPS Hosting ${currentYear}: Complete Budget Server Guide`}
             subtitle="Find the best cheap VPS for n8n, trading bots, and web apps. Compare real prices, specs, and providers — and learn how to set up and secure your own server."
-            intro="A VPS (Virtual Private Server) gives you root access to a dedicated slice of a physical server — more control, privacy, and performance than shared hosting, at prices starting under $4/month. This guide covers the cheapest VPS options in 2026, what specs you actually need, and how to choose without getting burned."
+            intro={`A VPS (Virtual Private Server) gives you root access to a dedicated slice of a physical server — more control, privacy, and performance than shared hosting, at prices starting under $4/month. This guide covers the cheapest VPS options in ${currentYear}, what specs you actually need, and how to choose without getting burned.`}
             sections={[
                 {
                     title: "What Is a VPS and Why Do You Need One?",
@@ -18,9 +19,9 @@ export const VpsGuide: React.FC = () => {
                     ]
                 },
                 {
-                    title: "The Cheapest VPS Providers Compared (2026)",
+                    title: `The Cheapest VPS Providers Compared (${currentYear})`,
                     content: [
-                        "The budget VPS market in 2026 is competitive — entry plans start below $4/month. The most reliable cheap options we track:",
+                        `The budget VPS market in ${currentYear} is competitive — entry plans start below $4/month. The most reliable cheap options we track:`,
                         "Hetzner (from ~$3.29/mo) — best price-to-performance with NVMe storage and 2 vCPU / 4 GB RAM on entry plans. German-owned, GDPR compliant. The community favorite for self-hosting.",
                         "Hostinger (~$4-5/mo) — managed-first experience with an AI assistant, good support, easy for beginners.",
                         "RackNerd (from ~$1.67/mo yearly) — the undisputed king of cheap during promotions, great for lightweight tasks like VPN or monitoring.",
@@ -62,7 +63,7 @@ export const VpsGuide: React.FC = () => {
             ]}
             faqs={[
                 {
-                    question: "What is the cheapest VPS in 2026?",
+                    question: `What is the cheapest VPS in ${currentYear}?`,
                     answer: "RackNerd promotions start around $1.67/month (yearly billing), IONOS around $2/month, and Hetzner from ~$3.29/month. For reliable, production-ready hosting, Hetzner offers the best spec-to-price ratio."
                 },
                 {

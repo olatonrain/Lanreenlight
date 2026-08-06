@@ -34,6 +34,7 @@ const loadDynamicVideos = async (): Promise<Video[]> => {
 };
 
 export const VideoHub: React.FC = () => {
+    const currentYear = new Date().getFullYear();
     const [dynamicVideos, setDynamicVideos] = useState<Video[]>([]);
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedCategory, setSelectedCategory] = useState<string>('All');
@@ -114,7 +115,7 @@ export const VideoHub: React.FC = () => {
                     <Link to="/guides/vps-hosting-guide" className="block p-4 bg-brand-secondary border border-brand-border rounded-xl hover:border-brand-accent/50 hover:shadow-md transition-all text-center">
                         <i className="fa-solid fa-server text-brand-accent text-xl mb-2"></i>
                         <p className="font-serif text-brand-black font-medium">VPS Hosting</p>
-                        <p className="text-xs text-gray-500">Cheapest VPS 2026</p>
+                        <p className="text-xs text-gray-500">Cheapest VPS {currentYear}</p>
                     </Link>
                     <Link to="/guides/algorithmic-trading" className="block p-4 bg-brand-secondary border border-brand-border rounded-xl hover:border-brand-accent/50 hover:shadow-md transition-all text-center">
                         <i className="fa-solid fa-chart-line text-brand-accent text-xl mb-2"></i>

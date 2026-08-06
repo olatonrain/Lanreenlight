@@ -2,11 +2,12 @@ import React from 'react';
 import { GuidesLayout } from './GuidesLayout';
 
 export const CryptoNodeGuide: React.FC = () => {
+    const currentYear = new Date().getFullYear();
     return (
         <GuidesLayout
             eyebrow="Crypto Node Operations Guide"
             title="Crypto Node Passive Income: DePIN Nodes on a VPS"
-            subtitle="Learn how to run crypto nodes for passive income, how DePIN networks pay you, which projects to choose in 2026, and how to set up nodes on a cheap VPS."
+            subtitle={`Learn how to run crypto nodes for passive income, how DePIN networks pay you, which projects to choose in ${currentYear}, and how to set up nodes on a cheap VPS.`}
             intro="Crypto nodes reward you for contributing real resources — bandwidth, storage, or compute — to decentralized networks. In the DePIN sector, that means sharing your VPS's bandwidth or compute to earn tokens, with many projects paying daily. I've been running nodes since 2020 (Humanode, Fizznode, Hemi, Bless Network, Nodepay) and this guide shares exactly what works."
             sections={[
                 {
