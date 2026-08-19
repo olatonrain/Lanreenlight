@@ -71,7 +71,7 @@ export const VideoHub: React.FC = () => {
                     <FadeIn direction="right">
                         <div>
                             <h2 className="text-4xl md:text-5xl font-serif font-medium text-brand-black mb-3 tracking-tight">Knowledge Hub</h2>
-                            <p className="text-gray-600 font-light text-lg">n8n tutorials, VPS hosting guides, forex trading bot breakdowns, and crypto node setups.</p>
+                            <p className="text-gray-600 font-light text-lg">AI automation tutorials, VPS hosting guides, forex trading bot breakdowns, and crypto node setups.</p>
                         </div>
                     </FadeIn>
 
@@ -109,7 +109,7 @@ export const VideoHub: React.FC = () => {
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
                     <Link to="/guides/n8n-automation" className="block p-4 bg-brand-secondary border border-brand-border rounded-xl hover:border-brand-accent/50 hover:shadow-md transition-all text-center">
                         <i className="fa-solid fa-diagram-project text-brand-accent text-xl mb-2"></i>
-                        <p className="font-serif text-brand-black font-medium">n8n Automation</p>
+                        <p className="font-serif text-brand-black font-medium">AI Automation</p>
                         <p className="text-xs text-gray-500">Workflows & AI</p>
                     </Link>
                     <Link to="/guides/vps-hosting-guide" className="block p-4 bg-brand-secondary border border-brand-border rounded-xl hover:border-brand-accent/50 hover:shadow-md transition-all text-center">
@@ -126,6 +126,21 @@ export const VideoHub: React.FC = () => {
                         <i className="fa-solid fa-coins text-brand-accent text-xl mb-2"></i>
                         <p className="font-serif text-brand-black font-medium">Crypto Nodes</p>
                         <p className="text-xs text-gray-500">DePIN Passive Income</p>
+                    </Link>
+                    <Link to="/guides/web-development" className="block p-4 bg-brand-secondary border border-brand-border rounded-xl hover:border-brand-accent/50 hover:shadow-md transition-all text-center">
+                        <i className="fa-solid fa-code text-brand-accent text-xl mb-2"></i>
+                        <p className="font-serif text-brand-black font-medium">Web Development</p>
+                        <p className="text-xs text-gray-500">Full-Stack Builds</p>
+                    </Link>
+                    <Link to="/guides/app-development" className="block p-4 bg-brand-secondary border border-brand-border rounded-xl hover:border-brand-accent/50 hover:shadow-md transition-all text-center">
+                        <i className="fa-solid fa-mobile-screen text-brand-accent text-xl mb-2"></i>
+                        <p className="font-serif text-brand-black font-medium">App Development</p>
+                        <p className="text-xs text-gray-500">Mobile & PWA</p>
+                    </Link>
+                    <Link to="/guides/agentrouter-setup" className="block p-4 bg-brand-secondary border border-brand-border rounded-xl hover:border-brand-accent/50 hover:shadow-md transition-all text-center">
+                        <i className="fa-solid fa-route text-brand-accent text-xl mb-2"></i>
+                        <p className="font-serif text-brand-black font-medium">AgentRouter</p>
+                        <p className="text-xs text-gray-500">Free Claude Code Credit</p>
                     </Link>
                 </div>
 

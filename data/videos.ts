@@ -144,5 +144,18 @@ export const VIDEOS: Video[] = [
         youtubeId: '2fGFYe4DgR4',
         resources: [
         ]
+    },
+    {
+        id: '14',
+        title: "Get Free Claude Code $200 Credit For Coding Images & Video | Agentrouter Full Video using Opencode, Claude Cli, Claude App, Antigravity, and Ominiroute + Cheap vps",
+        date: 'Aug 19, 2026',
+        category: 'AI Automation',
+        youtubeId: 'GYvYHpi4DJk',
+        resources: [
+            { label: 'AgentRouter Free Credit', url: 'https://agentrouter.org/register?aff=2CTV', type: 'affiliate' },
+            { label: 'Cheapest VPS', url: 'https://lanreenlight.com/cheapestvps', type: 'affiliate' },
+            { label: 'Best n8n VPS', url: 'https://lanreenlight.com/cheapestn8nvps', type: 'affiliate' },
+            { label: 'Forex Trading', url: 'https://lanreenlight.com/forextrading', type: 'affiliate' }
+        ]
     }
 ];

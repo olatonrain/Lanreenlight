@@ -42,7 +42,7 @@ export const Expertise: React.FC = () => {
                     </FadeIn>
                     <FadeIn delay={200} direction="up">
                         <p className="text-gray-600 text-xl max-w-3xl font-light">
-                            n8n automation, AI integration, VPS infrastructure, trading bots, and crypto node operations — I design seamless systems that transform how businesses operate.
+                            n8n automation, AI integration, web & app development, VPS infrastructure, trading bots, and crypto node operations — I design seamless systems that transform how businesses operate.
                         </p>
                     </FadeIn>
                 </div>
@@ -69,10 +69,10 @@ export const Expertise: React.FC = () => {
                 </div>
 
                 <FadeIn>
-                    <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                         <Link to="/guides/n8n-automation" className="block p-6 rounded-2xl border border-brand-border hover:border-brand-accent/50 hover:shadow-lg transition-all group">
                             <i className="fa-solid fa-diagram-project text-brand-accent text-xl mb-3"></i>
-                            <h3 className="font-serif text-brand-black font-medium">n8n Automation Guide</h3>
+                            <h3 className="font-serif text-brand-black font-medium">AI Automation Guide</h3>
                             <p className="text-sm text-gray-500">Complete workflow automation guide</p>
                         </Link>
                         <Link to="/guides/vps-hosting-guide" className="block p-6 rounded-2xl border border-brand-border hover:border-brand-accent/50 hover:shadow-lg transition-all group">
@@ -89,6 +89,16 @@ export const Expertise: React.FC = () => {
                             <i className="fa-solid fa-coins text-brand-accent text-xl mb-3"></i>
                             <h3 className="font-serif text-brand-black font-medium">Crypto Node Guide</h3>
                             <p className="text-sm text-gray-500">DePIN passive income</p>
+                        </Link>
+                        <Link to="/guides/web-development" className="block p-6 rounded-2xl border border-brand-border hover:border-brand-accent/50 hover:shadow-lg transition-all group">
+                            <i className="fa-solid fa-code text-brand-accent text-xl mb-3"></i>
+                            <h3 className="font-serif text-brand-black font-medium">Web Development Guide</h3>
+                            <p className="text-sm text-gray-500">Full-stack apps that scale</p>
+                        </Link>
+                        <Link to="/guides/app-development" className="block p-6 rounded-2xl border border-brand-border hover:border-brand-accent/50 hover:shadow-lg transition-all group">
+                            <i className="fa-solid fa-mobile-screen text-brand-accent text-xl mb-3"></i>
+                            <h3 className="font-serif text-brand-black font-medium">App Development Guide</h3>
+                            <p className="text-sm text-gray-500">React Native, PWA & ASO</p>
                         </Link>
                     </div>
                 </FadeIn>

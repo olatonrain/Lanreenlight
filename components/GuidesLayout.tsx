@@ -105,9 +105,20 @@ export const GuidesLayout: React.FC<GuidesLayoutProps> = ({
                     <section className="mt-16 text-center bg-brand-secondary rounded-[2.5rem] p-12 md:p-20 border border-brand-border">
                         <h2 className="text-3xl md:text-4xl font-serif text-brand-black mb-4">{ctaTitle}</h2>
                         <p className="text-gray-600 font-light text-lg max-w-2xl mx-auto mb-8">{ctaText}</p>
-                        <Link to={ctaLink} className="inline-flex items-center px-10 py-4 bg-brand-black text-white rounded-full font-bold hover:bg-gray-800 shadow-xl transition-all hover:scale-105">
-                            {ctaLabel}
-                        </Link>
+                        {ctaLink.startsWith('http') ? (
+                            <a
+                                href={ctaLink}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center px-10 py-4 bg-brand-black text-white rounded-full font-bold hover:bg-gray-800 shadow-xl transition-all hover:scale-105"
+                            >
+                                {ctaLabel}
+                            </a>
+                        ) : (
+                            <Link to={ctaLink} className="inline-flex items-center px-10 py-4 bg-brand-black text-white rounded-full font-bold hover:bg-gray-800 shadow-xl transition-all hover:scale-105">
+                                {ctaLabel}
+                            </Link>
+                        )}
                     </section>
                 </FadeIn>
             </div>

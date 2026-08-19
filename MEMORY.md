@@ -2,7 +2,83 @@
 
 Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 
-<!-- agent-updated: 2026-08-06 — Added pillar pages session -->
+<!-- agent-updated: 2026-08-19 — Added AgentRouter guide + video -->
+
+---
+
+## 2026-08-19 — AgentRouter guide + video hub entry
+
+### Last Session
+2026-08-12 — Two new pillar pages (Web/App Dev) + canonical duplicate fix + SEO/AEO/GEO docs
+
+### Done
+- Built `AgentrouterGuide.tsx` (`/guides/agentrouter-setup`) — pillar-style guide covering 5 setup methods (OpenCode, Claude CLI, Claude App, Google Antigravity, OmniRoute on a cheap VPS), what AgentRouter is, method-selection guidance, security/cost reality check
+- CTA on guide links to user's AgentRouter referral: `https://agentrouter.org/register?aff=2CTV`
+- Added video to `data/videos.ts` (youtubeId GYvYHpi4DJk, category AI Automation) with AgentRouter affiliate + 3 lanreenlight affiliate resources — renumbered all video IDs sequentially (now 14 videos)
+- Added route `/guides/agentrouter-setup` to `App.tsx`
+- Updated `GuidesLayout.tsx` CTA to render external `<a>` links (was react-router Link only — couldn't open external URLs)
+- Added AgentRouter quick-link card in `VideoHub.tsx` (7 cards, grid `md:grid-cols-4`)
+- Cross-linked AgentRouter guide in `N8nGuide.tsx` + `VpsGuide.tsx` relatedGuides
+- Updated `public/sitemap.xml` with agentrouter-setup URL
+- Build passes cleanly (`npm run build` successful)
+
+### Decisions
+- AgentRouter guide NOT added to navbar dropdown — reachable via video hub quick link + internal cross-links (user preference)
+- Guide CTA uses external anchor (new tab) for the referral link
+- Video category set to AI Automation (coding agents/gateway routing)
+- AgentRouter guide relatedGuides point to AI Automation, VPS, Web Dev, App Dev — no reciprocal nav entry
+
+### Next Steps
+- Push to main to trigger GitHub Actions deploy
+- Submit sitemap.xml to Google Search Console (includes new agentrouter-setup URL)
+- Request indexing for `/guides/agentrouter-setup`
+- Monitor Search Console for the AgentRouter page impressions (target: "agentrouter", "free claude code credit", "agentrouter opencode")
+
+### Blockers & Open Questions
+- n8n webhook for blog publishing: posts in `public/posts/` — can't verify webhook is active
+- GA4 tracking ID is a placeholder
+- AgentRouter guide content based on video description + public docs — unverified against full transcript
+- No test or lint scripts exist in package.json
+
+---
+
+## 2026-08-12 — Two new pillar pages (Web/App Dev) + canonical duplicate fix + SEO/AEO/GEO docs
+
+### Last Session
+2026-08-06 — Four pillar pages built + homepage search-intent rewrite + deploy ready
+
+### Done
+- Built `WebDevelopmentGuide.tsx` (`/guides/web-development`) — full-stack stack selection, frontend/backend, deployment, Core Web Vitals, OWASP, app dev bridge
+- Built `AppDevelopmentGuide.tsx` (`/guides/app-development`) — PWA vs native, React Native vs Flutter, ASO, monetization, launch/growth
+- Added both routes to `App.tsx`
+- Added both guides to `Navbar.tsx` Guides dropdown (6 total)
+- Fixed `About.tsx` Web Development card link (was pointing to n8n guide — now `/guides/web-development`)
+- Expanded `VideoHub.tsx` and `Expertise.tsx` quick links to all 6 guides (grids now `md:grid-cols-3`)
+- Cross-linked all 4 original pillar pages' relatedGuides to the 2 new guides
+- Updated `public/sitemap.xml` with 2 new URLs
+- Created `CanonicalLink.tsx` — dynamic per-route canonical tag to fix Google "Duplicate without user-selected canonical" error
+- Updated `CONTENT_STRATEGY.md` — added Cluster 5 (Web Dev) + Cluster 6 (App Dev), aggressive SEO/AEO/GEO guidelines
+- Updated README.md, CHANGELOG.md
+- Build passes cleanly (`npm run build` successful)
+
+### Decisions
+- Web/app development are now 5th and 6th topic clusters — site now covers all 6 target ranking topics: AI automation, server management, trading bots, blockchain/crypto nodes, web development, app development
+- Web Development guide includes an app-development bridge section (progressive: web → PWA → native)
+- App Development guide links back to Web Development guide — backend-first architecture positioning
+- Aggressive SEO/AEO/GEO adopted in CONTENT_STRATEGY.md: FAQ schema, direct-answer formatting (AEO), entity authority + proprietary metrics (GEO)
+
+### Next Steps
+- Push to main to trigger GitHub Actions deploy
+- Resubmit sitemap.xml to Google Search Console
+- Request indexing for `/guides/web-development` and `/guides/app-development`
+- Monitor Search Console for duplicate-canonical resolution after CanonicalLink deploy
+- Replace GA4 placeholder (`G-XXXXXXXXXX`) with real measurement ID
+- Add structured data (Service, Article, FAQ schema) — Phase 3
+
+### Blockers & Open Questions
+- n8n webhook for blog publishing: posts in `public/posts/` — can't verify webhook is active
+- GA4 tracking ID is a placeholder
+- No test or lint scripts exist in package.json
 
 ---
 
@@ -38,6 +114,7 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 - Navbar dropdown uses hover on desktop, tap-to-expand on mobile
 - Homepage CTAs link directly to pillar pages (not blog) for immediate authority capture
 - Keyword targeting based on Search Console impressions + keyword research: "n8n tutorial", "cheapest VPS", "MT5 Expert Advisor", "prop firm challenge EA", "crypto node passive income"
+- **Aggressive SEO/AEO/GEO strategy adopted:** pillar pages built for Google ranking, AI Overviews/Perplexity extraction, and LLM citation authority — includes FAQ schema, structured data, entity credentials, proprietary metrics, direct-answer formatting
 
 ### Next Steps
 - Push to main to trigger GitHub Actions deploy to HestiaCP VPS

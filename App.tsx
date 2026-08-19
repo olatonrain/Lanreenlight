@@ -15,6 +15,10 @@ import { N8nGuide } from './components/N8nGuide';
 import { VpsGuide } from './components/VpsGuide';
 import { TradingGuide } from './components/TradingGuide';
 import { CryptoNodeGuide } from './components/CryptoNodeGuide';
+import { WebDevelopmentGuide } from './components/WebDevelopmentGuide';
+import { AppDevelopmentGuide } from './components/AppDevelopmentGuide';
+import { AgentrouterGuide } from './components/AgentrouterGuide';
+import { CanonicalLink } from './components/CanonicalLink';
 
 const HomePage = () => (
   <main>
@@ -32,6 +36,7 @@ const HomePage = () => (
 function App() {
   return (
     <Router>
+      <CanonicalLink />
       <div className="bg-brand-white min-h-screen">
         {/* Background Noise Layer */}
         <div className="bg-noise"></div>
@@ -46,6 +51,9 @@ function App() {
           <Route path="/guides/vps-hosting-guide" element={<VpsGuide />} />
           <Route path="/guides/algorithmic-trading" element={<TradingGuide />} />
           <Route path="/guides/crypto-node-ops" element={<CryptoNodeGuide />} />
+          <Route path="/guides/web-development" element={<WebDevelopmentGuide />} />
+          <Route path="/guides/app-development" element={<AppDevelopmentGuide />} />
+          <Route path="/guides/agentrouter-setup" element={<AgentrouterGuide />} />
         </Routes>
       </div>
     </Router>

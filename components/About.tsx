@@ -6,7 +6,7 @@ const AREAS = [
     { title: 'n8n Workflows', icon: 'fa-diagram-project', color: 'text-brand-accent', link: '/guides/n8n-automation' },
     { title: 'AI Integration', icon: 'fa-brain', color: 'text-brand-black', link: '/guides/n8n-automation' },
     { title: 'VPS DevOps', icon: 'fa-server', color: 'text-gray-600', link: '/guides/vps-hosting-guide' },
-    { title: 'Web Development', icon: 'fa-code', color: 'text-gray-400', link: '/guides/n8n-automation' },
+    { title: 'Web Development', icon: 'fa-code', color: 'text-gray-400', link: '/guides/web-development' },
 ];
 
 export const About: React.FC = () => {
@@ -36,7 +36,7 @@ export const About: React.FC = () => {
                             </FadeIn>
                             <FadeIn delay={400}>
                                 <p>
-                                    Explore my in-depth guides: <Link to="/guides/n8n-automation" className="text-brand-accent hover:underline font-medium">n8n Automation Guide</Link>, <Link to="/guides/vps-hosting-guide" className="text-brand-accent hover:underline font-medium">Cheapest VPS Guide</Link>, <Link to="/guides/algorithmic-trading" className="text-brand-accent hover:underline font-medium">Forex Trading Bots Guide</Link>, and <Link to="/guides/crypto-node-ops" className="text-brand-accent hover:underline font-medium">Crypto Node Operations Guide</Link>.
+                                    Explore my in-depth guides: <Link to="/guides/n8n-automation" className="text-brand-accent hover:underline font-medium">AI Automation Guide</Link>, <Link to="/guides/vps-hosting-guide" className="text-brand-accent hover:underline font-medium">Cheapest VPS Guide</Link>, <Link to="/guides/algorithmic-trading" className="text-brand-accent hover:underline font-medium">Forex Trading Bots Guide</Link>, and <Link to="/guides/crypto-node-ops" className="text-brand-accent hover:underline font-medium">Crypto Node Operations Guide</Link>.
                                 </p>
                             </FadeIn>
                         </div>

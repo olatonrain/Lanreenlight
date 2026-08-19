@@ -89,7 +89,7 @@ export const TradingGuide: React.FC = () => {
                     description: "VPS for 24/7 bot uptime"
                 },
                 {
-                    title: "n8n Automation Guide",
+                    title: "AI Automation Guide",
                     link: "/guides/n8n-automation",
                     description: "Automate your data and workflows"
                 },
@@ -97,6 +97,16 @@ export const TradingGuide: React.FC = () => {
                     title: "Crypto Node Guide",
                     link: "/guides/crypto-node-ops",
                     description: "Another automation income stream"
+                },
+                {
+                    title: "Web Development Guide",
+                    link: "/guides/web-development",
+                    description: "Build trading dashboards and interfaces"
+                },
+                {
+                    title: "App Development Guide",
+                    link: "/guides/app-development",
+                    description: "Take your trading system to mobile"
                 },
             ]}
         />

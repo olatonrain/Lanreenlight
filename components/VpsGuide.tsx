@@ -41,7 +41,7 @@ export const VpsGuide: React.FC = () => {
                 {
                     title: "Best VPS for n8n: Minimum Specs",
                     content: [
-                        "Self-hosted n8n runs comfortably on 2 GB RAM, but 4 GB is the production recommendation when you add PostgreSQL and AI nodes. See our full n8n Automation Guide for the complete Docker setup.",
+                        "Self-hosted n8n runs comfortably on 2 GB RAM, but 4 GB is the production recommendation when you add PostgreSQL and AI nodes. See our full AI Automation Guide for the complete Docker setup.",
                         "For n8n + trading bots + crypto nodes on one server, go 4-8 GB. I run multiple production services on a single VPS using Docker — proper resource allocation beats buying more servers."
                     ]
                 },
@@ -85,7 +85,7 @@ export const VpsGuide: React.FC = () => {
             ctaLabel="Get VPS Setup Help"
             relatedGuides={[
                 {
-                    title: "n8n Automation Guide",
+                    title: "AI Automation Guide",
                     link: "/guides/n8n-automation",
                     description: "Self-host n8n on your VPS"
                 },
@@ -98,6 +98,21 @@ export const VpsGuide: React.FC = () => {
                     title: "Crypto Node Guide",
                     link: "/guides/crypto-node-ops",
                     description: "Passive income from VPS nodes"
+                },
+                {
+                    title: "Web Development Guide",
+                    link: "/guides/web-development",
+                    description: "Host your web app on a VPS"
+                },
+                {
+                    title: "App Development Guide",
+                    link: "/guides/app-development",
+                    description: "Backend hosting for mobile apps"
+                },
+                {
+                    title: "AgentRouter Setup",
+                    link: "/guides/agentrouter-setup",
+                    description: "Run AI agents 24/7 on your VPS"
                 },
             ]}
         />

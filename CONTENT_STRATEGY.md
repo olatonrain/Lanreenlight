@@ -2,7 +2,12 @@
 
 ## Overview
 
-Portfolio and knowledge hub for Lanre (AI Automation & Systems Engineer). The site positions Lanre as an authority in n8n automation, VPS infrastructure, algorithmic trading, and crypto node operations — with a monetization model built on affiliate partnerships (hosting, VPS, trading tools) and digital products (Expert Advisors).
+Portfolio and knowledge hub for Lanre (AI Automation & Systems Engineer). The site positions Lanre as an authority in AI automation, VPS infrastructure, web & app development, algorithmic trading, and crypto node operations — with a monetization model built on affiliate partnerships (hosting, VPS, trading tools) and digital products (Expert Advisors).
+
+**SEO/AEO/GEO Strategy:** Aggressive search intent optimization across all three engine types:
+- **SEO** — Traditional Google/Bing ranking via pillar pages, topic clusters, internal linking, structured data
+- **AEO** — Answer Engine Optimization for AI Overviews, Perplexity, ChatGPT search — concise Q&A sections, FAQ schema, direct answer formatting
+- **GEO** — Generative Engine Optimization for LLM citations — authoritative entity mentions, comprehensive coverage, citation-worthy data points
 
 ## Current State (2026-07-11)
 
@@ -11,6 +16,13 @@ Portfolio and knowledge hub for Lanre (AI Automation & Systems Engineer). The si
 | Route | Type | Description |
 |-------|------|-------------|
 | `/` (Home) | Landing / mega-page | 8 one-page sections: Hero, About, Expertise, VideoHub, Partnership, Stats, Algorithms, Contact |
+| `/guides/n8n-automation` | Pillar | AI Automation Guide (n8n, AI agents, LLM workflows) |
+| `/guides/vps-hosting-guide` | Pillar | Cheapest VPS Guide (server management, hosting) |
+| `/guides/algorithmic-trading` | Pillar | Forex Trading Bots Guide (MT5 EAs, prop firms) |
+| `/guides/crypto-node-ops` | Pillar | Crypto Node Guide (DePIN, blockchain nodes) |
+| `/guides/web-development` | Pillar | Full-Stack Web Development Guide |
+| `/guides/app-development` | Pillar | App Development Guide (React Native, PWA, ASO) |
+| `/guides/agentrouter-setup` | Guide | AgentRouter Setup Guide (free Claude Code credit, AI gateway, 5 methods) |
 | `/blog` | Listing | Blog post listing (static import from `data/posts/`) |
 | `/blog/:id` | Article | Individual blog post (loaded by ID from `data/posts/`) |
 
@@ -76,6 +88,7 @@ Four natural topic clusters emerge from existing content:
 | P1 | How to Use n8n Free Forever — Self-Hosted Guide | Video #8 (SvipG4uv0E4) | Getting started guide |
 | P1 | n8n + AI: Building Intelligent Workflows with LLMs | Expertise section + videos | AI integration deep-dive |
 | P2 | Your AI Agent Said "Done" — But Did It Actually Do Anything? | Video #4 (Gf6wQzVN2jg) | AI reliability in automation |
+| P0 | AgentRouter Setup — Free Claude Code Credit (5 Methods) | Video #14 (GYvYHpi4DJk) | AI gateway routing for coding agents |
 
 ### Cluster 2: VPS & Cloud Infrastructure
 
@@ -133,6 +146,42 @@ Four natural topic clusters emerge from existing content:
 | P1 | $1,000 Mistakes Crypto Beginners Regret Making | Video #12 | Beginner pitfalls |
 | P2 | Humanode, Fizznode, Hemi — Node Operator Comparison | From blog post | Project comparison |
 
+### Cluster 5: Web Development
+
+**Target keywords:** web development, full-stack developer, React web app, website development cost, how to build a website, web application development
+
+#### Pillar Page
+- **Route:** `/guides/web-development`
+- **Title:** Full-Stack Web Development Guide — Build, Launch, and Scale
+- **Scope:** stack selection, frontend (React/TS/Tailwind), backend (APIs, auth, databases), deployment (Docker, Nginx, VPS), performance/Core Web Vitals, SEO in SPAs, OWASP security
+- **Location for web development service conversions**
+
+#### Cluster Content
+
+| Priority | Title | Source | Notes |
+|----------|-------|--------|-------|
+| P1 | From Digital Marketer to AI Architect — The Tech Stack | Blog post | Stack rationale |
+| P1 | Deploying a React App on a VPS (CI/CD) | Expertise + VPS guide | Deployment deep-dive |
+| P2 | React 19 + Vite: A Production Setup | General expertise | Tooling guide |
+
+### Cluster 6: App Development
+
+**Target keywords:** app development, mobile app development cost, React Native, how to make an app, PWA, app store optimization, cross-platform app
+
+#### Pillar Page
+- **Route:** `/guides/app-development`
+- **Title:** App Development Guide — From Idea to App Store
+- **Scope:** PWA vs native, React Native vs Flutter, backend architecture, ASO, monetization, launch & growth
+- **Location for app development service conversions**
+
+#### Cluster Content
+
+| Priority | Title | Source | Notes |
+|----------|-------|--------|-------|
+| P1 | PWA vs Native App — Which Should You Build? | From Web Development guide | Decision framework |
+| P2 | React Native + Expo: Shipping to iOS and Android | General expertise | Build guide |
+| P2 | ASO: Ranking in the App Store | General expertise | Store optimization |
+
 ---
 
 ## Pillar Page Specification
@@ -148,6 +197,8 @@ https://lanreenlight.com/guides/n8n-automation
 https://lanreenlight.com/guides/vps-hosting-guide
 https://lanreenlight.com/guides/algorithmic-trading
 https://lanreenlight.com/guides/crypto-node-ops
+https://lanreenlight.com/guides/web-development
+https://lanreenlight.com/guides/app-development
 ```
 
 ### Page Template
@@ -210,13 +261,15 @@ When a new YouTube video is published:
 | VPS & Infrastructure | VPS | What I Do |
 | Algorithmic Trading | Trading | Expert Advisors |
 | Crypto Nodes | Crypto | Knowledge Hub |
+| Web Development | Web | What I Do |
+| App Development | App | What I Do |
 | — | Philosophy | Blog |
 
 ---
 
-## SEO Guidelines
+## SEO/AEO/GEO Guidelines
 
-### On-Page Basics
+### On-Page Basics (SEO)
 - **Title tags:** `{Primary Keyword} | Lanre Enlight` (max 60 chars)
 - **Meta descriptions:** 150-160 chars, include primary keyword + CTA
 - **URLs:** kebab-case, no stop words (`/guides/vps-hosting-guide` not `/guides/the-vps-hosting-guide`)
@@ -236,23 +289,46 @@ When a new YouTube video is published:
 - Add `alt` text with keywords
 - Use WebP format where possible
 
+### Structured Data (AEO/GEO)
+- **Article schema** on all blog posts and pillar pages
+- **FAQ schema** on pillar pages (3-5 questions with concise answers)
+- **Product schema** on Expert Advisor pages
+- **Organization schema** on home page
+- **VideoObject schema** on Video Hub entries
+
+### AEO Optimization (AI Overviews, Perplexity, ChatGPT Search)
+- Every pillar page includes 3-5 direct Q&A pairs answering "what is", "how to", "best for" queries
+- Answers formatted in 40-60 word chunks for easy extraction
+- Use "Answer:" prefix in FAQ answers for clear snippet identification
+- Target featured snippet formats: lists, tables, step-by-step instructions
+- Include "People Also Ask" style questions in FAQ sections
+
+### GEO Optimization (LLM Citations)
+- Every pillar page establishes entity authority: author bio, credentials, verifiable metrics ($4.2M+ volume, 68.4% win rate, 30+ apps built)
+- Include original data points and proprietary metrics (not just summaries)
+- Cite specific tool versions, dates, and measurable outcomes
+- Structure content so LLMs can extract complete concepts (self-contained sections)
+- Build topical depth across all 4 clusters — LLMs cite sources that cover a topic comprehensively
+
 ---
 
 ## Implementation Roadmap
 
 ### Phase 1 (Foundation)
-- [ ] Create 4 pillar pages as standalone routes in `App.tsx`
-- [ ] Add `GuidesLayout` component for pillar page template
-- [ ] Update navbar with "Guides" dropdown or section
-- [ ] Update sitemap with pillar URLs
+- [x] Create 6 pillar pages as standalone routes in `App.tsx`
+- [x] Add `GuidesLayout` component for pillar page template
+- [x] Update navbar with "Guides" dropdown or section
+- [x] Update sitemap with pillar URLs
 
 ### Phase 2 (Fill Clusters)
-- [ ] Convert 8 priority videos into blog posts (P0 + P1 from each cluster)
+- [ ] Convert priority videos into blog posts (P0 + P1 from each cluster)
+- [ ] Add blog posts for Web Development and App Development cluster (new, non-video clusters)
 - [ ] Re-categorize existing blog posts into cluster taxonomy
 - [ ] Add internal links between all related content
 
 ### Phase 3 (Polish)
-- [ ] Add structured data (Article, FAQ, Product schemas)
+- [ ] Add structured data (Article, FAQ, Product, Service schemas)
+- [x] Dynamic canonical tags per route (CanonicalLink component)
 - [ ] Create topic-specific landing pages for high-value keywords
 - [ ] Set up content performance tracking (GA4 events on pillar pages)
 

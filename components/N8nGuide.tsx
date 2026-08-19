@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 export const N8nGuide: React.FC = () => {
     return (
         <GuidesLayout
-            eyebrow="n8n Workflow Automation Guide"
-            title="n8n Automation Guide: From Zero to Production Workflows"
-            subtitle="Learn how to build n8n workflows, self-host n8n on your own VPS, integrate AI agents, and automate your business processes — no code required."
+            eyebrow="AI Workflow Automation Guide"
+            title="AI Automation Guide: From Zero to Production Workflows"
+            subtitle="Learn how to build n8n workflows, self-host n8n on your own VPS, integrate AI agents (LangChain, OpenRouter, Groq), and automate your business processes — no code required."
             intro="n8n is the most popular open-source workflow automation platform for technical teams, with 400+ integrations and full AI support. This guide covers everything from your first n8n tutorial to production-grade self-hosted automation running 24/7 on your own infrastructure."
             sections={[
                 {
@@ -96,6 +96,21 @@ export const N8nGuide: React.FC = () => {
                     title: "Crypto Node Guide",
                     link: "/guides/crypto-node-ops",
                     description: "Run nodes on your VPS for passive income"
+                },
+                {
+                    title: "Web Development Guide",
+                    link: "/guides/web-development",
+                    description: "Build full-stack web applications"
+                },
+                {
+                    title: "App Development Guide",
+                    link: "/guides/app-development",
+                    description: "Launch cross-platform mobile apps"
+                },
+                {
+                    title: "AgentRouter Setup",
+                    link: "/guides/agentrouter-setup",
+                    description: "Free Claude Code credit + AI gateway"
                 },
             ]}
         />

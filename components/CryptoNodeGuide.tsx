@@ -88,7 +88,7 @@ export const CryptoNodeGuide: React.FC = () => {
                     description: "Find the right node VPS"
                 },
                 {
-                    title: "n8n Automation Guide",
+                    title: "AI Automation Guide",
                     link: "/guides/n8n-automation",
                     description: "Automate node monitoring"
                 },
@@ -96,6 +96,16 @@ export const CryptoNodeGuide: React.FC = () => {
                     title: "Forex Trading Bots",
                     link: "/guides/algorithmic-trading",
                     description: "Automated trading income stream"
+                },
+                {
+                    title: "Web Development Guide",
+                    link: "/guides/web-development",
+                    description: "Build Web3 and blockchain interfaces"
+                },
+                {
+                    title: "App Development Guide",
+                    link: "/guides/app-development",
+                    description: "Take your crypto project to mobile"
                 },
             ]}
         />

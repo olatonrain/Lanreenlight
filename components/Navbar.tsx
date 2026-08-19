@@ -12,10 +12,12 @@ const NAV_ITEMS: NavItem[] = [
 ];
 
 const GUIDE_LINKS = [
-    { label: 'n8n Automation Guide', href: '/guides/n8n-automation' },
+    { label: 'AI Automation Guide', href: '/guides/n8n-automation' },
     { label: 'Cheapest VPS Guide', href: '/guides/vps-hosting-guide' },
     { label: 'Forex Trading Bots', href: '/guides/algorithmic-trading' },
-    { label: 'Crypto Node Guide', href: '/guides/crypto-node-ops' }
+    { label: 'Crypto Node Guide', href: '/guides/crypto-node-ops' },
+    { label: 'Web Development Guide', href: '/guides/web-development' },
+    { label: 'App Development Guide', href: '/guides/app-development' }
 ];
 
 export const Navbar: React.FC = () => {

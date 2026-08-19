@@ -4,6 +4,45 @@ Date-based, category-tagged entries. Categories: Added, Fixed, Changed, Removed.
 
 ---
 
+2026-08-19
+
+Added
+- AgentrouterGuide.tsx — new guide at `/guides/agentrouter-setup` covering 5 setup methods (OpenCode, Claude CLI, Claude App, Google Antigravity, OmniRoute + cheap VPS)
+- New video entry in data/videos.ts (AgentRouter / free Claude Code credit, youtubeId GYvYHpi4DJk)
+- AgentRouter quick-link card in VideoHub.tsx (7 cards total, grid now md:grid-cols-4)
+
+Changed
+- GuidesLayout.tsx — CTA now renders an external `<a>` (new tab) when the link is a URL, instead of react-router Link
+- App.tsx — added `/guides/agentrouter-setup` route
+- data/videos.ts — renumbered all video IDs sequentially after inserting the new video (14 videos total)
+- public/sitemap.xml — added agentrouter-setup URL
+- N8nGuide.tsx, VpsGuide.tsx — cross-linked AgentRouter guide in relatedGuides
+
+---
+
+2026-08-12
+
+Added
+- Two new SEO-optimized pillar pages: WebDevelopmentGuide (`/guides/web-development`), AppDevelopmentGuide (`/guides/app-development`)
+- CanonicalLink.tsx — dynamic per-route canonical tags to fix duplicate-content indexing
+- CONTENT_STRATEGY.md — Cluster 5 (Web Development) and Cluster 6 (App Development) specs
+- Aggressive SEO/AEO/GEO guidelines in CONTENT_STRATEGY.md (structured data, direct answers, entity authority)
+
+Changed
+- App.tsx — added routes for web-development and app-development guides
+- Navbar.tsx — Guides dropdown now lists all 6 pillar pages
+- About.tsx — Web Development card now links to `/guides/web-development` (was n8n guide)
+- VideoHub.tsx — quick links expanded to 6 guides (grid: md:grid-cols-3)
+- Expertise.tsx — quick link cards expanded to 6 guides + updated intro copy
+- All 4 original pillar pages — cross-linked to the 2 new guides
+- public/sitemap.xml — added web-development and app-development URLs
+- README.md — updated project structure, features, SEO notes
+
+Fixed
+- Duplicate-without-canonical Google error — each route now declares its own canonical URL
+
+---
+
 2026-08-06
 
 Added

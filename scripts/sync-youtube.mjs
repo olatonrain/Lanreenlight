@@ -9,14 +9,28 @@ const DATA_FILE = path.join(__dirname, '../data/videos.ts');
 const CHANNEL_ID = 'UCs9e33racEAMcCfReN4Bc_g';
 const RSS_URL = `https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}`;
 
+async function fetchWithRetry(url, retries = 3) {
+    let lastError;
+    for (let attempt = 1; attempt <= retries; attempt++) {
+        try {
+            const response = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0 (compatible; VideoSync/1.0)' } });
+            if (response.ok) return response;
+            lastError = new Error(`Failed to fetch RSS: ${response.status} ${response.statusText}`);
+        } catch (error) {
+            lastError = error;
+        }
+        const delay = attempt * 5000;
+        console.log(`RSS fetch attempt ${attempt}/${retries} failed (${lastError.message}). Retrying in ${delay / 1000}s...`);
+        await new Promise(resolve => setTimeout(resolve, delay));
+    }
+    throw lastError;
+}
+
 async function syncVideos() {
     console.log(`Fetching latest videos from YouTube RSS feed...`);
 
     try {
-        const response = await fetch(RSS_URL);
-        if (!response.ok) {
-            throw new Error(`Failed to fetch RSS: ${response.status} ${response.statusText}`);
-        }
+        const response = await fetchWithRetry(RSS_URL);
 
         const xml = await response.text();
 
@@ -56,12 +70,15 @@ async function syncVideos() {
                     category = 'Forex';
                 } else if (lowerTitle.includes('crypto') || lowerTitle.includes('nodepay') || lowerTitle.includes('bless') || lowerTitle.includes('depin')) {
                     category = 'Crypto';
-                } else if (lowerTitle.includes('node') || lowerTitle.includes('vps') && !lowerTitle.includes('n8n')) {
+                } else if ((lowerTitle.includes('node') || lowerTitle.includes('vps')) && !lowerTitle.includes('n8n') && !lowerTitle.includes('agentrouter')) {
                     category = 'Node Ops';
                 }
 
                 // Extract resource links if possible
                 const resources = [];
+                if (desc.includes('https://agentrouter.org/register')) {
+                    resources.push({ label: 'AgentRouter Free Credit', url: 'https://agentrouter.org/register?aff=2CTV', type: 'affiliate' });
+                }
                 if (desc.includes('https://lanreenlight.com/cheapestvps')) {
                     resources.push({ label: 'Cheapest VPS', url: 'https://lanreenlight.com/cheapestvps', type: 'affiliate' });
                 }
@@ -93,10 +110,38 @@ async function syncVideos() {
         // Sort by newest first
         fullVideos.sort((a, b) => b.published.getTime() - a.published.getTime());
 
+        // Preserve manual entries from the existing file that aren't in the RSS feed
+        // (e.g., videos YouTube hasn't surfaced yet, or manually curated resources).
+        const existingIds = new Set(fullVideos.map(v => v.videoId));
+        const existingContent = fs.existsSync(DATA_FILE) ? fs.readFileSync(DATA_FILE, 'utf8') : '';
+        const existingVideos = [];
+        if (existingContent.includes('export const VIDEOS')) {
+            const matches = existingContent.matchAll(/\{\s*\n\s*id: '(\d+)',\n\s*title: "([\s\S]*?)",\n\s*date: '([\s\S]*?)',\n\s*category: '([\s\S]*?)',\n\s*youtubeId: '([\s\S]*?)',\n\s*resources: \[([\s\S]*?)\]\n\s*\}/g);
+            for (const m of matches) {
+                if (!existingIds.has(m[5])) {
+                    const resources = [];
+                    const resourceMatches = m[6].matchAll(/\{\s*label: '([\s\S]*?)',\s*url: '([\s\S]*?)',\s*type: '([\s\S]*?)'\s*\}/g);
+                    for (const r of resourceMatches) {
+                        resources.push({ label: r[1], url: r[2], type: r[3] });
+                    }
+                    existingVideos.push({
+                        id: m[1],
+                        title: m[2].replace(/\\"/g, '"'),
+                        videoId: m[5],
+                        dateStr: m[3],
+                        category: m[4],
+                        resources
+                    });
+                }
+            }
+        }
+
+        const allVideos = [...fullVideos, ...existingVideos];
+
         // Generate TypeScript file contents
         let tsContent = `import { Video } from '../types';\n\nexport const VIDEOS: Video[] = [\n`;
 
-        fullVideos.forEach((v, index) => {
+        allVideos.forEach((v, index) => {
             tsContent += `    {\n`;
             tsContent += `        id: '${index + 1}',\n`;
             tsContent += `        title: ${JSON.stringify(v.title)},\n`;
@@ -113,14 +158,14 @@ async function syncVideos() {
 
             tsContent += `        ]\n`;
             tsContent += `    }`;
-            if (index < fullVideos.length - 1) tsContent += `,`;
+            if (index < allVideos.length - 1) tsContent += `,`;
             tsContent += `\n`;
         });
 
         tsContent += `];\n`;
 
         fs.writeFileSync(DATA_FILE, tsContent, 'utf8');
-        console.log(`Successfully updated ${DATA_FILE} with ${fullVideos.length} videos.`);
+        console.log(`Successfully updated ${DATA_FILE} with ${allVideos.length} videos.`);
 
     } catch (error) {
         console.error('Failed to sync videos:', error);

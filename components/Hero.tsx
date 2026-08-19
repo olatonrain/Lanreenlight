@@ -37,7 +37,7 @@ export const Hero: React.FC = () => {
 
                     <FadeIn delay={800} direction="up">
                         <h1 className="text-5xl md:text-8xl lg:text-9xl font-serif font-medium text-brand-black tracking-tighter leading-[0.9] mb-10 letter-spacing-cinematic">
-                            n8n Automation & <br />
+                            AI Automation & <br />
                             <span className="italic text-brand-accent text-glow">AI Systems</span> That <br />
                             Scale <span className="relative">Your Business
                                 <svg className="absolute -bottom-2 left-0 w-full h-2 text-brand-accent/30" viewBox="0 0 100 10" preserveAspectRatio="none">
@@ -56,7 +56,7 @@ export const Hero: React.FC = () => {
                     <FadeIn delay={1200} direction="up">
                         <div className="flex flex-col sm:flex-row gap-6 items-center">
                             <a href="/guides/n8n-automation" className="group relative px-10 py-4 bg-brand-accent text-white rounded-full font-bold overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-2xl">
-                                <span className="relative z-10 uppercase tracking-widest text-xs">Get the n8n Automation Guide</span>
+                                <span className="relative z-10 uppercase tracking-widest text-xs">Get the AI Automation Guide</span>
                                 <div className="absolute inset-0 bg-gradient-to-r from-yellow-600 to-brand-accent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                             </a>
                             <a href="#knowledge-hub" className="text-xs uppercase tracking-[0.3em] font-bold border-2 border-white/70 px-6 py-3 rounded-full text-white hover:bg-white hover:text-brand-black transition-all duration-300 shadow-lg">

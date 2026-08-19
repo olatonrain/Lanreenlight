@@ -64,10 +64,14 @@ npm run preview
 │   ├── BlogPostPage.tsx     # Individual blog post
 │   ├── FadeIn.tsx           # Scroll-triggered animation wrapper
 │   ├── GuidesLayout.tsx     # Shared pillar page template
-│   ├── N8nGuide.tsx         # n8n Automation pillar page
+│   ├── N8nGuide.tsx         # AI Automation pillar page
 │   ├── VpsGuide.tsx         # VPS Hosting pillar page
 │   ├── TradingGuide.tsx     # Algorithmic Trading pillar page
-│   └── CryptoNodeGuide.tsx  # Crypto Node Operations pillar page
+│   ├── CryptoNodeGuide.tsx  # Crypto Node Operations pillar page
+│   ├── WebDevelopmentGuide.tsx # Full-Stack Web Development pillar page
+│   ├── AppDevelopmentGuide.tsx # App Development pillar page
+│   ├── AgentrouterGuide.tsx    # AgentRouter setup guide (free Claude Code credit)
+│   └── CanonicalLink.tsx    # Dynamic per-route canonical tag
 ├── data/
 │   ├── videos.ts            # YouTube video data (auto-synced)
 │   ├── blog.ts              # Blog posts (static imports)
@@ -93,9 +97,9 @@ npm run preview
 - **Video Hub** — Curated YouTube videos with resource links (affiliate) + quick links to pillar guides
 - **Expert Advisors** — Algorithmic trading systems (Flux Scalper Pro, Orbit Swing, Prop Guard v2)
 - **Blog** — Full blog with dynamic posts from n8n webhook
-- **Pillar Guides** — 4 SEO-optimized authority pages: n8n Automation, VPS Hosting, Algorithmic Trading, Crypto Node Operations
+- **Pillar Guides** — 7 SEO-optimized authority pages: AI Automation, VPS Hosting, Algorithmic Trading, Crypto Node Operations, Web Development, App Development, AgentRouter Setup
 - **SPA Routing** — React Router with Apache `.htaccess` fallback
-- **SEO** — Open Graph / Twitter meta tags, sitemap.xml with all routes
+- **SEO** — Open Graph / Twitter meta tags, sitemap.xml with all routes, dynamic canonical tags per route
 - **Analytics** — GA4 tracking (placeholder — replace ID in `index.html`)
 - **Animations** — Cinematic fade-in on scroll, film grain overlay, glassmorphism nav
 - **Responsive** — Full mobile support with hamburger menu
