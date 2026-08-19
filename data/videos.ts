@@ -3,6 +3,18 @@ import { Video } from '../types';
 export const VIDEOS: Video[] = [
     {
         id: '1',
+        title: "Get Free Claude $200 Credit For Coding Images & Video | Agentrouter",
+        date: 'Aug 19, 2026',
+        category: 'Forex',
+        youtubeId: 'GYvYHpi4DJk',
+        resources: [
+            { label: 'Cheapest VPS', url: 'https://lanreenlight.com/cheapestvps', type: 'affiliate' },
+            { label: 'Best n8n VPS', url: 'https://lanreenlight.com/cheapestn8nvps', type: 'affiliate' },
+            { label: 'Forex Trading', url: 'https://lanreenlight.com/forextrading', type: 'affiliate' }
+        ]
+    },
+    {
+        id: '2',
         title: "AI Courtroom with 11 AI Agents | Codex Legalist (Qwen Hackathon)",
         date: 'Jul 07, 2026',
         category: 'AI Automation',
@@ -11,7 +23,7 @@ export const VIDEOS: Video[] = [
         ]
     },
     {
-        id: '2',
+        id: '3',
         title: "Upwork Freelance intro | Pro Agentic Ai Automation | N8N | Voice Agent | SEO | AEO | Wordpress",
         date: 'Jun 23, 2026',
         category: 'Forex',
@@ -23,7 +35,7 @@ export const VIDEOS: Video[] = [
         ]
     },
     {
-        id: '3',
+        id: '4',
         title: "I built a Multi-agent workflow that connect whatsapp to n8n",
         date: 'Jun 18, 2026',
         category: 'Forex',
@@ -35,7 +47,7 @@ export const VIDEOS: Video[] = [
         ]
     },
     {
-        id: '4',
+        id: '5',
         title: "CHEAPEST openclaw vps setup | How to use Openclaw As a beginner (Part 1)",
         date: 'Feb 21, 2026',
         category: 'Forex',
@@ -47,7 +59,7 @@ export const VIDEOS: Video[] = [
         ]
     },
     {
-        id: '5',
+        id: '6',
         title: "The Confidence Lie: Why AI Bots Keep Hallucinating and Forgetting Instructions #superintelligence",
         date: 'Feb 20, 2026',
         category: 'AI Automation',
@@ -56,7 +68,7 @@ export const VIDEOS: Video[] = [
         ]
     },
     {
-        id: '6',
+        id: '7',
         title: "Developers REACT to Google Antigravity Model Update Features",
         date: 'Feb 20, 2026',
         category: 'Forex',
@@ -68,7 +80,7 @@ export const VIDEOS: Video[] = [
         ]
     },
     {
-        id: '7',
+        id: '8',
         title: "How to Use Openclaw AI Agent like a Pro",
         date: 'Feb 19, 2026',
         category: 'Forex',
@@ -80,7 +92,7 @@ export const VIDEOS: Video[] = [
         ]
     },
     {
-        id: '8',
+        id: '9',
         title: "AI Is Changing Everything in 2026 — The New Updates & Tools",
         date: 'Feb 18, 2026',
         category: 'Forex',
@@ -92,7 +104,7 @@ export const VIDEOS: Video[] = [
         ]
     },
     {
-        id: '9',
+        id: '10',
         title: "N8N VPS Setup Blueprint - Charge Clients $500",
         date: 'Jan 13, 2026',
         category: 'Forex',
@@ -104,7 +116,7 @@ export const VIDEOS: Video[] = [
         ]
     },
     {
-        id: '10',
+        id: '11',
         title: "Is Self-Hosting N8N on a $3.99 VPS a HUGE MISTAKE?",
         date: 'Jan 01, 2026',
         category: 'Forex',
@@ -116,7 +128,7 @@ export const VIDEOS: Video[] = [
         ]
     },
     {
-        id: '11',
+        id: '12',
         title: "How to Use N8N Free Forever - n8n Self-Hosted Guide",
         date: 'Dec 31, 2025',
         category: 'Forex',
@@ -128,7 +140,7 @@ export const VIDEOS: Video[] = [
         ]
     },
     {
-        id: '12',
+        id: '13',
         title: "Automate your Trading using a bot That Made Me $1,023/Month in 2025",
         date: 'Nov 04, 2025',
         category: 'Forex',
@@ -137,25 +149,12 @@ export const VIDEOS: Video[] = [
         ]
     },
     {
-        id: '13',
+        id: '14',
         title: "How I made Bless network paid me $1000 (Costs, Setup & Proof)",
         date: 'Oct 04, 2025',
         category: 'Crypto',
         youtubeId: '2fGFYe4DgR4',
         resources: [
-        ]
-    },
-    {
-        id: '14',
-        title: "Get Free Claude Code $200 Credit For Coding Images & Video | Agentrouter Full Video using Opencode, Claude Cli, Claude App, Antigravity, and Ominiroute + Cheap vps",
-        date: 'Aug 19, 2026',
-        category: 'AI Automation',
-        youtubeId: 'GYvYHpi4DJk',
-        resources: [
-            { label: 'AgentRouter Free Credit', url: 'https://agentrouter.org/register?aff=2CTV', type: 'affiliate' },
-            { label: 'Cheapest VPS', url: 'https://lanreenlight.com/cheapestvps', type: 'affiliate' },
-            { label: 'Best n8n VPS', url: 'https://lanreenlight.com/cheapestn8nvps', type: 'affiliate' },
-            { label: 'Forex Trading', url: 'https://lanreenlight.com/forextrading', type: 'affiliate' }
         ]
     }
 ];
