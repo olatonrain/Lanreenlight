@@ -3,7 +3,7 @@ import { Video } from '../types';
 export const VIDEOS: Video[] = [
     {
         id: '1',
-        title: "Get Free Claude $200 Credit For Coding Images & Video | Agentrouter",
+        title: "Use Claude Code 100% FREE With Opus 5 | Agentrouter",
         date: 'Aug 19, 2026',
         category: 'Forex',
         youtubeId: 'GYvYHpi4DJk',
