@@ -3,7 +3,7 @@ import { Video } from '../types';
 export const VIDEOS: Video[] = [
     {
         id: '1',
-        title: "Use Claude Code 100% FREE With Opus 5 | Agentrouter",
+        title: "5 Step by Step Methods to Use Opus 5 100% FREE  (Agentrouter)",
         date: 'Aug 19, 2026',
         category: 'Forex',
         youtubeId: 'GYvYHpi4DJk',
