@@ -4,6 +4,18 @@
   # Normalize the base
   RewriteBase /
 
+  # Affiliate funnel redirects (YouTube descriptions → referral programs)
+  # /cheapestvps, /cheapestn8nvps, /forexbroker are ALSO configured in HestiaCP server config (those take precedence);
+  # these repo copies are the fallback so the funnel survives a server-config reset
+  RewriteRule ^forextrading/?$ https://lanreenlight.com/forexbroker [R=301,L]
+  RewriteRule ^forexbroker/?$ https://track.deriv.com/_kIunlnHY-5BMjdsyM5hasGNd7ZgqdRLk/1/ [R=302,L]
+  RewriteRule ^cheapestvps/?$ https://www.dpbolvw.net/click-101311044-14573812 [R=301,L]
+  RewriteRule ^cheapestn8nvps/?$ https://www.kqzyfj.com/click-101311044-17183968 [R=301,L]
+  # VPS plan funnel (all plans share one Contabo CJ link until per-plan CJ tracking IDs are created)
+  RewriteRule ^vps6/?$ https://www.dpbolvw.net/click-101311044-14573812 [R=301,L]
+  RewriteRule ^vps8/?$ https://www.dpbolvw.net/click-101311044-14573812 [R=301,L]
+  RewriteRule ^vps12/?$ https://www.dpbolvw.net/click-101311044-14573812 [R=301,L]
+
   # Serve prerendered HTML at extensionless URLs (e.g. /guides/n8n-automation)
   # Must run before the directory check: /blog is both a route and a physical directory
   RewriteCond %{REQUEST_URI} !\.[a-z0-9]+$
