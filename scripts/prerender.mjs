@@ -194,23 +194,31 @@ const run = async () => {
         console.log(`Prerendering ${routes.length} routes…`);
 
         for (const route of routes) {
-            await page.goto(`${ORIGIN}${route}`, { waitUntil: 'networkidle2', timeout: 60000 });
-            await revealAllFadeIns();
-            await new Promise(r => setTimeout(r, 400));
+            try {
+                await page.goto(`${ORIGIN}${route}`, { waitUntil: 'networkidle2', timeout: 60000 });
+                await revealAllFadeIns();
+                await new Promise(r => setTimeout(r, 400));
 
-            const html = await page.content();
-            const htmlPath = route === '/' ? path.join(DIST, 'index.html') : path.join(DIST, `${route}.html`);
-            await mkdir(path.dirname(htmlPath), { recursive: true });
-            await writeFile(htmlPath, html);
-
-            if (route !== '/') {
-                const markdown = await extractMarkdown();
-                if (markdown) {
-                    const mdPath = path.join(DIST, `${route}.md`);
-                    await writeFile(mdPath, `# ${await page.title()}\n\nSource: https://lanreenlight.com${route}\n\n${markdown}\n`);
+                const html = await page.content();
+                const htmlPath = route === '/' ? path.join(DIST, 'index.html') : path.join(DIST, `${route}.html`);
+                await mkdir(path.dirname(htmlPath), { recursive: true });
+                await writeFile(htmlPath, html);
+                if (route === '/blog') {
+                    await mkdir(path.join(DIST, 'blog'), { recursive: true });
+                    await writeFile(path.join(DIST, 'blog', 'index.html'), html);
                 }
+
+                if (route !== '/') {
+                    const markdown = await extractMarkdown();
+                    if (markdown) {
+                        const mdPath = path.join(DIST, `${route}.md`);
+                        await writeFile(mdPath, `# ${await page.title()}\n\nSource: https://lanreenlight.com${route}\n\n${markdown}\n`);
+                    }
+                }
+                console.log(`  ✓ ${route}`);
+            } catch (err) {
+                console.warn(`  ✗ ${route}: ${err.message}`);
             }
-            console.log(`  ✓ ${route}`);
         }
 
         console.log('Prerender complete.');
