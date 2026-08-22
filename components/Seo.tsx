@@ -50,6 +50,7 @@ export const Seo: React.FC<SeoProps> = ({
             document.head.appendChild(canonical);
         }
         canonical.href = url;
+        canonical.setAttribute('data-page', 'true');
 
         document.querySelectorAll('script[data-page-jsonld]').forEach(script => script.remove());
         jsonLd.forEach(block => {

@@ -60,12 +60,12 @@ export const Blog = () => {
             <Seo
                 title="Blog — AI Automation, VPS & Trading Deep Dives | Lanre"
                 description="Deep dives into AI automation with n8n, VPS infrastructure, crypto nodes, and algorithmic trading — converted directly from technical video breakdowns."
-                path="/blog"
+                path="/blog/"
                 jsonLd={[
                     collectionSchema(
                         'The Digital Laboratory Log',
                         'Deep dives into automation, node infrastructure, and market mechanics.',
-                        'https://lanreenlight.com/blog',
+                        'https://lanreenlight.com/blog/',
                         posts.map(post => ({ name: post.title, path: `/blog/${post.id}` }))
                     ),
                 ]}

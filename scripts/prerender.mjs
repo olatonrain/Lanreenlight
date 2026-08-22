@@ -51,7 +51,8 @@ const startServer = () =>
 
 const getRoutes = async () => {
     const xml = await readFile(SITEMAP, 'utf8');
-    return [...xml.matchAll(/<loc>https:\/\/lanreenlight\.com([^<]*)<\/loc>/g)].map(m => m[1] || '/');
+    return [...xml.matchAll(/<loc>https:\/\/lanreenlight\.com([^<]*)<\/loc>/g)]
+        .map(m => (m[1] === '' || m[1] === '/' ? '/' : m[1].replace(/\/+$/, '')));
 };
 
 const revealAllFadeIns = () =>

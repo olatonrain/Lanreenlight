@@ -7,6 +7,7 @@ export const CanonicalLink: React.FC = () => {
 
     useEffect(() => {
         let link = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
+        if (link?.hasAttribute('data-page')) return;
         const canonicalUrl = `https://lanreenlight.com${location.pathname}`;
 
         if (link) {
