@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# YouTube channel-ops working files (backups contain full descriptions; plans are applied via API)
+youtube-fixes/
