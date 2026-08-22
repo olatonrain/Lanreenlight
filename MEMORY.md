@@ -2,7 +2,61 @@
 
 Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 
-<!-- agent-updated: 2026-08-22 — SEO/AEO/GEO unblock: prerendering, per-page meta, schema, robots/llms.txt -->
+<!-- agent-updated: 2026-08-22 — YouTube analytics deep-dive logged: referral-first strategy (Contabo VPS 6/8/12, Deriv, OmniRoute) -->
+
+---
+
+## 2026-08-22 — YouTube analytics deep-dive: referral-first content strategy
+
+### Last Session
+2026-08-22 — SEO/AEO/GEO unblock: prerendering, per-page meta, schema, robots/llms.txt
+
+### Done
+- Analyzed user's 18-page YouTube Analytics export (source PDF: `~/Downloads/@YouTube Analytics @YouTube Data How will i know t.pdf`)
+- Channel: Lanre Enlight — 742 subs, 80 videos, ~39.8K total views, YT monetization disabled → ALL revenue is referral-based (Contabo via CJ affiliate anrdoezrs.net, Deriv, AgentRouter aff=2CTV, node/airdrop programs)
+- Key channel data logged: YT_SEARCH drives 28,508 views (dominant source); EXT_URL weakest (964 views — site underused); related-video traffic has best watch time (252s); card clicks ≈ zero across channel — affiliate links only in descriptions
+- Proven conversion pattern: "earning-opportunity video where the VPS is the required unlock" (InitVerse Node 463 views/7 subs, OpenClaw VPS 476 views — the only 2 Contabo-linked videos >400 views). Generic "cheap VPS review" format has worst retention (9.1%)
+- Title formula that works: free/cheap + concrete dollar figure + mainstream search demand (top video: off-niche "Renew Apple Music free" 19,120 views, 67.3% retention)
+- Money batch (ICN→Multipl range): Nodepay PC wallet video best (1,542 views, 29 shares); Glacier best sub-rate (2.6%); only InitVerse video carried a Contabo link — it made the referral money
+- Skills used: content-creator + content-marketer
+
+**Public channel audit + funnel repair (2026-08-22 session 2, API key live):**
+- User's Deriv funnel confirmed: `lanreenlight.com/forexbroker` → 302 → `track.deriv.com/_kIunlnHY-5BMjdsyM5hasGNd7ZgqdRLk/1/` → Deriv signup (affiliate_279729) — configured in HestiaCP server config
+- `.env.local` created with `YOUTUBE_API_KEY` (was malformed space-separated — fixed to `=` syntax; gitignored via `*.local`)
+- **REPAIRED: `public/.htaccess` now redirects `/forextrading` → `/forexbroker` (301)** — was rendering NotFound; 13 videos + 5 site resource links in `data/videos.ts` used the dead path
+- `.htaccess` also mirrors server-side redirects in-repo (`/cheapestvps`, `/cheapestn8nvps`, `/forexbroker`) as fallback + adds `/vps6` `/vps8` `/vps12` → Contabo CJ link (single link until per-plan CJ tracking IDs exist — plan-level attribution only via server access logs)
+- Built `scripts/youtube-audit.mjs` (YouTube Data API v3, host-allowlisted fetch, key from `.env.local`, never printed): channel stats, full 80-video catalog, link-coverage, chapter/placeholder/title checks — rerun anytime with `node scripts/youtube-audit.mjs`
+- **Audit headline results:** top 9 videos = ~33K views (83% of channel) have NO links in descriptions at all (incl. MT4 iPhone video 1,452v — pure trading-intent audience, zero Deriv CTA); agentrouter direct link in 0/80 videos; contaboRedirect 13/80, deriv 10/80, cjDirect 4/80; ~15 junk "15 August 2023" auto-titled videos (5–39v, no links) cluttering catalog; most 10min+ videos lack chapters; OpenClaw video still has "(link in description)" placeholder text
+
+**Earlier same-day findings (pre-API-key, public checks):**
+- Channel branding solid ("Digital Laboratory / servers into income", Nigeria, links: lanreenlight.com, Instagram, LinkedIn)
+- `/forextrading` Deriv funnel found broken (NotFound page) — **FIXED this session via .htaccess redirect (see above)**
+- `/cheapestvps` → 301 → CJ `dpbolvw.net/click-101311044-14573812` and `/cheapestn8nvps` → 301 → CJ `kqzyfj.com/click-101311044-17183968` — verified working live (HestiaCP server config); now mirrored in repo `.htaccess`
+- OpenClaw Contabo video (476 views, OTouLWgvV7U): description contains placeholder "Get Contabo VPS for OpenClaw (link in description)" instead of direct link; promised "next video: OpenClaw config + JSON + monthly API spending" NEVER shipped (RSS: no follow-up exists); spec text (2 vCPU/8GB/400GB) outdated vs current Contabo lineup
+- AgentRouter video (GYvYHpi4DJk, 8 views, 31:07): no chapters/timestamps; "free forever" overpromise vs credit model; desc says $200 credit, video says $175/$125 — inconsistent; referral only via site guide (extra click) — no direct agentrouter.org/register?aff=2CTV link in description
+- Upload cadence broken: zero uploads Mar–May 2026; Feb 20-21 generic AI hashtag-commentary videos (8–27 views) diluted channel; last 4 videos (June–Aug) are B2B/generic (8–16 views) — audience mismatch per PDF diagnosis
+- Live-site checks: /guides/agentrouter-setup serves prerendered 200 correctly
+
+### Decisions
+- **Core strategy: 3-tier Contabo funnel** — VPS 6 = "Start" (entry, first AI gateway), VPS 8 = "Grow" (PRIMARY product, freelancer/agency stack), VPS 12 = "Scale" (production/multi-client). Plan-based video series + playlist with natural upgrade path; separate tracking URLs `/vps6` `/vps8` `/vps12`; never claim all plans suit everything — give a simple decision rule per workload
+- **Next video: "How to Host OmniRoute and n8n 24/7 on Contabo VPS 6"** — counter-programs competitor video A4ykehVQK9c (local-only install) with always-on VPS angle: PM2 persistence, port 20128, /v1 endpoint, free providers (Kiro, Qoder, Pollinations, NVIDIA NIM, Cloudflare AI), Contabo CTA at ~2:30 timestamp
+- Second validated concept: "Deriv Volatility 75 bot 24/7 on a $5 Contabo VPS" — free demo funnel, stitches Deriv + Contabo referrals; avoid saturated "best forex VPS" comparison angle
+- Referral mechanics standard for every video: YouTube card at sign-up/checkout timestamps, end screen chaining (related-video viewers watch longest), pinned comment with links, companion page with copy-paste commands, affiliate disclosure
+- Honest positioning rule: don't promise VPS = income or unlimited free AI; sell plans on total workload (OmniRoute needs only ~2 vCPU/2GB — headroom is for n8n + Docker + clients)
+
+### Next Steps
+- **YouTube quick wins for user (highest ROI, in order):** (1) add Deriv + site links to the MT4 iPhone video description (1,452v trading-intent, zero CTA); (2) add any CTA/site link to the other top no-link videos (Apple Music 19K, Instagram 3K, ChatGPT 2.4K, Canva 2.2K, Nodepay 1.5K); (3) fix OpenClaw placeholder text + add direct Contabo link; (4) add direct agentrouter.org/register?aff=2CTV to AgentRouter video + chapters; (5) unlist the ~15 junk "15 August 2023" videos; (6) deliver promised OpenClaw part-2; (7) 2-week cadence into VPS 6/8/12 series
+- Site: `/vps6` `/vps8` `/vps12` redirects live already — full landing pages still to build if strategy wants content there (currently redirect straight to Contabo)
+- Site: OmniRoute companion guide (like AgentRouter guide) holding Docker Compose + PM2 commands — video description/pinned comment links here, converting EXT_URL weakness into funnel
+- Site: downloadable command sheets per plan (lead magnets) + email capture — biggest missing revenue loop
+- Site: Deriv bot section pairing with TradingGuide pillar when that video ships
+- YouTube: create per-plan CJ tracking IDs in CJ account so /vps6 /vps8 /vps12 get revenue-level attribution (currently one shared link; plan counts only via server access logs)
+- Replace GA4 placeholder (`GA_ID` in index.html) — funnel measurement still blind without it
+
+### Blockers & Open Questions
+- GA4 ID still placeholder — cannot measure YouTube→site→referral funnel until replaced
+- Per-plan Contabo CJ tracking IDs don't exist yet — user must create them in CJ Affiliate dashboard
+- API key is read-only public scope (no retention/traffic-source/card-click data) — private YouTube Studio data still requires periodic manual exports (CSV/PDF) or future OAuth setup
 
 ---
 
