@@ -44,7 +44,7 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 - Tailwind CDN + Font Awesome CDN still runtime-loaded (LCP risk; PostCSS migration deferred)
 - n8n webhook for blog publishing still unverified
 
-**Deploy verified 2026-08-22:** CI run 32551124066 prerendered all 11 routes on the runner and deployed; live checks confirmed `/guides/n8n-automation` serves prerendered HTML (unique title + FAQ content in first byte), robots.txt / llms.txt / .md mirrors all 200.
+**Deploy verified 2026-08-22:** CI runs 32551124066 / 32553103251 / 32553388193 prerendered all routes on the runner and deployed; live checks confirmed guides serve prerendered HTML (unique titles + FAQ content in first byte), robots.txt / llms.txt / .md mirrors all 200. One follow-up fix: `/blog` 301s to `/blog/` (Apache DirectorySlash wins over .htaccess rewrite because dist/blog/ is a physical directory) — resolved by adopting `/blog/` as the canonical URL in sitemap.xml, llms.txt, and Blog Seo/schema; page-level Seo now owns the canonical tag (`data-page` marker, CanonicalLink defers).
 
 ---
 
