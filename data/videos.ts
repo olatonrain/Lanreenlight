@@ -16,7 +16,7 @@ export const VIDEOS: Video[] = [
     {
         id: '2',
         title: "AI Courtroom with 11 AI Agents | Codex Legalist (Qwen Hackathon)",
-        date: 'Jul 08, 2026',
+        date: 'Jul 07, 2026',
         category: 'AI Automation',
         youtubeId: 'hwRAtOsYiWk',
         resources: [
