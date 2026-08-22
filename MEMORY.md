@@ -32,19 +32,19 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 - Puppeteer devDependency; build never fails on prerender errors (warn + exit 0)
 
 ### Next Steps
-- Push to main → GitHub Actions deploys → verify live: `curl https://lanreenlight.com/guides/n8n-automation` returns prerendered HTML with title/canonical/schema
 - Submit sitemap in Google Search Console + URL-inspect/request indexing for all 11 URLs
 - Replace GA4 placeholder (`GA_ID` in index.html) with real measurement ID and link GSC ↔ GA4
 - Validate schema in Google Rich Results Test (FAQPage on guides)
-- Check `/robots.txt`, `/llms.txt`, `/guides/n8n-automation.md` resolve live (rewrite rule works on HestiaCP Apache)
-- Watch CI deploy: if puppeteer Chrome download fails on runner, prerender falls back to SPA shell (site still works) — fix by adding `npx puppeteer browsers install chrome` step if needed
 - Monitor GSC impressions over 2–4 weeks; target first impressions on "n8n tutorial", "cheapest VPS", "agentrouter" clusters
+- Tailwind/Font Awesome CDN → self-hosted builds (LCP improvement)
 
 ### Blockers & Open Questions
 - GA4 ID still placeholder (loader now skips gracefully — replace `GA_ID` in index.html)
-- CI runner untested with puppeteer (graceful fallback in place, but prerendered SEO is lost if browser install fails there) <!-- TODO: verify after first deploy -->
+- Compression/caching headers not observed on live homepage — mod_deflate/mod_expires may be disabled in HestiaCP Apache (IfModule guards prevent errors; enable modules server-side if possible) <!-- TODO: verify -->
 - Tailwind CDN + Font Awesome CDN still runtime-loaded (LCP risk; PostCSS migration deferred)
 - n8n webhook for blog publishing still unverified
+
+**Deploy verified 2026-08-22:** CI run 32551124066 prerendered all 11 routes on the runner and deployed; live checks confirmed `/guides/n8n-automation` serves prerendered HTML (unique title + FAQ content in first byte), robots.txt / llms.txt / .md mirrors all 200.
 
 ---
 
