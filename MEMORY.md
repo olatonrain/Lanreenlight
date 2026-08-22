@@ -56,6 +56,13 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 - `videos.ts` resynced — AgentRouter Free Credit affiliate resource now renders on site hub
 - Remaining manual: chapters for AgentRouter 31min + OpenClaw 14min videos (YouTube Studio); per-plan CJ IDs; GA4 real ID
 
+**Session 5 — affiliate-link clarification + GA4 instructions (2026-08-22):**
+- USER CLARIFIED: all Contabo VPS plans share ONE destination — there are NO per-plan links. Differentiation is by use-case paths, each with its own CJ link ID (attribution works per-link in CJ): `/cheapestvps` → dpbolvw 14573812 (generic), `/cheapestn8nvps` → kqzyfj 17183968, `/cheapest-openclaw-vps` → kqzyfj 17245853. "Per-plan CJ tracking IDs" next-step is MOOT — removed
+- `/cheapest-openclaw-vps` verified working (server-side 301) and mirrored into repo `.htaccess`
+- OpenClaw video description updated again: link switched from generic `/cheapestvps` to dedicated `/cheapest-openclaw-vps`
+- `/vps6` `/vps8` `/vps12` redirects kept (all → generic Contabo CJ link — consistent with user's model; harmless, usable in video CTAs if wanted)
+- GA4 setup instructions given to user (analytics.google.com → property → web stream → G-XXXXXXXXXX); ID still pending
+
 ### Decisions
 - **Core strategy: 3-tier Contabo funnel** — VPS 6 = "Start" (entry, first AI gateway), VPS 8 = "Grow" (PRIMARY product, freelancer/agency stack), VPS 12 = "Scale" (production/multi-client). Plan-based video series + playlist with natural upgrade path; separate tracking URLs `/vps6` `/vps8` `/vps12`; never claim all plans suit everything — give a simple decision rule per workload
 - **Next video: "How to Host OmniRoute and n8n 24/7 on Contabo VPS 6"** — counter-programs competitor video A4ykehVQK9c (local-only install) with always-on VPS angle: PM2 persistence, port 20128, /v1 endpoint, free providers (Kiro, Qoder, Pollinations, NVIDIA NIM, Cloudflare AI), Contabo CTA at ~2:30 timestamp

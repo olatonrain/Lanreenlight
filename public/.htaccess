@@ -11,6 +11,7 @@
   RewriteRule ^forexbroker/?$ https://track.deriv.com/_kIunlnHY-5BMjdsyM5hasGNd7ZgqdRLk/1/ [R=302,L]
   RewriteRule ^cheapestvps/?$ https://www.dpbolvw.net/click-101311044-14573812 [R=301,L]
   RewriteRule ^cheapestn8nvps/?$ https://www.kqzyfj.com/click-101311044-17183968 [R=301,L]
+  RewriteRule ^cheapest-openclaw-vps/?$ https://www.kqzyfj.com/click-101311044-17245853 [R=301,L]
   # VPS plan funnel (all plans share one Contabo CJ link until per-plan CJ tracking IDs are created)
   RewriteRule ^vps6/?$ https://www.dpbolvw.net/click-101311044-14573812 [R=301,L]
   RewriteRule ^vps8/?$ https://www.dpbolvw.net/click-101311044-14573812 [R=301,L]
