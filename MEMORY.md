@@ -63,6 +63,10 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 - `/vps6` `/vps8` `/vps12` redirects kept (all → generic Contabo CJ link — consistent with user's model; harmless, usable in video CTAs if wanted)
 - GA4 setup instructions given to user (analytics.google.com → property → web stream → G-XXXXXXXXXX); ID still pending
 
+**Session 6 — GA4 LIVE (2026-08-22):**
+- User provided GA4 Measurement ID `G-XMN0TFX6BM` → wired into `index.html` (placeholder no-op branch removed from active path), build verified, deployed (`ed6d999`), **live tag confirmed on homepage**. Analytics unblocked after 6 weeks of placeholder
+- Site funnel (YouTube → site → affiliate redirects) is now measurable; affiliate redirects themselves are server-side 301/302 (GA4 won't fire on them — measure via landing pages + CJ dashboard instead)
+
 ### Decisions
 - **Core strategy: 3-tier Contabo funnel** — VPS 6 = "Start" (entry, first AI gateway), VPS 8 = "Grow" (PRIMARY product, freelancer/agency stack), VPS 12 = "Scale" (production/multi-client). Plan-based video series + playlist with natural upgrade path; separate tracking URLs `/vps6` `/vps8` `/vps12`; never claim all plans suit everything — give a simple decision rule per workload
 - **Next video: "How to Host OmniRoute and n8n 24/7 on Contabo VPS 6"** — counter-programs competitor video A4ykehVQK9c (local-only install) with always-on VPS angle: PM2 persistence, port 20128, /v1 endpoint, free providers (Kiro, Qoder, Pollinations, NVIDIA NIM, Cloudflare AI), Contabo CTA at ~2:30 timestamp
