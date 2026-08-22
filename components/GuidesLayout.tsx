@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { FadeIn } from './FadeIn';
 import { Link } from 'react-router-dom';
+import { Seo } from './Seo';
+import { articleSchema, breadcrumbSchema, faqSchema } from '../data/schema';
 
 interface GuideSection {
     title: string;
@@ -19,6 +21,9 @@ interface GuidesLayoutProps {
     ctaLink: string;
     ctaLabel: string;
     relatedGuides: { title: string; link: string; description: string }[];
+    path: string;
+    seoTitle?: string;
+    seoDescription?: string;
 }
 
 export const GuidesLayout: React.FC<GuidesLayoutProps> = ({
@@ -33,6 +38,9 @@ export const GuidesLayout: React.FC<GuidesLayoutProps> = ({
     ctaLink,
     ctaLabel,
     relatedGuides,
+    path,
+    seoTitle,
+    seoDescription,
 }) => {
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -40,6 +48,20 @@ export const GuidesLayout: React.FC<GuidesLayoutProps> = ({
 
     return (
         <div className="bg-brand-white min-h-screen pt-32 pb-20">
+            <Seo
+                title={seoTitle ? `${seoTitle} | Lanre` : `${title} | Lanre`}
+                description={seoDescription || subtitle}
+                path={path}
+                ogType="article"
+                jsonLd={[
+                    articleSchema(seoTitle || title, seoDescription || subtitle, `https://lanreenlight.com${path}`),
+                    faqSchema(faqs),
+                    breadcrumbSchema([
+                        { name: 'Home', path: '/' },
+                        { name: title, path },
+                    ]),
+                ]}
+            />
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <FadeIn>
                     <div className="inline-flex items-center px-3 py-1 rounded-full border border-brand-accent/30 bg-brand-accent/5 text-brand-accent text-sm font-medium mb-6">

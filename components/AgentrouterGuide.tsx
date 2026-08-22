@@ -5,6 +5,9 @@ export const AgentrouterGuide: React.FC = () => {
     return (
         <GuidesLayout
             eyebrow="AI Coding Agents Guide"
+            path="/guides/agentrouter-setup"
+            seoTitle="AgentRouter Setup: Free Claude Code Credit (5 Methods)"
+            seoDescription="Set up AgentRouter — a free OpenAI/Anthropic-compatible API gateway — with OpenCode, Claude CLI, Claude App, Google Antigravity, or OmniRoute on a VPS. One key routes to Claude, GPT & DeepSeek."
             title="AgentRouter Setup: Get Claude Code Working for Free (5 Methods)"
             subtitle="Learn how to set up AgentRouter — a free, OpenAI- and Anthropic-compatible API gateway — with OpenCode, Claude CLI, Claude App, Google Antigravity, and OmniRoute on a cheap VPS. One API key routes to Claude, GPT, DeepSeek, and more."
             intro="AgentRouter is a unified API gateway that sits between your coding agents and dozens of AI model providers. Instead of configuring Claude, GPT, and DeepSeek separately, you point every tool at AgentRouter with one API key — and it routes each request to the best available model. This guide walks through the five setup methods I show in the video: OpenCode, Claude CLI, Claude App, Google Antigravity, and OmniRoute on a cheap VPS. Get your free $200 Claude Code credit when you register."

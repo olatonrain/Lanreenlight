@@ -5,6 +5,9 @@ export const TradingGuide: React.FC = () => {
     return (
         <GuidesLayout
             eyebrow="Forex Trading Bot Guide"
+            path="/guides/algorithmic-trading"
+            seoTitle="Forex Trading Bots: MT5 Expert Advisors & Prop Firms"
+            seoDescription="How forex trading bots work, how to pick an MT5 Expert Advisor that isn't a scam, pass prop firm challenges with an EA, and run bots 24/7 on a VPS."
             title="Forex Trading Bots: MT5 Expert Advisors That Actually Work"
             subtitle="Learn how forex trading bots (Expert Advisors) work, how to choose the right MT5 EA, how to pass prop firm challenges, and how to deploy bots on a VPS for 24/7 automated trading."
             intro="A forex trading bot, more precisely an Expert Advisor (EA), is an automated program that executes trades on MetaTrader 4 or 5 based on predefined rules. It removes emotion, follows your strategy precisely, and can run 24/7 on a VPS. This guide explains how they work, what separates profitable EAs from scams, and how I build and run them for consistent returns."

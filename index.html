@@ -24,13 +24,20 @@
         content="Architecting AI-powered systems that scale businesses with zero headcount growth.">
     <meta property="twitter:image" content="https://lanreenlight.com/lanre.jpg">
 
-    <!-- GA4 Tracking (Placeholder - replace with actual ID as needed) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <!-- GA4 Tracking — replace GA_ID below with the real measurement ID -->
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-XXXXXXXXXX');
+        (function () {
+            var GA_ID = 'G-XXXXXXXXXX';
+            if (GA_ID === 'G-XXXXXXXXXX') return;
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+            document.head.appendChild(s);
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', GA_ID);
+        })();
     </script>
 
     <!-- Tailwind CSS -->
@@ -227,15 +234,6 @@
             color: #52525b;
         }
     </style>
-    <script type="importmap">
-{
-  "imports": {
-    "react/": "https://aistudiocdn.com/react@^19.2.1/",
-    "react": "https://aistudiocdn.com/react@^19.2.1",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/"
-  }
-}
-</script>
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌐</text></svg>">
 </head>

@@ -6,6 +6,9 @@ export const WebDevelopmentGuide: React.FC = () => {
     return (
         <GuidesLayout
             eyebrow="Web Development Guide"
+            path="/guides/web-development"
+            seoTitle={`Full-Stack Web Development Guide ${currentYear}`}
+            seoDescription="Build production web apps: choose the right stack (React, Next.js, Vite), design APIs and databases, deploy to a VPS, and optimize Core Web Vitals — from 30+ shipped apps."
             title={`Full-Stack Web Development Guide: Build, Launch, and Scale`}
             subtitle="Learn how to build production web applications in ${currentYear} — choosing the right stack (React, Next.js, Vite), backend architecture (Node, Python, PHP), database design, deployment, and performance optimization."
             intro={`A production web application is a complete system: frontend, backend, database, hosting, and monitoring. This guide covers the full lifecycle — from picking a stack that matches your business, to deploying on a VPS and scaling past 100,000 monthly users. I've built 30+ production applications with this exact blueprint, serving 100K+ MAU.`}

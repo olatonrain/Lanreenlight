@@ -1,0 +1,23 @@
+# Lanreenlight
+
+> Lanreenlight is the portfolio and knowledge hub of Lanre, an AI Automation & Systems Engineer (founder of MetroHyp Digital) who builds revenue-generating systems with n8n, Python, VPS infrastructure, trading bots, and blockchain nodes. The site publishes in-depth guides, a video library, and a blog covering six topic clusters.
+
+## Guides
+
+- [n8n Tutorial: Self-Host on a VPS + AI Agents](https://lanreenlight.com/guides/n8n-automation): Building n8n workflows, Docker self-hosting on a cheap VPS, AI agent integration (OpenAI, Groq, OpenRouter), and n8n vs Zapier vs Make — [markdown](https://lanreenlight.com/guides/n8n-automation.md)
+- [Cheapest VPS Hosting: Budget Server Guide](https://lanreenlight.com/guides/vps-hosting-guide): VPS pricing and spec comparison for n8n, trading bots, crypto nodes, and web apps, plus setup and security checklists — [markdown](https://lanreenlight.com/guides/vps-hosting-guide.md)
+- [Forex Trading Bots: MT5 Expert Advisors & Prop Firms](https://lanreenlight.com/guides/algorithmic-trading): How Expert Advisors work, choosing EAs that aren't scams, passing prop firm challenges, and running bots 24/7 on a VPS — [markdown](https://lanreenlight.com/guides/algorithmic-trading.md)
+- [Crypto Node Passive Income: DePIN Setup Guide](https://lanreenlight.com/guides/crypto-node-ops): Running DePIN and validator nodes for passive income on cheap VPS hardware, from an operator running nodes since 2020 — [markdown](https://lanreenlight.com/guides/crypto-node-ops.md)
+- [Full-Stack Web Development Guide](https://lanreenlight.com/guides/web-development): Stack selection (React, Next.js, Vite), backend architecture, database design, VPS deployment, and Core Web Vitals — [markdown](https://lanreenlight.com/guides/web-development.md)
+- [App Development Guide: Idea to App Store](https://lanreenlight.com/guides/app-development): PWA vs native, React Native vs Flutter, app store optimization, monetization, and launch strategy — [markdown](https://lanreenlight.com/guides/app-development.md)
+- [AgentRouter Setup: Free Claude Code Credit](https://lanreenlight.com/guides/agentrouter-setup): Setting up the AgentRouter API gateway with OpenCode, Claude CLI, Claude App, Google Antigravity, and OmniRoute on a VPS — [markdown](https://lanreenlight.com/guides/agentrouter-setup.md)
+
+## Blog
+
+- [Blog index](https://lanreenlight.com/blog): Deep dives into automation, node infrastructure, and market mechanics
+- [The Shift: Why I Left Traditional Marketing](https://lanreenlight.com/blog/the-shift-why-i-left-traditional-marketing): From ROI-driven campaigns to autonomous systems — why the future belongs to builders
+- [From Digital Marketer to AI Architect](https://lanreenlight.com/blog/from-digital-marketer-to-ai-architect): The transition path from marketing to building AI systems
+
+## About
+
+- [Home](https://lanreenlight.com/): Portfolio, expertise, video hub, and contact for AI automation engineering work with n8n, Python, and cloud infrastructure

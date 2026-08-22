@@ -6,6 +6,9 @@ export const AppDevelopmentGuide: React.FC = () => {
     return (
         <GuidesLayout
             eyebrow="App Development Guide"
+            path="/guides/app-development"
+            seoTitle={`App Development Guide ${currentYear}: Idea to App Store`}
+            seoDescription="Ship mobile apps: PWA vs native, React Native vs Flutter, app store optimization, monetization, and launch strategy — built on the same API-first architecture as your web app."
             title={`App Development Guide: From Idea to App Store`}
             subtitle="Learn how to develop, launch, and monetize mobile apps in ${currentYear} — choosing between React Native, Flutter, and native; building a PWA first; app store optimization (ASO); and monetization strategies."
             intro={`An app is a product, not just code. This guide walks the full journey: validating your idea, choosing the right framework (React Native, Flutter, or native), building a cross-platform MVP, getting approved on the App Store and Google Play, and monetizing sustainably. I apply the same clean-architecture, API-first principles I use for web apps — the result is apps that ship faster and cost less to maintain.`}

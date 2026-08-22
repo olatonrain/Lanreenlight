@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { BlogPost } from '../data/blog';
 import { FadeIn } from './FadeIn';
+import { Seo } from './Seo';
+import { articleSchema, breadcrumbSchema } from '../data/schema';
 
 const loadPost = async (id: string): Promise<BlogPost | null> => {
     // 1. Try loading from JSON files
@@ -41,14 +43,6 @@ export const BlogPostPage = () => {
         loadPost(id).then(data => {
             setPost(data);
             setLoading(false);
-            if (data) {
-                document.title = `${data.title} | Lanre Knowledge Hub`;
-                // Add meta description update if possible
-                const metaDescription = document.querySelector('meta[name="description"]');
-                if (metaDescription) {
-                    metaDescription.setAttribute('content', data.excerpt || data.title);
-                }
-            }
         });
     }, [id]);
 
@@ -71,6 +65,21 @@ export const BlogPostPage = () => {
 
     return (
         <article className="min-h-screen bg-brand-white pt-32 pb-20">
+            <Seo
+                title={`${post.title} | Lanre`}
+                description={post.excerpt || post.title}
+                path={`/blog/${post.id}`}
+                ogType="article"
+                ogImage={post.imageUrl}
+                jsonLd={[
+                    articleSchema(post.title, post.excerpt || post.title, `https://lanreenlight.com/blog/${post.id}`, post.date),
+                    breadcrumbSchema([
+                        { name: 'Home', path: '/' },
+                        { name: 'Blog', path: '/blog' },
+                        { name: post.title, path: `/blog/${post.id}` },
+                    ]),
+                ]}
+            />
             {/* Hero Image */}
             <div className="w-full h-[40vh] md:h-[50vh] relative mb-16 overflow-hidden">
                 <img

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FadeIn } from './FadeIn';
+import { Seo } from './Seo';
+import { collectionSchema } from '../data/schema';
 import { BLOG_POSTS as STATIC_POSTS, BlogPost } from '../data/blog';
 
 // Helper to load dynamic posts
@@ -55,6 +57,19 @@ export const Blog = () => {
 
     return (
         <div className="py-24 bg-brand-white min-h-screen">
+            <Seo
+                title="Blog — AI Automation, VPS & Trading Deep Dives | Lanre"
+                description="Deep dives into AI automation with n8n, VPS infrastructure, crypto nodes, and algorithmic trading — converted directly from technical video breakdowns."
+                path="/blog"
+                jsonLd={[
+                    collectionSchema(
+                        'The Digital Laboratory Log',
+                        'Deep dives into automation, node infrastructure, and market mechanics.',
+                        'https://lanreenlight.com/blog',
+                        posts.map(post => ({ name: post.title, path: `/blog/${post.id}` }))
+                    ),
+                ]}
+            />
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
                     <FadeIn delay={0} direction="down">

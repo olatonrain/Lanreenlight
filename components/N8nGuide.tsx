@@ -6,6 +6,9 @@ export const N8nGuide: React.FC = () => {
     return (
         <GuidesLayout
             eyebrow="AI Workflow Automation Guide"
+            path="/guides/n8n-automation"
+            seoTitle="n8n Tutorial: Self-Host on a VPS + AI Agents (2026)"
+            seoDescription="Complete n8n tutorial: build workflows, self-host n8n on a cheap VPS with Docker, add AI agents (OpenAI, Groq, OpenRouter), and replace Zapier at 1/10th the cost."
             title="AI Automation Guide: From Zero to Production Workflows"
             subtitle="Learn how to build n8n workflows, self-host n8n on your own VPS, integrate AI agents (LangChain, OpenRouter, Groq), and automate your business processes — no code required."
             intro="n8n is the most popular open-source workflow automation platform for technical teams, with 400+ integrations and full AI support. This guide covers everything from your first n8n tutorial to production-grade self-hosted automation running 24/7 on your own infrastructure."

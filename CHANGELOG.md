@@ -4,6 +4,34 @@ Date-based, category-tagged entries. Categories: Added, Fixed, Changed, Removed.
 
 ---
 
+2026-08-22
+
+Added
+- Build-time prerendering (`scripts/prerender.mjs`, puppeteer) — every sitemap route ships as full static HTML with content, titles, canonicals, and schema in the first byte; also generates markdown mirrors (`.md`) of every guide and blog page for AI/LLM crawlers
+- `components/Seo.tsx` — per-page title, meta description, Open Graph, Twitter tags, and JSON-LD injection
+- `data/schema.ts` — schema.org helpers: Person, WebSite, Article, FAQPage, BreadcrumbList, CollectionPage
+- `components/NotFound.tsx` — catch-all 404 route (was homepage soft-404)
+- `public/robots.txt` — sitemap reference + explicit allow rules for AI crawlers (GPTBot, ClaudeBot, PerplexityBot, Google-Extended, CCBot, etc.)
+- `public/llms.txt` — LLM-discoverable site overview linking all guides (with markdown mirrors) and blog posts
+- JSON-LD on every page type: Person + WebSite (home), Article + FAQPage + BreadcrumbList (guides), Article + BreadcrumbList (blog posts), CollectionPage (blog index)
+- `.htaccess` — extensionless→`.html` rewrite for prerendered files, mod_deflate compression, mod_expires caching headers
+
+Changed
+- `package.json` — `npm run build` now runs `vite build && node scripts/prerender.mjs`; puppeteer added as dev dependency (graceful fallback to SPA shell if browser unavailable, e.g. CI)
+- All 7 guides + blog pages — unique keyword-targeted titles and meta descriptions via Seo/GuidesLayout props (`seoTitle`, `seoDescription`, `path`)
+- `App.tsx` — route-level code splitting (React.lazy + Suspense), homepage Person/WebSite schema, catch-all 404 route
+- `BlogPostPage.tsx` — manual title/description mutation replaced with Seo component + Article schema
+- `public/sitemap.xml` — refreshed lastmod dates (2026-08-22)
+- `index.html` — GA4 loader now no-ops while the measurement ID is a placeholder; removed dead aistudiocdn importmap
+
+Fixed
+- Canonical tags now present in initial HTML per route (captured by prerender) — previously JS-only, causing Search Console "Duplicate without user-selected canonical"
+- `CanonicalLink.tsx` — missing React import (tsc error)
+- Scroll-reveal content no longer captured hidden by prerenderer (disables smooth scroll, force-reveals FadeIn wrappers)
+
+---
+
+
 2026-08-19
 
 Added

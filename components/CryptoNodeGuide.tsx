@@ -6,6 +6,9 @@ export const CryptoNodeGuide: React.FC = () => {
     return (
         <GuidesLayout
             eyebrow="Crypto Node Operations Guide"
+            path="/guides/crypto-node-ops"
+            seoTitle={`Crypto Node Passive Income: DePIN Setup Guide ${currentYear}`}
+            seoDescription="Run crypto nodes for passive income: which DePIN projects pay best, node requirements, and how to set up validators on a cheap VPS — from an operator running nodes since 2020."
             title="Crypto Node Passive Income: DePIN Nodes on a VPS"
             subtitle={`Learn how to run crypto nodes for passive income, how DePIN networks pay you, which projects to choose in ${currentYear}, and how to set up nodes on a cheap VPS.`}
             intro="Crypto nodes reward you for contributing real resources — bandwidth, storage, or compute — to decentralized networks. In the DePIN sector, that means sharing your VPS's bandwidth or compute to earn tokens, with many projects paying daily. I've been running nodes since 2020 (Humanode, Fizznode, Hemi, Bless Network, Nodepay) and this guide shares exactly what works."

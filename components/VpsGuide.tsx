@@ -6,6 +6,9 @@ export const VpsGuide: React.FC = () => {
     return (
         <GuidesLayout
             eyebrow="VPS Hosting Guide"
+            path="/guides/vps-hosting-guide"
+            seoTitle={`Cheapest VPS Hosting ${currentYear}: Budget Server Guide`}
+            seoDescription="Compare the cheapest VPS hosting for n8n, trading bots, crypto nodes, and web apps. Real prices, specs, and a step-by-step VPS setup and security checklist."
             title={`Cheapest VPS Hosting ${currentYear}: Complete Budget Server Guide`}
             subtitle="Find the best cheap VPS for n8n, trading bots, and web apps. Compare real prices, specs, and providers — and learn how to set up and secure your own server."
             intro={`A VPS (Virtual Private Server) gives you root access to a dedicated slice of a physical server — more control, privacy, and performance than shared hosting, at prices starting under $4/month. This guide covers the cheapest VPS options in ${currentYear}, what specs you actually need, and how to choose without getting burned.`}

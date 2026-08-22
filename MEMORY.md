@@ -2,7 +2,49 @@
 
 Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 
-<!-- agent-updated: 2026-08-19 — Added AgentRouter guide + video -->
+<!-- agent-updated: 2026-08-22 — SEO/AEO/GEO unblock: prerendering, per-page meta, schema, robots/llms.txt -->
+
+---
+
+## 2026-08-22 — SEO/AEO/GEO unblock: prerendering + per-page meta + structured data
+
+### Last Session
+2026-08-19 — AgentRouter guide + video hub entry
+
+### Done
+- Diagnosed 0 SEO/AEO/GEO visibility: SPA served empty `#root` HTML to non-JS crawlers, JS-only canonicals, single global title/description, no robots.txt/llms.txt, no structured data
+- Built `scripts/prerender.mjs` (puppeteer, runs after `vite build`): renders all 11 sitemap routes to static HTML (unique titles, canonicals, JSON-LD, fully-revealed content in first byte), generates `.md` mirrors of every guide/blog page, gracefully falls back to SPA shell if no browser available (CI-safe)
+- Created `components/Seo.tsx` (per-page title/description/OG/Twitter/canonical/JSON-LD) + `data/schema.ts` (Person, WebSite, Article, FAQPage, BreadcrumbList, CollectionPage)
+- Wired Seo into: HomePage (Person+WebSite), GuidesLayout (Article+FAQPage+BreadcrumbList auto-generated from faqs; new `path`/`seoTitle`/`seoDescription` props), all 7 guides, Blog (CollectionPage), BlogPostPage (Article+BreadcrumbList, replaced manual title mutation)
+- Added `public/robots.txt` (sitemap ref + explicit AI crawler allows: GPTBot, ClaudeBot, PerplexityBot, Google-Extended, CCBot, etc.) and `public/llms.txt` (site overview + guide/blog links with markdown mirrors)
+- `.htaccess`: extensionless→`.html` rewrite for prerendered files + mod_deflate + mod_expires caching
+- `App.tsx`: React.lazy code-splitting for all routes (main bundle 293KB vs single-bundle before), catch-all `NotFound.tsx` 404 route
+- `index.html`: GA4 loader no-ops on placeholder ID, removed dead aistudiocdn importmap
+- `public/sitemap.xml` lastmod refreshed to 2026-08-22; fixed pre-existing tsc error in CanonicalLink.tsx
+- Verified: `npm run build` clean end-to-end, unique titles on all 11 pages, static canonicals, schema present, article body text in first-byte HTML, 0 hidden FadeIn elements in captures
+
+### Decisions
+- Prerender via puppeteer post-build (not SSR framework migration) — zero restructuring, captured DOM is exactly what users see; route files written as `dist{path}.html` + `.htaccess` rewrite rule (no trailing-slash 301 issues vs directory/index.html approach)
+- Markdown mirrors generated at build time (always in sync with React content, never hand-maintained)
+- JSON-LD generated from existing guide `faqs` data — single source of truth
+- Prerenderer disables smooth-scroll + force-reveals FadeIn wrappers at capture time so no content is captured hidden; hover overlays (`group-hover:opacity-100`) intentionally left as-is
+- Skipped hard 404 in .htaccess — if CI lacks a browser, prerender falls back to SPA shell and a hard 404 rule would break every route; client-side NotFound handles UX instead
+- Puppeteer devDependency; build never fails on prerender errors (warn + exit 0)
+
+### Next Steps
+- Push to main → GitHub Actions deploys → verify live: `curl https://lanreenlight.com/guides/n8n-automation` returns prerendered HTML with title/canonical/schema
+- Submit sitemap in Google Search Console + URL-inspect/request indexing for all 11 URLs
+- Replace GA4 placeholder (`GA_ID` in index.html) with real measurement ID and link GSC ↔ GA4
+- Validate schema in Google Rich Results Test (FAQPage on guides)
+- Check `/robots.txt`, `/llms.txt`, `/guides/n8n-automation.md` resolve live (rewrite rule works on HestiaCP Apache)
+- Watch CI deploy: if puppeteer Chrome download fails on runner, prerender falls back to SPA shell (site still works) — fix by adding `npx puppeteer browsers install chrome` step if needed
+- Monitor GSC impressions over 2–4 weeks; target first impressions on "n8n tutorial", "cheapest VPS", "agentrouter" clusters
+
+### Blockers & Open Questions
+- GA4 ID still placeholder (loader now skips gracefully — replace `GA_ID` in index.html)
+- CI runner untested with puppeteer (graceful fallback in place, but prerendered SEO is lost if browser install fails there) <!-- TODO: verify after first deploy -->
+- Tailwind CDN + Font Awesome CDN still runtime-loaded (LCP risk; PostCSS migration deferred)
+- n8n webhook for blog publishing still unverified
 
 ---
 
