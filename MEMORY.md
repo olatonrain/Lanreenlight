@@ -36,6 +36,9 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 - AgentRouter video (GYvYHpi4DJk, 8 views, 31:07): no chapters/timestamps; "free forever" overpromise vs credit model; desc says $200 credit, video says $175/$125 — inconsistent; referral only via site guide (extra click) — no direct agentrouter.org/register?aff=2CTV link in description
 - Upload cadence broken: zero uploads Mar–May 2026; Feb 20-21 generic AI hashtag-commentary videos (8–27 views) diluted channel; last 4 videos (June–Aug) are B2B/generic (8–16 views) — audience mismatch per PDF diagnosis
 - Live-site checks: /guides/agentrouter-setup serves prerendered 200 correctly
+- **Deploy verified 2026-08-22 (session 2):** commits 4f57c3c/319ddaa/3318dbf → CI run 32561399981 success → live chain confirmed: `/forextrading` 301 → `/forexbroker` → 302 → track.deriv.com → Deriv signup (affiliate_279729 tag present); `/vps6` 301 → Contabo CJ link. Deriv funnel fully operational
+- **"Automate Video Sync" workflow failing intermittently** (2 of last 8 scheduled runs: 08-21 06:52, 08-22 06:44 UTC) — YouTube RSS returns 404 from GitHub Actions datacenter IPs (works fine locally). Proposed fix: switch sync-youtube.mjs to Data API (needs YOUTUBE_API_KEY as GitHub Actions secret) — BLOCKED on user approval (CI config is agent-restricted)
+- Mimosa deep scan (job mt43h4si, scanId 2026-08-22T08-06-43): completed, 0 findings, 145 packages, static-evidence-only; 11 dependency advisories matched 3 packages — review scan dir `~/.mimosa/security-scans/project-c86af609edfefbfc7ccd2863/` next session
 
 ### Decisions
 - **Core strategy: 3-tier Contabo funnel** — VPS 6 = "Start" (entry, first AI gateway), VPS 8 = "Grow" (PRIMARY product, freelancer/agency stack), VPS 12 = "Scale" (production/multi-client). Plan-based video series + playlist with natural upgrade path; separate tracking URLs `/vps6` `/vps8` `/vps12`; never claim all plans suit everything — give a simple decision rule per workload
@@ -57,6 +60,8 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 - GA4 ID still placeholder — cannot measure YouTube→site→referral funnel until replaced
 - Per-plan Contabo CJ tracking IDs don't exist yet — user must create them in CJ Affiliate dashboard
 - API key is read-only public scope (no retention/traffic-source/card-click data) — private YouTube Studio data still requires periodic manual exports (CSV/PDF) or future OAuth setup
+- Video-sync CI fix (RSS→API) awaiting explicit user approval to modify `.github/workflows/`
+- 11 dependency advisories (3 packages) from Mimosa scan unreviewed
 
 ---
 
