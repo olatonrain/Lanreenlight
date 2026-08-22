@@ -165,22 +165,29 @@ const findExecutable = async () => {
     return undefined;
 };
 
-const run = async () => {
-    if (!existsSync(DIST)) {
-        console.warn('Prerender skipped: dist/ not found.');
-        return;
+const prerender404 = async () => {
+    // Apache serves this via ErrorDocument with a real 404 status. The URL is arbitrary
+    // and unrouted, so React renders the NotFound catch-all.
+    await page.goto(`${ORIGIN}/__404__`, { waitUntil: 'networkidle2', timeout: 60000 });
+    await revealAllFadeIns();
+    await new Promise(r => setTimeout(r, 400));
+    let html = await page.content();
+    // Error-document responses keep the requested URL, so relative asset paths would
+    // resolve against it. Absolute paths keep /assets/* correct at any depth.
+    html = html.replace(/(src|href)="\.\//g, '$1="/');
+    await writeFile(path.join(DIST, '404.html'), html);
+    console.log('  ✓ 404.html');
+};
+
+const run = async () => {    if (!existsSync(DIST)) {
+        throw new Error('dist/ not found — run vite build first.');
     }
 
-    let puppeteer;
-    try {
-        puppeteer = (await import('puppeteer')).default;
-    } catch {
-        console.warn('Prerender skipped: puppeteer not installed. Deploying SPA shell only (SEO surfaces will be reduced).');
-        return;
-    }
+    const puppeteer = (await import('puppeteer')).default;
 
     let browser;
     let server;
+    const failed = [];
     try {
         server = await startServer();
         const executablePath = await findExecutable();
@@ -218,17 +225,26 @@ const run = async () => {
                 }
                 console.log(`  ✓ ${route}`);
             } catch (err) {
-                console.warn(`  ✗ ${route}: ${err.message}`);
+                failed.push(`${route}: ${err.message}`);
+                console.error(`  ✗ ${route}: ${err.message}`);
             }
         }
 
-        console.log('Prerender complete.');
-    } catch (err) {
-        console.warn(`Prerender failed (deploying SPA shell only): ${err.message}`);
+        await prerender404();
     } finally {
         if (browser) await browser.close();
         if (server) server.close();
     }
+
+    if (failed.length) {
+        throw new Error(`${failed.length} route(s) failed to prerender:\n  ${failed.join('\n  ')}`);
+    }
+    console.log('Prerender complete.');
 };
 
-run();
+run().catch(err => {
+    console.error(`\nPrerender failed: ${err.message}`);
+    console.error('Refusing to deploy: every route is served from a prerendered file, so an incomplete');
+    console.error('prerender would 404 the live site. Fix the error above and rebuild.');
+    process.exit(1);
+});

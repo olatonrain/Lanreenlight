@@ -28,9 +28,12 @@
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule ^ - [L]
 
-  # Redirect everything else to index.html for SPA routing
-  RewriteRule ^ index.html [L]
+  # No SPA fallback: every route ships as a prerendered .html file, so anything
+  # unmatched is genuinely unknown and must 404 (soft-404s hurt indexation)
+  RewriteRule ^ - [R=404,L]
 </IfModule>
+
+ErrorDocument 404 /404.html
 
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript application/javascript application/json application/xml image/svg+xml text/markdown

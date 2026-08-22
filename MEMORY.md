@@ -6,6 +6,35 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 
 ---
 
+## 2026-08-22 — site: index audit → soft-404 fix + fatal prerender
+
+### Last Session
+2026-08-22 — SEO/AEO/GEO unblock (prerendering, per-page meta, schema, robots/llms.txt)
+
+### Done
+- Diagnosed user's `site:lanreenlight.com` report (only home + blog indexed): audit confirmed NO technical blocker remains — robots.txt clean (no noindex/X-Robots-Tag anywhere), sitemap valid (11 URLs, all 200), all 7 guides linked from homepage in raw HTML, 3,600–4,100 words of content each, unique titles/canonicals, GSC verified via DNS TXT
+- Found + fixed real soft-404 defect from the prerender deploy: unknown URLs returned HTTP 200 with homepage content + homepage canonical (old SPA catch-all `RewriteRule ^ index.html` still active in .htaccess)
+- `public/.htaccess` — catch-all replaced with `RewriteRule ^ - [R=404,L]` + `ErrorDocument 404 /404.html`
+- `scripts/prerender.mjs` — now prerenders `404.html` (renders `/__404__` through the NotFound route, rewrites relative asset paths to absolute so it works at any URL depth); prerender failures now FATAL (build exits 1) — precondition for removing the SPA fallback, since every route is served from a prerendered file
+- `Seo.tsx` — new `noindex` prop (adds `<meta name="robots" content="noindex, follow">`, removes it on cleanup so SPA nav can't leak noindex onto real pages); wired into NotFound
+- Verified locally: build passes, 404.html contains branded content + noindex + absolute `/assets/` paths + zero hidden FadeIn elements; tsc clean
+
+### Decisions
+- Every route must exist as a physical prerendered .html file; a failed/incomplete prerender now blocks deploy instead of silently shipping an SPA shell that would 404 under the new .htaccess
+- 404 page marked `noindex, follow` (branded page, keep link equity flowing)
+
+### Next Steps
+- USER: in Google Search Console submit `https://lanreenlight.com/sitemap.xml` (Sitemaps page) and URL-inspect + "Request indexing" each of the 7 guide URLs — the guides were unindexable shells until 2026-08-22, so Google must recrawl; `site:` results lag days–weeks after that
+- USER: replace GA4 placeholder `G-XXXXXXXXXX` in `index.html` with the real measurement ID
+- Watch GSC Page indexing report after ~1 week: guides should move from "not indexed" to indexed
+- Deferred: Tailwind/Font Awesome off CDN (LCP), mod_deflate/mod_expires appear disabled on host (compression headers absent live)
+
+### Blockers & Open Questions
+- Cannot see GSC data (no API access) — indexing status is inferred, not verified
+- mod_deflate/mod_expires still not emitting headers live despite IfModule rules in .htaccess — likely disabled at server level; needs HestiaCP/host action
+
+---
+
 ## 2026-08-22 — YouTube analytics deep-dive: referral-first content strategy
 
 ### Last Session

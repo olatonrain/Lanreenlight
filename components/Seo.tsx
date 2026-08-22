@@ -8,6 +8,7 @@ interface SeoProps {
     ogType?: string;
     ogImage?: string;
     jsonLd?: Record<string, unknown>[];
+    noindex?: boolean;
 }
 
 const setMeta = (attr: 'name' | 'property', key: string, content: string) => {
@@ -27,6 +28,7 @@ export const Seo: React.FC<SeoProps> = ({
     ogType = 'website',
     ogImage = `${SITE_URL}/lanre.jpg`,
     jsonLd = [],
+    noindex = false,
 }) => {
     const jsonLdKey = JSON.stringify(jsonLd);
 
@@ -52,6 +54,13 @@ export const Seo: React.FC<SeoProps> = ({
         canonical.href = url;
         canonical.setAttribute('data-page', 'true');
 
+        const existingRobots = document.querySelector('meta[name="robots"]');
+        if (noindex) {
+            setMeta('name', 'robots', 'noindex, follow');
+        } else if (existingRobots) {
+            existingRobots.remove();
+        }
+
         document.querySelectorAll('script[data-page-jsonld]').forEach(script => script.remove());
         jsonLd.forEach(block => {
             const script = document.createElement('script');
@@ -60,7 +69,7 @@ export const Seo: React.FC<SeoProps> = ({
             script.textContent = JSON.stringify(block);
             document.head.appendChild(script);
         });
-    }, [title, description, path, ogType, ogImage, jsonLdKey]);
+    }, [title, description, path, ogType, ogImage, jsonLdKey, noindex]);
 
     return null;
 };

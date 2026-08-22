@@ -10,6 +10,7 @@ export const NotFound: React.FC = () => {
                 title="Page Not Found | Lanre"
                 description="The page you're looking for doesn't exist. Explore AI automation guides, VPS hosting, trading bots, and crypto node tutorials."
                 path="/404"
+                noindex
             />
             <FadeIn className="text-center max-w-2xl">
                 <div className="text-8xl font-serif text-brand-accent mb-6">404</div>
