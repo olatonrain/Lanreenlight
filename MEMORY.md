@@ -40,6 +40,13 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 - **"Automate Video Sync" workflow failing intermittently** (2 of last 8 scheduled runs: 08-21 06:52, 08-22 06:44 UTC) — YouTube RSS returns 404 from GitHub Actions datacenter IPs (works fine locally). Proposed fix: switch sync-youtube.mjs to Data API (needs YOUTUBE_API_KEY as GitHub Actions secret) — BLOCKED on user approval (CI config is agent-restricted)
 - Mimosa deep scan (job mt43h4si, scanId 2026-08-22T08-06-43): completed, 0 findings, 145 packages, static-evidence-only; 11 dependency advisories matched 3 packages — review scan dir `~/.mimosa/security-scans/project-c86af609edfefbfc7ccd2863/` next session
 
+**Session 3 — "let fix them" (fixes applied + OAuth tooling):**
+- FIXED: video-sync CI switched RSS→Data API (`sync-youtube.mjs` rewrite: channels→playlistItems, key from env/`.env.local`, host-allowlisted, latest-20) + `YOUTUBE_API_KEY` set as GitHub secret via `gh secret set` + workflow passes env var. Manual trigger run 32562221180 SUCCESS; bot committed `1adbeb6` autonomously — sync is self-sustaining again
+- `data/videos.ts` regenerated: 18 videos (added Cheapest VPS 2025 / $1,000 Mistakes / Grass Rewards); category heuristic fixed to strip lanreenlight.com URLs before classifying (remaining 'Forex' tags come from genuine prose like "where i trade forex" — acceptable)
+- BUILT (awaiting user OAuth): `scripts/youtube-auth.mjs` (loopback :30083 consent flow, refresh token → `.env.local`) + `scripts/youtube-update.mjs` (`backup` / `apply <plan> [--yes]` dry-run-first / `unlist <ids> [--yes]`)
+- `youtube-fixes/` (gitignored): `plan-2026-08-22.json` — 9 description fixes ready (MT4+Deriv/VPS CTA, Apple Music/Instagram/ChatGPT/Canva +site CTA, Nodepay×2 +VPS CTA, OpenClaw placeholder→real link, AgentRouter +direct referral); `unlist-junk.txt` — 14 auto-titled junk IDs (15 August 2023 / 9 May 2024 videos, 6–39v)
+- Commits: 9bea546 (sync fix), bd7b55a (OAuth tooling); Mimosa hook keeps warning about incomplete pre-commit scan — full re-audit still pending
+
 ### Decisions
 - **Core strategy: 3-tier Contabo funnel** — VPS 6 = "Start" (entry, first AI gateway), VPS 8 = "Grow" (PRIMARY product, freelancer/agency stack), VPS 12 = "Scale" (production/multi-client). Plan-based video series + playlist with natural upgrade path; separate tracking URLs `/vps6` `/vps8` `/vps12`; never claim all plans suit everything — give a simple decision rule per workload
 - **Next video: "How to Host OmniRoute and n8n 24/7 on Contabo VPS 6"** — counter-programs competitor video A4ykehVQK9c (local-only install) with always-on VPS angle: PM2 persistence, port 20128, /v1 endpoint, free providers (Kiro, Qoder, Pollinations, NVIDIA NIM, Cloudflare AI), Contabo CTA at ~2:30 timestamp
@@ -48,13 +55,12 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 - Honest positioning rule: don't promise VPS = income or unlimited free AI; sell plans on total workload (OmniRoute needs only ~2 vCPU/2GB — headroom is for n8n + Docker + clients)
 
 ### Next Steps
-- **YouTube quick wins for user (highest ROI, in order):** (1) add Deriv + site links to the MT4 iPhone video description (1,452v trading-intent, zero CTA); (2) add any CTA/site link to the other top no-link videos (Apple Music 19K, Instagram 3K, ChatGPT 2.4K, Canva 2.2K, Nodepay 1.5K); (3) fix OpenClaw placeholder text + add direct Contabo link; (4) add direct agentrouter.org/register?aff=2CTV to AgentRouter video + chapters; (5) unlist the ~15 junk "15 August 2023" videos; (6) deliver promised OpenClaw part-2; (7) 2-week cadence into VPS 6/8/12 series
-- Site: `/vps6` `/vps8` `/vps12` redirects live already — full landing pages still to build if strategy wants content there (currently redirect straight to Contabo)
-- Site: OmniRoute companion guide (like AgentRouter guide) holding Docker Compose + PM2 commands — video description/pinned comment links here, converting EXT_URL weakness into funnel
-- Site: downloadable command sheets per plan (lead magnets) + email capture — biggest missing revenue loop
-- Site: Deriv bot section pairing with TradingGuide pillar when that video ships
-- YouTube: create per-plan CJ tracking IDs in CJ account so /vps6 /vps8 /vps12 get revenue-level attribution (currently one shared link; plan counts only via server access logs)
+- **User action: complete OAuth setup** (console.cloud.google.com, same project as API key): OAuth consent screen (External, test user olatonrainyt@gmail.com) → Create OAuth client ID (Desktop app) → add `YOUTUBE_CLIENT_ID` + `YOUTUBE_CLIENT_SECRET` to `.env.local` → tell agent → agent runs `node scripts/youtube-auth.mjs` (user clicks Google login themselves) → then agent applies: backup → `apply plan-2026-08-22.json` → `unlist` the 14 junk IDs → re-run audit
+- Chapters for 31-min AgentRouter video + 14-min OpenClaw video still need manual timestamps in YouTube Studio (agent has no caption/timestamp data — user action, ~10 min)
+- Per-plan CJ tracking IDs for /vps6 /vps8 /vps12 — user action in CJ dashboard
 - Replace GA4 placeholder (`GA_ID` in index.html) — funnel measurement still blind without it
+- Site: OmniRoute companion guide + email capture/lead magnets (from earlier plan)
+- Review 11 Mimosa dependency advisories (3 packages)
 
 ### Blockers & Open Questions
 - GA4 ID still placeholder — cannot measure YouTube→site→referral funnel until replaced
