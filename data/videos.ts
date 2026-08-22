@@ -10,14 +10,13 @@ export const VIDEOS: Video[] = [
         resources: [
             { label: 'AgentRouter Free Credit', url: 'https://agentrouter.org/register?aff=2CTV', type: 'affiliate' },
             { label: 'Cheapest VPS', url: 'https://lanreenlight.com/cheapestvps', type: 'affiliate' },
-            { label: 'Best n8n VPS', url: 'https://lanreenlight.com/cheapestn8nvps', type: 'affiliate' },
-            { label: 'Forex Trading', url: 'https://lanreenlight.com/forextrading', type: 'affiliate' }
+            { label: 'Best n8n VPS', url: 'https://lanreenlight.com/cheapestn8nvps', type: 'affiliate' }
         ]
     },
     {
         id: '2',
         title: "AI Courtroom with 11 AI Agents | Codex Legalist (Qwen Hackathon)",
-        date: 'Jul 08, 2026',
+        date: 'Jul 07, 2026',
         category: 'AI Automation',
         youtubeId: 'hwRAtOsYiWk',
         resources: [
