@@ -25,7 +25,7 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 
 ### Next Steps
 - USER: in Google Search Console submit `https://lanreenlight.com/sitemap.xml` (Sitemaps page) and URL-inspect + "Request indexing" each of the 7 guide URLs — the guides were unindexable shells until 2026-08-22, so Google must recrawl; `site:` results lag days–weeks after that
-- USER: replace GA4 placeholder `G-XXXXXXXXXX` in `index.html` with the real measurement ID
+- DONE (2026-08-22, remote commit ed6d999): GA4 activated with real measurement ID `G-XMN0TFX6BM`
 - Watch GSC Page indexing report after ~1 week: guides should move from "not indexed" to indexed
 - Deferred: Tailwind/Font Awesome off CDN (LCP), mod_deflate/mod_expires appear disabled on host (compression headers absent live)
 
