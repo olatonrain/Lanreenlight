@@ -16,7 +16,7 @@ export const VIDEOS: Video[] = [
     {
         id: '2',
         title: "AI Courtroom with 11 AI Agents | Codex Legalist (Qwen Hackathon)",
-        date: 'Jul 07, 2026',
+        date: 'Jul 08, 2026',
         category: 'AI Automation',
         youtubeId: 'hwRAtOsYiWk',
         resources: [
@@ -154,6 +154,44 @@ export const VIDEOS: Video[] = [
         date: 'Oct 04, 2025',
         category: 'Crypto',
         youtubeId: '2fGFYe4DgR4',
+        resources: [
+        ]
+    },
+    {
+        id: '15',
+        title: "Cheapest VPS | BEST Cheap VPS in 2025 for less than $5",
+        date: 'Oct 03, 2025',
+        category: 'Forex',
+        youtubeId: '6aKpNFdb_Wk',
+        resources: [
+        ]
+    },
+    {
+        id: '16',
+        title: "$1,000 Mistakes Crypto Beginners Regret making",
+        date: 'Oct 01, 2025',
+        category: 'Crypto',
+        youtubeId: 'wzVoRhvmDw8',
+        resources: [
+        ]
+    },
+    {
+        id: '17',
+        title: "Grass Rewards Claim $1,000 on a $5 VPS  (DePIN)",
+        date: 'Jan 14, 2025',
+        category: 'Crypto',
+        youtubeId: 'T9pETB6ElJg',
+        resources: [
+            { label: 'Cheapest VPS', url: 'https://lanreenlight.com/cheapestvps', type: 'affiliate' },
+            { label: 'Best n8n VPS', url: 'https://lanreenlight.com/cheapestn8nvps', type: 'affiliate' }
+        ]
+    },
+    {
+        id: '18',
+        title: "The financial journey era has began (Forex & Crypto)",
+        date: 'Jan 11, 2025',
+        category: 'Forex',
+        youtubeId: 'eQmmwy23y1U',
         resources: [
         ]
     }

@@ -7,55 +7,86 @@ const __dirname = path.dirname(__filename);
 const DATA_FILE = path.join(__dirname, '../data/videos.ts');
 
 const CHANNEL_ID = 'UCs9e33racEAMcCfReN4Bc_g';
-const RSS_URL = `https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}`;
+const API_BASE = 'https://www.googleapis.com/youtube/v3';
+const ALLOWED_HOSTS = new Set(['www.googleapis.com']);
+const MAX_VIDEOS = 20;
+
+function assertSafeUrl(url) {
+    const parsed = new URL(url);
+    if (parsed.protocol !== 'https:' && parsed.protocol !== 'http:') {
+        throw new Error(`Blocked non-http(s) protocol: ${parsed.protocol}`);
+    }
+    const host = parsed.hostname.toLowerCase();
+    if (!ALLOWED_HOSTS.has(host)) {
+        throw new Error(`Blocked unapproved host: ${host}`);
+    }
+    if (
+        host === 'localhost' ||
+        host === '::1' ||
+        host.endsWith('.localhost') ||
+        host.endsWith('.local') ||
+        host.endsWith('.internal') ||
+        /^(10\.|127\.|0\.|169\.254\.|192\.168\.)/.test(host) ||
+        /^172\.(1[6-9]|2\d|3[01])\./.test(host)
+    ) {
+        throw new Error(`Blocked private/reserved address: ${host}`);
+    }
+    return url;
+}
+
+function loadApiKey() {
+    if (process.env.YOUTUBE_API_KEY) return process.env.YOUTUBE_API_KEY;
+    const envPath = path.join(__dirname, '../.env.local');
+    if (fs.existsSync(envPath)) {
+        const match = fs.readFileSync(envPath, 'utf8').match(/^YOUTUBE_API_KEY=(.+)$/m);
+        if (match) return match[1].trim();
+    }
+    throw new Error('YOUTUBE_API_KEY not found (env var or .env.local)');
+}
 
 async function fetchWithRetry(url, retries = 3) {
     let lastError;
     for (let attempt = 1; attempt <= retries; attempt++) {
         try {
             const response = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0 (compatible; VideoSync/1.0)' } });
-            if (response.ok) return response;
-            lastError = new Error(`Failed to fetch RSS: ${response.status} ${response.statusText}`);
+            if (response.ok) return response.json();
+            lastError = new Error(`Failed to fetch API: ${response.status} ${response.statusText}`);
         } catch (error) {
             lastError = error;
         }
         const delay = attempt * 5000;
-        console.log(`RSS fetch attempt ${attempt}/${retries} failed (${lastError.message}). Retrying in ${delay / 1000}s...`);
+        console.log(`API fetch attempt ${attempt}/${retries} failed (${lastError.message}). Retrying in ${delay / 1000}s...`);
         await new Promise(resolve => setTimeout(resolve, delay));
     }
     throw lastError;
 }
 
+async function fetchUploads() {
+    const key = loadApiKey();
+    const channel = await fetchWithRetry(assertSafeUrl(`${API_BASE}/channels?${new URLSearchParams({ part: 'contentDetails', id: CHANNEL_ID, key })}`));
+    const uploadsPlaylistId = channel.items?.[0]?.contentDetails?.relatedPlaylists?.uploads;
+    if (!uploadsPlaylistId) throw new Error('Uploads playlist not found for channel');
+    const page = await fetchWithRetry(assertSafeUrl(`${API_BASE}/playlistItems?${new URLSearchParams({ part: 'snippet', playlistId: uploadsPlaylistId, maxResults: String(MAX_VIDEOS), key })}`));
+    return (page.items || []).map(i => ({
+        videoId: i.snippet.resourceId.videoId,
+        title: i.snippet.title,
+        desc: i.snippet.description || '',
+        published: new Date(i.snippet.publishedAt),
+    }));
+}
+
 async function syncVideos() {
-    console.log(`Fetching latest videos from YouTube RSS feed...`);
+    console.log(`Fetching latest videos from YouTube Data API...`);
 
     try {
-        const response = await fetchWithRetry(RSS_URL);
-
-        const xml = await response.text();
-
-        // Basic regex parsing for the simple Atom feed
-        const entries = xml.split('<entry>').slice(1);
+        const entries = await fetchUploads();
 
         const videos = entries
             .map(entry => {
-                const titleMatch = entry.match(/<title>(.*?)<\/title>/);
-                const videoIdMatch = entry.match(/<yt:videoId>(.*?)<\/yt:videoId>/);
-                const publishedMatch = entry.match(/<published>(.*?)<\/published>/);
-                const descriptionMatch = entry.match(/<media:description>(.*?)<\/media:description>/s);
-
-                if (!titleMatch || !videoIdMatch || !publishedMatch) return null;
-
-                const title = titleMatch[1]
-                    .replace(/&quot;/g, '"')
-                    .replace(/&amp;/g, '&')
-                    .replace(/&#39;/g, "'")
-                    .replace(/&lt;/g, '<')
-                    .replace(/&gt;/g, '>');
-
-                const videoId = videoIdMatch[1];
-                const published = new Date(publishedMatch[1]);
-                const desc = descriptionMatch ? descriptionMatch[1] : '';
+                const title = entry.title;
+                const videoId = entry.videoId;
+                const published = entry.published;
+                const desc = entry.desc;
 
                 // Formatted date (e.g., Feb 21, 2026)
                 const dateOpts = { year: 'numeric', month: 'short', day: '2-digit' };
@@ -64,7 +95,7 @@ async function syncVideos() {
                 // Try to infer category from title or keep generic
                 let category = 'AI Automation';
                 const lowerTitle = title.toLowerCase();
-                const lowerDesc = desc.toLowerCase();
+                const lowerDesc = desc.toLowerCase().replace(/lanreenlight\.com\/\S+/g, '');
 
                 if (lowerTitle.includes('forex') || lowerTitle.includes('trading') || lowerDesc.includes('forex') || lowerTitle.includes('ea ')) {
                     category = 'Forex';

@@ -22,6 +22,8 @@ jobs:
 
       - name: Run Video Sync Script
         run: node scripts/sync-youtube.mjs
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
 
       - name: Commit and Push Changes
         run: |
@@ -31,6 +33,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "No new videos found. Skipping commit."
           else
-            git commit -m "chore: Automate video hub sync from YouTube RSS"
+            git commit -m "chore: Automate video hub sync from YouTube Data API"
             git push
           fi
