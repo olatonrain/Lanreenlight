@@ -48,7 +48,7 @@ export const VIDEOS: Video[] = [
     },
     {
         id: '5',
-        title: "CHEAPEST openclaw vps setup | How to use Openclaw As a beginner (Part 1)",
+        title: "OpenClaw on Contabo VPS 6: Full 24/7 AI Agent Setup",
         date: 'Feb 21, 2026',
         category: 'Forex',
         youtubeId: 'OTouLWgvV7U',
