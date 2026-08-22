@@ -117,6 +117,7 @@ Setup (one time, ~5 minutes, in Google Cloud Console on the SAME project as your
 
     const server = http.createServer((req, res) => {
         const url = new URL(req.url, `http://localhost:${REDIRECT_PORT}`);
+        if (url.pathname === '/favicon.ico') { res.statusCode = 204; res.end(); return; }
         const code = url.searchParams.get('code');
         const err = url.searchParams.get('error');
         res.setHeader('Content-Type', 'text/html');

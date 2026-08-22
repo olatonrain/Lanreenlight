@@ -47,6 +47,15 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 - `youtube-fixes/` (gitignored): `plan-2026-08-22.json` — 9 description fixes ready (MT4+Deriv/VPS CTA, Apple Music/Instagram/ChatGPT/Canva +site CTA, Nodepay×2 +VPS CTA, OpenClaw placeholder→real link, AgentRouter +direct referral); `unlist-junk.txt` — 14 auto-titled junk IDs (15 August 2023 / 9 May 2024 videos, 6–39v)
 - Commits: 9bea546 (sync fix), bd7b55a (OAuth tooling); Mimosa hook keeps warning about incomplete pre-commit scan — full re-audit still pending
 
+**Session 4 — OAuth completed, all YouTube fixes APPLIED (2026-08-22):**
+- User completed OAuth console setup (Client ID/Secret in `.env.local`); `youtube-auth.mjs` loopback flow succeeded — refresh token saved, verified for "Lanre Enlight" (write scope youtube.force-ssl). Patched favicon-request bug in auth script
+- Backup first: all 80 videos (snippet+status) → `youtube-fixes/backup-2026-08-22.json` (full rollback possible)
+- Applied 9/9 description fixes via `youtube-update.mjs apply --yes`: MT4 iPhone + Deriv/VPS CTA; Apple Music/Instagram/ChatGPT/Canva + site CTA; Nodepay PC+Mobile + VPS CTA; OpenClaw placeholder → real Contabo link; AgentRouter + direct referral link
+- Unlisted 14/14 junk auto-titled videos (IDs in `youtube-fixes/unlist-junk.txt`; reversible → privacyStatus public)
+- Post-fix audit: catalog 80→66 public; site links 13→20 videos, contaboRedirect 13→16, deriv 10→11, agentrouter 0→1, placeholder issues 0
+- `videos.ts` resynced — AgentRouter Free Credit affiliate resource now renders on site hub
+- Remaining manual: chapters for AgentRouter 31min + OpenClaw 14min videos (YouTube Studio); per-plan CJ IDs; GA4 real ID
+
 ### Decisions
 - **Core strategy: 3-tier Contabo funnel** — VPS 6 = "Start" (entry, first AI gateway), VPS 8 = "Grow" (PRIMARY product, freelancer/agency stack), VPS 12 = "Scale" (production/multi-client). Plan-based video series + playlist with natural upgrade path; separate tracking URLs `/vps6` `/vps8` `/vps12`; never claim all plans suit everything — give a simple decision rule per workload
 - **Next video: "How to Host OmniRoute and n8n 24/7 on Contabo VPS 6"** — counter-programs competitor video A4ykehVQK9c (local-only install) with always-on VPS angle: PM2 persistence, port 20128, /v1 endpoint, free providers (Kiro, Qoder, Pollinations, NVIDIA NIM, Cloudflare AI), Contabo CTA at ~2:30 timestamp
