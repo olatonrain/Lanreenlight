@@ -17,6 +17,8 @@ This file helps AI coding agents (like opencode) work effectively on this projec
 
 Always try to use a skill before any task (max 3 per task). If a skill matches the task, load and follow it.
 
+**Humanizer is MANDATORY for every writing task** — blog posts, documentation edits, MEMORY.md/CHANGELOG.md entries, commit messages, and any user-facing prose. Load the `humanizer` skill before drafting and apply its pass to the output. Code, configs, and pure data are exempt; prose is not. This rule is enforced project-wide (it mirrors the global AGENTS.md rule) — shipping prose without loading humanizer is a protocol violation.
+
 ## Project Context
 
 - **Purpose:** Portfolio site for AI Automation & Systems Engineer
@@ -75,6 +77,7 @@ The site earns visibility three ways: search engines (SEO), answer engines like 
 - For every new or changed URL: `curl -s https://lanreenlight.com<path>` returns 200 with a unique `<title>`, the correct `<link rel="canonical">`, and JSON-LD.
 - No stray noindex on real pages: `curl -s <url> | grep -i noindex` is empty.
 - Soft-404 check: `curl -s -o /dev/null -w "%{http_code}" https://lanreenlight.com/check-nonexistent-xyz` returns 404.
+- **No duplicate content:** the blog index must render each post exactly once. Check `curl -s https://lanreenlight.com/blog/ | grep -o 'Read Article' | wc -l` equals the number of posts in `data/blog.ts` (counting each post once). The Blog listing dedupes by id — do not regress that logic, and never list the same post in two places.
 - After any deploy that touches content, run `node scripts/request-indexing.mjs` to ping Google (Indexing API; service account key at `~/Downloads/trans-parsec-481518-j2-98265b142411.json`, or `INDEXING_SERVICE_ACCOUNT_KEY` base64 env var in CI).
 
 ### If in doubt

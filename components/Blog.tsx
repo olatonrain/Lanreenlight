@@ -49,8 +49,9 @@ export const Blog = () => {
     useEffect(() => {
         const fetchPosts = async () => {
             const dynamicPosts = await loadDynamicPosts();
-            // Combine dynamic posts with static ones, placing new ones first
-            setPosts([...dynamicPosts, ...STATIC_POSTS]);
+            // Combine dynamic posts with static ones, dedupe by id, new ones first
+            const existingIds = new Set(STATIC_POSTS.map(p => p.id));
+            setPosts([...dynamicPosts.filter(dp => !existingIds.has(dp.id)), ...STATIC_POSTS]);
         };
         fetchPosts();
     }, []);
