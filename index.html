@@ -226,6 +226,24 @@
             color: #18181b;
         }
 
+        /* CTA buttons inside blog posts: beats .article-content a by specificity,
+           gold bg + dark text (visible), hover swaps the two colors */
+        .article-content a.cta-button {
+            display: inline-block;
+            background-color: #c5a028;
+            color: #18181b;
+            font-weight: 700;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .article-content a.cta-button:hover {
+            background-color: #18181b;
+            color: #c5a028;
+        }
+
         .article-content blockquote {
             border-left: 4px solid #c5a028;
             padding-left: 1.5rem;
