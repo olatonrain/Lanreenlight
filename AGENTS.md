@@ -88,6 +88,18 @@ Any change that touches an existing URL, title, heading, sitemap entry, or redir
 - Every post must embed its relevant YouTube video (`youtubeId` in the post JSON — never the `dQw4w9WgXcQ` placeholder). A post about n8n embeds an n8n video; a post about a VPS embeds a VPS video. Videos are chosen from `data/videos.ts`.
 - No post ships without a product link and a closing CTA box.
 - After publishing, complete the promotion checklist: socials (different angle per platform), newsletter mention, YouTube description + pinned comment when a matching video exists.
+
+## Local Review Gate (MANDATORY)
+
+**Never push content to `main` without the user seeing it locally first.** The deploy pipeline auto-ships on push, so a push IS a publish. The gate:
+
+1. Build locally: `npm run build` (also verifies prerender passes).
+2. Serve the production build: `npm run preview` (serves `dist/` on port 4173).
+3. Give the user the local URL (`http://localhost:4173`) and the exact paths to review (e.g. `/blog/new-post-slug`).
+4. **Wait for the user's approval before `git commit` + `git push`.** Only push to `main` after explicit "go ahead" / "push it".
+5. Only after the push (auto-deploy) runs the indexing script.
+
+Exceptions: doc-only changes (AGENTS.md, MEMORY.md, CHANGELOG.md, CONTENT_STRATEGY.md) and infrastructure fixes (`.htaccess`, scripts) can be pushed without the review gate unless they change user-visible content or pages. When in doubt, show it locally first.
 - **Alias** — `@/` maps to project root in imports
 
 ## Documentation Conventions

@@ -6,6 +6,30 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 
 ---
 
+## 2026-08-25 — Local review gate added (no push without user review)
+
+### Last Session
+2026-08-25 — Rotating CTA button + cadence 4/week + mandatory video link
+
+### Done
+- User request: "don't just always push to live immediately — let me see the content locally first"
+- Added "Local Review Gate (MANDATORY)" to AGENTS.md: build → `npm run preview` (port 4173) → give user local URL + paths → **wait for approval before commit/push** → only after deploy run the indexing script
+- Exception: doc-only changes (AGENTS/MEMORY/CHANGELOG/CONTENT_STRATEGY) and infra fixes can push without review gate unless user-visible content changes
+- Added the review-gate step to CONTENT_STRATEGY.md publish checklist
+
+### Decisions
+- Push to `main` = publish (auto-deploy), so approval always comes first for content
+- Doc/infra changes remain exempt to keep the pipeline moving
+
+### Next Steps
+- All future content work: build → preview → user review → approval → push → deploy → index
+- Next content batch (4/week): Cheapest VPS roundup, Grass Rewards, AI Courtroom, Trading bot
+
+### Blockers & Open Questions
+- None
+
+---
+
 ## 2026-08-25 — Rotating CTA button + cadence 4/week + mandatory video link
 
 ### Last Session

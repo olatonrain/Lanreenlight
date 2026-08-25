@@ -329,9 +329,11 @@ Every post links to at least one product mid-content and repeats the CTA in a cl
 
 ### 5. Publish correctly
 
-Same checklist as every page (AGENTS.md rules): add `data/posts/{slug}.json`, sitemap.xml (fresh lastmod), llms.txt, unique title/description/canonical/Article schema; prerender must pass; verify 200 + title + canonical + no noindex; then `node scripts/request-indexing.mjs`.
+Same checklist as every page (AGENTS.md rules): add `data/posts/{slug}.json`, sitemap.xml (fresh lastmod), llms.txt, unique title/description/canonical/Article schema; prerender must pass; verify 200 + title + canonical + no noindex.
 
 Also required in the JSON: `youtubeId` set to the relevant video from `data/videos.ts` (never the placeholder), and the CTA button uses `class="cta-button"` (the CSS class, not Tailwind utilities — see index.html).
+
+**Local review gate before any push:** run `npm run build`, then `npm run preview`, give the user `http://localhost:4173` + the post path, and wait for approval. A push to `main` auto-deploys, so approval comes first. After the user approves and the deploy finishes, run `node scripts/request-indexing.mjs`.
 
 ### 6. Promote everywhere
 
