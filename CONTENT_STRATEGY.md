@@ -305,7 +305,7 @@ Pick topics where a product maps naturally. A trend with no monetizable angle go
 
 | Cluster / topic | Product | Link path |
 |---|---|---|
-| VPS, self-hosting, n8n hosting, crypto nodes | Contabo VPS (affiliate) | `/cheapestvps` or `/vps6` / `/vps8` / `/vps12` |
+| VPS, self-hosting, n8n hosting, crypto nodes | Contabo VPS (affiliate) | `/cheapestvps`, `/cheapestn8nvps`, `/cheapest-openclaw-vps` (or `/vps6` / `/vps8` / `/vps12`) |
 | Forex, trading bots, prop firms | Deriv (affiliate) | `/forexbroker` |
 | AI coding agents, Claude Code, AI gateways | AgentRouter (affiliate) | affiliate link from `data/videos.ts` |
 | Trading, EA comparisons | Expert Advisors (own products) | Algorithms section + trading guide |

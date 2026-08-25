@@ -21,6 +21,7 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 - Every blog post is a conversion asset: product link mid-content + closing CTA box are required, not optional
 - Affiliate disclosure line is mandatory in every post (trust + compliance + AEO/GEO citation quality)
 - UTM params on all product links so GA4 attributes conversions to specific posts
+- User confirmed the Contabo funnel URLs to use in posts: `/cheapestvps`, `/cheapestn8nvps`, `/cheapest-openclaw-vps` (typo variants `/cheapestvpn`/`/cheapestn8nvpn` do NOT exist and were NOT added as aliases — user said the VPS spellings are the correct ones)
 
 ### Next Steps
 - Execute the first trend-driven post (pick a live trend, write ≥1,200 words, map to a product, publish + promote + index-ping)
