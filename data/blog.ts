@@ -12,8 +12,19 @@ export interface BlogPost {
 
 import post1 from './posts/the-shift-why-i-left-traditional-marketing.json';
 import post2 from './posts/from-digital-marketer-to-ai-architect.json';
+import post3 from './posts/self-host-ai-agents-on-a-vps.json';
 
 export const BLOG_POSTS: BlogPost[] = [
+    {
+        id: post3.id,
+        title: post3.title,
+        date: post3.date,
+        category: post3.category || 'Automation',
+        excerpt: post3.excerpt,
+        imageUrl: post3.imageUrl,
+        youtubeId: post3.youtubeId || 'dQw4w9WgXcQ',
+        content: post3.content,
+    },
     {
         id: post1.id,
         title: post1.title,
