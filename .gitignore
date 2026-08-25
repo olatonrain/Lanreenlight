@@ -25,3 +25,7 @@ dist-ssr
 
 # YouTube channel-ops working files (backups contain full descriptions; plans are applied via API)
 youtube-fixes/
+
+# Tool artifacts (Mimosa security hook, Playwright MCP)
+.mimosa/
+.playwright-mcp/
