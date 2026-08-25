@@ -6,6 +6,32 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 
 ---
 
+## 2026-08-25 — Deployed: humanizer + SEO pass, blog dedupe, review gate enforced
+
+### Last Session
+2026-08-25 — Local review gate added (no push without user review)
+
+### Done
+- **Review gate executed properly:** built → previewed at localhost:4173 → user reviewed → user approved ("deploy") → pushed (commit 33e8ef8) → CI run success → live verified → indexing 14/14 accepted
+- **Humanizer + SEO pass deployed live:** all 3 posts rewritten (varied rhythm, no formulaic openers), keyword density balanced (ai agent 0.31%→0.62%, n8n 2.71%→2.07%), meta descriptions tightened to 132–148 chars
+- **Blog dedupe fix live:** Blog.tsx now dedupes by id (dynamic glob vs static imports) — blog index shows 5 posts each exactly once; also fixed the duplicated CollectionPage JSON-LD
+- AGENTS.md now explicitly mandates humanizer for all writing (project-level rule, mirrors global)
+- Live verification passed: 5/5 posts 200, dedupe confirmed, humanized content serving, no noindex leaks
+
+### Decisions
+- Posts must pass BOTH humanizer (voice/rhythm) and seo-content-writer (keyword density 0.5–1.5%, meta 150–160 chars, E-E-A-T) before preview
+- Review gate stays: user approves before any content push
+
+### Next Steps
+- Continue 4/week cadence: Cheapest VPS roundup (6aKpNFdb_Wk), Grass Rewards (T9pETB6ElJg), AI Courtroom (hwRAtOsYiWk), Trading bot (ZNUfwpIVpPE) — each through humanizer + SEO skills, then preview, then user approval
+- Watch GSC: new posts should move from "not indexed" → indexed over next 1–2 weeks
+
+### Blockers & Open Questions
+- None
+
+---
+
+
 ## 2026-08-25 — Local review gate added (no push without user review)
 
 ### Last Session
