@@ -6,6 +6,30 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 
 ---
 
+## 2026-08-25 — Rotating CTA button + cadence 4/week + mandatory video link
+
+### Last Session
+2026-08-25 — CTA button fix v2: cta-button CSS class
+
+### Done
+- **Navbar CTA button**: now cycles through "Partner With Me" → "Work With Me" → "Let's Solve It" every 4 seconds with a 300ms opacity crossfade. Both desktop and mobile versions updated. Uses a `useEffect` interval + fade state, bundled in both index JS chunks. Verified: all 3 phrases present in dist JS.
+- **Content cadence**: AGENTS.md + CONTENT_STRATEGY.md bumped from 1 to 4 posts/week minimum, each ≥1,200 words, trend-driven, product-linked, with help offer
+- **Mandatory video link rule**: every post JSON must include a relevant `youtubeId` from `data/videos.ts` — never the `dQw4w9WgXcQ` placeholder. A post about n8n embeds an n8n video; a DePIN post embeds a DePIN video. The video is the proof, the post is the pitch.
+- Also added to publish checklist: CTA button uses `class="cta-button"` (not Tailwind utilities)
+
+### Decisions
+- Cadence set to 4/week — user can tighten/loosen
+- CTA rotation uses fade-only (no width jump) — min-width 150px prevents layout shift
+
+### Next Steps
+- Continue 4/week pipeline: Cheapest VPS roundup (6aKpNFdb_Wk), Grass Rewards (T9pETB6ElJg), AI Courtroom (hwRAtOsYiWk), Trading bot $1,023/mo (ZNUfwpIVpPE)
+- Next batch due: ~Sep 1 (4 posts/week starting now)
+
+### Blockers & Open Questions
+- None
+
+---
+
 ## 2026-08-25 — CTA button fix v2: cta-button CSS class (specificity bug)
 
 ### Last Session
