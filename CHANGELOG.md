@@ -16,6 +16,9 @@ Changed
 - `AGENTS.md` — corrected stale lines: routing/hosting/build descriptions now reflect prerender + real-404 reality; documented the indexing script in the commands list
 - `CONTENT_STRATEGY.md` — new mandatory monetized-post workflow: trend research loop, product mapping table, conversion post anatomy, promotion checklist, UTM-based measurement
 
+Added
+- First trend-driven monetized post: "Self-Host AI Agents on a Cheap VPS: Beat Claude Code & Codex Limits (2026)" — 1,245 words, links to all 3 Contabo funnel URLs (UTM-tagged), internal links to pillar guides, FAQ, CTA box, disclosure; wired into blog data, sitemap (12 routes), llms.txt; indexed via Google Indexing API (12/12 accepted)
+
 ---
 
 2026-08-22

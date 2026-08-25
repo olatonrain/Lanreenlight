@@ -6,6 +6,37 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 
 ---
 
+## 2026-08-25 — First trend-driven monetized post published: Self-Host AI Agents on a Cheap VPS
+
+### Last Session
+2026-08-25 — Monetized content pipeline codified; user approved executing the first post
+
+### Done
+- Trend research: HN top/best stories + Algolia search showed AI coding agents (Claude Code, Codex, agent workflows) dominate this week — "Coding expertise is going to collapse from AI reliance" (535 pts), OpenAI restoring Codex limits, local agent releases (JetBrains Junie Local, Perplexity Portable Computer); Google Trends API rate-limited (429) so HN + niche validation used instead
+- Published `data/posts/self-host-ai-agents-on-a-vps.json` — "Self-Host AI Agents on a Cheap VPS: Beat Claude Code & Codex Limits (2026)", 1,245 words, category Automation
+- Conversion wiring (all verified): 3 Contabo funnel links with UTM (`/cheapestvps`, `/cheapestn8nvps`, `/cheapest-openclaw-vps` × `utm_source=blog&utm_medium=post&utm_campaign=self-host-ai-agents`), 6 internal links to pillar guides (n8n ×2, VPS ×2, AgentRouter ×1), FAQ (4 Qs), closing CTA box (inline HTML), affiliate disclosure line
+- Embedded the "Is Self-Hosting N8N on a $3.99 VPS a MISTAKE?" video (RPPJkD452iU) via youtubeId
+- Wired into `data/blog.ts` (post3, listed first), `sitemap.xml` (12 URLs, lastmod 2026-08-25), `llms.txt`; build passed (12/12 routes + 404.html prerendered)
+- Deployed (CI run 32895882727 success, commit 6e8ae4c); live verified: post 200 with unique title/canonical/description, Article+BreadcrumbList JSON-LD, funnel 301 with UTM preserved, blog index lists it
+- **Indexing ping: 12/12 URLs accepted** by Google Indexing API
+
+### Decisions
+- Post embeds the matching n8n-VPS video (RPPJkD452iU) instead of the generic rickroll placeholder
+- CTA box rendered as inline styled HTML in post content (no reusable CtaBox component yet — logged as improvement)
+
+### Next Steps
+- Promote the post: socials (X/LinkedIn/Facebook/Instagram/Telegram, different angle each), YouTube description + pinned comment on the n8n VPS video, newsletter mention
+- Check GA4 for link clicks on the UTM'd funnel URLs in 1–2 weeks; refresh post if CTR is weak
+- Build a reusable `CtaBox` component so future posts get consistent CTA styling
+- Weekly cadence: next post topic research due ~Sep 1
+
+### Blockers & Open Questions
+- Google Trends API rate-limited during research (worked around with HN + targeted fetches)
+- Whether CJ/Contabo strips UTM params on redirect (tracking attribution may need the redirect-URL click instead)
+
+---
+
+
 ## 2026-08-25 — Monetized content pipeline codified (trend → 1,200-word post → product link)
 
 ### Last Session
