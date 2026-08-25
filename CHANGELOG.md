@@ -17,7 +17,13 @@ Changed
 - `CONTENT_STRATEGY.md` — new mandatory monetized-post workflow: trend research loop, product mapping table, conversion post anatomy, promotion checklist, UTM-based measurement
 
 Added
-- First trend-driven monetized post: "Self-Host AI Agents on a Cheap VPS: Beat Claude Code & Codex Limits (2026)" — 1,245 words, links to all 3 Contabo funnel URLs (UTM-tagged), internal links to pillar guides, FAQ, CTA box, disclosure; wired into blog data, sitemap (12 routes), llms.txt; indexed via Google Indexing API (12/12 accepted)
+- First trend-driven monetized post: "Self-Host AI Agents on a Cheap VPS: Beat Claude Code & Codex Limits (2026)" — 1,245 words, links to all 3 Contabo funnel URLs (UTM-tagged), internal links to pillar guides, FAQ, CTA box, disclosure, help offer; wired into blog data, sitemap (12 routes), llms.txt; indexed via Google Indexing API (12/12 accepted)
+- Second trend-driven monetized post: "Passive Income 2026: How I Made Bless Network Pay Me $1,000 on a $5 VPS (DePIN Guide)" — 1,264 words, DePIN trend → Contabo VPS links, help offer, FAQ
+- Third trend-driven monetized post: "The n8n VPS Blueprint: How Freelancers Charge $500+ Per Client (2026 Guide)" — 1,383 words, freelancing trend → n8n + Contabo links, help offer, FAQ
+- Help-offer + referral-links rules added to CONTENT_STRATEGY.md post anatomy
+
+Fixed
+- Button contrast: all `bg-brand-accent text-white` changed to `text-brand-black` (gold `#c5a028` with white text had ~2.2:1 contrast — unreadable; dark text ~5.4:1). Fixed in Hero.tsx, Contact.tsx (×2), VideoHub.tsx, and all blog post CTAs. Zero white-on-gold remains.
 
 ---
 

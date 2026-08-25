@@ -6,6 +6,38 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 
 ---
 
+## 2026-08-25 — Button contrast fix + 2 new monetized posts + help-offer rule
+
+### Last Session
+2026-08-25 — First trend-driven monetized post published (Self-Host AI Agents on a $4 VPS)
+
+### Done
+- **Button visibility fix:** all `bg-brand-accent text-white` buttons changed to `text-brand-black` — gold `#c5a028` with white text had ~2.2:1 contrast (unreadable); black text ~5.4:1 (WCAG AA). Fixed in Hero.tsx (main CTA), Contact.tsx (both submit buttons), VideoHub.tsx (play button), and all blog post inline CTA buttons. Verified in prerendered HTML: zero `bg-brand-accent text-white` remains
+- **2 new monetized posts published:**
+  - "Passive Income 2026: How I Made Bless Network Pay Me $1,000 on a $5 VPS (DePIN Guide)" — 1,264 words, from video 2fGFYe4DgR4, DePIN/trend angle, 3 Contabo links + crypto-node guide links
+  - "The n8n VPS Blueprint: How Freelancers Charge $500+ Per Client (2026 Guide)" — 1,383 words, from video dbrjeJRxSco, freelancing trend, 5 Contabo links + n8n/VPS/AgentRouter guide links
+- **Help-offer rule added to CONTENT_STRATEGY.md post anatomy:** every post must include a help paragraph ("If you're experiencing any issues… reach out") linking `/#contact` — converts stuck readers into leads. Added to the existing self-host-ai-agents post too (now 1,282 words)
+- Referral links rule also codified: every post includes the relevant funnel URLs (Contabo VPS, Deriv, AgentRouter), UTM-tagged
+- All 5 posts live + indexed: 14/14 URLs accepted by Google Indexing API; deploy run success; verified title/canonical/schema/noindex on each new post
+- Housekeeping: `.mimosa/` + `.playwright-mcp/` tool artifacts accidentally committed via `git add .` — untracked + gitignored (files remain on disk locally)
+
+### Decisions
+- Gold accent buttons always use dark text (matches existing category-badge pattern); never white-on-gold again
+- Blog post queue driven by videos + trends: Bless (DePIN), n8n Blueprint (freelancing) — next candidates: Cheapest VPS roundup (6aKpNFdb_Wk), Grass Rewards DePIN (T9pETB6ElJg), AI Courtroom (hwRAtOsYiWk), Trading bot $1,023/mo (ZNUfwpIVpPE)
+- Commit hygiene: review `git add` targets — do NOT blanket `git add .` (picks up tool artifacts)
+
+### Next Steps
+- Continue video→post pipeline: Cheapest VPS roundup, Grass Rewards, AI Courtroom, Trading bot (each ≥1,200 words, help offer, referral links, trend angle)
+- Promote all 3 new posts: socials, YouTube descriptions (Bless video 2fGFYe4DgR4, n8n video dbrjeJRxSco), newsletter
+- Check GA4 link clicks on UTM'd funnel URLs in 1–2 weeks
+- Optional: reusable CtaBox component for consistent CTA styling
+
+### Blockers & Open Questions
+- GA4 link-click attribution on funnel redirects (CJ may strip UTM — may need redirect-URL click measurement)
+
+---
+
+
 ## 2026-08-25 — First trend-driven monetized post published: Self-Host AI Agents on a Cheap VPS
 
 ### Last Session
