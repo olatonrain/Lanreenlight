@@ -4,6 +4,7 @@ This file helps AI coding agents (like opencode) work effectively on this projec
 
 <!-- agent-updated: 2026-07-11 — Initial setup with all rules -->
 <!-- agent-updated: 2026-08-25 — Added mandatory SEO/AEO/GEO preservation rules, corrected stale routing/hosting/build lines -->
+<!-- agent-updated: 2026-08-25 — Added mandatory weekly trend-driven monetized post cadence -->
 
 ## Tools & Skills
 
@@ -79,6 +80,13 @@ The site earns visibility three ways: search engines (SEO), answer engines like 
 ### If in doubt
 
 Any change that touches an existing URL, title, heading, sitemap entry, or redirect is SEO-affected. Verify before and after. Never claim "traffic is safe" without running the checks above.
+
+## Content Cadence (MANDATORY)
+
+- Publish at least one new blog post per week: trend-driven, minimum 1,200 words, ending in a product CTA (affiliate link or own product). Full workflow in `CONTENT_STRATEGY.md` → "Trend-Driven Monetized Posts".
+- Every post must pass the SEO/AEO/GEO rules above: sitemap entry with fresh lastmod, unique metadata + Article schema, llms.txt sync, internal links, indexing ping after deploy.
+- No post ships without a product link and a closing CTA box.
+- After publishing, complete the promotion checklist: socials (different angle per platform), newsletter mention, YouTube description + pinned comment when a matching video exists.
 - **Alias** — `@/` maps to project root in imports
 
 ## Documentation Conventions

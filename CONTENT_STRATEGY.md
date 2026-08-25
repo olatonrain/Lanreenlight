@@ -278,6 +278,73 @@ When a new YouTube video is published:
 
 ---
 
+## Trend-Driven Monetized Posts (MANDATORY)
+
+At least one new blog post every week, anchored to a live trend, at least 1,200 words, and built around a product the site monetizes (affiliate link or own product). The reader should land on the trend, get a real solution, and finish with something buyable in front of them. Traffic and awareness are the fuel; product clicks are the engine. All of AGENTS.md's SEO/AEO/GEO Preservation Rules apply to every post.
+
+### 1. Find the trend
+
+This is a standing research loop, not a one-off:
+
+- **Google Trends** — rising queries in AI automation, VPS/self-hosting, forex bots, DePIN/crypto nodes, web & app development
+- **YouTube** — search suggestions plus trending in the niche; the channel's own top performers are a signal
+- **Reddit** — r/n8n, r/selfhosted, r/VPS, r/algotrading, r/DePIN, r/webdev, r/reactnative
+- **Google autocomplete + "People Also Ask"** boxes
+- **Search Console → Queries report** — queries the site already gets (real demand, easier to rank for)
+- **X/Twitter and niche newsletters** — what's picking up this week
+
+Pick topics where a product maps naturally. A trend with no monetizable angle goes on the idea list, not the calendar.
+
+### 2. Validate before writing
+
+- The topic has visible momentum (rising trend line, recurring questions, active threads).
+- The site can add something original: hands-on experience, numbers, a setup guide, a comparison.
+- One of the products below fits without forcing it.
+
+### 3. Map the trend to a product
+
+| Cluster / topic | Product | Link path |
+|---|---|---|
+| VPS, self-hosting, n8n hosting, crypto nodes | Contabo VPS (affiliate) | `/cheapestvps` or `/vps6` / `/vps8` / `/vps12` |
+| Forex, trading bots, prop firms | Deriv (affiliate) | `/forexbroker` |
+| AI coding agents, Claude Code, AI gateways | AgentRouter (affiliate) | affiliate link from `data/videos.ts` |
+| Trading, EA comparisons | Expert Advisors (own products) | Algorithms section + trading guide |
+| Web/app builds, tooling | Web/App dev services | `/guides/web-development`, `/guides/app-development` |
+| Any post | Newsletter (Scalability Weekly) | Contact section on home |
+
+Every post links to at least one product mid-content and repeats the CTA in a closing box. A post with no product link fails the requirement.
+
+### 4. Write for conversion (1,200+ words)
+
+- **Hook (first ~100 words):** the trend, why it matters now, what the reader gets
+- **Body (3–5 sections):** real steps or experience, subheadings that carry keywords, 1–2 internal links to pillar guides per the internal-linking rules
+- **Product placement:** a contextual mention where the product solves the problem, then a closing CTA box ("If you want this without the hassle…")
+- **FAQ (3–5 questions):** feeds AEO and featured snippets, catches buyers late in the funnel
+- **Author bio + newsletter CTA** at the end — own the audience, don't rent it from Google
+- **Affiliate disclosure:** one clear line near the first product link ("Some links are affiliate links — I may earn a commission at no cost to you."). Required for trust and compliance, and it keeps citation quality clean for AEO/GEO.
+
+### 5. Publish correctly
+
+Same checklist as every page (AGENTS.md rules): add `data/posts/{slug}.json`, sitemap.xml (fresh lastmod), llms.txt, unique title/description/canonical/Article schema; prerender must pass; verify 200 + title + canonical + no noindex; then `node scripts/request-indexing.mjs`.
+
+### 6. Promote everywhere
+
+- Post to X, LinkedIn, Facebook, Instagram, Telegram — a different angle on each, not the same sentence
+- If a matching video exists: link in the YouTube description and a pinned comment (the channel is the site's biggest traffic source)
+- Newsletter mention (Scalability Weekly)
+- Internal link from the relevant pillar guide when the topic fits a cluster
+
+### 7. Measure and iterate
+
+- Product links carry UTM params (`?utm_source=blog&utm_medium=post&utm_campaign={slug}`) so GA4 shows which post converts
+- Watch in GA4: post → affiliate link clicks, newsletter signups. Watch in GSC: impressions and CTR per post
+- Underperformers: refresh the content (never delete the URL — 301 or keep it)
+- Winners: mine for follow-ups and expand into a mini-cluster
+
+<!-- agent-updated: 2026-08-25 — Added mandatory trend-driven monetized post workflow -->
+
+---
+
 ## SEO/AEO/GEO Guidelines
 
 ### On-Page Basics (SEO)

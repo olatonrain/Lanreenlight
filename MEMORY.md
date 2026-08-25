@@ -6,6 +6,33 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 
 ---
 
+## 2026-08-25 — Monetized content pipeline codified (trend → 1,200-word post → product link)
+
+### Last Session
+2026-08-25 — Google Indexing API wired + SEO/AEO/GEO preservation rules codified
+
+### Done
+- User requested: always research trending topics, publish at least 1 blog post with ≥1,200 words linked to a product, intent = sales + impressions + awareness + traffic
+- Added "Trend-Driven Monetized Posts (MANDATORY)" section to `CONTENT_STRATEGY.md`: weekly cadence, trend research loop (Google Trends, YouTube suggestions, Reddit, autocomplete/PAA, GSC Queries, X/newsletters), validation rules, product mapping table (Contabo VPS → VPS/n8n/crypto posts, Deriv → forex posts, AgentRouter → AI agent posts, EAs → trading posts, dev services → web/app posts, newsletter → every post), conversion post anatomy (hook → 3-5 sections → contextual product link + closing CTA box → FAQ → author bio/newsletter CTA → affiliate disclosure), publish checklist, promotion checklist (socials per-platform angle, newsletter, YouTube description/pinned comment), measurement loop (UTM params on product links, GA4 link clicks + GSC CTR, refresh-not-delete rule)
+- Added "Content Cadence (MANDATORY)" section to `AGENTS.md` — weekly post requirement with the guardrails from the preservation rules attached
+- Decision noted: cadence default = 1 post/week (user can tighten/loosen)
+
+### Decisions
+- Every blog post is a conversion asset: product link mid-content + closing CTA box are required, not optional
+- Affiliate disclosure line is mandatory in every post (trust + compliance + AEO/GEO citation quality)
+- UTM params on all product links so GA4 attributes conversions to specific posts
+
+### Next Steps
+- Execute the first trend-driven post (pick a live trend, write ≥1,200 words, map to a product, publish + promote + index-ping)
+- Build a reusable CTA box component for blog posts (currently none exists — closing CTA boxes would need inline HTML in post content)
+- Consider `npm run index` alias for `scripts/request-indexing.mjs`
+
+### Blockers & Open Questions
+- None new. GA4 conversion tracking (link clicks on affiliate URLs) needs to be set up in GA4 UI or via the gtag loader
+
+---
+
+
 ## 2026-08-25 — Google Indexing API wired + SEO/AEO/GEO preservation rules codified
 
 ### Last Session

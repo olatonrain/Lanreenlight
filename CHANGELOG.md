@@ -10,9 +10,11 @@ Added
 - `scripts/request-indexing.mjs` — Google Indexing API client (zero extra deps; JWT auth via service account key) that pings every sitemap URL with `URL_UPDATED`; run after content deploys
 - Mandatory SEO/AEO/GEO preservation rules in `AGENTS.md` — 10 non-negotiables + pre-deploy verification checks, so future feature/page work can never silently regress traffic
 - "Traffic Protection Policy" section in `CONTENT_STRATEGY.md` linking the full rule set
+- Mandatory weekly content cadence: trend-driven blog post, ≥1,200 words, product-linked with CTA — workflow in `CONTENT_STRATEGY.md` ("Trend-Driven Monetized Posts"), enforcement pointer in `AGENTS.md` ("Content Cadence")
 
 Changed
 - `AGENTS.md` — corrected stale lines: routing/hosting/build descriptions now reflect prerender + real-404 reality; documented the indexing script in the commands list
+- `CONTENT_STRATEGY.md` — new mandatory monetized-post workflow: trend research loop, product mapping table, conversion post anatomy, promotion checklist, UTM-based measurement
 
 ---
 
