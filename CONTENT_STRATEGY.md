@@ -9,6 +9,17 @@ Portfolio and knowledge hub for Lanre (AI Automation & Systems Engineer). The si
 - **AEO** — Answer Engine Optimization for AI Overviews, Perplexity, ChatGPT search — concise Q&A sections, FAQ schema, direct answer formatting
 - **GEO** — Generative Engine Optimization for LLM citations — authoritative entity mentions, comprehensive coverage, citation-worthy data points
 
+## Traffic Protection Policy (MANDATORY — full rules in AGENTS.md "SEO/AEO/GEO Preservation Rules")
+
+Existing traffic is the top priority for every content change. The short version:
+
+- Every indexed URL is permanent — moves require a 301, never a silent delete or repurpose.
+- New pages go into `sitemap.xml` (fresh lastmod) + `llms.txt` + prerender + unique title/description/canonical/JSON-LD, then get pinged via `node scripts/request-indexing.mjs`.
+- Never serve soft-404s, never `noindex` real pages, never Disallow crawlers in robots.txt, never shrink or gut indexed content without reason.
+- After every content deploy, run the mandatory checks (build, curl title/canonical/noindex, 404 probe) before declaring done.
+
+<!-- agent-updated: 2026-08-25 — Added traffic protection policy linking AGENTS.md rules -->
+
 ## Current State (2026-07-11)
 
 ### Page Inventory

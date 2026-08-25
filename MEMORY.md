@@ -6,6 +6,34 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 
 ---
 
+## 2026-08-25 — Google Indexing API wired + SEO/AEO/GEO preservation rules codified
+
+### Last Session
+2026-08-24/25 — GSC shows only 2 indexed pages (home + blog); soft-404 fix deployed; user provided GSC service account key
+
+### Done
+- **Google Indexing API enabled:** user provided service account key `~/Downloads/trans-parsec-481518-j2-98265b142411.json` (`lanreenlight-index@trans-parsec-481518-j2.iam.gserviceaccount.com`); user added it as **Owner** in GSC (Settings → Users and permissions)
+- Built `scripts/request-indexing.mjs` — zero-dependency (Node crypto JWT + https), reads sitemap.xml, sends `URL_UPDATED` to `indexing.googleapis.com` for each URL; key resolution: CLI arg → `INDEXING_SERVICE_ACCOUNT_KEY` (base64 env var) → default Downloads path
+- **Ran it: 11/11 URLs accepted (HTTP 200)** — home, 7 guides, blog index, 2 posts. First run before GSC permission returned 403 "Failed to verify the URL ownership" — resolved once owner added
+- **Codified mandatory SEO/AEO/GEO preservation rules** in `AGENTS.md` (new section "SEO/AEO/GEO Preservation Rules (MANDATORY)"): 10 non-negotiables (never skip prerender, never soft-404, unique meta per page, sitemap entry per route, indexed URLs permanent + 301 on moves, noindex only on error pages, permissive robots.txt, llms.txt/.md sync, don't gut content, affiliate funnel URLs sacred) + mandatory pre-deploy checks (build, curl title/canonical/noindex, 404 probe, run indexing script) + "if in doubt" rule
+- Also fixed stale AGENTS.md lines (SPA fallback wording → prerender reality, build commands) and added short "Traffic Protection Policy" section to `CONTENT_STRATEGY.md` linking the full rules
+
+### Decisions
+- Any future agent must treat SEO/AEO/GEO violations as release-blocking bugs; rules live in AGENTS.md so every session reads them
+- Indexing API pings after content deploys are now part of the deploy ritual (`node scripts/request-indexing.mjs`)
+- `.mimosa/` directory exists in repo root (untracked, not ours — leave alone)
+
+### Next Steps
+- OPTIONAL (pending user approval — AGENTS.md forbids editing CI/CD without it): add indexing call to `.github/workflows/deploy.yml` post-deploy step with key stored as GitHub secret `INDEXING_SERVICE_ACCOUNT_KEY`
+- Watch GSC Page indexing report over next 1–2 weeks: 7 guides + 2 posts should move from "not indexed" to indexed after today's Indexing API ping
+- Consider `npm run index` alias for the indexing script (currently invoked as `node scripts/request-indexing.mjs`)
+
+### Blockers & Open Questions
+- Can't see GSC data directly (no API access beyond Indexing API) — indexing status inferred from user's screenshots
+- Whether HestiaCP grants `AllowOverride` for mod_deflate/mod_expires remains unconfirmed (compression headers absent live)
+
+---
+
 ## 2026-08-22 — site: index audit → soft-404 fix + fatal prerender
 
 ### Last Session
