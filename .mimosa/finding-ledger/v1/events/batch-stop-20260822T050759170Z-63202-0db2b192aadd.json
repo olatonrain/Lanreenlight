@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "mimosa-finding-ledger-batch/v1",
+  "batchId": "stop-20260822T050759170Z-63202-0db2b192aadd",
+  "runId": "20260822T050759170Z-63202-0db2b192aadd",
+  "runStatus": "completed",
+  "coverage": {
+    "status": "complete",
+    "reasons": []
+  },
+  "source": {
+    "component": "zcode-hook",
+    "operationId": "Stop"
+  },
+  "revision": "d1502703ef062050c45f154b76a09ba8e3e8512b",
+  "diffHash": "6e5500c43545e611b36efd46b9180be31e166438830aa0eac08decbb5ab2e7d8",
+  "rulesVersion": "unavailable",
+  "sessionHash": "417da6f25bfc22178d8564f2aff9e67d56f00dff2cff6560c7a0c19eefa070f4",
+  "reportRef": ".mimosa/reports/task-review-sess_7325ffb8-a676-4c5c-8e76-ce329d255d70-20260822T050759170Z-63202-0db2b192aadd.json",
+  "events": [],
+  "observedFindingIds": [],
+  "verifiedFiles": [
+    {
+      "file": "components/Blog.tsx",
+      "direct": "complete",
+      "projectContext": "partial"
+    },
+    {
+      "file": "components/Seo.tsx",
+      "direct": "complete",
+      "projectContext": "partial"
+    },
+    {
+      "file": "components/CanonicalLink.tsx",
+      "direct": "complete",
+      "projectContext": "partial"
+    }
+  ],
+  "recordedAt": "2026-08-22T05:08:00.034Z"
+}

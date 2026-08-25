@@ -1,0 +1,112 @@
+{
+  "schemaVersion": "mimosa-finding-ledger-batch/v1",
+  "batchId": "stop-20260822T041641781Z-55096-c1723c5ee52a",
+  "runId": "20260822T041641781Z-55096-c1723c5ee52a",
+  "runStatus": "inconclusive",
+  "coverage": {
+    "status": "partial",
+    "reasons": [
+      {
+        "code": "project_check_failed",
+        "stage": "supply-chain-check",
+        "target": ".",
+        "detail": "spawnSync /usr/local/bin/node ETIMEDOUT",
+        "affectsCompletion": true
+      }
+    ]
+  },
+  "source": {
+    "component": "zcode-hook",
+    "operationId": "Stop"
+  },
+  "revision": "038ffd0f6c17cd7ddafd329d70f4529840fe53fc",
+  "diffHash": "930e1c6a88858582260aa5b54e9d72f1ae3f117d84ea4f978b2d16c85c0ca8ad",
+  "rulesVersion": "unavailable",
+  "sessionHash": "417da6f25bfc22178d8564f2aff9e67d56f00dff2cff6560c7a0c19eefa070f4",
+  "reportRef": ".mimosa/reports/task-review-sess_7325ffb8-a676-4c5c-8e76-ce329d255d70-20260822T041641781Z-55096-c1723c5ee52a.json",
+  "events": [],
+  "observedFindingIds": [],
+  "verifiedFiles": [
+    {
+      "file": "data/schema.ts",
+      "direct": "complete",
+      "projectContext": "partial"
+    },
+    {
+      "file": "components/Seo.tsx",
+      "direct": "complete",
+      "projectContext": "partial"
+    },
+    {
+      "file": "components/GuidesLayout.tsx",
+      "direct": "complete",
+      "projectContext": "partial"
+    },
+    {
+      "file": "components/N8nGuide.tsx",
+      "direct": "complete",
+      "projectContext": "partial"
+    },
+    {
+      "file": "components/VpsGuide.tsx",
+      "direct": "complete",
+      "projectContext": "partial"
+    },
+    {
+      "file": "components/TradingGuide.tsx",
+      "direct": "complete",
+      "projectContext": "partial"
+    },
+    {
+      "file": "components/CryptoNodeGuide.tsx",
+      "direct": "complete",
+      "projectContext": "partial"
+    },
+    {
+      "file": "components/WebDevelopmentGuide.tsx",
+      "direct": "complete",
+      "projectContext": "partial"
+    },
+    {
+      "file": "components/AppDevelopmentGuide.tsx",
+      "direct": "complete",
+      "projectContext": "partial"
+    },
+    {
+      "file": "components/AgentrouterGuide.tsx",
+      "direct": "complete",
+      "projectContext": "partial"
+    },
+    {
+      "file": "components/NotFound.tsx",
+      "direct": "complete",
+      "projectContext": "partial"
+    },
+    {
+      "file": "App.tsx",
+      "direct": "complete",
+      "projectContext": "partial"
+    },
+    {
+      "file": "components/Blog.tsx",
+      "direct": "complete",
+      "projectContext": "partial"
+    },
+    {
+      "file": "components/BlogPostPage.tsx",
+      "direct": "complete",
+      "projectContext": "partial"
+    },
+    {
+      "file": "components/CanonicalLink.tsx",
+      "direct": "complete",
+      "projectContext": "partial"
+    },
+    {
+      "file": "data/videos.ts",
+      "direct": "complete",
+      "projectContext": "partial"
+    }
+  ],
+  "recordedAt": "2026-08-22T04:16:42.639Z"
+}

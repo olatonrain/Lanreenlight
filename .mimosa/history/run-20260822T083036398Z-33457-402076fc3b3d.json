@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "mimosa-finding-history/v1",
+  "runId": "20260822T083036398Z-33457-402076fc3b3d",
+  "runStatus": "inconclusive",
+  "errors": [
+    "supply-chain-check:.: spawnSync /usr/local/bin/node ETIMEDOUT",
+    "agent-check:.: stop_budget_exhausted: focused agent configuration check was not run before the gate budget"
+  ],
+  "target": ".",
+  "revision": "682de36e35025d694e5d1a22656f738705f6357c",
+  "diffHash": "902d3a8974f6923280aee6f4325fe6678476c3917ba68fc1f5d8d14f55ab06b9",
+  "rulesVersion": "unavailable",
+  "recordedAt": "2026-08-22T08:30:36.398Z",
+  "timing": {
+    "startedAt": "2026-08-22T08:30:32.871Z",
+    "completedAt": "2026-08-22T08:30:36.398Z",
+    "durationMs": 3527
+  },
+  "tokens": {
+    "input": 0,
+    "output": 0,
+    "total": 0,
+    "modelCalls": 0,
+    "measurement": "known-zero"
+  },
+  "findings": {
+    "total": 0,
+    "bySeverity": {},
+    "byStatus": {}
+  },
+  "coverage": {
+    "status": "partial",
+    "reasonCounts": {
+      "stop_budget_exhausted": 1,
+      "project_check_failed": 2
+    }
+  },
+  "evidenceBoundary": "static_only",
+  "immutableReport": ".mimosa/reports/task-review-sess_c70ef9c7-fdb0-494d-b418-39c6569e6f4c-20260822T083036398Z-33457-402076fc3b3d.json"
+}

@@ -162,7 +162,7 @@ export const VideoHub: React.FC = () => {
                                             href={`https://youtube.com/watch?v=${video.youtubeId}`}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="w-16 h-16 bg-brand-accent text-white rounded-full flex items-center justify-center text-2xl shadow-xl hover:scale-110 active:scale-90 transition-transform"
+                                            className="w-16 h-16 bg-brand-accent text-brand-black rounded-full flex items-center justify-center text-2xl shadow-xl hover:scale-110 active:scale-90 transition-transform"
                                         >
                                             <i className="fa-solid fa-play ml-1"></i>
                                         </a>

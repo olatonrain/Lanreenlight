@@ -319,9 +319,11 @@ Every post links to at least one product mid-content and repeats the CTA in a cl
 - **Hook (first ~100 words):** the trend, why it matters now, what the reader gets
 - **Body (3–5 sections):** real steps or experience, subheadings that carry keywords, 1–2 internal links to pillar guides per the internal-linking rules
 - **Product placement:** a contextual mention where the product solves the problem, then a closing CTA box ("If you want this without the hassle…")
+- **Help offer (EVERY post):** a short paragraph before the CTA box offering help — "If you're experiencing any issues with this, reach out — I build these systems for businesses" — linking to `/#contact`. This converts readers stuck mid-setup into leads.
 - **FAQ (3–5 questions):** feeds AEO and featured snippets, catches buyers late in the funnel
 - **Author bio + newsletter CTA** at the end — own the audience, don't rent it from Google
 - **Affiliate disclosure:** one clear line near the first product link ("Some links are affiliate links — I may earn a commission at no cost to you."). Required for trust and compliance, and it keeps citation quality clean for AEO/GEO.
+- **Referral links rule:** every post must include the relevant funnel URLs — Contabo VPS (`/cheapestvps`, `/cheapestn8nvps`, `/cheapest-openclaw-vps`), Deriv (`/forexbroker`), AgentRouter (affiliate link from `data/videos.ts`), Expert Advisors — matched to the post topic, UTM-tagged.
 
 ### 5. Publish correctly
 

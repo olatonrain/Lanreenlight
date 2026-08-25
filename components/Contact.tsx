@@ -117,7 +117,7 @@ export const Contact: React.FC = () => {
                                             <button
                                                 type="submit"
                                                 disabled={isLoading}
-                                                className="bg-brand-accent text-white font-bold px-8 py-4 rounded-full hover:bg-yellow-600 transition-colors shadow-lg active:scale-95 flex items-center justify-center min-w-[140px] disabled:opacity-70"
+                                                className="bg-brand-accent text-brand-black font-bold px-8 py-4 rounded-full hover:bg-yellow-600 transition-colors shadow-lg active:scale-95 flex items-center justify-center min-w-[140px] disabled:opacity-70"
                                             >
                                                 Next
                                                 <i className="fa-solid fa-arrow-right ml-2"></i>
@@ -138,7 +138,7 @@ export const Contact: React.FC = () => {
                                             <button
                                                 type="submit"
                                                 disabled={isLoading}
-                                                className="bg-brand-accent text-white font-bold px-8 py-4 rounded-full hover:bg-yellow-600 transition-colors shadow-lg active:scale-95 flex items-center justify-center min-w-[140px] disabled:opacity-70"
+                                                className="bg-brand-accent text-brand-black font-bold px-8 py-4 rounded-full hover:bg-yellow-600 transition-colors shadow-lg active:scale-95 flex items-center justify-center min-w-[140px] disabled:opacity-70"
                                             >
                                                 {isLoading ? (
                                                     <i className="fa-solid fa-circle-notch animate-spin text-xl"></i>

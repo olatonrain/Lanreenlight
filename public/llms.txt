@@ -15,6 +15,8 @@
 ## Blog
 
 - [Blog index](https://lanreenlight.com/blog/): Deep dives into automation, node infrastructure, and market mechanics
+- [How I Made Bless Network Pay Me $1,000 on a $5 VPS (DePIN Guide)](https://lanreenlight.com/blog/how-i-made-bless-network-pay-1000): Running Bless Network DePIN nodes on cheap VPS hardware — costs, setup, earnings, and multi-node stacking
+- [The n8n VPS Blueprint: How Freelancers Charge $500+ Per Client](https://lanreenlight.com/blog/n8n-vps-blueprint-charge-clients-500): The 2026 automation freelancing playbook — what to build, how to host it on a VPS, and how to price client projects
 - [Self-Host AI Agents on a Cheap VPS: Beat Claude Code & Codex Limits](https://lanreenlight.com/blog/self-host-ai-agents-on-a-vps): Why AI coding agent subscriptions hit limits, and how to run self-hosted n8n agent workflows with open models on a $4–$6 VPS
 - [The Shift: Why I Left Traditional Marketing](https://lanreenlight.com/blog/the-shift-why-i-left-traditional-marketing): From ROI-driven campaigns to autonomous systems — why the future belongs to builders
 - [From Digital Marketer to AI Architect](https://lanreenlight.com/blog/from-digital-marketer-to-ai-architect): The transition path from marketing to building AI systems
