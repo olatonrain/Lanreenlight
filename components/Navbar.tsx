@@ -20,9 +20,13 @@ const GUIDE_LINKS = [
     { label: 'App Development Guide', href: '/guides/app-development' }
 ];
 
+const CTA_PHRASES = ['Partner With Me', 'Work With Me', "Let's Solve It"];
+
 export const Navbar: React.FC = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
+    const [ctaIndex, setCtaIndex] = useState(0);
+    const [ctaVisible, setCtaVisible] = useState(true);
     const location = useLocation();
     const isHome = location.pathname === '/';
 
@@ -32,6 +36,18 @@ export const Navbar: React.FC = () => {
         };
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    // Rotate CTA phrases every 4s with a crossfade (fade out, swap, fade in)
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCtaVisible(false);
+            setTimeout(() => {
+                setCtaIndex(prev => (prev + 1) % CTA_PHRASES.length);
+                setCtaVisible(true);
+            }, 300);
+        }, 4000);
+        return () => clearInterval(interval);
     }, []);
 
     const toggleMobileMenu = () => {
@@ -89,9 +105,13 @@ export const Navbar: React.FC = () => {
                         ))}
                         <a
                             href={isHome ? "#contact" : "/#contact"}
-                            className="bg-brand-black text-white px-6 py-2.5 rounded-full font-bold text-sm hover:bg-gray-800 border border-transparent shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95 transition-all duration-300 ease-out"
+                            className="bg-brand-black text-white px-6 py-2.5 rounded-full font-bold text-sm hover:bg-gray-800 border border-transparent shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95 transition-all duration-300 ease-out inline-flex items-center justify-center min-w-[150px]"
                         >
-                            Partner With Me
+                            <span
+                                className={`transition-opacity duration-300 ${ctaVisible ? 'opacity-100' : 'opacity-0'}`}
+                            >
+                                {CTA_PHRASES[ctaIndex]}
+                            </span>
                         </a>
                     </div>
 
@@ -136,7 +156,7 @@ export const Navbar: React.FC = () => {
                             className="block px-3 py-2 mt-4 text-center rounded-md text-base font-bold bg-brand-black text-white hover:bg-gray-800 transition-colors"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
-                            Partner With Me
+                            {CTA_PHRASES[ctaIndex]}
                         </a>
                     </div>
                 </div>

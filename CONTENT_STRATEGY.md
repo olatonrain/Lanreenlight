@@ -280,7 +280,9 @@ When a new YouTube video is published:
 
 ## Trend-Driven Monetized Posts (MANDATORY)
 
-At least one new blog post every week, anchored to a live trend, at least 1,200 words, and built around a product the site monetizes (affiliate link or own product). The reader should land on the trend, get a real solution, and finish with something buyable in front of them. Traffic and awareness are the fuel; product clicks are the engine. All of AGENTS.md's SEO/AEO/GEO Preservation Rules apply to every post.
+At least four new blog posts every week, anchored to live trends, at least 1,200 words each, and built around products the site monetizes (affiliate links or own products). The reader should land on the trend, get a real solution, and finish with something buyable in front of them. Traffic and awareness are the fuel; product clicks are the engine. All of AGENTS.md's SEO/AEO/GEO Preservation Rules apply to every post.
+
+Every post embeds its relevant YouTube video (from `data/videos.ts`) via `youtubeId` — a post about n8n embeds an n8n video, a post about VPS embeds a VPS video, a trading post embeds a trading video. The video is the proof; the post is the pitch. Never use the `dQw4w9WgXcQ` placeholder.
 
 ### 1. Find the trend
 
@@ -328,6 +330,8 @@ Every post links to at least one product mid-content and repeats the CTA in a cl
 ### 5. Publish correctly
 
 Same checklist as every page (AGENTS.md rules): add `data/posts/{slug}.json`, sitemap.xml (fresh lastmod), llms.txt, unique title/description/canonical/Article schema; prerender must pass; verify 200 + title + canonical + no noindex; then `node scripts/request-indexing.mjs`.
+
+Also required in the JSON: `youtubeId` set to the relevant video from `data/videos.ts` (never the placeholder), and the CTA button uses `class="cta-button"` (the CSS class, not Tailwind utilities — see index.html).
 
 ### 6. Promote everywhere
 

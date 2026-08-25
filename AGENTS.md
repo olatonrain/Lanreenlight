@@ -83,8 +83,9 @@ Any change that touches an existing URL, title, heading, sitemap entry, or redir
 
 ## Content Cadence (MANDATORY)
 
-- Publish at least one new blog post per week: trend-driven, minimum 1,200 words, ending in a product CTA (affiliate link or own product). Full workflow in `CONTENT_STRATEGY.md` → "Trend-Driven Monetized Posts".
+- Publish at least four new blog posts per week: trend-driven, minimum 1,200 words each, ending in a product CTA (affiliate link or own product). Full workflow in `CONTENT_STRATEGY.md` → "Trend-Driven Monetized Posts".
 - Every post must pass the SEO/AEO/GEO rules above: sitemap entry with fresh lastmod, unique metadata + Article schema, llms.txt sync, internal links, indexing ping after deploy.
+- Every post must embed its relevant YouTube video (`youtubeId` in the post JSON — never the `dQw4w9WgXcQ` placeholder). A post about n8n embeds an n8n video; a post about a VPS embeds a VPS video. Videos are chosen from `data/videos.ts`.
 - No post ships without a product link and a closing CTA box.
 - After publishing, complete the promotion checklist: socials (different angle per platform), newsletter mention, YouTube description + pinned comment when a matching video exists.
 - **Alias** — `@/` maps to project root in imports
