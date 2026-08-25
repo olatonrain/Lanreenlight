@@ -6,6 +6,30 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 
 ---
 
+## 2026-08-25 — CTA button fix v2: cta-button CSS class (specificity bug)
+
+### Last Session
+2026-08-25 — Button contrast fix + 2 new monetized posts + help-offer rule
+
+### Done
+- User reported buttons still invisible after v1 fix (text-brand-black on bg-brand-accent). Root cause: `.article-content a { color: #c5a028 }` (specificity 0-1-1) beats Tailwind's `text-brand-black` (0-1-0) — all links inside blog posts render gold-on-gold + underlined
+- Fix: added `.article-content a.cta-button` CSS rule (0-2-1) in index.html — explicit gold bg + dark text, no underline, hover swaps colors (dark bg + gold text, per user request). All 3 blog post CTAs changed from tailwind class string to `class="cta-button"`
+- Deployed (run success), verified live: class + CSS rule present on all 3 posts
+
+### Decisions
+- Buttons inside `.article-content` must use `cta-button` class, never Tailwind color utilities (they lose the specificity war)
+- Keep help-offer inline links as standard gold-underline links (only buttons get the class)
+
+### Next Steps
+- Re-check GA4 link clicks on funnel URLs in 1–2 weeks
+- Continue video→post pipeline (Cheapest VPS roundup, Grass Rewards, AI Courtroom, Trading bot)
+
+### Blockers & Open Questions
+- None new
+
+---
+
+
 ## 2026-08-25 — Button contrast fix + 2 new monetized posts + help-offer rule
 
 ### Last Session
