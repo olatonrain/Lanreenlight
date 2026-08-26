@@ -92,6 +92,18 @@ Any change that touches an existing URL, title, heading, sitemap entry, or redir
 - No post ships without a product link and a closing CTA box.
 - After publishing, complete the promotion checklist: socials (different angle per platform), newsletter mention, YouTube description + pinned comment when a matching video exists.
 
+### Video Content Package Format (MANDATORY for every new video)
+
+Every video content package must follow this exact structure (user-confirmed 2026-08-22 on the OmniRoute video):
+
+1. **Title Options** — exactly 3 suggested titles, each with its OWN thumbnail idea and a one-line rationale. Title angles to rotate between: (a) always-on differentiator + free + price hook, (b) zero-competition keyword owner (e.g. "OmniRoute Contabo"), (c) pain-point lane ("Stop Paying for AI APIs"). Base titles on live research (WebSearch/Explore) for whitespace keywords before recommending.
+2. **Description** — hook paragraph (problem → solution), CHAPTERS with timestamps (estimated, marked ⚠️ to adjust), full copy-paste command blocks, links (affiliate first, then site guides), affiliate disclosure, socials/community. Never leave the generic boilerplate description without a hook/chapters/commands.
+3. **Tags** — 20+ tags including the whitespace keywords from research.
+4. **Pinned Comment** — links + one engagement question.
+5. **Pre-Public Checklist** — chapters adjust, cards at CTA moments, end screen, thumbnail, make public, pin comment.
+
+Deliver as a saved file under `youtube-fixes/video-content-<videoId>.md` AND present in chat. Offer to apply via `youtube-update.mjs apply --yes` after user review.
+
 ## Local Review Gate (MANDATORY)
 
 **Never push content to `main` without the user seeing it locally first.** The deploy pipeline auto-ships on push, so a push IS a publish. The gate:

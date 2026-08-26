@@ -309,6 +309,12 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 - `/vps6` `/vps8` `/vps12` redirects kept (all → generic Contabo CJ link — consistent with user's model; harmless, usable in video CTAs if wanted)
 - GA4 setup instructions given to user (analytics.google.com → property → web stream → G-XXXXXXXXXX); ID still pending
 
+**Session 6b — Video Content Package convention locked in (2026-08-22):**
+- User confirmed the OmniRoute video content package format is THE standard going forward: 3 title options (each with own thumbnail idea + rationale) → description (hook, chapters w/ ⚠️ estimated timestamps, command blocks, affiliate-first links, disclosure, socials) → 20+ research-backed tags → pinned comment → pre-public checklist
+- Convention written into AGENTS.md ("Video Content Package Format (MANDATORY)") — every future video must follow it
+- OmniRoute video (p6GlZLl5b6c, 25:28, private): content package saved to `youtube-fixes/video-content-p6GlZLl5b6c.md` with 3 title options + thumbnail ideas. Currently set title: Option 3 "Stop Paying for AI APIs — Self-Host OmniRoute on a VPS (2026)". Description/tags/pinned comment ready — NOT yet applied (awaiting user's timestamp adjust + "apply")
+- Research (Explore agent, 2026-08-26): "OmniRoute on VPS"/"OmniRoute Contabo" = ZERO video competitors (whitespace keyword); OmniRoute project exploding (55.5k stars, 287k npm dl/mo); "stop paying for AI APIs" = fragmented pain-point lane where small channels get surfaced; "free AI API"/"free Claude API" head terms saturated — avoid
+
 **Session 6 — GA4 LIVE (2026-08-22):**
 - User provided GA4 Measurement ID `G-XMN0TFX6BM` → wired into `index.html` (placeholder no-op branch removed from active path), build verified, deployed (`ed6d999`), **live tag confirmed on homepage**. Analytics unblocked after 6 weeks of placeholder
 - Site funnel (YouTube → site → affiliate redirects) is now measurable; affiliate redirects themselves are server-side 301/302 (GA4 won't fire on them — measure via landing pages + CJ dashboard instead)
