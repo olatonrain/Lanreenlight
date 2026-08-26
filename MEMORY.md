@@ -6,6 +6,32 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 
 ---
 
+## 2026-08-25 — Guides index page + premium blog redesign + navbar/hero cleanup deployed
+
+### Last Session
+2026-08-25 — Deployed: humanizer + SEO pass, blog dedupe, review gate enforced
+
+### Done
+- **New `/guides/` index page** (commit 0c0cbe6, CI success, live 200): dark editorial "playbooks" design distinct from blog — dark hero with tech-grid + stat row, featured n8n flagship card, 6 color-coded guide cards (icon tiles, category colors, topic chips, read times), Work With Me CTA. `data/guides.ts` is the single source of truth. CollectionPage schema, unique title/canonical `/guides/`, sitemap (15 URLs), llms.txt, prerender directory index.
+- **Premium blog redesign**: dark hero ("Experiments, Published"), featured "Latest Entry" split card, category filter chips (All/Automation/Crypto/Philosophy), color-coded category badges, hover lift/zoom/arrow, newsletter CTA band. Dedupe logic kept (5 posts each once).
+- **Navbar**: Guides dropdown replaced with a single link to `/guides/` (desktop + mobile) — user requested.
+- **Hero**: removed "Get the AI Automation Guide" button (user requested) — kept "View All Guides & Videos".
+- Note: user is editing `VIDEO_PRODUCTION_GUIDE.md` themselves (rewrote as a video plan) — left uncommitted, it's theirs.
+- Indexing ping: 15/15 accepted.
+
+### Decisions
+- Guides index owns `/guides/` (trailing-slash canonical, like `/blog/`); DirectorySlash 301s `/guides` → `/guides/` which is correct
+- Guide card colors: n8n gold, VPS blue, trading green, crypto purple, web orange, app teal, agents cyan
+
+### Next Steps
+- Continue 4/week posts; promote current batch; GA4 check in 1–2 weeks
+- Watch GSC for `/guides/` indexing
+
+### Blockers & Open Questions
+- None
+
+---
+
 ## 2026-08-25 — Deployed: humanizer + SEO pass, blog dedupe, review gate enforced
 
 ### Last Session
