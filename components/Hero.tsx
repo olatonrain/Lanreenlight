@@ -55,10 +55,6 @@ export const Hero: React.FC = () => {
 
                     <FadeIn delay={1200} direction="up">
                         <div className="flex flex-col sm:flex-row gap-6 items-center">
-                            <a href="/guides/n8n-automation" className="group relative px-10 py-4 bg-brand-accent text-brand-black rounded-full font-bold overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-2xl">
-                                <span className="relative z-10 uppercase tracking-widest text-xs">Get the AI Automation Guide</span>
-                                <div className="absolute inset-0 bg-gradient-to-r from-yellow-600 to-brand-accent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                            </a>
                             <a href="#knowledge-hub" className="text-xs uppercase tracking-[0.3em] font-bold border-2 border-white/70 px-6 py-3 rounded-full text-white hover:bg-white hover:text-brand-black transition-all duration-300 shadow-lg">
                                 View All Guides & Videos
                             </a>

@@ -211,9 +211,11 @@ const run = async () => {    if (!existsSync(DIST)) {
                 const htmlPath = route === '/' ? path.join(DIST, 'index.html') : path.join(DIST, `${route}.html`);
                 await mkdir(path.dirname(htmlPath), { recursive: true });
                 await writeFile(htmlPath, html);
-                if (route === '/blog') {
-                    await mkdir(path.join(DIST, 'blog'), { recursive: true });
-                    await writeFile(path.join(DIST, 'blog', 'index.html'), html);
+                // Routes that are also physical directories (Apache DirectorySlash 301s /blog → /blog/,
+                // so the trailing-slash URL needs its own index.html)
+                if (route === '/blog' || route === '/guides') {
+                    await mkdir(path.join(DIST, route), { recursive: true });
+                    await writeFile(path.join(DIST, route, 'index.html'), html);
                 }
 
                 if (route !== '/') {

@@ -4,6 +4,7 @@
 
 ## Guides
 
+- [Guides index](https://lanreenlight.com/guides/): All seven in-depth field guides — automation, VPS, trading, crypto nodes, web, app, and AI agents — [markdown](https://lanreenlight.com/guides.md)
 - [n8n Tutorial: Self-Host on a VPS + AI Agents](https://lanreenlight.com/guides/n8n-automation): Building n8n workflows, Docker self-hosting on a cheap VPS, AI agent integration (OpenAI, Groq, OpenRouter), and n8n vs Zapier vs Make — [markdown](https://lanreenlight.com/guides/n8n-automation.md)
 - [Cheapest VPS Hosting: Budget Server Guide](https://lanreenlight.com/guides/vps-hosting-guide): VPS pricing and spec comparison for n8n, trading bots, crypto nodes, and web apps, plus setup and security checklists — [markdown](https://lanreenlight.com/guides/vps-hosting-guide.md)
 - [Forex Trading Bots: MT5 Expert Advisors & Prop Firms](https://lanreenlight.com/guides/algorithmic-trading): How Expert Advisors work, choosing EAs that aren't scams, passing prop firm challenges, and running bots 24/7 on a VPS — [markdown](https://lanreenlight.com/guides/algorithmic-trading.md)

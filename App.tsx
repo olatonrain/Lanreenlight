@@ -13,6 +13,7 @@ import { Seo } from './components/Seo';
 import { personSchema, websiteSchema } from './data/schema';
 import { CanonicalLink } from './components/CanonicalLink';
 
+const GuidesIndex = lazy(() => import('./components/GuidesIndex').then(m => ({ default: m.GuidesIndex })));
 const Blog = lazy(() => import('./components/Blog').then(m => ({ default: m.Blog })));
 const BlogPostPage = lazy(() => import('./components/BlogPostPage').then(m => ({ default: m.BlogPostPage })));
 const N8nGuide = lazy(() => import('./components/N8nGuide').then(m => ({ default: m.N8nGuide })));
@@ -64,6 +65,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:id" element={<BlogPostPage />} />
+            <Route path="/guides" element={<GuidesIndex />} />
             <Route path="/guides/n8n-automation" element={<N8nGuide />} />
             <Route path="/guides/vps-hosting-guide" element={<VpsGuide />} />
             <Route path="/guides/algorithmic-trading" element={<TradingGuide />} />
