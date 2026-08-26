@@ -3,9 +3,9 @@ import { Video } from '../types';
 export const VIDEOS: Video[] = [
     {
         id: '1',
-        title: "Stop Paying for AI APIs — Self-Host OmniRoute on a VPS (2026)",
+        title: "Self-Host N8N and OmniRoute on a VPS",
         date: 'Aug 26, 2026',
-        category: 'Node Ops',
+        category: 'AI Automation',
         youtubeId: 'p6GlZLl5b6c',
         resources: [
             { label: 'AgentRouter Free Credit', url: 'https://agentrouter.org/register?aff=2CTV', type: 'affiliate' },
