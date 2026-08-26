@@ -94,7 +94,7 @@ Any change that touches an existing URL, title, heading, sitemap entry, or redir
 
 ### Video Content Package Format (MANDATORY for every new video)
 
-**Plain ASCII text only. No emoji, no markdown (**), no unicode dashes/arrows/bullets in descriptions, tags, pinned comments, or thumbnail copy.** YouTube Studio does not render markdown, and special characters garble in thumbnail editors and on mobile. Use plain hyphens (- for dashes), "->" for arrows, "-" for bullets. Emoji are allowed in the contact/social boilerplate section (user's existing convention) but NOT in the hook, chapters, commands, or thumbnail text.
+**No markdown (`**`) and NO unicode MATH symbols in descriptions, tags, pinned comments, or thumbnail copy** — YouTube Studio renders literal asterisks, and unicode math characters (U+2212 minus `−`, U+2217 asterisk `∗`) garble into weird spaced-out fonts on YouTube Studio/mobile. Emoji, regular em dashes (—), arrows (→), and plain `-`/`->` are ALL fine — the user wants the emoji look in descriptions. Thumbnail on-image text stays short, bold, plain phrases (no special chars).
 
 Every video content package must follow this exact structure (user-confirmed 2026-08-22 on the OmniRoute video):
 
