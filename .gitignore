@@ -29,3 +29,5 @@ youtube-fixes/
 # Tool artifacts (Mimosa security hook, Playwright MCP)
 .mimosa/
 .playwright-mcp/
+
+.zcode/
