@@ -335,6 +335,18 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 - `/vps6` `/vps8` `/vps12` redirects kept (all → generic Contabo CJ link — consistent with user's model; harmless, usable in video CTAs if wanted)
 - GA4 setup instructions given to user (analytics.google.com → property → web stream → G-XXXXXXXXXX); ID still pending
 
+**Session 7 — Trend-based video selection adopted (2026-08-27):**
+- User pushed back correctly: content must be based on LIVE trends (this week's search demand), not just the standing strategy. Added to workflow: run trend research BEFORE creating any video content package
+- TREND RESEARCH (Explore agent, 2026-08-27) findings:
+  - GLM-5.3-Flash / "Ox Alpha" revealed Aug 26 — free open-weights model beating models 10x its price. 950+ HN points (top story). YouTube news videos: 62k views (5 days), 43k (4 days). ZERO self-host-on-VPS tutorials. Freshness window 1-2 weeks.
+  - OpenRouter acquired by Stripe for $7.5B (Aug 16-19) — lasting 3-6 month trend; users fear price changes → free self-hosted alternative (OmniRoute = direct beneficiary)
+  - Qwen3.8-Flash-Next (Aug 26), DeepSeek V4 Flash Vision (Aug 21) — fresh, low competition
+  - "free AI API"/"Claude Code free" head terms saturated; n8n beginner content saturated
+- DECISION: TODAY's video = GLM-5.3-Flash on a $5 VPS via OmniRoute (NOT the Deriv bot — that stays as a strong backup/next candidate, trend check pending)
+- Full content package saved: `youtube-fixes/video-content-glm53-vps.md` (3 titles + thumbnails, description, tags, social captions, pinned comment, checklist). Reuses existing Contabo VPS + OmniRoute setup from the previous video — fast to record
+- OmniRoute video (p6GlZLl5b6c) is now PUBLIC, 1 view, title changed by user to "Self-Host N8N and OmniRoute on a VPS"; ranking #2-#3 for "OmniRoute VPS"/"OmniRoute self-host" searches within hours
+- Social media captions (LinkedIn/X/TikTok/FB/IG + hashtags) added as mandatory step in AGENTS.md Video Content Package format (committed cd6a245) — also backfilled into the OmniRoute video package
+
 **Session 6b — Video Content Package convention locked in (2026-08-22):**
 - User confirmed the OmniRoute video content package format is THE standard going forward: 3 title options (each with own thumbnail idea + rationale) → description (hook, chapters w/ ⚠️ estimated timestamps, command blocks, affiliate-first links, disclosure, socials) → 20+ research-backed tags → pinned comment → pre-public checklist
 - Convention written into AGENTS.md ("Video Content Package Format (MANDATORY)") — every future video must follow it
