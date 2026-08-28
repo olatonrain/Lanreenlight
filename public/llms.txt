@@ -16,6 +16,13 @@
 ## Blog
 
 - [Blog index](https://lanreenlight.com/blog/): Deep dives into automation, node infrastructure, and market mechanics
+- [Self-Hosted Coding Agents Are Going Mainstream in 2026](https://lanreenlight.com/blog/self-hosted-coding-agents-mainstream-2026): The open-source, self-hostable coding agent trend — what's happening, the stack that works, and the 30-minute setup
+- [From a $500 Project to $3k/Month Retainer: The n8n Freelancer Playbook](https://lanreenlight.com/blog/n8n-retainer-playbook-500-to-3k): The upgrade path from one-off projects to recurring retainers, with the retainer scope and infrastructure economics
+- [Claude Code vs n8n vs AgentRouter: When to Use Each](https://lanreenlight.com/blog/claude-code-vs-n8n-vs-agentrouter): A decision framework for the three tools — and how they combine into a self-hosted AI agent stack
+- [DePIN Project Evaluation Checklist](https://lanreenlight.com/blog/depin-node-evaluation-checklist): How to tell a real DePIN node from a rug — the framework I use before committing a VPS
+- [n8n Production Failures That Cost Me Money (and the Exact Fixes)](https://lanreenlight.com/blog/n8n-production-failures-that-cost-money): Four real production failures — webhook timeouts, queue backpressure, an OOM'd VPS, a double-charge — with the fixes
+- [Best VPS for n8n, DePIN Nodes, and Trading Bots in 2026](https://lanreenlight.com/blog/best-vps-for-n8n-depin-trading-bots): Workload-based VPS selection — memory for n8n, uptime for DePIN, latency for trading
+- [n8n Cloud vs Self-Hosted: The $/Month Breakeven in 2026](https://lanreenlight.com/blog/n8n-cloud-vs-self-hosted-cost): Real line-item cost math on n8n Cloud vs a self-hosted VPS, when the decision flips, and migration steps
 - [How I Made Bless Network Pay Me $1,000 on a $5 VPS (DePIN Guide)](https://lanreenlight.com/blog/how-i-made-bless-network-pay-1000): Running Bless Network DePIN nodes on cheap VPS hardware — costs, setup, earnings, and multi-node stacking
 - [The n8n VPS Blueprint: How Freelancers Charge $500+ Per Client](https://lanreenlight.com/blog/n8n-vps-blueprint-charge-clients-500): The 2026 automation freelancing playbook — what to build, how to host it on a VPS, and how to price client projects
 - [Self-Host AI Agents on a Cheap VPS: Beat Claude Code & Codex Limits](https://lanreenlight.com/blog/self-host-ai-agents-on-a-vps): Why AI coding agent subscriptions hit limits, and how to run self-hosted n8n agent workflows with open models on a $4–$6 VPS
