@@ -335,6 +335,11 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 - `/vps6` `/vps8` `/vps12` redirects kept (all → generic Contabo CJ link — consistent with user's model; harmless, usable in video CTAs if wanted)
 - GA4 setup instructions given to user (analytics.google.com → property → web stream → G-XXXXXXXXXX); ID still pending
 
+**Session 7g — OmniRoute blog post DEPLOYED + indexed (2026-08-29):**
+- Blog post live: commit 6d0f030 → CI deploy success → https://lanreenlight.com/blog/self-host-n8n-and-omniroute-on-a-vps verified HTTP 200, unique title, content, canonical
+- Indexing ping: 23/23 sitemap URLs accepted by Google Indexing API (service key at ~/Downloads/trans-parsec-481518-j2-98265b142411.json works)
+- VIDEO_PRODUCTION_GUIDE.md (the OmniRoute shooting plan) committed alongside — it had been revised (plan format, chapter list, plain thumbnails, emoji restored) but never committed
+
 **Session 7f — Viral Hooks + blog post from transcript (2026-08-29):**
 - AGENTS.md format updated: new mandatory item 5 "Viral Hooks" — 3 opening-hook options (spoken line + visual + why it works), written AFTER reviewing actual content (transcript if recorded). Now 8 items total
 - 3 hooks added to n8n AI Assistant package (video-content-n8n-agent.md): bold-claim+instant-proof / pain-reversal / curiosity-gap+urgency
