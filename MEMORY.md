@@ -335,6 +335,18 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 - `/vps6` `/vps8` `/vps12` redirects kept (all → generic Contabo CJ link — consistent with user's model; harmless, usable in video CTAs if wanted)
 - GA4 setup instructions given to user (analytics.google.com → property → web stream → G-XXXXXXXXXX); ID still pending
 
+**Session 7b — Trend pivot: n8n AI agent video chosen (2026-08-29):**
+- User requested live trend scan on DeepSeek / OmniRoute / n8n AI specifically. Research (Explore agent, 2026-08-29) found:
+  - n8n 2.37 (Aug 25, now 2.37.4) defaults to Claude Sonnet 5 → "free models instead" hook; generic n8n AI tutorials flood daily with 1-8 views
+  - "n8n + DeepSeek/GLM free" combo = ZERO videos on YouTube
+  - DeepSeek: V4 Flash Vision Aug 21 (498 HN pts), price-increase + $74B valuation news, Fireship 935K views; DeepSeek Harness small-channel tutorials 1-2K views in days; NO self-host/VPS DeepSeek tutorial exists; Cybernews published "9 Best VPS for DeepSeek Hosting" Aug 26 (commercial demand proof)
+  - OmniRoute v3.8.50 (Aug 26) added DeepSeek V4 providers + Radar; v3.8.51 on default branch unreleased; ZERO OmniRoute videos uploaded in 7+ days (SERP stale, 50-78K view ceilings)
+  - DeepSeek standalone is highest raw demand but commentary is mega-channel saturated → strictly tutorial angle required; $5 VPS cannot run V4 weights (honest angle = free/off-peak API + self-hosted harness/UI)
+- DECISION: today's video = "n8n AI Agent with FREE AI (DeepSeek/GLM via OmniRoute) on a $5 VPS" — ranked #1 of 5 candidates. GLM-5.3-Flash standalone package (video-content-glm53-vps.md) folded in as the routed model; Deriv bot video remains a future candidate (still no trend check done on trading side)
+- Package: `youtube-fixes/video-content-n8n-agent.md` (3 titles + thumbnails, description, 25 tags, social captions, pinned comment, checklist)
+- Thumbnail rendered: `youtube-fixes/thumbnail-n8n-agent.png` (1280x720 @2x = 2560x1440) + editable HTML source `thumbnail-n8n-agent.html`; GLM version also exists (thumbnail-glm53.png)
+- Thumbnail rendering recipe (reusable): project puppeteer + system Chrome at /Applications/Google Chrome.app (puppeteer cache is EMPTY on this machine — must pass executablePath); HTML at 1280x720, deviceScaleFactor 2
+
 **Session 7 — Trend-based video selection adopted (2026-08-27):**
 - User pushed back correctly: content must be based on LIVE trends (this week's search demand), not just the standing strategy. Added to workflow: run trend research BEFORE creating any video content package
 - TREND RESEARCH (Explore agent, 2026-08-27) findings:
