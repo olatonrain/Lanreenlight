@@ -340,6 +340,17 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 - Indexing ping: 23/23 sitemap URLs accepted by Google Indexing API (service key at ~/Downloads/trans-parsec-481518-j2-98265b142411.json works)
 - VIDEO_PRODUCTION_GUIDE.md (the OmniRoute shooting plan) committed alongside — it had been revised (plan format, chapter list, plain thumbnails, emoji restored) but never committed
 
+**Session 7h — Official-docs verification: n8n AI Assistant package corrected (2026-08-29):**
+- USER RULE added to AGENTS.md: all commands in packages/blog posts MUST come from official documentation — fetch vendor docs, verify exact commands/env vars, cite the source; mark UNVERIFIED if docs unreachable (never reconstruct from memory)
+- n8n official docs fetched (docs.n8n.io .md pages): one-line-setup.md, set-up-ai-assistant.md, env-vars ai-assistant.md, install-using-docker-compose.md
+- CRITICAL CORRECTIONS to video-content-n8n-agent.md:
+  1. My hand-rolled n8n compose file would NOT have worked for the AI Assistant — the assistant REQUIRES a sandbox (sandbox-certs + sandbox-api + sandbox-runner-1 with mTLS) + model key. Official easy path = one-line setup: `curl -fsSL https://get.n8n.io | sh` (installs n8n + sandbox + SearXNG automatically; needs ≥4GB RAM/2 vCPU; docker compose v2 plugin)
+  2. Enable the assistant: ./n8n/.env → N8N_INSTANCE_AI_MODEL_API_KEY (or editor AI settings) → `docker compose -f ./n8n/compose.yml up -d`. Default model anthropic/claude-opus-4-8; providers: anthropic, openai, openrouter
+  3. FREE-MODELS ANGLE IS OFFICIALLY SUPPORTED: N8N_INSTANCE_AI_MODEL_URL=<custom OpenAI-compatible endpoint> → point at OmniRoute /v1 (exact model-id format for custom endpoints: verify during recording)
+  4. Availability: self-hosted Community/Registered Community/Business (NOT Enterprise); Preview status; production sandbox recommendation = Daytona; web search = bundled SearXNG auto or Brave key
+  5. Separate legacy feature: "Ask n8n AI" (N8N_AI_ASSISTANT_BASE_URL) — don't conflate with the AI Assistant
+- Chapters 5 & 6 of the Chapter Guide updated with the official steps; package commands now cite docs.n8n.io throughout
+
 **Session 7f — Viral Hooks + blog post from transcript (2026-08-29):**
 - AGENTS.md format updated: new mandatory item 5 "Viral Hooks" — 3 opening-hook options (spoken line + visual + why it works), written AFTER reviewing actual content (transcript if recorded). Now 8 items total
 - 3 hooks added to n8n AI Assistant package (video-content-n8n-agent.md): bold-claim+instant-proof / pain-reversal / curiosity-gap+urgency
