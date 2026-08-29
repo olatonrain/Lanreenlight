@@ -335,6 +335,15 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 - `/vps6` `/vps8` `/vps12` redirects kept (all → generic Contabo CJ link — consistent with user's model; harmless, usable in video CTAs if wanted)
 - GA4 setup instructions given to user (analytics.google.com → property → web stream → G-XXXXXXXXXX); ID still pending
 
+**Session 7c — Full multi-niche trend bank compiled (2026-08-29):**
+- User mandated: EVERY video-idea session starts with deep trend research across ALL niches (not just AI) — trading/Deriv, crypto nodes/airdrops, AI automation, web design with AI, hosting. Rule written into AGENTS.md (Video Content Package Format, first paragraph)
+- 3 parallel Explore agents ran (trading, crypto, webdev/hosting). Full ranked bank saved: `youtube-fixes/trending-ideas-bank-2026-08-29.md`
+- TIER 1 (act now): (1) Deriv Crash Boom Flip Indices automation — launched Aug 11/MT5 Aug 14, ONE competitor video with 24 views, double monetization; (2) FLOP (Arthur Hayes) miner role + Technocore DID on VPS — 51.2% supply to miners, Q4 airdrop confirmed, zero VPS-angle videos, small channels 888v/3d; (3) Supabase self-host — "37h outage" news + Supabase's own "Don't pay for Supabase" video 9.1K views/11h; (4) AI trading bot on Contabo VPS — biggest YouTube spike (16-46K views/small channels/5 days)
+- TIER 2: Pi Protocol 27 pre-mainnet checklist (Sept 15, Nigerian audience massive), Grass claim + Coinbase listing, secure OpenClaw on VPS (post-hack angle, "deploy openclaw on vps" = #2 autocomplete), self-host AI coding agents (29.8K views/4d proof), prop firm EA on VPS
+- TIER 3 fillers: Postiz self-host, NotebookLM alternative (OpenRAG), AI website builder comparison + free VPS hosting, $50 Deriv bot challenge series, new Deriv Trader tutorial, V25/75 small-account strategy
+- SKIP this week: binary options/Pocket Option (wrong monetization), Jackson Hole (news window closed), v0/Bolt/Cursor (flat), n8n beginners (giants own it)
+- Queue: TODAY n8n AI agent (packaged) → #1 Flip Indices or #2 FLOP → #3 Supabase → #4 AI trading bot
+
 **Session 7b — Trend pivot: n8n AI agent video chosen (2026-08-29):**
 - User requested live trend scan on DeepSeek / OmniRoute / n8n AI specifically. Research (Explore agent, 2026-08-29) found:
   - n8n 2.37 (Aug 25, now 2.37.4) defaults to Claude Sonnet 5 → "free models instead" hook; generic n8n AI tutorials flood daily with 1-8 views

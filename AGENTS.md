@@ -94,6 +94,8 @@ Any change that touches an existing URL, title, heading, sitemap entry, or redir
 
 ### Video Content Package Format (MANDATORY for every new video)
 
+**Deep trend research comes FIRST — before proposing ANY video idea.** Whenever the user asks for a video idea or next video content, run multi-niche trend research via research agents (WebSearch/Explore) covering ALL monetizable niches: trading/Deriv/forex, crypto nodes/testnets/airdrops/DePIN, AI automation/self-hosting, web design with AI, hosting. Never base ideas on the standing strategy or a single niche alone. Compile ranked candidates (search demand NOW x competition x monetization fit) into `youtube-fixes/trending-ideas-bank-<date>.md`, present the ranked list, then build the content package for the chosen topic. Re-verify trend status before recording — news-reactive trends age in 48h-2 weeks.
+
 **No markdown (`**`) and NO unicode MATH symbols in descriptions, tags, pinned comments, or thumbnail copy** — YouTube Studio renders literal asterisks, and unicode math characters (U+2212 minus `−`, U+2217 asterisk `∗`) garble into weird spaced-out fonts on YouTube Studio/mobile. Emoji, regular em dashes (—), arrows (→), and plain `-`/`->` are ALL fine — the user wants the emoji look in descriptions. Thumbnail on-image text stays short, bold, plain phrases (no special chars).
 
 Every video content package must follow this exact structure (user-confirmed 2026-08-22 on the OmniRoute video):
