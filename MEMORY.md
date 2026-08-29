@@ -344,6 +344,12 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 - USER STATED THE CORE MISSION: content research and creation must always serve subscribers/visitors learning to DIY, self-host, and self-manage — free or cheap. Coming to Lanre for help is the LAST option in the funnel ("which is the least"), never the pitch
 - Written into AGENTS.md as "Content Mission (MANDATORY)" above Content Cadence: DIY-first framing, self-managed ownership teaching, services-last funnel. Implications: favor self-host-free/cheap angles, emphasize free tiers + open source + cost breakdowns, affiliate links = tools viewers install themselves
 
+**Session 7j — Manual sandbox + SearXNG steps added (2026-08-29):**
+- USER provided the official manual sandbox deployment guide (n8n sandbox service, Docker no-sysbox variant: n8nio/n8n-sandbox-service-api + runner-dind with privileged:true, mTLS bootstrap via tls-init) + SearXNG docker run — the path needed when n8n was NOT installed via one-line setup (e.g. Contabo one-click installs have no sandbox)
+- video-content-n8n-agent.md commands now show BOTH paths: Path A (fresh: one-line setup, sandbox included) and Path B (existing n8n: manual /opt/n8n-sandbox-service compose + .env with 4 hex tokens + SearXNG container + network-attach notes — <n8n-network> must be replaced with the real network name; docker network connect --alias sandbox-api if on a different server)
+- n8n-side env vars for Path B: N8N_INSTANCE_AI_SANDBOX_ENABLED=true, N8N_INSTANCE_AI_SANDBOX_PROVIDER=n8n-sandbox, N8N_SANDBOX_SERVICE_URL=http://n8n-sandbox-api:8080, N8N_SANDBOX_SERVICE_API_KEY must equal SANDBOX_API_KEYS; SearXNG: N8N_INSTANCE_AI_SEARXNG_URL=http://searxng:8080
+- Chapter 6 updated: sandbox deployment (Path B) is now step 1 of enabling the assistant
+
 **Session 7h — Official-docs verification: n8n AI Assistant package corrected (2026-08-29):**
 - USER RULE added to AGENTS.md: all commands in packages/blog posts MUST come from official documentation — fetch vendor docs, verify exact commands/env vars, cite the source; mark UNVERIFIED if docs unreachable (never reconstruct from memory)
 - n8n official docs fetched (docs.n8n.io .md pages): one-line-setup.md, set-up-ai-assistant.md, env-vars ai-assistant.md, install-using-docker-compose.md
