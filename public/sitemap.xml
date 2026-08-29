@@ -60,6 +60,12 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://lanreenlight.com/blog/self-host-n8n-and-omniroute-on-a-vps</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://lanreenlight.com/blog/self-hosted-coding-agents-mainstream-2026</loc>
     <lastmod>2026-08-26</lastmod>
     <changefreq>monthly</changefreq>
