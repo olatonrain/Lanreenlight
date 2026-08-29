@@ -104,9 +104,10 @@ Every video content package must follow this exact structure (user-confirmed 202
 2. **Description** — hook paragraph (problem → solution), CHAPTERS with timestamps (estimated, marked ⚠️ to adjust), full copy-paste command blocks, links (affiliate first, then site guides), affiliate disclosure, socials/community. Never leave the generic boilerplate description without a hook/chapters/commands.
 3. **Tags** — 20+ tags including the whitespace keywords from research.
 4. **Social Media Captions** — a caption for EACH of: LinkedIn, Twitter/X, TikTok, Facebook, Instagram — with platform-appropriate length, angle, and hashtags. LinkedIn = professional/value-driven (3–5 hashtags). Twitter/X = short, punchy (1–2 hashtags). TikTok = hook-first, energetic (4–6 hashtags incl. niche tags). Facebook = community-oriented with an engagement question (4–6 hashtags). Instagram = short visual caption with line breaks + 10–15 hashtags. Emoji allowed per platform style; never reuse the same caption text across platforms.
-5. **Chapter Guide** — for EVERY chapter (intro to end): what to DO on screen, what to SHOW, and the talking point ("Goal / On screen / Do / Say"). The user shoots from this — it is the core of the package, not an afterthought.
-6. **Pinned Comment** — links + one engagement question.
-7. **Pre-Public Checklist** — chapters adjust, cards at CTA moments, end screen, thumbnail, social media posts, make public, pin comment.
+5. **Viral Hooks** — 3 opening-hook options for the first 15 seconds of the video, written AFTER reviewing the actual content (transcript if recorded, planned content if not). Each hook: the spoken line, the visual to pair with it, and why it works (pattern interrupt / curiosity gap / pain reversal). The hook must promise the video's single biggest payoff and be deliverable in the first 30 seconds.
+6. **Chapter Guide** — for EVERY chapter (intro to end): what to DO on screen, what to SHOW, and the talking point ("Goal / On screen / Do / Say"). The user shoots from this — it is the core of the package, not an afterthought.
+7. **Pinned Comment** — links + one engagement question.
+8. **Pre-Public Checklist** — chapters adjust, cards at CTA moments, end screen, thumbnail, social media posts, make public, pin comment.
 
 Deliver as a saved file under `youtube-fixes/video-content-<videoId>.md` AND present in chat. Offer to apply via `youtube-update.mjs apply --yes` after user review.
 

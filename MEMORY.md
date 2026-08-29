@@ -335,6 +335,13 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 - `/vps6` `/vps8` `/vps12` redirects kept (all → generic Contabo CJ link — consistent with user's model; harmless, usable in video CTAs if wanted)
 - GA4 setup instructions given to user (analytics.google.com → property → web stream → G-XXXXXXXXXX); ID still pending
 
+**Session 7f — Viral Hooks + blog post from transcript (2026-08-29):**
+- AGENTS.md format updated: new mandatory item 5 "Viral Hooks" — 3 opening-hook options (spoken line + visual + why it works), written AFTER reviewing actual content (transcript if recorded). Now 8 items total
+- 3 hooks added to n8n AI Assistant package (video-content-n8n-agent.md): bold-claim+instant-proof / pain-reversal / curiosity-gap+urgency
+- baoyu-youtube-transcript skill installed at ~/.zcode/skills/baoyu-youtube-transcript/ (manual clone+copy — the `npx skills add` CLI is interactive/TUI and hangs in this env). Direct InnerTube path hit YouTube 429 bot-block; yt-dlp fallback with YOUTUBE_TRANSCRIPT_COOKIES_FROM_BROWSER=chrome worked (Keychain prompt)
+- OAuth captions.download path does NOT work for auto-generated captions (AU-prefixed tracks) — browser-cookie fallback is the way
+- Blog post created from the OmniRoute video transcript: `data/posts/self-host-n8n-and-omniroute-on-a-vps.json` (id self-host-n8n-and-omniroute-on-a-vps, category Automation, youtubeId p6GlZLl5b6c, ~7.7K chars HTML following the video's 10-step flow incl. combo feature + $175 AgentRouter GitHub detail). Wired: blog.ts (newest first), sitemap.xml (lastmod 2026-08-29), llms.txt. Build verified: prerendered HTML + .md mirror, unique title, canonical, video embed. AWAITING user review at localhost:4173 before push (Local Review Gate)
+
 **Session 7e — Video package format: Chapter Guide added + n8n topic corrected (2026-08-29):**
 - USER CORRECTION: the trending n8n topic is the NEW n8n AI ASSISTANT feature (2.37, Aug 25 — builds workflows from prompts, explains nodes, fixes errors, session traces), NOT generic "n8n AI agent" tutorials. Package rewritten: `youtube-fixes/video-content-n8n-agent.md` now titled around the AI Assistant; free-models (DeepSeek/GLM via OmniRoute) kept as the "power it free" chapter
 - NEW MANDATORY FORMAT ELEMENT (AGENTS.md item 5): every video package must include a CHAPTER GUIDE — for each chapter from intro to end: Goal / On screen / Do / Say. User shoots directly from this
