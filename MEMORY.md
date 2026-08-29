@@ -335,6 +335,12 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 - `/vps6` `/vps8` `/vps12` redirects kept (all → generic Contabo CJ link — consistent with user's model; harmless, usable in video CTAs if wanted)
 - GA4 setup instructions given to user (analytics.google.com → property → web stream → G-XXXXXXXXXX); ID still pending
 
+**Session 7e — Video package format: Chapter Guide added + n8n topic corrected (2026-08-29):**
+- USER CORRECTION: the trending n8n topic is the NEW n8n AI ASSISTANT feature (2.37, Aug 25 — builds workflows from prompts, explains nodes, fixes errors, session traces), NOT generic "n8n AI agent" tutorials. Package rewritten: `youtube-fixes/video-content-n8n-agent.md` now titled around the AI Assistant; free-models (DeepSeek/GLM via OmniRoute) kept as the "power it free" chapter
+- NEW MANDATORY FORMAT ELEMENT (AGENTS.md item 5): every video package must include a CHAPTER GUIDE — for each chapter from intro to end: Goal / On screen / Do / Say. User shoots directly from this
+- ⚠️ VERIFY during recording: where the AI Assistant lives in self-hosted n8n 2.37.4 + any setting needed to enable it (self-hosted availability may differ from cloud — flagged in package, do not claim specifics on camera until confirmed)
+- Package now has 10 chapters with full shooting guidance; titles/thumbnails/description/tags/social captions/pinned comment all reframed to AI Assistant
+
 **Session 7d — Biweekly trend automation scheduled (2026-08-29):**
 - CronCreate automation `automation-a0ea48f5-e31a-4e9a-809c-51c47c75cc81`: deep multi-niche trend research every Monday & Friday at 09:00 local (cron 0 9 * * 1,5), recurring, active
 - Each run: parallel Explore agents sweep trading/Deriv, crypto nodes/airdrops, AI automation/self-hosting, webdev-with-AI/hosting → compiles `youtube-fixes/trending-ideas-bank-<date>.md` (TIER 1/2/3 + SKIP) → presents ranked summary → logs to MEMORY.md → commits docs
