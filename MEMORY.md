@@ -340,6 +340,10 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 - Indexing ping: 23/23 sitemap URLs accepted by Google Indexing API (service key at ~/Downloads/trans-parsec-481518-j2-98265b142411.json works)
 - VIDEO_PRODUCTION_GUIDE.md (the OmniRoute shooting plan) committed alongside — it had been revised (plan format, chapter list, plain thumbnails, emoji restored) but never committed
 
+**Session 7i — Content Mission locked in (2026-08-29):**
+- USER STATED THE CORE MISSION: content research and creation must always serve subscribers/visitors learning to DIY, self-host, and self-manage — free or cheap. Coming to Lanre for help is the LAST option in the funnel ("which is the least"), never the pitch
+- Written into AGENTS.md as "Content Mission (MANDATORY)" above Content Cadence: DIY-first framing, self-managed ownership teaching, services-last funnel. Implications: favor self-host-free/cheap angles, emphasize free tiers + open source + cost breakdowns, affiliate links = tools viewers install themselves
+
 **Session 7h — Official-docs verification: n8n AI Assistant package corrected (2026-08-29):**
 - USER RULE added to AGENTS.md: all commands in packages/blog posts MUST come from official documentation — fetch vendor docs, verify exact commands/env vars, cite the source; mark UNVERIFIED if docs unreachable (never reconstruct from memory)
 - n8n official docs fetched (docs.n8n.io .md pages): one-line-setup.md, set-up-ai-assistant.md, env-vars ai-assistant.md, install-using-docker-compose.md

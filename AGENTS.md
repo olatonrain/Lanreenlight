@@ -84,6 +84,16 @@ The site earns visibility three ways: search engines (SEO), answer engines like 
 
 Any change that touches an existing URL, title, heading, sitemap entry, or redirect is SEO-affected. Verify before and after. Never claim "traffic is safe" without running the checks above.
 
+## Content Mission (MANDATORY — governs all research and content)
+
+The mission behind every piece of content: **subscribers and visitors learn to DIY, self-host, and self-manage — using free or cheap options.** The funnel is:
+
+1. **DIY-first:** every topic is framed as "here's how YOU do it yourself, free or cheap" — self-hosted, on cheap hardware, with free tiers wherever possible
+2. **Self-managed:** teach ownership (their own VPS, their own data, their own stack) — not dependence on paid subscriptions
+3. **Services last:** hiring Lanre is the LAST option in the funnel ("which is the least") — never the pitch. If a viewer wants done-for-you help, the door is open, but content always teaches them to fish
+
+Practical implications: research and topic selection favor "how to self-host X free/cheap on a VPS" angles; descriptions and posts emphasize free tiers, open-source tools, and cost breakdowns; affiliate links are for tools the viewer installs themselves (Contabo, AgentRouter); never frame content as "this is hard, hire me instead."
+
 ## Content Cadence (MANDATORY)
 
 - Publish at least four new blog posts per week: trend-driven, minimum 1,200 words each, ending in a product CTA (affiliate link or own product). Full workflow in `CONTENT_STRATEGY.md` → "Trend-Driven Monetized Posts".
