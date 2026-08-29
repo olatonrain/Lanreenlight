@@ -335,6 +335,11 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 - `/vps6` `/vps8` `/vps12` redirects kept (all → generic Contabo CJ link — consistent with user's model; harmless, usable in video CTAs if wanted)
 - GA4 setup instructions given to user (analytics.google.com → property → web stream → G-XXXXXXXXXX); ID still pending
 
+**Session 7d — Biweekly trend automation scheduled (2026-08-29):**
+- CronCreate automation `automation-a0ea48f5-e31a-4e9a-809c-51c47c75cc81`: deep multi-niche trend research every Monday & Friday at 09:00 local (cron 0 9 * * 1,5), recurring, active
+- Each run: parallel Explore agents sweep trading/Deriv, crypto nodes/airdrops, AI automation/self-hosting, webdev-with-AI/hosting → compiles `youtube-fixes/trending-ideas-bank-<date>.md` (TIER 1/2/3 + SKIP) → presents ranked summary → logs to MEMORY.md → commits docs
+- Runs read MEMORY.md first for channel context; do NOT auto-build content packages (bank + summary only — user picks what to record)
+
 **Session 7c — Full multi-niche trend bank compiled (2026-08-29):**
 - User mandated: EVERY video-idea session starts with deep trend research across ALL niches (not just AI) — trading/Deriv, crypto nodes/airdrops, AI automation, web design with AI, hosting. Rule written into AGENTS.md (Video Content Package Format, first paragraph)
 - 3 parallel Explore agents ran (trading, crypto, webdev/hosting). Full ranked bank saved: `youtube-fixes/trending-ideas-bank-2026-08-29.md`
