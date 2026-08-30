@@ -13,6 +13,7 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 
 ### Done
 - Applied hardening prompt (from a real industry incident: private cache to Googlebot 10 days, bulk de-index 404s, animation lib LCP 10.4s) adapted to this static Apache + prerender stack
+- **DEPLOYED:** commit 58e432b → CI run 33292775774 success → `node scripts/verify-deploy.mjs` all checks pass live (Googlebot 200/no-cookie ×3 pages, robots permissive, sitemap 23 ≥ floor, no noindex) → Related Posts live on post pages → indexing ping: Indexing API 0/23 registered (expected — deprecated for this content type), **sitemap resubmit 204 OK**
 - **AGENTS.md**: new "SEO/AEO/GEO Guardrails (Non-Negotiable)" (protected surfaces — .htaccess is this site's middleware; pre-change checklist; post-change verification incl. Googlebot-UA curl; Indexing-API 200≠proof lesson), "Working Style Rules", "Core Web Vitals Rules" (H1 never behind FadeIn, no global heavy imports, CDN→self-hosted standing item)
 - **SAFETY.md**: "SEO/AEO/GEO Deployment Guardrails" (never-deploy list, rollback triggers, post-deploy ritual)
 - **CONTENT_STRATEGY.md**: "Existing-Ranking Protection" + internal link floor (every post: hub link + sibling post link + product link; audit before deploys)
@@ -27,10 +28,9 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 - Related Posts uses category-matching on BLOG_POSTS; no data changes needed
 
 ### Next Steps
-- USER: review localhost:4173 blog post pages (Related Posts section) → approve → push
 - USER (optional): approve adding the 2 CI steps (verify-deploy + request-indexing with INDEXING_SERVICE_ACCOUNT_KEY secret) to deploy.yml
-- USER (optional): decide whether the 2 personal-essay posts get a soft product link (newsletter/`/#contact` counts) or stay link-less
-- Consider daily cron: verify-deploy + request-indexing (sitemap resubmit path) — prompt's Part 3, now mostly covered by the hardened script
+- USER (optional): decide whether the 2 personal-essay posts get a soft product link (newsletter/`/#contact` counts) or stay link-less — audit will keep flagging them until then
+- Consider daily cron: request-indexing (sitemap resubmit path is the signal that works)
 
 ### Blockers & Open Questions
 - Indexing API publish: 200-but-not-registered for all URLs — treat this API as best-effort/deprecated; sitemap resubmit is the dependable channel
@@ -398,6 +398,11 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 **Session 7i — Content Mission locked in (2026-08-29):**
 - USER STATED THE CORE MISSION: content research and creation must always serve subscribers/visitors learning to DIY, self-host, and self-manage — free or cheap. Coming to Lanre for help is the LAST option in the funnel ("which is the least"), never the pitch
 - Written into AGENTS.md as "Content Mission (MANDATORY)" above Content Cadence: DIY-first framing, self-managed ownership teaching, services-last funnel. Implications: favor self-host-free/cheap angles, emphasize free tiers + open source + cost breakdowns, affiliate links = tools viewers install themselves
+
+**Session 7k — User's real SearXNG setup + command reordering (2026-08-29):**
+- USER's actual SearXNG deployment (recorded on their server, /opt/searxng): settings.yml (use_default_settings, enable_brand off, secret_key via openssl rand -hex 32, limiter false, bot_detection disabled, formats html+json), empty limiter.toml, compose attached to n8n_default external network with SEARXNG_SECRET_KEY — replaced the simple docker-run version in the package. Used <YOUR-GENERED-64-HEX-SECRET> placeholders so viewers generate their own
+- Commands reordered per user: (a) docker network ls / docker inspect + cross-server attach note moved ABOVE the compose.yaml creation; (b) openssl rand -hex 32 token generation is its own step before Create .env (heredoc won't expand $())
+- Steps 5-8 of the old generic flow removed — Path B now ends at SearXNG verify; remaining flow: 1 VPS → 2 SSH → 3 Docker → 4 install (Path A/B) → 5 TURN ON (env vars incl. sandbox+SearXNG wiring) → 6 free models (N8N_INSTANCE_AI_MODEL_URL → OmniRoute)
 
 **Session 7j — Manual sandbox + SearXNG steps added (2026-08-29):**
 - USER provided the official manual sandbox deployment guide (n8n sandbox service, Docker no-sysbox variant: n8nio/n8n-sandbox-service-api + runner-dind with privileged:true, mTLS bootstrap via tls-init) + SearXNG docker run — the path needed when n8n was NOT installed via one-line setup (e.g. Contabo one-click installs have no sandbox)
