@@ -6,6 +6,31 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 
 ---
 
+## 2026-08-30 — GSC indexing issues diagnosed + internal-link fixes (AWAITING USER REVIEW)
+
+### Last Session
+2026-08-25 — Guides index page + premium blog redesign + navbar/hero cleanup deployed
+
+### Done
+- Diagnosed user's GSC "Why pages aren't indexed" screenshot (4 buckets): Page with redirect (2, validation Failed), Crawled-not-indexed (10), Discovered-not-indexed (1), Duplicate-without-canonical (0, Passed)
+- Root causes found via live checks: (1) navbar + blog-post back-links used `/blog` (slash-less) → Apache DirectorySlash 301s to `/blog/` → "Page with redirect" entries; `/forextrading`→`/forexbroker` (YouTube-description legacy) is the likely second redirect URL; (2) the 10 crawled-not-indexed pages = blog posts, which had ZERO homepage internal links (homepage linked only to `/blog/` index); (3) sitemap blog index entry was missing lastmod
+- Fixes applied: Navbar.tsx `/blog`→`/blog/`; BlogPostPage.tsx back-links + breadcrumb path `/blog`→`/blog/`; NEW `components/LatestPosts.tsx` (homepage section: 3 latest post cards + All Posts link) wired into HomePage after VideoHub; sitemap blog-index lastmod set 2026-08-30
+- Build verified: 23 routes + 404 prerendered; 0 slash-less hrefs in any HTML; homepage now links 3 latest posts; blog index dedupe = 13 (correct); canonicals intact; no noindex leaks
+- Preview running at localhost:4173 — awaiting user approval per Local Review Gate
+
+### Decisions
+- Treat the 2 "Page with redirect" URLs as `/blog` (now internally unlinked) and `/forextrading` (external-only links in YouTube descriptions — legitimate redirect, will drop out of GSC once recrawled; no code change needed)
+- Homepage blog section placed after Knowledge Hub (VideoHub) — adds internal link equity to every post via blog index + top-3 directly
+
+### Next Steps
+- User reviews localhost:4173 (/, /blog/, any post) → approve → commit + push → CI deploy → `node scripts/request-indexing.mjs`
+- After deploy: GSC "Validate fix" on Page with redirect; crawled-not-indexed posts should index over 1–2 weeks
+- Humanizer skill loaded; LatestPosts copy kept minimal
+
+### Blockers & Open Questions
+- Cannot see which exact URLs GSC flags (no GSC API access beyond Indexing API) — redirect-bucket URL identities are inferred from live redirect behavior
+
+
 ## 2026-08-25 — Guides index page + premium blog redesign + navbar/hero cleanup deployed
 
 ### Last Session

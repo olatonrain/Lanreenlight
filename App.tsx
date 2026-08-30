@@ -8,6 +8,7 @@ import { Partnership } from './components/Partnership';
 import { Stats } from './components/Stats';
 import { Algorithms } from './components/Algorithms';
 import { VideoHub } from './components/VideoHub';
+import { LatestPosts } from './components/LatestPosts';
 import { Contact } from './components/Contact';
 import { Seo } from './components/Seo';
 import { personSchema, websiteSchema } from './data/schema';
@@ -43,6 +44,7 @@ const HomePage = () => (
     <About />
     <Expertise />
     <VideoHub />
+    <LatestPosts />
     <Partnership />
     <Stats />
     <Algorithms />

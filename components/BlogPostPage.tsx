@@ -58,7 +58,7 @@ export const BlogPostPage = () => {
         return (
             <div className="min-h-screen bg-brand-white flex flex-col items-center justify-center p-4">
                 <h2 className="text-2xl font-serif text-brand-black mb-4">Post not found</h2>
-                <Link to="/blog" className="text-brand-accent hover:underline">← Back to Blog</Link>
+                <Link to="/blog/" className="text-brand-accent hover:underline">← Back to Blog</Link>
             </div>
         );
     }
@@ -75,7 +75,7 @@ export const BlogPostPage = () => {
                     articleSchema(post.title, post.excerpt || post.title, `https://lanreenlight.com/blog/${post.id}`, post.date),
                     breadcrumbSchema([
                         { name: 'Home', path: '/' },
-                        { name: 'Blog', path: '/blog' },
+                        { name: 'Blog', path: '/blog/' },
                         { name: post.title, path: `/blog/${post.id}` },
                     ]),
                 ]}
@@ -126,7 +126,7 @@ export const BlogPostPage = () => {
 
                 {/* Footer Navigation */}
                 <div className="mt-16 text-center">
-                    <Link to="/blog" className="inline-flex items-center text-brand-black font-semibold hover:text-brand-accent transition-colors border border-brand-border px-8 py-3 rounded-full hover:bg-brand-secondary">
+                    <Link to="/blog/" className="inline-flex items-center text-brand-black font-semibold hover:text-brand-accent transition-colors border border-brand-border px-8 py-3 rounded-full hover:bg-brand-secondary">
                         ← Back to Knowledge Hub
                     </Link>
                 </div>

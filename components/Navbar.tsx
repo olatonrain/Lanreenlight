@@ -8,7 +8,7 @@ const NAV_ITEMS: NavItem[] = [
     { label: 'What I Do', href: '#expertise' },
     { label: 'Why Partner', href: '#why-partner' },
     { label: 'Knowledge Hub', href: '#knowledge-hub' },
-    { label: 'Blog', href: '/blog' }
+    { label: 'Blog', href: '/blog/' }
 ];
 
 const GUIDE_HREF = '/guides/';
