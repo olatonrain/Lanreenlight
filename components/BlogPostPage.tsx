@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { BlogPost } from '../data/blog';
+import { BlogPost, BLOG_POSTS } from '../data/blog';
 import { FadeIn } from './FadeIn';
 import { Seo } from './Seo';
 import { articleSchema, breadcrumbSchema } from '../data/schema';
@@ -123,6 +123,37 @@ export const BlogPostPage = () => {
                         <div dangerouslySetInnerHTML={{ __html: post.content || `<p>${post.excerpt}</p>` }} />
                     </div>
                 </FadeIn>
+
+                {/* Related Posts */}
+                {(() => {
+                    const others = BLOG_POSTS.filter(p => p.id !== post.id);
+                    const sameCat = others.filter(p => p.category === post.category);
+                    const related = [...sameCat, ...others.filter(p => p.category !== post.category)].slice(0, 3);
+                    if (!related.length) return null;
+                    return (
+                        <div className="mt-16">
+                            <h2 className="text-2xl md:text-3xl font-serif font-medium text-brand-black mb-8 tracking-tight">Related Posts</h2>
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                {related.map(p => (
+                                    <Link key={p.id} to={`/blog/${p.id}`} className="group block bg-white border border-brand-border rounded-2xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                                        <div className="relative aspect-video overflow-hidden">
+                                            <img
+                                                src={p.imageUrl}
+                                                alt={p.title}
+                                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                                loading="lazy"
+                                            />
+                                        </div>
+                                        <div className="p-5">
+                                            <span className="bg-brand-secondary text-brand-black px-2 py-1 rounded text-[10px] font-bold uppercase tracking-widest">{p.category}</span>
+                                            <h3 className="text-base font-serif text-brand-black mt-3 line-clamp-2 leading-snug group-hover:text-brand-accent transition-colors">{p.title}</h3>
+                                        </div>
+                                    </Link>
+                                ))}
+                            </div>
+                        </div>
+                    );
+                })()}
 
                 {/* Footer Navigation */}
                 <div className="mt-16 text-center">

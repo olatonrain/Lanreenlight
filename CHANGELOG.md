@@ -4,6 +4,24 @@ Date-based, category-tagged entries. Categories: Added, Fixed, Changed, Removed.
 
 ---
 
+2026-08-30
+
+Added
+- SEO hardening ruleset adapted from industry-incident post-mortems: "SEO/AEO/GEO Guardrails (Non-Negotiable)" + Working Style + Core Web Vitals rules in `AGENTS.md`; deployment guardrails + rollback triggers in `SAFETY.md`; "Existing-Ranking Protection" + internal link floor in `CONTENT_STRATEGY.md`
+- `scripts/verify-deploy.mjs` — post-deploy SEO gate: readiness wait, Googlebot-UA checks (200, no set-cookie, sane cache) on 3 pages, robots.txt, sitemap floor, noindex probe; exits 1 with rollback instruction on failure
+- `scripts/audit-links.mjs` — internal link floor audit on dist/ (hub + sibling-post + product links per post, orphan detection, slash-less href traps)
+- Related Posts section on blog post pages (3 cards, same-category first) — fixes 11 of 13 posts lacking sibling links
+- Sitemap resubmission via Search Console API in the indexing script (sc-domain form, verified 204) — the reliable re-crawl signal
+
+Fixed
+- Indexing script false positives: `urlNotifications:publish` was returning HTTP 200 for all 23 URLs while registering NONE (empty `latestUpdate`). Script now parses `latestUpdate` and reports `accepted` vs `200-but-NOT-registered` honestly
+- `DEPLOY_GUIDE.md` stale SPA-fallback docs replaced with prerender + real-404 reality; documented CI wiring for the verification gate (agent-restricted, pending approval)
+
+Changed
+- `MEMORY.md` — both 2026-08-30 sessions logged with the Indexing-API deprecation finding
+
+---
+
 2026-08-25
 
 Added

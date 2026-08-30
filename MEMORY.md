@@ -6,7 +6,37 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 
 ---
 
-## 2026-08-30 — GSC indexing issues diagnosed + internal-link fixes (AWAITING USER REVIEW)
+## 2026-08-30 — SEO hardening: guardrails, deploy gate, link floor, indexing truth-fix
+
+### Last Session
+2026-08-30 — GSC indexing issues diagnosed + internal-link fixes DEPLOYED
+
+### Done
+- Applied hardening prompt (from a real industry incident: private cache to Googlebot 10 days, bulk de-index 404s, animation lib LCP 10.4s) adapted to this static Apache + prerender stack
+- **AGENTS.md**: new "SEO/AEO/GEO Guardrails (Non-Negotiable)" (protected surfaces — .htaccess is this site's middleware; pre-change checklist; post-change verification incl. Googlebot-UA curl; Indexing-API 200≠proof lesson), "Working Style Rules", "Core Web Vitals Rules" (H1 never behind FadeIn, no global heavy imports, CDN→self-hosted standing item)
+- **SAFETY.md**: "SEO/AEO/GEO Deployment Guardrails" (never-deploy list, rollback triggers, post-deploy ritual)
+- **CONTENT_STRATEGY.md**: "Existing-Ranking Protection" + internal link floor (every post: hub link + sibling post link + product link; audit before deploys)
+- **scripts/verify-deploy.mjs** (NEW): readiness wait 150s → Googlebot-UA checks on 3 pages (200, no set-cookie, sane cache) → robots.txt → sitemap floor (15) → noindex probe; tested against live site, all pass
+- **scripts/audit-links.mjs** (NEW): link-floor audit on dist/. First run found 11/13 posts had NO sibling-post links → added **Related Posts section to BlogPostPage.tsx** (3 cards, same-category first) → 11 fixed automatically. Remaining 2 failures: `the-shift` + `from-digital-marketer` (personal essays, no product link) — left for user decision
+- **scripts/request-indexing.mjs HARDENED — CRITICAL FINDING: the Indexing API returned HTTP 200 for ALL 23 URLs but registered NONE** (empty latestUpdate) — every previous "23/23 accepted" report was a false positive; API is effectively deprecated for this content type. Script now parses latestUpdate (labels accepted vs 200-but-NOT-registered) and RESUBMITS THE SITEMAP via Search Console API — works: **204 with sc-domain:lanreenlight.com** (siteUrl must be sc-domain form; URL-prefix form 403s). Sitemap resubmit is now the primary reliable signal
+- **DEPLOY_GUIDE.md**: documented verify-deploy gate + CI wiring snippet (needs user approval to add — agent-restricted), indexing truth-fix, corrected stale SPA-fallback section to prerender reality
+
+### Decisions
+- Deploy gate = standalone script first; CI wiring awaiting user approval (Agent Boundaries)
+- BlogPostPage template change (Related Posts) goes through Local Review Gate before push
+- Related Posts uses category-matching on BLOG_POSTS; no data changes needed
+
+### Next Steps
+- USER: review localhost:4173 blog post pages (Related Posts section) → approve → push
+- USER (optional): approve adding the 2 CI steps (verify-deploy + request-indexing with INDEXING_SERVICE_ACCOUNT_KEY secret) to deploy.yml
+- USER (optional): decide whether the 2 personal-essay posts get a soft product link (newsletter/`/#contact` counts) or stay link-less
+- Consider daily cron: verify-deploy + request-indexing (sitemap resubmit path) — prompt's Part 3, now mostly covered by the hardened script
+
+### Blockers & Open Questions
+- Indexing API publish: 200-but-not-registered for all URLs — treat this API as best-effort/deprecated; sitemap resubmit is the dependable channel
+- CI deploy.yml is agent-restricted — gate steps documented, not wired
+
+## 2026-08-30 — GSC indexing issues diagnosed + internal-link fixes DEPLOYED
 
 ### Last Session
 2026-08-25 — Guides index page + premium blog redesign + navbar/hero cleanup deployed
@@ -14,18 +44,18 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 ### Done
 - Diagnosed user's GSC "Why pages aren't indexed" screenshot (4 buckets): Page with redirect (2, validation Failed), Crawled-not-indexed (10), Discovered-not-indexed (1), Duplicate-without-canonical (0, Passed)
 - Root causes found via live checks: (1) navbar + blog-post back-links used `/blog` (slash-less) → Apache DirectorySlash 301s to `/blog/` → "Page with redirect" entries; `/forextrading`→`/forexbroker` (YouTube-description legacy) is the likely second redirect URL; (2) the 10 crawled-not-indexed pages = blog posts, which had ZERO homepage internal links (homepage linked only to `/blog/` index); (3) sitemap blog index entry was missing lastmod
-- Fixes applied: Navbar.tsx `/blog`→`/blog/`; BlogPostPage.tsx back-links + breadcrumb path `/blog`→`/blog/`; NEW `components/LatestPosts.tsx` (homepage section: 3 latest post cards + All Posts link) wired into HomePage after VideoHub; sitemap blog-index lastmod set 2026-08-30
-- Build verified: 23 routes + 404 prerendered; 0 slash-less hrefs in any HTML; homepage now links 3 latest posts; blog index dedupe = 13 (correct); canonicals intact; no noindex leaks
-- Preview running at localhost:4173 — awaiting user approval per Local Review Gate
+- Fixes: Navbar.tsx `/blog`→`/blog/`; BlogPostPage.tsx back-links + breadcrumb path `/blog`→`/blog/`; NEW `components/LatestPosts.tsx` (homepage section after VideoHub: 3 latest post cards + All Posts link); sitemap blog-index lastmod set 2026-08-30
+- **DEPLOYED:** commit 8fcb113 → CI run 33289648819 success → live verified: 0 slash-less `/blog` hrefs, `#latest-posts` section serving with 3 post links, post back-links to `/blog/` (×2), no noindex leaks, soft-404 still 404
+- **Indexing ping: 23/23 sitemap URLs accepted** (Google Indexing API)
 
 ### Decisions
 - Treat the 2 "Page with redirect" URLs as `/blog` (now internally unlinked) and `/forextrading` (external-only links in YouTube descriptions — legitimate redirect, will drop out of GSC once recrawled; no code change needed)
 - Homepage blog section placed after Knowledge Hub (VideoHub) — adds internal link equity to every post via blog index + top-3 directly
 
 ### Next Steps
-- User reviews localhost:4173 (/, /blog/, any post) → approve → commit + push → CI deploy → `node scripts/request-indexing.mjs`
-- After deploy: GSC "Validate fix" on Page with redirect; crawled-not-indexed posts should index over 1–2 weeks
-- Humanizer skill loaded; LatestPosts copy kept minimal
+- USER: in GSC click "Validate fix" on the "Page with redirect" row (the `/blog` source is gone; `/forextrading` is a legitimate external redirect that will drop out)
+- Watch GSC over 1–2 weeks: the 10 crawled-not-indexed posts should flip to indexed now that they carry homepage link equity; rerun `node scripts/request-indexing.mjs` anytime content changes
+- New posts: always include `/blog/` (trailing slash) in any internal link — Apache DirectorySlash 301s the slash-less form
 
 ### Blockers & Open Questions
 - Cannot see which exact URLs GSC flags (no GSC API access beyond Indexing API) — redirect-bucket URL identities are inferred from live redirect behavior

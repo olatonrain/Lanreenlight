@@ -19,6 +19,20 @@ Existing traffic is the top priority for every content change. The short version
 - After every content deploy, run the mandatory checks (build, curl title/canonical/noindex, 404 probe) before declaring done.
 
 <!-- agent-updated: 2026-08-25 — Added traffic protection policy linking AGENTS.md rules -->
+<!-- agent-updated: 2026-08-30 — Added Existing-Ranking Protection + internal link floor (from industry incident post-mortems) -->
+
+## Existing-Ranking Protection (MANDATORY)
+
+These rules prevent repeating a real industry incident: bulk edits and careless rewrites cost sites weeks of lost impressions.
+
+- **Never rewrite the URL, H1, or direct-answer opening paragraph of a page that already ranks.** Re-optimizing a ranking page means tightening the meta description, adding facts/schema, updating prices/screenshots — never changing what made it rank.
+- **An inactive/old topic ≠ delete its page.** A post about a dead trend still earns impressions for adjacent queries. Refresh it toward the nearest live topic instead of removing it; delete only genuinely dead content with a 301 + user sign-off.
+- **Bulk operations on pages** (scripts that add/remove/regenerate many posts at once, `--force`-style flags) must be diff-reviewed before running: print the exact set of URLs to be added and removed, and get explicit approval when any existing URL is in the removal set.
+- **Internal link floor — every blog post must contain:**
+  1. at least one link to a hub/service page (`/guides/*` pillar or `/#contact`),
+  2. at least one link to another blog post,
+  3. at least one link to a relevant product page (Contabo/Deriv/AgentRouter funnel or affiliate link).
+- Audit the floor before deploys: the new post's prerendered HTML must contain `href="/guides/`, at least one other `/blog/<slug>` href, and at least one affiliate/funnel href. Weak internal linking is why 10 posts sat in "Crawled - currently not indexed" (diagnosed 2026-08-30) — the homepage now links the 3 latest posts via `LatestPosts`, and the floor keeps every future post from repeating that.
 
 ## Current State (2026-07-11)
 

@@ -84,6 +84,58 @@ The site earns visibility three ways: search engines (SEO), answer engines like 
 
 Any change that touches an existing URL, title, heading, sitemap entry, or redirect is SEO-affected. Verify before and after. Never claim "traffic is safe" without running the checks above.
 
+### SEO/AEO/GEO Guardrails (Non-Negotiable)
+
+These rules come from industry incidents where preventable mistakes cost sites 1,000+ daily impressions for weeks: a middleware change silently served `Cache-Control: private` to Googlebot for 10 days; a bulk de-index commit turned ~100 indexed URLs into overnight 404s; a site-wide animation library pushed mobile LCP to 10.4s. On this stack the equivalent high-risk surface is `public/.htaccess` (headers, rewrites, redirects) and the prerender pipeline — treat edits to either as high-risk.
+
+**Protected surfaces — never modify without explicit user sign-off AND post-change verification:**
+
+1. **`.htaccess` (headers/rewrites/redirects).** This site serves static prerendered HTML, so Apache rules are our "middleware". Any `.htaccess` edit requires a Googlebot-UA check before and after deploy: `curl -s -A "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)" -D - <url>` — 200, sane cache headers, no stray cookies.
+2. **robots.txt, sitemap.xml, canonical URLs, noindex/nofollow meta.** A URL must never silently disappear from the sitemap or gain noindex as a side effect of another change. Always diff `public/sitemap.xml` `<loc>` set against the previous version.
+3. **URLs are permanent.** Deleting/renaming any indexed page requires a 301 to the closest live page (in `.htaccess` or HestiaCP). No bare 404s for previously-indexed URLs.
+4. **Titles, H1s, and the direct-answer opening paragraph of pages that already rank.**
+
+**Mandatory pre-change checklist (every task):**
+
+- Touches `.htaccess`, headers, cookies, robots, sitemap, canonicals, or URLs → high-risk; verify after deploy.
+- De-indexes, unpublishes, 404s, or deactivates anything → STOP: needs a 301 plan + user approval.
+- Adds/removes pages → new pages must appear in sitemap (fresh lastmod) + llms.txt; removed pages need redirects.
+- Changes rendering or the prerender pipeline → bots must see the same content users see; `npm run build` must prerender every route (it fails on route errors by design — keep it that way).
+
+**Mandatory post-change verification (after EVERY deploy — code or content):**
+
+- `curl -s -A "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)" -D - https://lanreenlight.com/` → 200, sane cache headers, no unexpected cookies.
+- robots.txt unchanged (no `Disallow: /`, `Sitemap:` line present).
+- sitemap.xml still contains ALL previously-indexed URLs (diff `<loc>` set vs previous deploy) plus any new ones.
+- No noindex in robots meta on real pages; expected JSON-LD still renders in the prerendered HTML.
+- Log the results every time (in the session's MEMORY.md entry).
+
+**Indexing hygiene:**
+
+- Never treat the Indexing API's HTTP 200 as proof of indexing: `urlNotifications:publish` can return 200 with an EMPTY `latestUpdate` — Google accepted the call but registered NOTHING (getMetadata then 404s "Requested entity was not found"). Sitemap resubmission (via the Search Console API or the GSC UI) is the reliable re-crawl signal; the Indexing API is best-effort only.
+- Real index status is only verifiable via the Search Console `urlInspection/index:inspect` API (`coverageState: "Submitted and indexed"`). GSC UI screenshots are the fallback.
+- Keep a `urls.txt` derived from the live sitemap in sync; drift between it and sitemap.xml = something broke.
+- Bulk de-indexing only for genuinely dead content, with user sign-off, always with 301s.
+
+### Working Style Rules (MANDATORY)
+
+- Read MEMORY.md fully before work; append session results to it (Session Protocol above).
+- Never commit or deploy without the user's go-ahead unless pre-authorized (Local Review Gate below; doc-only/infra exceptions apply).
+- After ANY deploy, run the post-change verification block above and log the result.
+- When a tool returns success, verify the actual effect — HTTP 200 is not proof of anything by itself (see the Indexing-API lesson above).
+
+### Core Web Vitals Rules (MANDATORY for every template/page)
+
+The known LCP risks on this site: Tailwind + Font Awesome load from CDN at runtime, and the `FadeIn` wrapper starts every section at `opacity-0` until React hydrates and an IntersectionObserver fires — meaning content paints only after JS on every page that uses it.
+
+1. **The LCP element (usually the H1) must never be gated behind an entrance animation or hydration.** It paints with the first HTML render. On this stack: never wrap a page H1 (or hero headline) in `FadeIn` — wrap a sibling container instead so the headline itself is visible in the prerendered HTML without opacity-0. The prerenderer force-reveals FadeIn content at capture time, but real users still wait for JS; keep the H1 out of that path.
+2. **Never import a heavy library in a globally-loaded file** (`App.tsx`, `Navbar`, anything on every route). Only the pages using it pay for it. Code-splitting via `React.lazy` already exists — keep it.
+3. **Scroll-reveal:** `FadeIn` is per-component (one IntersectionObserver per instance). If Core Web Vitals regress in field data, migrate to a single global IntersectionObserver with a `data-reveal` attribute + CSS visibility toggling — do not add MORE per-section client observers. Any MutationObserver-based route-change re-scan must be debounced and start only after `load` (an eager observer re-running querySelectorAll during hydration was measured in industry tests to multiply total blocking time ~8x).
+4. **Crawler safety:** if a reveal pattern hides content before JS runs, hide it ONLY under an `html.js` class that the JS controller adds. Without JavaScript, all content is fully visible.
+5. **Above-the-fold entrance animations: pure CSS keyframes only** (they run without JS).
+6. **Benchmark honestly:** measure with mobile throttling, and always confirm you're hitting the new build (`curl` for a content marker, e.g. the latest commit's markup change) before trusting a before/after comparison — a stale dev server silently poisons the numbers.
+7. **CDN → self-hosted** (Tailwind, Font Awesome) remains the standing LCP improvement — deferred twice now, revisit when CWV data justifies it.
+
 ## Content Mission (MANDATORY — governs all research and content)
 
 The mission behind every piece of content: **subscribers and visitors learn to DIY, self-host, and self-manage — using free or cheap options.** The funnel is:
