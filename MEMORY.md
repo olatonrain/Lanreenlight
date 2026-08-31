@@ -407,6 +407,13 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 - Remaining for this video: thumbnail, cards, end screen, pinned comment (in the package), social captions posting
 - NOTE for future: on-camera recommendations user actually made — CloudVPS 6 recommended (shot on VPS 4), 24-month package = 20% discount (~$126 total), small models crash on complex builds
 
+**Session 9 — Scheduled trend sweep Mon Sept 1 (automation run):**
+- Bank saved: `youtube-fixes/trending-ideas-bank-2026-09-01.md` (3 parallel Explore agents: trading, crypto, AI/hosting)
+- TIER 1: (1) OpenClaw 2.0 secure VPS install — 2.0 shipped Aug 31 (388K stars), ZERO fresh tutorials, 1.x ceiling 91K-1.08M, window closes in days; (2) Grok Bot on Contabo VPS — $20 price cut + free X API credits, 388K/3d hype video, 37K/3d trading test, "grok bot vps" = zero results; (3) Supabase self-host — official "Don't pay" video 45.6K/2d (5x since Aug 29), third-party tutorials all 6+ months old; (4) FLOP Technocore DID automation on VPS — still zero VPS videos, but "51.2% miners" figure corrected to UNVERIFIED (~20% testnet participants is the verifiable number)
+- TIER 2: Deriv Flip Indices bundle STILL 100% open (re-verified); GLM-5.3 open-weight (HN 800pts, 160K/1d reviews, zero self-host tutorials); FREE AI trading bot for Deriv (Pocket Option formula does 15-27K/day, Deriv-side underserved); Pi Sept 15 mainnet checklist; Grass claim+Coinbase+farm; Postiz
+- HOLD: OmniRoute v3.8.51 release video (not shipped; AgentRouter SSE fix in branch = headline when it tags). SKIP: OpenRAG (filled, 15.1K/3d), Qwen 3.8 (saturated), Surge AI (unverified)
+- QUEUE: next = OpenClaw 2.0 (or Grok Bot) → Supabase → FLOP DID + Pi checklist parallel → Flip Indices before it fills
+
 **Session 8 — n8n AI Assistant blog post + site-wide fixes (2026-08-31):**
 - Video YM4JlBPruN0 live ("This New N8N AI Assistant Builds Workflows FOR You -", 23:08). Blog post built from the PACKAGE's exact commands (user instruction: .md code blocks go in the post): `data/posts/n8n-ai-assistant-builds-workflows-vps.json` — 8 steps, both install paths, real SearXNG setup, wiring env vars, MODEL_URL→OmniRoute
 - Package's commands block was replaced by user with "commands on my website" → this post IS that destination
