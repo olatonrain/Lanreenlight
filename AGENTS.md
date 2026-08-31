@@ -136,6 +136,13 @@ The known LCP risks on this site: Tailwind + Font Awesome load from CDN at runti
 6. **Benchmark honestly:** measure with mobile throttling, and always confirm you're hitting the new build (`curl` for a content marker, e.g. the latest commit's markup change) before trusting a before/after comparison — a stale dev server silently poisons the numbers.
 7. **CDN → self-hosted** (Tailwind, Font Awesome) remains the standing LCP improvement — deferred twice now, revisit when CWV data justifies it.
 
+## Blog Post Standards (MANDATORY — learned from the invisible-post incident 2026-08-31)
+
+1. **Content lives ONLY in `data/posts/<slug>.json`** — the live page, prerendered HTML, and .md mirror are all generated from it at build time. Never edit dist/ or any other copy. After editing a post: `git diff data/posts/` must show the change (if empty, the edit didn't save — this exact failure shipped a stale price claim to production once).
+2. **Formatting is centralized in `.article-content` styles (index.html).** Posts must use plain semantic HTML: `<h2>/<h3>`, `<p>`, `<ul>/<ol>`, `<pre><code>` for commands (rendered as dark terminal blocks), `<code>` inline (styled chip), `<table>` (styled, scrollable). Never use markdown `**` in post content — it renders literally.
+3. **Command steps inside posts get real styling:** one `<pre><code>` block per command group, HTML-escaped (`&lt;` for `<` in placeholders like <YOUR_VPS_IP>), with the surrounding `<h2>` step headers matching the video chapter flow.
+4. **New/edited posts MUST be browser-verified before deploy** — build, `npm run preview`, then confirm with a real browser check: (a) body visible (FadeIn bug class: elements taller than ~10x viewport were permanently invisible — fixed 2026-08-31 in FadeIn.tsx via mount-time reveal), (b) code blocks styled, (c) unique title + canonical. The Live Review Gate applies to every post.
+
 ## Content Mission (MANDATORY — governs all research and content)
 
 The mission behind every piece of content: **subscribers and visitors learn to DIY, self-host, and self-manage — using free or cheap options.** The funnel is:

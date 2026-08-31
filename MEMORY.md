@@ -407,6 +407,14 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 - Remaining for this video: thumbnail, cards, end screen, pinned comment (in the package), social captions posting
 - NOTE for future: on-camera recommendations user actually made — CloudVPS 6 recommended (shot on VPS 4), 24-month package = 20% discount (~$126 total), small models crash on complex builds
 
+**Session 8 — n8n AI Assistant blog post + site-wide fixes (2026-08-31):**
+- Video YM4JlBPruN0 live ("This New N8N AI Assistant Builds Workflows FOR You -", 23:08). Blog post built from the PACKAGE's exact commands (user instruction: .md code blocks go in the post): `data/posts/n8n-ai-assistant-builds-workflows-vps.json` — 8 steps, both install paths, real SearXNG setup, wiring env vars, MODEL_URL→OmniRoute
+- Package's commands block was replaced by user with "commands on my website" → this post IS that destination
+- **FadeIn invisibility bug FIXED (site-wide):** threshold 0.1 could never fire for elements >10x viewport → long posts' bodies permanently invisible (opacity-0). Fix: mount-time reveal if element already intersects viewport (components/FadeIn.tsx). Bug class documented; would have hit every future long post
+- **article-content styles EXTENDED:** pre/code/blockquote/table/img/hr had ZERO CSS — 5 technical posts rendered raw defaults with overflow. Now: dark terminal pre blocks, inline code chips, styled tables. Global fix, verified in real browser on all 13 posts + 3 guides + home (no stuck-hidden content; homepage group-hover overlays are by design)
+- Blog Post Standards section added to AGENTS.md (source-of-truth, HTML formatting rules, mandatory browser verification)
+- Commits: 81b56aa (FadeIn fix + post), plus formatting commit; deploy + indexing ping this session
+
 **Session 7k — User's real SearXNG setup + command reordering (2026-08-29):**
 - USER's actual SearXNG deployment (recorded on their server, /opt/searxng): settings.yml (use_default_settings, enable_brand off, secret_key via openssl rand -hex 32, limiter false, bot_detection disabled, formats html+json), empty limiter.toml, compose attached to n8n_default external network with SEARXNG_SECRET_KEY — replaced the simple docker-run version in the package. Used <YOUR-GENERED-64-HEX-SECRET> placeholders so viewers generate their own
 - Commands reordered per user: (a) docker network ls / docker inspect + cross-server attach note moved ABOVE the compose.yaml creation; (b) openssl rand -hex 32 token generation is its own step before Create .env (heredoc won't expand $())
