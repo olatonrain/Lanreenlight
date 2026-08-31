@@ -23,8 +23,19 @@ import post10 from './posts/claude-code-vs-n8n-vs-agentrouter.json';
 import post11 from './posts/depin-node-evaluation-checklist.json';
 import post12 from './posts/self-hosted-coding-agents-mainstream-2026.json';
 import post13 from './posts/self-host-n8n-and-omniroute-on-a-vps.json';
+import post14 from './posts/n8n-ai-assistant-builds-workflows-vps.json';
 
 export const BLOG_POSTS: BlogPost[] = [
+    {
+        id: post14.id,
+        title: post14.title,
+        date: post14.date,
+        category: post14.category || 'Automation',
+        excerpt: post14.excerpt,
+        imageUrl: post14.imageUrl,
+        youtubeId: post14.youtubeId || 'dQw4w9WgXcQ',
+        content: post14.content,
+    },
     {
         id: post13.id,
         title: post13.title,

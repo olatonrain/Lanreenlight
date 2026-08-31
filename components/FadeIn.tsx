@@ -19,6 +19,16 @@ export const FadeIn: React.FC<FadeInProps> = ({
     const domRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
+        const currentElement = domRef.current;
+        if (!currentElement) return;
+
+        // Reveal immediately if the element already intersects the viewport at mount.
+        // threshold 0.1 can never fire for elements taller than ~10x the viewport
+        // (e.g. long blog posts), which left them permanently invisible.
+        const rect = currentElement.getBoundingClientRect();
+        const intersectsAtMount =
+            rect.top < window.innerHeight && rect.bottom > 0;
+
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -31,15 +41,14 @@ export const FadeIn: React.FC<FadeInProps> = ({
             rootMargin: '0px 0px -50px 0px'
         });
 
-        const currentElement = domRef.current;
-        if (currentElement) {
+        if (intersectsAtMount) {
+            setIsVisible(true);
+        } else {
             observer.observe(currentElement);
         }
 
         return () => {
-            if (currentElement) {
-                observer.unobserve(currentElement);
-            }
+            observer.unobserve(currentElement);
         };
     }, []);
 
