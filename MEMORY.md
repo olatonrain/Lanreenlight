@@ -407,6 +407,12 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 - Remaining for this video: thumbnail, cards, end screen, pinned comment (in the package), social captions posting
 - NOTE for future: on-camera recommendations user actually made — CloudVPS 6 recommended (shot on VPS 4), 24-month package = 20% discount (~$126 total), small models crash on complex builds
 
+**Session 11 — Referral-hero ban locked in (2026-09-01):**
+- USER DIRECTIVE: stop making AgentRouter the hero/priority in videos. Root cause: AgentRouter-as-subject = zero search volume (the Aug 19 video's 15 views proved it); the hero must be the viewer outcome (Claude Code free, free models, the workflow)
+- AGENTS.md updated: Content Mission point 4 — referral links (AgentRouter/Contabo/Deriv) live in description/pinned comment/cards ONLY, never title/thumbnail/hook/subject; in-video mentions only when the tool is genuinely used on screen; exception = dedicated program video the user explicitly chooses. Format item 2: link order now "guide + official docs FIRST, affiliates after"
+- Audited all 4 active packages: all comply (heroes = viewer outcomes; AgentRouter only in link slots). Removed one redundant standalone promo line from the n8n package description (link remains in LINKS block)
+- Skills: content-marketer + seo-fundamentals (search-demand rationale)
+
 **Session 10 — AgentRouter video rescue (GYvYHpi4DJk, 2026-09-01):**
 - User reported the Aug 19 AgentRouter video underperforming: 15 views/13d, 0 likes/comments — invisible in search
 - Root causes diagnosed: (a) title targeted zero-volume "Agentrouter" + generic listicle framing vs the proven pain formula (WebSite Learners' "STOP Paying $200/m" = 416K); (b) 31-min video with NO chapters (flagged Aug 22, never done); (c) junk tags ("ai asmr", "aik mohabbat aur", forex/crypto stuffing); (d) keyword-salad description opening; (e) $200-vs-$175 credit inconsistency; (f) "100% free forever" overpromise

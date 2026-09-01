@@ -150,6 +150,7 @@ The mission behind every piece of content: **subscribers and visitors learn to D
 1. **DIY-first:** every topic is framed as "here's how YOU do it yourself, free or cheap" — self-hosted, on cheap hardware, with free tiers wherever possible
 2. **Self-managed:** teach ownership (their own VPS, their own data, their own stack) — not dependence on paid subscriptions
 3. **Services last:** hiring Lanre is the LAST option in the funnel ("which is the least") — never the pitch. If a viewer wants done-for-you help, the door is open, but content always teaches them to fish
+4. **Referral programs are never the hero (user directive 2026-09-01):** AgentRouter, Contabo, and Deriv links live in the description, pinned comment, and cards — NEVER in the title, thumbnail, hook, or as the video's subject/priority. The hero is always the viewer's desired outcome (Claude Code free, free AI models, the workflow). In-video mentions only when the tool is genuinely used on screen. The one exception: a dedicated video about the program itself that the user explicitly chooses to make
 
 Practical implications: research and topic selection favor "how to self-host X free/cheap on a VPS" angles; descriptions and posts emphasize free tiers, open-source tools, and cost breakdowns; affiliate links are for tools the viewer installs themselves (Contabo, AgentRouter); never frame content as "this is hard, hire me instead."
 
@@ -174,7 +175,7 @@ Every video content package must follow this exact structure (user-confirmed 202
 1. **Title Options** — exactly 3 suggested titles, each with its OWN thumbnail idea and a one-line rationale. Title angles to rotate between: (a) always-on differentiator + free + price hook, (b) zero-competition keyword owner (e.g. "OmniRoute Contabo"), (c) pain-point lane ("Stop Paying for AI APIs"). Base titles on live research (WebSearch/Explore) for whitespace keywords before recommending.
 2. **Viral Hooks** — 3 opening-hook options for the first 15 seconds of the video, written AFTER reviewing the actual content (transcript if recorded, planned content if not). Each hook: the spoken line, the visual to pair with it, and why it works (pattern interrupt / curiosity gap / pain reversal). The hook must promise the video's single biggest payoff and be deliverable in the first 30 seconds.
 3. **Chapter Guide** — for EVERY chapter (intro to end), written as scannable per-chapter cards in this exact format (user-confirmed 2026-08-29): `### N · timestamp — TITLE` then bullet lines labeled **GOAL** / **SCREEN** / **DO** (numbered steps, one action each — never run-on sentences) / **SAY** (the exact spoken line in quotes), with chapters separated by `---` dividers and a shooting-order tip at the top (the "money moment" chapters). The user shoots from this — it is the core of the package, not an afterthought.
-4. **Description** — hook paragraph (problem → solution), CHAPTERS with timestamps (estimated, marked ⚠️ to adjust), full copy-paste command blocks, links (affiliate first, then site guides), affiliate disclosure, socials/community. Never leave the generic boilerplate description without a hook/chapters/commands.
+4. **Description** — hook paragraph (problem → solution), CHAPTERS with timestamps (estimated, marked ⚠️ to adjust), full copy-paste command blocks, links (written guide + official docs FIRST, affiliate links after — referral programs are never the hero; see Content Mission), affiliate disclosure, socials/community. Never leave the generic boilerplate description without a hook/chapters/commands.
 5. **Tags** — 20+ tags including the whitespace keywords from research.
 6. **Social Media Captions** — a caption for EACH of: LinkedIn, Twitter/X, TikTok, Facebook, Instagram — with platform-appropriate length, angle, and hashtags. LinkedIn = professional/value-driven (3–5 hashtags). Twitter/X = short, punchy (1–2 hashtags). TikTok = hook-first, energetic (4–6 hashtags incl. niche tags). Facebook = community-oriented with an engagement question (4–6 hashtags). Instagram = short visual caption with line breaks + 10–15 hashtags. Emoji allowed per platform style; never reuse the same caption text across platforms.
 7. **Pinned Comment** — links + one engagement question.
@@ -311,3 +312,15 @@ CI/CD exists at `.github/workflows/deploy.yml` — document its actual steps. Do
 
 - After every session, update MEMORY.md with key decisions, context, and next steps
 - MEMORY.md serves as the primary context carrier between sessions
+
+## Project Memory Journal (MANDATORY)
+
+**The `memory` MCP knowledge graph records what has been done in this project. Read from it and write to it.**
+
+- At the start of any non-trivial task: search the graph for entity `Lanreenlight` (`search_nodes`) and read this project's `MEMORY.md` (if present) before planning.
+- At the end of every task: append dated observations to `Lanreenlight` (`add_observations`) — what was done, decisions and why, gotchas, pending items. Also append the same summary to this project's `MEMORY.md` — append-only, never overwrite.
+- Never store secrets (API keys, tokens, passwords, real user identifiers) in the graph or memory files.
+
+## Skill Loading (ENFORCED)
+
+Skill loading is mechanically enforced, not just documented: a global hook injects the skill-protocol reminder on every prompt, and a stop-gate hook blocks turn end until a Skill tool invocation is recorded for the session (config: `~/.zcode/cli/config.json` -> `hooks`; scripts: `~/.zcode/hooks/`). Load 2-10 relevant skills (minimum 2) before acting — every task, no exceptions.
