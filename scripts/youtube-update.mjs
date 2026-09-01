@@ -113,14 +113,18 @@ async function cmdApply(token, planFile, yes) {
             const result = buildNewDescription(newDesc, op);
             if (result !== null) newDesc = result;
         }
-        if (newDesc === oldDesc) { console.log(`SKIP ${fix.videoId} "${video.snippet.title.slice(0, 50)}": no change needed`); continue; }
+        const newTitle = fix.title || video.snippet.title;
+        const newTags = fix.tags || video.snippet.tags || [];
+        if (newDesc === oldDesc && newTitle === video.snippet.title && JSON.stringify(newTags) === JSON.stringify(video.snippet.tags || [])) { console.log(`SKIP ${fix.videoId} "${video.snippet.title.slice(0, 50)}": no change needed`); continue; }
         console.log(`\n=== ${fix.videoId} — ${video.snippet.title}`);
+        if (fix.title) console.log(`OLD TITLE: ${video.snippet.title}\nNEW TITLE: ${newTitle}`);
+        if (fix.tags) console.log(`NEW TAGS (${newTags.length}): ${newTags.join(', ')}`);
         console.log('--- OLD (last 400 chars):\n' + oldDesc.slice(-400));
         console.log('+++ NEW (last 400 chars):\n' + newDesc.slice(-400));
         if (!yes) { console.log('(dry run — rerun with --yes to write)'); continue; }
         await api(token, `videos?part=snippet`, {
             method: 'PUT',
-            body: { id: fix.videoId, snippet: { ...video.snippet, description: newDesc } },
+            body: { id: fix.videoId, snippet: { ...video.snippet, description: newDesc, title: newTitle, tags: newTags } },
         });
         console.log(`WRITTEN: ${fix.videoId}`);
     }

@@ -407,6 +407,18 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 - Remaining for this video: thumbnail, cards, end screen, pinned comment (in the package), social captions posting
 - NOTE for future: on-camera recommendations user actually made — CloudVPS 6 recommended (shot on VPS 4), 24-month package = 20% discount (~$126 total), small models crash on complex builds
 
+**Session 10 — AgentRouter video rescue (GYvYHpi4DJk, 2026-09-01):**
+- User reported the Aug 19 AgentRouter video underperforming: 15 views/13d, 0 likes/comments — invisible in search
+- Root causes diagnosed: (a) title targeted zero-volume "Agentrouter" + generic listicle framing vs the proven pain formula (WebSite Learners' "STOP Paying $200/m" = 416K); (b) 31-min video with NO chapters (flagged Aug 22, never done); (c) junk tags ("ai asmr", "aik mohabbat aur", forex/crypto stuffing); (d) keyword-salad description opening; (e) $200-vs-$175 credit inconsistency; (f) "100% free forever" overpromise
+- FIXED via youtube-update.mjs (extended to support title + tags updates — commands block):
+  - Title → "Stop Paying $200/mo for Claude Code — 5 Free Methods (2026)"
+  - 8 chapters with REAL timestamps from transcript: 0:00 intro, 1:20 signup, 5:46 OpenCode, 7:30 CLI, 8:40 Antigravity, 12:35 any-platform, 18:33 OmniRoute+VPS, 24:42 combo test, 28:53 wrap
+  - 21 clean tags (removed junk/irrelevant)
+  - Description: pain-formula hook + chapters + guide-first link order
+- Verified live via API. Backup of old metadata in youtube-fixes/fix-agentrouter-video.json (plan) + earlier backup-2026-08-22.json
+- REMAINING (user action): thumbnail still needs the formula — "CLAUDE CODE FREE" + "$200/MO → $0" visual; watch CTR in Studio over 7 days
+- Transcript skill note: yt-dlp+Chrome-cookies path worked again for GYvYHpi4DJk
+
 **Session 9 — Scheduled trend sweep Mon Sept 1 (automation run):**
 - Bank saved: `youtube-fixes/trending-ideas-bank-2026-09-01.md` (3 parallel Explore agents: trading, crypto, AI/hosting)
 - TIER 1: (1) OpenClaw 2.0 secure VPS install — 2.0 shipped Aug 31 (388K stars), ZERO fresh tutorials, 1.x ceiling 91K-1.08M, window closes in days; (2) Grok Bot on Contabo VPS — $20 price cut + free X API credits, 388K/3d hype video, 37K/3d trading test, "grok bot vps" = zero results; (3) Supabase self-host — official "Don't pay" video 45.6K/2d (5x since Aug 29), third-party tutorials all 6+ months old; (4) FLOP Technocore DID automation on VPS — still zero VPS videos, but "51.2% miners" figure corrected to UNVERIFIED (~20% testnet participants is the verifiable number)
