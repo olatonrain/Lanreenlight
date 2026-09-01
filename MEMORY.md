@@ -407,6 +407,13 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 - Remaining for this video: thumbnail, cards, end screen, pinned comment (in the package), social captions posting
 - NOTE for future: on-camera recommendations user actually made — CloudVPS 6 recommended (shot on VPS 4), 24-month package = 20% discount (~$126 total), small models crash on complex builds
 
+**Session 12 — OpenClaw 2.0 package built (2026-09-01):**
+- User chose Play A: OpenClaw 2.0 first (bigger search wave), ZCode CLI + GLM-5.3-Flash on VPS 4 as the follow-up "budget edition" video (1-2 weeks later)
+- Package: `youtube-fixes/video-content-openclaw2.md` — 3 titles + thumbnails (security-first hero), 3 hooks (prompt-laundering angle recommended), 11 chapter cards, description, 25 tags, 5 social captions, pinned comment, checklist
+- Commands verified against OFFICIAL docs.openclaw.ai: install.sh one-liner (provisions Node), hardened baseline config from gateway/security.md (loopback + token auth + tools messaging profile + exec deny/ask), `openclaw security audit/--deep/--fix`, `openclaw gateway install/start/status` (systemd, port 18789 loopback), models.providers custom baseUrl config for OmniRoute free models (omniroute/deepseek-v4-flash style refs — verify IDs at recording)
+- Hero framing check passed: title/thumbnail/hooks lead with viewer outcome (24/7 assistant, SAFE setup); AgentRouter absent entirely from package (OmniRoute is the model path — genuinely used on screen; referral links only in description/pinned comment/cards)
+- Key differentiator chapters: SAFE config (6), security audit on camera (7), reboot test (9) — none of the existing 91K-1.08M-view tutorials show these
+
 **Session 11 — Referral-hero ban locked in (2026-09-01):**
 - USER DIRECTIVE: stop making AgentRouter the hero/priority in videos. Root cause: AgentRouter-as-subject = zero search volume (the Aug 19 video's 15 views proved it); the hero must be the viewer outcome (Claude Code free, free models, the workflow)
 - AGENTS.md updated: Content Mission point 4 — referral links (AgentRouter/Contabo/Deriv) live in description/pinned comment/cards ONLY, never title/thumbnail/hook/subject; in-video mentions only when the tool is genuinely used on screen; exception = dedicated program video the user explicitly chooses. Format item 2: link order now "guide + official docs FIRST, affiliates after"
