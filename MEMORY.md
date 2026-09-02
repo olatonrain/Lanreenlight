@@ -407,6 +407,14 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 - Remaining for this video: thumbnail, cards, end screen, pinned comment (in the package), social captions posting
 - NOTE for future: on-camera recommendations user actually made — CloudVPS 6 recommended (shot on VPS 4), 24-month package = 20% discount (~$126 total), small models crash on complex builds
 
+**Session 13 — Privacy Policy + Terms pages added (2026-09-01):**
+- Neither existed (all path variants 404 live). Needed for: GA4 disclosure, affiliate programs (Pinterest business account just opened + CJ/MyAffiliates reviews check for linked policies), NDPR/GDPR
+- Built: components/LegalLayout.tsx (shared legal template w/ Seo) + PrivacyPolicy.tsx + TermsOfService.tsx; routes /privacy-policy + /terms (lazy, like guides); sitemap entries (lastmod 2026-09-01, priority 0.3, yearly)
+- Privacy covers: GA4, cookies, YouTube embeds, Contabo hosting logs, affiliate networks (Contabo CJ/AgentRouter/Deriv), data retention, NDPR/GDPR rights, 30-day response, no-data-selling. Terms covers: educational-only + NOT financial advice, no-results-guarantee, affiliate relationships, acceptable use, IP/third-party trademarks, liability limitation, Nigeria governing law
+- Footer added to Contact section end: © year + Privacy Policy + Terms links (programs verify policies are LINKED). Browser-verified both pages (0 hidden blocks, titles, canonicals) + footer links on homepage
+- Deployed f783e3f, live 200s verified, sitemap resubmitted via Search Console API (204)
+- Content note: privacy policy says contact via /#contact — the Contact form posts to a webhook; if the user wants a visible email address on legal pages instead, add it later
+
 **Session 12 — OpenClaw 2.0 package built (2026-09-01):**
 - User chose Play A: OpenClaw 2.0 first (bigger search wave), ZCode CLI + GLM-5.3-Flash on VPS 4 as the follow-up "budget edition" video (1-2 weeks later)
 - Package: `youtube-fixes/video-content-openclaw2.md` — 3 titles + thumbnails (security-first hero), 3 hooks (prompt-laundering angle recommended), 11 chapter cards, description, 25 tags, 5 social captions, pinned comment, checklist
