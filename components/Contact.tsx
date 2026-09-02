@@ -227,6 +227,13 @@ export const Contact: React.FC = () => {
                         </div>
                     </div>
                 </div>
+                <div className="mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-center gap-4 text-sm text-gray-400">
+                    <span>© {new Date().getFullYear()} Lanre Enlight. All rights reserved.</span>
+                    <span className="hidden sm:inline">·</span>
+                    <a href="/privacy-policy" className="hover:text-brand-accent transition-colors">Privacy Policy</a>
+                    <span className="hidden sm:inline">·</span>
+                    <a href="/terms" className="hover:text-brand-accent transition-colors">Terms of Service</a>
+                </div>
             </section>
         </>
     );

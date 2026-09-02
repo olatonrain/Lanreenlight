@@ -24,6 +24,8 @@ const CryptoNodeGuide = lazy(() => import('./components/CryptoNodeGuide').then(m
 const WebDevelopmentGuide = lazy(() => import('./components/WebDevelopmentGuide').then(m => ({ default: m.WebDevelopmentGuide })));
 const AppDevelopmentGuide = lazy(() => import('./components/AppDevelopmentGuide').then(m => ({ default: m.AppDevelopmentGuide })));
 const AgentrouterGuide = lazy(() => import('./components/AgentrouterGuide').then(m => ({ default: m.AgentrouterGuide })));
+const PrivacyPolicy = lazy(() => import('./components/PrivacyPolicy').then(m => ({ default: m.PrivacyPolicy })));
+const TermsOfService = lazy(() => import('./components/TermsOfService').then(m => ({ default: m.TermsOfService })));
 const NotFound = lazy(() => import('./components/NotFound').then(m => ({ default: m.NotFound })));
 
 const RouteFallback = () => (
@@ -75,6 +77,8 @@ function App() {
             <Route path="/guides/web-development" element={<WebDevelopmentGuide />} />
             <Route path="/guides/app-development" element={<AppDevelopmentGuide />} />
             <Route path="/guides/agentrouter-setup" element={<AgentrouterGuide />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms" element={<TermsOfService />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>

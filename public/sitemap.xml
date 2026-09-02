@@ -61,6 +61,18 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://lanreenlight.com/privacy-policy</loc>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://lanreenlight.com/terms</loc>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://lanreenlight.com/blog/n8n-ai-assistant-builds-workflows-vps</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
