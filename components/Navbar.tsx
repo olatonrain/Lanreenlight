@@ -8,6 +8,7 @@ const NAV_ITEMS: NavItem[] = [
     { label: 'What I Do', href: '#expertise' },
     { label: 'Why Partner', href: '#why-partner' },
     { label: 'Knowledge Hub', href: '#knowledge-hub' },
+    { label: 'Portfolio', href: '/portfolio' },
     { label: 'Blog', href: '/blog/' }
 ];
 

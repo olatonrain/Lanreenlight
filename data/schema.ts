@@ -72,6 +72,26 @@ export const breadcrumbSchema = (items: { name: string; path: string }[]) => ({
     })),
 });
 
+export const profilePageSchema = (
+    url: string,
+    name: string,
+    description: string,
+    certifications: string[],
+    person: typeof authorPerson
+) => ({
+    '@context': 'https://schema.org',
+    '@type': 'ProfilePage',
+    url,
+    mainEntityOfPage: url,
+    name,
+    description,
+    mainEntity: person,
+    hasPart: certifications.map(name => ({
+        '@type': 'CreativeWork',
+        name,
+    })),
+});
+
 export const collectionSchema = (
     name: string,
     description: string,
