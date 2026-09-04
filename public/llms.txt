@@ -32,10 +32,6 @@
 - [The Shift: Why I Left Traditional Marketing](https://lanreenlight.com/blog/the-shift-why-i-left-traditional-marketing): From ROI-driven campaigns to autonomous systems — why the future belongs to builders
 - [From Digital Marketer to AI Architect](https://lanreenlight.com/blog/from-digital-marketer-to-ai-architect): The transition path from marketing to building AI systems
 
-## Portfolio
-
-- [Portfolio](https://lanreenlight.com/portfolio): SEO case studies (Metrohyp.com, Fastryders), 17 verified certifications (Google AI, Meta, Claude API, SEO, cybersecurity), and press features in The Guardian, Vanguard, and Blueprint — [markdown](https://lanreenlight.com/portfolio.md)
-
 ## About
 
 - [Home](https://lanreenlight.com/): Portfolio, expertise, video hub, and contact for AI automation engineering work with n8n, Python, and cloud infrastructure
