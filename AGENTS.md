@@ -324,3 +324,25 @@ CI/CD exists at `.github/workflows/deploy.yml` — document its actual steps. Do
 ## Skill Loading (ENFORCED)
 
 Skill loading is mechanically enforced, not just documented: a global hook injects the skill-protocol reminder on every prompt, and a stop-gate hook blocks turn end until a Skill tool invocation is recorded for the session (config: `~/.zcode/cli/config.json` -> `hooks`; scripts: `~/.zcode/hooks/`). Load 2-10 relevant skills (minimum 2) before acting — every task, no exceptions.
+
+## Ask First — Don't Guess, Don't Hunt (MANDATORY)
+
+If you are not 99% sure what the user wants, ask 1-3 concise clarifying questions before acting. When missing info is something the user can simply provide (a path, a value, a choice, where something lives), ask for it instead of hunting for it — go hunting only when the user says to figure it out yourself, or when the answer is a trivial local read. Details: global AGENTS.md §6.
+
+## Resource Hygiene — Kill What You Start (MANDATORY)
+
+Background leftovers eat RAM and CPU and make the machine lag. Whatever an agent starts, the agent cleans up before finishing the task.
+
+1. **Kill orphaned automation leftovers.** After any browser automation (Playwright / chromedriver / puppeteer), leave no orphans: before finishing, `pkill -f chromedriver 2>/dev/null` — unless another session is actively using it. Same for stray dev servers, watchers, tunnels, and test runners started during the task.
+2. **Never stack listeners.** Before starting a dev server or preview, check for an existing listener on the port (`lsof -nP -iTCP -sTCP:LISTEN`) — reuse or stop it instead of spawning a second one. Never leave multiple instances of the same server running.
+3. **MCP servers and helper daemons only when needed.** Don't leave project MCP servers running when the work no longer uses them — set `"enabled": false` on idle servers in the project's MCP config and re-enable on demand. Same for helper daemons (Open Design, opencode helpers): don't spawn extra instances, don't keep them alive after the task ends.
+4. **1-hour self-destruct on anything you start.** Any dev server / preview / watcher an agent starts runs with a watchdog that kills it after 1 hour unless work is still active (then re-arm):
+   ```
+   npm run dev & PID=$!
+   nohup bash -c "sleep 3600; kill $PID 2>/dev/null" >/dev/null 2>&1 &
+   ```
+   Before ending any task, re-check `lsof -nP -iTCP -sTCP:LISTEN` and kill anything you started that is no longer needed.
+
+## English Only (ENFORCED)
+
+All agent output the user reads must be in English, always — even if the user writes in another language. Mechanically enforced: a per-prompt hook injects the directive and a stop-gate hook scans the response for non-English scripts and blocks turn end until it's rewritten in English (config: `~/.zcode/cli/config.json` -> `hooks`; gate: `~/.zcode/hooks/english-gate.py`). Code identifiers and quoted source text stay as-is.

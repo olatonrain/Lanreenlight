@@ -24,8 +24,19 @@ import post11 from './posts/depin-node-evaluation-checklist.json';
 import post12 from './posts/self-hosted-coding-agents-mainstream-2026.json';
 import post13 from './posts/self-host-n8n-and-omniroute-on-a-vps.json';
 import post14 from './posts/n8n-ai-assistant-builds-workflows-vps.json';
+import post15 from './posts/run-glm-5-3-flash-free-24-7-on-a-5-vps.json';
 
 export const BLOG_POSTS: BlogPost[] = [
+    {
+        id: post15.id,
+        title: post15.title,
+        date: post15.date,
+        category: post15.category || 'Automation',
+        excerpt: post15.excerpt,
+        imageUrl: post15.imageUrl,
+        youtubeId: post15.youtubeId || '',
+        content: post15.content,
+    },
     {
         id: post14.id,
         title: post14.title,

@@ -407,6 +407,21 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 - Remaining for this video: thumbnail, cards, end screen, pinned comment (in the package), social captions posting
 - NOTE for future: on-camera recommendations user actually made — CloudVPS 6 recommended (shot on VPS 4), 24-month package = 20% discount (~$126 total), small models crash on complex builds
 
+**Session 15 — User edit rescued into source + OmniRoute command corrected (2026-09-04):**
+- User hand-edited the generated dist HTML Step 3 (would have been wiped by next build — the exact dist-edit trap) → moved their exact edit into the source JSON
+- IMPORTANT correction from user: OmniRoute install command is `docker run -d --name omniroute --restart unless-stopped --stop-timeout 40 -p 20128:20128 -v omniroute-data:/app/data diegosouzapw/omniroute:latest` (official quick-run; includes the DATA_DIR volume mount — resolves the earlier persistence caveat). Replaced the compose pull/update block; prose updated to match
+- Video PsVYU-MjBYU still private; blog post embed wired; preview live for review; NOT deployed yet
+- Lesson reinforced: user edits dist files directly — when handing over preview URLs, state clearly which file to edit (data/posts/<slug>.json)
+
+**Session 14 — GLM-5.3 video transcription + blog post (2026-09-03):**
+- User recorded the Ox Alpha/GLM video (31:03) and asked: (1) remove audio noise, (2) update package from audio + create blog post
+- AUDIO: ffmpeg chain highpass f=75 + afftdn nr=12 nf=-25 + lowpass f=12000 + speechnorm → cleaned MP3 (256k) next to original; muxed back into the MP4 with -c:v copy (no video re-encode) → "(cleaned audio).mp4" 1311.6M, AAC 31:03. Advise user to listen before uploading
+- TRANSCRIPTION: no whisper on machine, Python 3.14 broke openai-whisper/faster-whisper installs → installed whisper-cpp via brew + ggml-base.en model (148MB) to ~/whisper-models. Local transcription works offline. Generated .txt (plain) + .srt (timestamps)
+- PACKAGE UPDATED: video-content-glm53-vps.md now has REAL chapter timestamps (0:00 Ox Alpha mystery / 1:35 why OmniRoute / 1:47 Contabo / 5:32 SSH+Docker / 6:42 OmniRoute / 8:04 onboarding / 9:45 GLM reveal / 10:14 providers / 15:31 combo "alpha" / 20:08 API key / 21:43 OpenCode / 24:01 lowercase-ID gotcha / 25:20 landing page test / 26:39 monitoring / 29:43 results)
+- ⚠️ ASR garbled the three free-provider names ("Oka router"/"token router"/"BAI") — flagged in package for user to confirm exact names on screen before publishing
+- BLOG POST: data/posts/run-glm-5-3-flash-free-24-7-on-a-5-vps.json (category AI Automation, ~5.8K chars, humanizer pass, no embed yet — video NOT uploaded; youtubeId empty by design, wire when live). Wired: blog.ts (newest), sitemap (2026-09-03), llms.txt. Build verified. PREVIEW awaits review — hold push until user approves
+- Video flow differs from planned guide: no reboot chapter; new moments = lowercase provider-ID gotcha (24:01) + monitoring/failover dashboard (26:39) + landing-page live build
+
 **Session 13 — Privacy Policy + Terms pages added (2026-09-01):**
 - Neither existed (all path variants 404 live). Needed for: GA4 disclosure, affiliate programs (Pinterest business account just opened + CJ/MyAffiliates reviews check for linked policies), NDPR/GDPR
 - Built: components/LegalLayout.tsx (shared legal template w/ Seo) + PrivacyPolicy.tsx + TermsOfService.tsx; routes /privacy-policy + /terms (lazy, like guides); sitemap entries (lastmod 2026-09-01, priority 0.3, yearly)
