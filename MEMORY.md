@@ -407,6 +407,13 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 - Remaining for this video: thumbnail, cards, end screen, pinned comment (in the package), social captions posting
 - NOTE for future: on-camera recommendations user actually made — CloudVPS 6 recommended (shot on VPS 4), 24-month package = 20% discount (~$126 total), small models crash on complex builds
 
+**Session 16 — GLM post DEPLOYED + SEO impressions diagnosis (2026-09-04):**
+- GLM post live (commit 600a395: blog.ts/sitemap/llms wiring) — https://lanreenlight.com/blog/run-glm-5-3-flash-free-24-7-on-a-5-vps verified 200, robots.txt permissive, no noindex anywhere
+- USER REPORTED "SEO went from 60 impressions to 0" — diagnosed via GSC searchAnalytics API (JWT auth pattern reused from request-indexing.mjs): the 60-impression day was Aug 29 (53) during the initial sitemap indexing burst of the new guides; since then it decays naturally (38→15→5) as the burst settles into steady-state. NOT a de-indexing: clicks+impressions still flowing, all guides present (web-development 106, crypto-node-ops 71 impressions/45d)
+- True baseline is ~1-5 impressions/day (site indexed late Aug — SEO age is ~2 weeks old, not months). Growth path = content cadence + internal links + backlinks, not a fix
+- FINDING (low priority): www.lanreenlight.com serves 200 directly (no 301 to non-www) → split signals (GSC shows /blog on www with 5 clicks). Canonicals point to non-www correctly, so impact is limited, but a HestiaCP redirect www→non-www would consolidate. USER ACTION (server-side, agent-restricted)
+- Sitemap resubmitted + indexing ping run after deploy
+
 **Session 15 — User edit rescued into source + OmniRoute command corrected (2026-09-04):**
 - User hand-edited the generated dist HTML Step 3 (would have been wiped by next build — the exact dist-edit trap) → moved their exact edit into the source JSON
 - IMPORTANT correction from user: OmniRoute install command is `docker run -d --name omniroute --restart unless-stopped --stop-timeout 40 -p 20128:20128 -v omniroute-data:/app/data diegosouzapw/omniroute:latest` (official quick-run; includes the DATA_DIR volume mount — resolves the earlier persistence caveat). Replaced the compose pull/update block; prose updated to match
