@@ -6,6 +6,33 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 
 ---
 
+## 2026-09-04 — Portfolio page built from Canva design (AWAITING user review)
+
+### Last Session
+2026-09-04 — GLM post deploy + GSC impressions diagnosis
+
+### Done
+- Extracted user's Canva portfolio (canva.link/lanre-portfolio → editor URL DAHNUYI7l9g) via browser automation a11y tree: name (Aro-Lambo Akeem Olanrewaju), bio, 6 skills, 17 certificates (16 with verification URLs), press (Guardian/Vanguard/Blueprint), 2 project cards (Metrohyp.com, Fastryders). Canva page 2 contact section unreachable (virtualized canvas; view-mode tab blanked) — page CTA points at existing /#contact instead
+- **New /portfolio page** (NOT deployed — Local Review Gate): `data/portfolio.ts` (single source of truth), `components/PortfolioPage.tsx` (site-standard design: dark tech-grid hero, stats row, bio+skills, dark certificates wall, press band, case-study cards, CTA), lazy route in App.tsx, Portfolio link in Navbar (desktop+mobile via NAV_ITEMS), `profilePageSchema` added to data/schema.ts, sitemap +portfolio (28 URLs, lastmod 2026-09-04), llms.txt Portfolio section
+- Build passed (29 routes + 404 prerendered); verified locally: unique title, canonical /portfolio, no noindex, ProfilePage+BreadcrumbList+Person JSON-LD, H1 in first byte outside FadeIn, portfolio.md mirror, sitemap diff = +portfolio only, blog dedupe 15/15 intact
+- Fixed during build: H1 name-split bug (slice(0,3) dropped "Olanrewaju" — name is exactly 3 words; now slice(0,-1)/slice(-1))
+- Killed 6h-old orphaned vite preview on 4173 before starting fresh preview (PID 84242, 1h watchdog armed)
+
+### Decisions
+- User did not answer clarifying questions (positioning/sections/projects) — proceeded on stated defaults: site-standard "AI Automation & Systems Engineer" headline with "SEO Specialist" as secondary role; ALL extracted sections included; 2 projects only, card structure takes more; slug /portfolio (unindexed, zero SEO risk)
+- Portfolio content is Lanre's Canva portfolio (full legal name used on page); site brand "Lanre" kept in SEO title
+- Certificates without extractable URLs (Optimization SEO: Keyword Strategy) render as "Certificate on file" rather than fake links
+
+### Next Steps
+- USER: review http://localhost:4173/portfolio → approve or request changes → then commit/push → post-deploy verification + indexing ping
+- USER (optional): supply more projects (Canva page 2 had more cards I couldn't extract), real email/contact preference, video portfolio Drive link kept
+
+### Blockers & Open Questions
+- Canva page 2 (contact + possibly more projects) not extractable via a11y tree — virtualized canvas; user can list extra projects in chat
+- Local soft-404 probe returns 200 on vite preview (SPA fallback artifact) — live check must use Apache ErrorDocument behavior post-deploy
+
+---
+
 ## 2026-08-30 — SEO hardening: guardrails, deploy gate, link floor, indexing truth-fix
 
 ### Last Session
@@ -406,6 +433,13 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 - DESCRIPTION APPLIED to the live video via youtube-update.mjs (mode:set) — verified live: hook + 10 real-timestamp chapters + AgentRouter link (1796 chars, backup-2026-08-22.json has the old version)
 - Remaining for this video: thumbnail, cards, end screen, pinned comment (in the package), social captions posting
 - NOTE for future: on-camera recommendations user actually made — CloudVPS 6 recommended (shot on VPS 4), 24-month package = 20% discount (~$126 total), small models crash on complex builds
+
+**Session 17 — Scheduled trend sweep Fri Sept 4 (automation run):**
+- Bank saved: `youtube-fixes/trending-ideas-bank-2026-09-04.md` (3 parallel Explore agents)
+- TIER 1: (1) PUBLISH the recorded GLM-5.3 video NOW — sweep re-confirmed zero dedicated GLM self-host videos; GPT-6 Astra (Sept 3, 1,709 HN pts, $10/$50 per M, closed weights) is pushing free-alternative demand; (2) FLOP Fuel VPS automation — NEW finding: official guide says missions can be "signed through your own compatible agent or script" + per-IP 429 limits = one-DID-per-Contabo story; demand proof Crypto1O1 9.5K/6d; VPS angle still zero; (3) n8n + trading bot on VPS — "n8n trading bot" has zero dedicated videos (all 30 results are generic courses) while related-search demand is live; sequel to the AI Assistant video; (4) OpenClaw 2.x secure VPS — package built, refresh version to v2026.9.1 (two more releases this week), still no install tutorials
+- TIER 2: Pi node v27 prep before Sept 15 (time-boxed), MT5 Build 6180 AI Assistant (Sept 3 news, zero videos), Canopy submission window live (deadline pressure), Deriv CEO news-jack, OmniRoute v3.8.51 HOLD (tag imminent — AgentRouter SSE fix + STRICT_ZERO_COST headline), K2 Horizon 7B on small VPS (first-mover bet)
+- SKIP: Grok Bot (wave dead — zero demand AND zero competition now), Surge AI (rumor), Wager Predict (no news), Postiz, Qwen 3.8
+- QUEUE: publish GLM video → FLOP VPS automation → Pi v27 prep (by Sept 10) → n8n trading bot → OpenClaw secure → v3.8.51 release video when tagged
 
 **Session 16 — GLM post DEPLOYED + SEO impressions diagnosis (2026-09-04):**
 - GLM post live (commit 600a395: blog.ts/sitemap/llms wiring) — https://lanreenlight.com/blog/run-glm-5-3-flash-free-24-7-on-a-5-vps verified 200, robots.txt permissive, no noindex anywhere
