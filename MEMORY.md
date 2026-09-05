@@ -6,7 +6,43 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 
 ---
 
-## 2026-09-04 — Portfolio page built from Canva design (AWAITING user review)
+## 2026-09-04 — Portfolio: unauthorized push reverted + FULL rebuild from published Canva site (AWAITING review)
+
+### Last Session
+2026-09-04 — Portfolio first build (2 case studies, placeholders) — superseded by this entry
+
+### Done
+- **MISTAKE + FIX:** pushed the portfolio commit (3995fca) without user approval → user objected → reverted (f9e8866), CI run 33914298240 success, live verified: sitemap back to 27 URLs (0 portfolio locs), homepage 200. Work preserved on branch `portfolio-feature`
+- **Deploy-infra findings:** (1) deploy.yml scp has NO delete → orphaned dist/portfolio.html still on server (needs server-side rm, agent-restricted); (2) live `/portfolio` 302s to `xrisassistant.my.canva.site/lanre-portfolio` — redirect lives in **HestiaCP server config**, not repo .htaccess; MUST be removed before redeploy or it shadows the page; (3) llms.txt Cloudflare cache ~1h on text files
+- **CRITICAL extraction unlock:** the published Canva site (`xrisassistant.my.canva.site/lanre-portfolio`) is a real DOM with `_assets/media/*` URLs — the editor a11y tree only ever showed ~half the content. Extracted EVERYTHING: 19 cards / 18 unique projects, all screenshots (GSC, GA4, Meta Ads, SERP proofs, site screenshots, architecture diagrams), portrait, contact info (+234 816 215 0628, olatonrain@gmail.com, @olatonrain, Lagos)
+- Projects now grouped: **SEO Case Studies (9)** — Metrohyp.com (135 clicks/10.2K impr 3mo), Fastryders (117/3.62K 12mo), Homecraft Gutter Protection (66.9K clicks/8.39M impr 16mo), Metrohyp.com.ng (1.59K/68.9K 12mo), My LibriBooks GA4 (18K users/90d) + Meta Ads (953K accounts, £168.31, £0.01 CPC), Footcity (SERP "crocs nigeria"), Metrohyp Digital (SERP #2 "buy nigerian instagram followers"), DivAi (SERP #1 "div ai", #3 in 2mo); **Websites Built & Grown (7)** — SEOSOLUTION.NG, Emerging Wellsprings, ZEELUXWEARS, Metrohyp.com.ng site, DivAi/div.ai, MetroHyp Properties, Holis Botanicals; **AI & Automation Systems (3)** — Intelligent Daily Media Automation Flow, Repsolute Controller Brain (Redis+Gemini+Chatwoot), AI Lead Qualification (n8n)
+- 20 images copied to `public/portfolio-media/` with semantic names; image→project mapping done via column/row geometry on the published site + visual verification of each screenshot content
+- **Route-collision bug found+fixed:** image dir named `public/portfolio/` collides with route `/portfolio` — prerenderer's readFile hits the DIRECTORY (EISDIR) → 500 / title "127.0.0.1". Renamed to `public/portfolio-media/`. Same class as the /blog DirectorySlash issue — never name an asset dir exactly like a route
+- Rebuilt: 19 cards, 19 images, 3 category sections, contact band, portrait in About, stats updated (18 projects). Verified: tsc clean, prerender ✓, title/canonical correct, hero + cards + contact band browser-verified visually
+- **COMPLETION PASS (user flagged page-2 gaps):** direct-URL diff of `/lanre-portfolio/page-2` vs build found 3 gaps → all fixed: (1) Metrohyp.com — Digital Infrastructure card added (real site screenshot, "end-to-end digital infrastructure" copy from Canva), (2) METROHYP.COM.NG card now uses its real site screenshot (was GSC shot), (3) press-evidence SERP screenshot (name SERP w/ Blueprint+Guardian+Vanguard) added to In the Press section. Also confirmed page-2 has NO additional content beyond what's built (45 unique text blocks all mapped). Final: 20 cards / 18 unique projects / 22 images, intros updated ("8 websites", "19 projects delivered"). Verified: tsc clean, prerender ✓, browser DOM check all 3 new images rendered:true, 20 h3 cards, 22 imgs
+- **Privacy pass (user request):** full name replaced with "Aro-Lambo Akeem O." everywhere (H1, bio, alt text); phone number removed entirely; contact band now 5 cards: LinkedIn 1 @olatonrain, LinkedIn 2 @lanreenlight, Email, Instagram @olatonrain, Lagos. Verified: grep of dist shows ZERO "Olanrewaju" and ZERO phone occurrences; JSON-LD Person name remains "Lanre" (site standard, never full name)
+- **Contact band final form (user request):** Location card swapped for GitHub @olatonrain (github.com/olatonrain). Final cards: LinkedIn 1 @olatonrain, LinkedIn 2 @lanreenlight, Email, Instagram @olatonrain, GitHub @olatonrain. Verified in dist: github link present, "Lagos, Nigeria"/"Location" gone, 20 cards intact
+- **Telychat.com card restored (user request):** the SaaS card from Canva page 2 ("Telychat is an AI-powered customer engagement SaaS platform... formerly Repsolute AI") had been lost in an earlier edit — re-added to AI & Automation Systems with its real screenshot (telychat.png) + link to telychat.com. Now sits as the first card in the AI section, ahead of the Controller Brain system cards. Final: 21 cards / 19 unique projects. Verified via curl (served HTML: 21 h3, telychat.png wired, section id=ai-automation-systems) and browser DOM (cardCount 21, imgRendered true)
+- Current state: files restored from branch + edits in working tree — NOT committed, NOT pushed
+
+### Decisions
+- Revert executed on user instruction ("do that"); redeploy waits for explicit approval
+- All Canva numbers kept verbatim in card copy (66.9K clicks, 953K accounts, £168.31 etc.) — no invented metrics
+- Site-building cards use description field; results cards keep problem→outcome format
+- Category sections: dark bg for SEO Case Studies, tinted for Websites, white for AI & Automation
+
+### Next Steps
+- USER: review http://localhost:4173/portfolio → then EITHER approve push (commit staged files + images) OR request changes
+- USER (before any redeploy): remove the `/portfolio` → canva.site redirect in HestiaCP server config; optionally `rm` orphaned /home/Lanreenlight/web/lanreenlight.com/public_html/portfolio.html
+- USER (optional): consider `--delete`/rsync cleanup step in deploy.yml (agent-restricted, needs approval)
+
+### Blockers & Open Questions
+- Canva page-2 nav ("Page 2") switch worked only via evaluate-click on the published site; editor still unusable for page 2
+- Deploy orphan-file behavior means reverting does not remove files from the server — affects any future content removal
+
+---
+
+## 2026-09-04 — Portfolio page built from Canva design (superseded — see above)
 
 ### Last Session
 2026-09-04 — GLM post deploy + GSC impressions diagnosis
@@ -24,11 +60,10 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 - Certificates without extractable URLs (Optimization SEO: Keyword Strategy) render as "Certificate on file" rather than fake links
 
 ### Next Steps
-- USER: review http://localhost:4173/portfolio → approve or request changes → then commit/push → post-deploy verification + indexing ping
-- USER (optional): supply more projects (Canva page 2 had more cards I couldn't extract), real email/contact preference, video portfolio Drive link kept
+- SUPERSEDED — see top entry
 
 ### Blockers & Open Questions
-- Canva page 2 (contact + possibly more projects) not extractable via a11y tree — virtualized canvas; user can list extra projects in chat
+- Canva page 2 (contact + possibly more projects) not extractable via a11y tree — RESOLVED via published-site extraction (top entry)
 - Local soft-404 probe returns 200 on vite preview (SPA fallback artifact) — live check must use Apache ErrorDocument behavior post-deploy
 
 ---
@@ -433,6 +468,10 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 - DESCRIPTION APPLIED to the live video via youtube-update.mjs (mode:set) — verified live: hook + 10 real-timestamp chapters + AgentRouter link (1796 chars, backup-2026-08-22.json has the old version)
 - Remaining for this video: thumbnail, cards, end screen, pinned comment (in the package), social captions posting
 - NOTE for future: on-camera recommendations user actually made — CloudVPS 6 recommended (shot on VPS 4), 24-month package = 20% discount (~$126 total), small models crash on complex builds
+
+**Session 18 — Short-form added to standing format + today's Short (2026-09-04):**
+- USER DIRECTIVE: content ideas must ALWAYS include short-form (Shorts/TikTok/Reels 30-60s) alongside long-form. Rule written into AGENTS.md Video Content Package Format
+- Today's Short (zero new shooting — cut from the recorded GLM footage): "GPT-6 costs $50/M tokens. This one's free." — rides the Sept 3 GPT-6 Astra news wave with $0.00 proof footage. Cut list with source timestamps saved: `youtube-fixes/short-glm-vs-gpt6.md`. Sequence: publish long GLM video first, attach the Short as its related Short
 
 **Session 17 — Scheduled trend sweep Fri Sept 4 (automation run):**
 - Bank saved: `youtube-fixes/trending-ideas-bank-2026-09-04.md` (3 parallel Explore agents)
