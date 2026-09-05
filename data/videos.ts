@@ -3,6 +3,27 @@ import { Video } from '../types';
 export const VIDEOS: Video[] = [
     {
         id: '1',
+        title: "Use it While its free Ox Alpha is Insane - GLM-5.3-Flash FREE with Opencode",
+        date: 'Sep 03, 2026',
+        category: 'AI Automation',
+        youtubeId: 'PsVYU-MjBYU',
+        resources: [
+            { label: 'Cheapest VPS', url: 'https://lanreenlight.com/cheapestvps', type: 'affiliate' }
+        ]
+    },
+    {
+        id: '2',
+        title: "This New N8N AI Assistant Builds Workflows FOR You",
+        date: 'Aug 31, 2026',
+        category: 'AI Automation',
+        youtubeId: 'YM4JlBPruN0',
+        resources: [
+            { label: 'Cheapest VPS', url: 'https://lanreenlight.com/cheapestvps', type: 'affiliate' },
+            { label: 'Best n8n VPS', url: 'https://lanreenlight.com/cheapestn8nvps', type: 'affiliate' }
+        ]
+    },
+    {
+        id: '3',
         title: "Self-Host N8N and OmniRoute on a VPS",
         date: 'Aug 26, 2026',
         category: 'AI Automation',
@@ -14,8 +35,8 @@ export const VIDEOS: Video[] = [
         ]
     },
     {
-        id: '2',
-        title: "5 Step by Step Methods to Use Opus 5 100% FREE  (Agentrouter)",
+        id: '4',
+        title: "Stop Paying $200/mo for Claude Code — 5 Free Methods (2026)",
         date: 'Aug 19, 2026',
         category: 'Forex',
         youtubeId: 'GYvYHpi4DJk',
@@ -26,7 +47,7 @@ export const VIDEOS: Video[] = [
         ]
     },
     {
-        id: '3',
+        id: '5',
         title: "AI Courtroom with 11 AI Agents | Codex Legalist (Qwen Hackathon)",
         date: 'Jul 07, 2026',
         category: 'AI Automation',
@@ -35,7 +56,7 @@ export const VIDEOS: Video[] = [
         ]
     },
     {
-        id: '4',
+        id: '6',
         title: "Upwork Freelance intro | Pro Agentic Ai Automation | N8N | Voice Agent | SEO | AEO | Wordpress",
         date: 'Jun 23, 2026',
         category: 'Forex',
@@ -47,7 +68,7 @@ export const VIDEOS: Video[] = [
         ]
     },
     {
-        id: '5',
+        id: '7',
         title: "I built a Multi-agent workflow that connect whatsapp to n8n",
         date: 'Jun 18, 2026',
         category: 'Forex',
@@ -59,7 +80,7 @@ export const VIDEOS: Video[] = [
         ]
     },
     {
-        id: '6',
+        id: '8',
         title: "OpenClaw on Contabo VPS 6: Full 24/7 AI Agent Setup",
         date: 'Feb 21, 2026',
         category: 'Forex',
@@ -71,7 +92,7 @@ export const VIDEOS: Video[] = [
         ]
     },
     {
-        id: '7',
+        id: '9',
         title: "The Confidence Lie: Why AI Bots Keep Hallucinating and Forgetting Instructions #superintelligence",
         date: 'Feb 20, 2026',
         category: 'AI Automation',
@@ -80,7 +101,7 @@ export const VIDEOS: Video[] = [
         ]
     },
     {
-        id: '8',
+        id: '10',
         title: "Developers REACT to Google Antigravity Model Update Features",
         date: 'Feb 20, 2026',
         category: 'Forex',
@@ -92,7 +113,7 @@ export const VIDEOS: Video[] = [
         ]
     },
     {
-        id: '9',
+        id: '11',
         title: "How to Use Openclaw AI Agent like a Pro",
         date: 'Feb 19, 2026',
         category: 'Forex',
@@ -104,7 +125,7 @@ export const VIDEOS: Video[] = [
         ]
     },
     {
-        id: '10',
+        id: '12',
         title: "AI Is Changing Everything in 2026 — The New Updates & Tools",
         date: 'Feb 18, 2026',
         category: 'Forex',
@@ -116,7 +137,7 @@ export const VIDEOS: Video[] = [
         ]
     },
     {
-        id: '11',
+        id: '13',
         title: "N8N VPS Setup Blueprint - Charge Clients $500",
         date: 'Jan 13, 2026',
         category: 'Forex',
@@ -128,7 +149,7 @@ export const VIDEOS: Video[] = [
         ]
     },
     {
-        id: '12',
+        id: '14',
         title: "Is Self-Hosting N8N on a $3.99 VPS a HUGE MISTAKE?",
         date: 'Jan 01, 2026',
         category: 'Forex',
@@ -140,7 +161,7 @@ export const VIDEOS: Video[] = [
         ]
     },
     {
-        id: '13',
+        id: '15',
         title: "How to Use N8N Free Forever - n8n Self-Hosted Guide",
         date: 'Dec 31, 2025',
         category: 'Forex',
@@ -152,7 +173,7 @@ export const VIDEOS: Video[] = [
         ]
     },
     {
-        id: '14',
+        id: '16',
         title: "Automate your Trading using a bot That Made Me $1,023/Month in 2025",
         date: 'Nov 04, 2025',
         category: 'Forex',
@@ -161,7 +182,7 @@ export const VIDEOS: Video[] = [
         ]
     },
     {
-        id: '15',
+        id: '17',
         title: "How I made Bless network paid me $1000 (Costs, Setup & Proof)",
         date: 'Oct 04, 2025',
         category: 'Crypto',
@@ -170,7 +191,7 @@ export const VIDEOS: Video[] = [
         ]
     },
     {
-        id: '16',
+        id: '18',
         title: "Cheapest VPS | BEST Cheap VPS in 2025 for less than $5",
         date: 'Oct 03, 2025',
         category: 'Forex',
@@ -179,7 +200,7 @@ export const VIDEOS: Video[] = [
         ]
     },
     {
-        id: '17',
+        id: '19',
         title: "$1,000 Mistakes Crypto Beginners Regret making",
         date: 'Oct 01, 2025',
         category: 'Crypto',
@@ -188,7 +209,7 @@ export const VIDEOS: Video[] = [
         ]
     },
     {
-        id: '18',
+        id: '20',
         title: "Grass Rewards Claim $1,000 on a $5 VPS  (DePIN)",
         date: 'Jan 14, 2025',
         category: 'Crypto',
@@ -199,7 +220,7 @@ export const VIDEOS: Video[] = [
         ]
     },
     {
-        id: '19',
+        id: '21',
         title: "The financial journey era has began (Forex & Crypto)",
         date: 'Jan 11, 2025',
         category: 'Forex',
