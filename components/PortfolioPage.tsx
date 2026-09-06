@@ -12,7 +12,7 @@ export const PortfolioPage: React.FC = () => {
         <div className="min-h-screen bg-brand-white">
             <Seo
                 title="Portfolio — SEO Case Studies & Verified Credentials | Lanre"
-                description="SEO case studies, 17 verified certifications, and press features from Lanre — AI Automation & Systems Engineer building systems that rank and run themselves."
+                description="19 projects with receipts: 9 SEO case studies, 8 websites, AI automation systems, 17 verified certifications, and press features from Lanre — AI Automation & Systems Engineer."
                 path="/portfolio"
                 jsonLd={[
                     profilePageSchema(
@@ -45,7 +45,7 @@ export const PortfolioPage: React.FC = () => {
                         {p.roles.join(' · ')}
                     </p>
                     <p className="text-lg md:text-xl text-gray-300 font-light max-w-2xl mb-10 leading-relaxed">
-                        Five years of making websites rank — and building the automation systems that run them. The work, the credentials, and the results, all verified.
+                        Over five years of making websites rank — and building the automation systems that run them. The work, the credentials, and the results, all verified.
                     </p>
                     <div className="flex flex-wrap items-center gap-4 mb-12">
                         <a
@@ -78,21 +78,29 @@ export const PortfolioPage: React.FC = () => {
 
             {/* About + skills */}
             <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-24">
-                <div className="grid lg:grid-cols-5 gap-12">
-                    <div className="lg:col-span-3">
+                <div className="grid lg:grid-cols-5 gap-12 items-start">
+                    <div className="lg:col-span-2">
                         <FadeIn>
+                            <div className="bg-white border border-brand-border rounded-3xl p-3 shadow-sm">
+                                <img
+                                    src={p.portrait}
+                                    alt={`${p.name} — portrait`}
+                                    className="w-full h-auto rounded-2xl"
+                                    loading="lazy"
+                                />
+                            </div>
+                        </FadeIn>
+                    </div>
+                    <div className="lg:col-span-3">
+                        <FadeIn delay={120}>
                             <div className="text-xs uppercase tracking-[0.2em] text-brand-accent font-bold mb-3">About Me</div>
                             <h2 className="text-3xl md:text-4xl font-serif font-medium text-brand-black mb-8">From Marketing to Systems</h2>
                             {p.bio.map((paragraph, i) => (
                                 <p key={i} className="text-gray-600 font-light text-lg leading-relaxed mb-5">{paragraph}</p>
                             ))}
-                        </FadeIn>
-                    </div>
-                    <div className="lg:col-span-2">
-                        <FadeIn delay={120}>
-                            <div className="bg-white border border-brand-border rounded-3xl p-8 shadow-sm">
+                            <div className="bg-white border border-brand-border rounded-3xl p-8 shadow-sm mt-8">
                                 <div className="text-xs uppercase tracking-[0.2em] text-brand-accent font-bold mb-6">Skills & Interests</div>
-                                <div className="space-y-3">
+                                <div className="grid sm:grid-cols-2 gap-3">
                                     {p.skills.map(skill => (
                                         <div key={skill.label} className="flex items-center gap-4 px-5 py-3.5 rounded-2xl bg-brand-secondary border border-brand-border">
                                             <span className="w-9 h-9 rounded-xl bg-brand-black text-brand-accent flex items-center justify-center text-sm">
@@ -168,67 +176,135 @@ export const PortfolioPage: React.FC = () => {
                                 <span key={name} className="text-3xl md:text-5xl font-serif font-medium text-brand-black">{name}</span>
                             ))}
                         </div>
-                        <p className="text-gray-600 font-light text-lg">{p.press.line}</p>
+                        <p className="text-gray-600 font-light text-lg mb-8">{p.press.line}</p>
+                        {p.press.evidenceImage && (
+                            <img
+                                src={p.press.evidenceImage}
+                                alt="Google search results showing press coverage in Blueprint, The Guardian, and Vanguard"
+                                className="w-full rounded-3xl border border-brand-border shadow-lg"
+                                loading="lazy"
+                            />
+                        )}
                     </div>
                 </FadeIn>
             </section>
 
-            {/* Case studies */}
-            <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-                <FadeIn>
-                    <div className="text-xs uppercase tracking-[0.2em] text-brand-accent font-bold mb-3">Selected Work</div>
-                    <h2 className="text-3xl md:text-4xl font-serif font-medium text-brand-black mb-10">Case Studies</h2>
-                </FadeIn>
-                <div className="grid lg:grid-cols-2 gap-6">
-                    {p.projects.map((project, index) => (
-                        <FadeIn key={project.name} delay={index * 100}>
-                            <div className="h-full bg-white border border-brand-border rounded-3xl overflow-hidden flex flex-col hover:shadow-2xl hover:-translate-y-1 transition-all duration-500 relative">
-                                <div className="absolute top-0 left-0 w-full h-1 bg-brand-accent z-10"></div>
-                                {project.image && (
-                                    <div className="h-44 bg-brand-secondary border-b border-brand-border overflow-hidden">
-                                        <img src={project.image} alt={`${project.name} — result screenshot`} className="w-full h-full object-cover" loading="lazy" />
-                                    </div>
-                                )}
-                                <div className="p-8 md:p-10 flex flex-col flex-1">
-                                    <div className="flex items-center justify-between gap-4 mb-6">
-                                        <h3 className="text-2xl font-serif font-medium text-brand-black">{project.name}</h3>
-                                        <span className="text-[10px] uppercase tracking-[0.18em] font-bold text-gray-400">Case Study</span>
-                                    </div>
-                                    <div className="space-y-5 mb-6">
-                                        <div className="border-l-2 border-gray-200 pl-4">
-                                            <div className="text-[10px] uppercase tracking-[0.18em] font-bold text-gray-400 mb-1">The Problem</div>
-                                            <p className="text-gray-600 text-sm leading-relaxed">{project.problem}</p>
+            {/* Projects — grouped by category */}
+            {p.categories.map((category) => {
+                const group = p.projects.filter(pr => pr.category === category);
+                if (!group.length) return null;
+                const isDark = category === 'SEO Case Studies';
+                return (
+                    <section
+                        key={category}
+                        id={category.toLowerCase().replace(/[^a-z]+/g, '-')}
+                        className={`${isDark ? 'relative bg-brand-black text-white overflow-hidden' : ''} ${category === 'Websites Built & Grown' ? 'bg-brand-secondary/40' : ''}`}
+                    >
+                        {isDark && <div className="absolute inset-0 bg-tech-grid opacity-10"></div>}
+                        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-24">
+                            <FadeIn>
+                                <div className="text-xs uppercase tracking-[0.2em] text-brand-accent font-bold mb-3">Selected Work</div>
+                                <h2 className="text-3xl md:text-4xl font-serif font-medium mb-3">{category}</h2>
+                                <p className={`${isDark ? 'text-gray-300' : 'text-gray-600'} font-light max-w-2xl mb-10 leading-relaxed`}>
+                                    {category === 'SEO Case Studies' && 'Nine engagements with the receipts — Search Console, Analytics, and SERP screenshots from the actual accounts.'}
+                                    {category === 'Websites Built & Grown' && 'Eight sites I designed, built, or grew — agency, e-commerce, SaaS, real estate, and the infrastructure behind it.'}
+                                    {category === 'AI & Automation Systems' && 'Three production systems that run without manual effort — routing, qualification, and content pipelines.'}
+                                </p>
+                            </FadeIn>
+                            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                {group.map((project, index) => (
+                                    <FadeIn key={project.name} delay={Math.min(index, 6) * 80}>
+                                        <div className={`h-full flex flex-col rounded-3xl overflow-hidden border transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 relative ${isDark ? 'bg-white/5 border-white/10 hover:border-brand-accent/40' : 'bg-white border-brand-border'}`}>
+                                            <div className="absolute top-0 left-0 w-full h-1 bg-brand-accent z-10"></div>
+                                            {project.image && (
+                                                <div className="h-44 bg-brand-secondary border-b border-brand-border overflow-hidden">
+                                                    <img
+                                                        src={project.image}
+                                                        alt={project.imageAlt || `${project.name} — result screenshot`}
+                                                        className="w-full h-full object-cover object-top"
+                                                        loading="lazy"
+                                                    />
+                                                </div>
+                                            )}
+                                            <div className={`p-6 md:p-7 flex flex-col flex-1 ${isDark ? 'text-white' : ''}`}>
+                                                <div className="flex items-start justify-between gap-3 mb-4">
+                                                    <h3 className={`text-xl font-serif font-medium leading-snug ${isDark ? 'text-white' : 'text-brand-black'}`}>{project.name}</h3>
+                                                    {project.url ? (
+                                                        <a
+                                                            href={project.url}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            aria-label={`Visit ${project.name}`}
+                                                            className="shrink-0 w-8 h-8 rounded-full bg-brand-black text-brand-accent flex items-center justify-center text-xs hover:bg-brand-accent hover:text-brand-black transition-colors"
+                                                        >
+                                                            <i className="fa-solid fa-arrow-up-right-from-square"></i>
+                                                        </a>
+                                                    ) : (
+                                                        <span className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-xs ${isDark ? 'bg-white/10 text-gray-300' : 'bg-brand-secondary text-gray-400'}`}>
+                                                            <i className="fa-solid fa-lock"></i>
+                                                        </span>
+                                                    )}
+                                                </div>
+                                                {project.problem && (
+                                                    <p className={`text-sm leading-relaxed mb-2 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>{project.problem}</p>
+                                                )}
+                                                {project.description && (
+                                                    <p className={`text-sm leading-relaxed mb-2 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>{project.description}</p>
+                                                )}
+                                                {project.outcome && (
+                                                    <p className={`text-sm leading-relaxed font-medium ${isDark ? 'text-brand-accent' : 'text-brand-black'}`}>{project.outcome}</p>
+                                                )}
+                                                <div className="flex flex-wrap gap-1.5 mt-auto pt-5">
+                                                    {project.tags.map(tag => (
+                                                        <span key={tag} className={`px-2.5 py-1 rounded-full text-xs ${isDark ? 'bg-white/10 text-gray-300' : 'bg-brand-secondary text-gray-600'}`}>{tag}</span>
+                                                    ))}
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div className="border-l-2 border-brand-accent pl-4">
-                                            <div className="text-[10px] uppercase tracking-[0.18em] font-bold text-brand-accent mb-1">The Fix</div>
-                                            <p className="text-brand-black text-sm leading-relaxed font-medium">{project.outcome}</p>
-                                        </div>
-                                    </div>
-                                    <div className="flex flex-wrap gap-1.5 mb-6">
-                                        {project.tags.map(tag => (
-                                            <span key={tag} className="px-2.5 py-1 rounded-full bg-brand-secondary text-gray-600 text-xs">{tag}</span>
-                                        ))}
-                                    </div>
-                                    <div className="mt-auto pt-5 border-t border-gray-100">
-                                        {project.url ? (
-                                            <a
-                                                href={project.url}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="text-sm font-semibold text-brand-black hover:text-brand-accent transition-colors inline-flex items-center"
-                                            >
-                                                Visit the site
-                                                <i className="fa-solid fa-arrow-up-right-from-square ml-2 text-xs"></i>
-                                            </a>
-                                        ) : (
-                                            <span className="text-sm text-gray-400">Client project</span>
-                                        )}
-                                    </div>
-                                </div>
+                                    </FadeIn>
+                                ))}
                             </div>
-                        </FadeIn>
-                    ))}
-                </div>
+                        </div>
+                    </section>
+                );
+            })}
+
+            {/* Get in touch */}
+            <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-16">
+                <FadeIn>
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                        {p.contact.linkedins.map((li, i) => (
+                            <div key={li.handle} className="bg-white border border-brand-border rounded-3xl p-6 text-center">
+                                <div className="w-10 h-10 mx-auto rounded-xl bg-brand-black text-brand-accent flex items-center justify-center mb-4">
+                                    <i className="fa-brands fa-linkedin-in"></i>
+                                </div>
+                                <div className="text-[10px] uppercase tracking-[0.18em] font-bold text-gray-400 mb-1">LinkedIn {i + 1}</div>
+                                <a href={li.url} target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-brand-black hover:text-brand-accent transition-colors">{li.handle}</a>
+                            </div>
+                        ))}
+                        <div className="bg-white border border-brand-border rounded-3xl p-6 text-center">
+                            <div className="w-10 h-10 mx-auto rounded-xl bg-brand-black text-brand-accent flex items-center justify-center mb-4">
+                                <i className="fa-solid fa-envelope"></i>
+                            </div>
+                            <div className="text-[10px] uppercase tracking-[0.18em] font-bold text-gray-400 mb-1">Email</div>
+                            <a href={`mailto:${p.contact.email}`} className="text-sm font-semibold text-brand-black hover:text-brand-accent transition-colors break-all">{p.contact.email}</a>
+                        </div>
+                        <div className="bg-white border border-brand-border rounded-3xl p-6 text-center">
+                            <div className="w-10 h-10 mx-auto rounded-xl bg-brand-black text-brand-accent flex items-center justify-center mb-4">
+                                <i className="fa-brands fa-instagram"></i>
+                            </div>
+                            <div className="text-[10px] uppercase tracking-[0.18em] font-bold text-gray-400 mb-1">Instagram</div>
+                            <a href="https://www.instagram.com/olatonrain" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-brand-black hover:text-brand-accent transition-colors">{p.contact.instagram}</a>
+                        </div>
+                        <div className="bg-white border border-brand-border rounded-3xl p-6 text-center">
+                            <div className="w-10 h-10 mx-auto rounded-xl bg-brand-black text-brand-accent flex items-center justify-center mb-4">
+                                <i className="fa-brands fa-github"></i>
+                            </div>
+                            <div className="text-[10px] uppercase tracking-[0.18em] font-bold text-gray-400 mb-1">GitHub</div>
+                            <a href="https://github.com/olatonrain" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-brand-black hover:text-brand-accent transition-colors">{p.contact.github}</a>
+                        </div>
+                    </div>
+                </FadeIn>
             </section>
 
             {/* CTA */}
@@ -237,13 +313,13 @@ export const PortfolioPage: React.FC = () => {
                     <div className="bg-brand-secondary rounded-[2.5rem] p-12 md:p-16 border border-brand-border text-center relative overflow-hidden">
                         <div className="absolute -top-10 -right-10 w-64 h-64 bg-brand-accent/10 rounded-full blur-3xl"></div>
                         <div className="relative">
-                            <h2 className="text-3xl md:text-4xl font-serif text-brand-black mb-4">Need a site that ranks — and runs itself?</h2>
+                            <h2 className="text-3xl md:text-4xl font-serif text-brand-black mb-4">Let's Work Together</h2>
                             <p className="text-gray-600 font-light text-lg max-w-2xl mx-auto mb-8">
-                                I build SEO into the system: automation, infrastructure, and content that compound. The case studies are the proof; the guides show the thinking.
+                                Your project could be the next one on this page. The case studies are the proof; the guides show the thinking.
                             </p>
                             <div className="flex flex-wrap justify-center items-center gap-4">
                                 <a href="/#contact" className="inline-flex items-center px-10 py-4 bg-brand-black text-white rounded-full font-bold hover:bg-gray-800 shadow-xl transition-all hover:scale-105">
-                                    Work With Me
+                                    Get in Touch
                                 </a>
                                 <Link to="/guides/" className="inline-flex items-center px-8 py-4 border border-brand-border bg-white text-brand-black rounded-full font-bold hover:border-brand-accent transition-colors">
                                     Browse the Guides
