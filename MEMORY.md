@@ -26,7 +26,8 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 - **Portrait fix (user flagged):** About-section portrait was forced into a 408x320 landscape crop (h-80 object-cover object-top) — showed only head/shoulders floating in an empty white card. Changed to natural aspect ratio (w-full h-auto, no crop): now renders 432x647, ratio 0.667 = exactly the photo's native 854x1280. Full-body shot displays as intended
 - **Portrait replaced (user request 2026-09-05):** swapped `public/portfolio-media/lanre-portrait.png` with the newly supplied photo (2.1MB). Same path, no code change. Rebuilt, preview 200 verified
 - **About layout + copy pass (user request 2026-09-05):** portrait moved to left column (2/5), bio + skills stacked on right (3/5) with 2-col skills grid; bio changed to "Over five years later"; skill renamed to "Cybersecurity basics"; hero subhead also "Over five years". Rebuilt, preview 200 verified
-- Current state: files restored from branch + edits in working tree — NOT committed, NOT pushed
+- **DEPLOYED 2026-09-06 (user-approved "then we can deploy"):** swapped Data Analysis → "SEO/AEO/GEO expert" skill, sitemap lastmod → 2026-09-06, committed 75435fc (27 files), pushed to main, CI Deploy-to-HestiaCP run 34029824251 success. BUT live `/portfolio` still 302s to canva.site — the HestiaCP server-level redirect was never removed, so it shadows the deployed page. Sitemap live with 28 URLs incl. /portfolio. Soft-404 check passes (404)
+- Current state: deployed; page goes live the moment the HestiaCP `/portfolio` → canva redirect is removed
 
 ### Decisions
 - Revert executed on user instruction ("do that"); redeploy waits for explicit approval
@@ -471,6 +472,15 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 - DESCRIPTION APPLIED to the live video via youtube-update.mjs (mode:set) — verified live: hook + 10 real-timestamp chapters + AgentRouter link (1796 chars, backup-2026-08-22.json has the old version)
 - Remaining for this video: thumbnail, cards, end screen, pinned comment (in the package), social captions posting
 - NOTE for future: on-camera recommendations user actually made — CloudVPS 6 recommended (shot on VPS 4), 24-month package = 20% discount (~$126 total), small models crash on complex builds
+
+**Session 19 — Scheduled trend sweep Mon Sept 7 (automation run, incl. short-form):**
+- Bank saved: `youtube-fixes/trending-ideas-bank-2026-09-07.md` (3 parallel Explore agents; first sweep with SHORT-FORM ideas per the new standing format)
+- URGENT SHORTS: (1) Canopy — Binance Alpha lists CNPY TODAY Sept 7 + points-resubmission snapshot before mainnet; freshest claim video 1h old/1 view — ship short today; (2) OpenClaw swarm short within 24-48h — v2026.9.2 shipped Sept 5 with swarm-BY-DEFAULT + Plugin SDK aliases deprecated "on or after Sept 8"
+- TIER 1 LONG: (1) MT5 Build 6180 AI Assistant as EA QA-engineer on a VPS — record within 48h (3 tiny videos only; Müller/Balke haven't covered 6180; 1T-token backdrop); (2) FLOP Fuel VPS automation — official "sign via your own script" confirmed, per-IP 429s, 10.2K-view demand proof, VPS lane still empty but record THIS WEEK; (3) Nigerian SEC FX/CFD rules explainer — binary options axed, ₦3bn capital, offshore platforms targeted; no YouTube explainer found; direct Deriv-audience authority play
+- KEY VERIFIED RELEASES: OpenClaw v2026.9.2 (Sept 5, 1,247 PRs: GPT-6 Astra support, swarm default, reply persistence); OmniRoute v3.8.51 STILL untagged (branch pushed Sept 6) — release video remains open, pre-recordable
+- Also: Cursor "Self-Hosted Machines" (Sept 2, no VPS guide exists), K2 Horizon 36B-A4B/7B zero tutorials, LiteLLM CVE (HN Sept 6) fuels the gateway/self-host debate
+- SKIP re-confirmed: Grok Bot dead, Surge AI rumor (1 week, zero hits), Pocket Option AI-bot titles (spam + policy risk)
+- QUEUE: Canopy short today → OpenClaw short 24-48h → MT5 6180 long (48h) + FLOP long (this week) → SEC explainer → OpenClaw v2026.9.2 long → v3.8.51 release video on tag
 
 **Session 18 — Short-form added to standing format + today's Short (2026-09-04):**
 - USER DIRECTIVE: content ideas must ALWAYS include short-form (Shorts/TikTok/Reels 30-60s) alongside long-form. Rule written into AGENTS.md Video Content Package Format
