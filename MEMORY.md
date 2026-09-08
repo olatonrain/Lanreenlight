@@ -473,6 +473,11 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 - Remaining for this video: thumbnail, cards, end screen, pinned comment (in the package), social captions posting
 - NOTE for future: on-camera recommendations user actually made — CloudVPS 6 recommended (shot on VPS 4), 24-month package = 20% discount (~$126 total), small models crash on complex builds
 
+**Session 20 — OpenClaw SHORT built + LONG updated to v2026.9.2 (2026-09-07):**
+- URGENT Short built: `youtube-fixes/short-openclaw-swarm.md` — "OpenClaw just turned swarm agents ON. By default." 45s screen-recording short (5-shot list, needs ~5 min capture), riding the Sept 8 plugin-alias deprecation deadline. Publish TODAY/tomorrow; feeds the OpenClaw long video
+- Long package updated in place (video-content-openclaw2.md): trend basis → v2026.9.2 (Sept 5: swarm default, GPT-6 Astra support, reply persistence; + v2026.9.1 Sept 3); Title 1 → swarm-lockdown angle; Hook 1 → swarm angle; Ch2 lists the 2.x release line; Ch6 adds swarm blast-radius callout; Ch9 adds `openclaw update` rollback-safe; description intro + tags updated (swarm, gpt-6 astra)
+- User asked whether long-video → other-platform cross-posting was discussed this session: answered — this session covered per-platform CAPTIONS (5 platforms per video) + Pinterest exclusion setup; the automated YouTube→clips→Postiz pipeline is from a PREVIOUS session (Content Automation Pipeline on Coolify), not wired in this chat
+
 **Session 19 — Scheduled trend sweep Mon Sept 7 (automation run, incl. short-form):**
 - Bank saved: `youtube-fixes/trending-ideas-bank-2026-09-07.md` (3 parallel Explore agents; first sweep with SHORT-FORM ideas per the new standing format)
 - URGENT SHORTS: (1) Canopy — Binance Alpha lists CNPY TODAY Sept 7 + points-resubmission snapshot before mainnet; freshest claim video 1h old/1 view — ship short today; (2) OpenClaw swarm short within 24-48h — v2026.9.2 shipped Sept 5 with swarm-BY-DEFAULT + Plugin SDK aliases deprecated "on or after Sept 8"
