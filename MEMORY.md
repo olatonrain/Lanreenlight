@@ -474,6 +474,8 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 - NOTE for future: on-camera recommendations user actually made — CloudVPS 6 recommended (shot on VPS 4), 24-month package = 20% discount (~$126 total), small models crash on complex builds
 
 **Session 24 — OpenClaw package matched to actual recording (2026-09-08):**
+- FOLLOW-UP (same session): first Short-update pass half-failed (script died at beat 5 assertion after writing beat 4) — caught by grep verification, both beats re-applied and verified: Short beat 4 now "Tailscale Serve. Nothing public." with beat 5 end card = tailscale serve status; double-divider artifact cleaned. All 7 consistency checks green across Short + Long
+
 - USER recorded the video with a different security approach than the package: Tailscale Serve for remote access (NOT the hardened tools-denied JSON block), and free models via interactive `openclaw config` (NOT the models.providers JSON edit)
 - User's actual commands (recorded): tailscale serve --https=443 off / openclaw config set gateway.tailscale.mode serve / openclaw gateway restart / tailscale serve status / openclaw gateway status --deep / openclaw gateway stop (demo) / openclaw gateway --tailscale serve / sudo loginctl enable-linger root / loginctl show-user root | grep Linger
 - video-content-openclaw2.md updated to match: Ch6 = Tailscale Serve flow (loopback stays, tailscale wraps HTTPS, nothing public — official exposure method, audit checks it); Ch8 = openclaw config interactive provider setup + openclaw models set/list CLI helpers; Ch9 = linger flow (gateway dies on SSH exit demo → --tailscale serve → enable-linger → verify → reboot test)
