@@ -473,6 +473,13 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 - Remaining for this video: thumbnail, cards, end screen, pinned comment (in the package), social captions posting
 - NOTE for future: on-camera recommendations user actually made — CloudVPS 6 recommended (shot on VPS 4), 24-month package = 20% discount (~$126 total), small models crash on complex builds
 
+**Session 24 — OpenClaw package matched to actual recording (2026-09-08):**
+- USER recorded the video with a different security approach than the package: Tailscale Serve for remote access (NOT the hardened tools-denied JSON block), and free models via interactive `openclaw config` (NOT the models.providers JSON edit)
+- User's actual commands (recorded): tailscale serve --https=443 off / openclaw config set gateway.tailscale.mode serve / openclaw gateway restart / tailscale serve status / openclaw gateway status --deep / openclaw gateway stop (demo) / openclaw gateway --tailscale serve / sudo loginctl enable-linger root / loginctl show-user root | grep Linger
+- video-content-openclaw2.md updated to match: Ch6 = Tailscale Serve flow (loopback stays, tailscale wraps HTTPS, nothing public — official exposure method, audit checks it); Ch8 = openclaw config interactive provider setup + openclaw models set/list CLI helpers; Ch9 = linger flow (gateway dies on SSH exit demo → --tailscale serve → enable-linger → verify → reboot test)
+- Description/captions/pinned comment/hooks/Short beat 4+5 all reframed: "private Tailscale exposure + linger" replaces "hardened config + systemd"; hardcoded JSON blocks removed from description commands
+- NOTE: hardened JSON baseline remains valid as an official alternative — mention in video as optional deep-end, or skip
+
 **Session 23 — Pi package REBUILT from official sources (2026-09-08):**
 - User: build better Pi content using minepi.com/pi-node directly. Fetched official node page + the linked Google Doc (Pi's official Protocol Upgrade doc)
 - MAJOR CORRECTION: the Sept 15 v27.1 deadline is OFFICIAL (doc: "All nodes are required to be on version 27.1 by 09/15/2026", status = Upgrade in progress) — previous package wrongly hedged it as press-reported. Also new: official `pi-node` Linux CLI (2026) with one-command upgrade `pi-node update-protocol`; Docker image `pinetwork/pi-node-docker:organization-mainnet-v1.0-p27.1.0`; verify via `watch pi-node status` until state = "Synced", or legacy path compare ingest_latest_ledger (curl localhost:31401) vs api.mainnet.minepi.com; downtime <5 min; 28.0 = DO NOT START; missed steps may need resync from scratch
