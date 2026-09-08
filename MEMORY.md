@@ -473,6 +473,11 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 - Remaining for this video: thumbnail, cards, end screen, pinned comment (in the package), social captions posting
 - NOTE for future: on-camera recommendations user actually made — CloudVPS 6 recommended (shot on VPS 4), 24-month package = 20% discount (~$126 total), small models crash on complex builds
 
+**Session 22 — OpenClaw SHORT script rewritten + SHOOT GUIDE added (2026-09-08):**
+- User: script not catchy + no shooting guide. Rewrote all 5 SAY lines punchier (cold open, one-breath lines, flat "tomorrow" delivery note), added FEEL + CUT direction per beat (hard cuts, one-frame black, no-cut money shot, channel-name end hold)
+- Added SHOOT GUIDE section (per user request): setup checklist, record-beats-out-of-order plan (terminal audit first — single clean take), vertical 9:16 rules, punch-in rule for flubs
+- Skills: content-marketer + content-creator
+
 **Session 21 — GLM Short script rewritten + Pi v27 LONG package built (2026-09-08):**
 - Short rewritten (short-glm-vs-gpt6.md): full spoken script in 7 numbered cards (SAY + SHOW + TEXT), per user request — was beat-table only
 - Pi trend refresh run (Explore agent, Sept 8): Sept 15 still press-reported (NOT official-confirmed; Core Team Sept 5 post = dev tools only); node-on-VPS lane still empty; checklist angle still open; DEX-live claims UNVERIFIED; must-cover news compiled
