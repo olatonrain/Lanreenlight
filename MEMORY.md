@@ -473,6 +473,12 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 - Remaining for this video: thumbnail, cards, end screen, pinned comment (in the package), social captions posting
 - NOTE for future: on-camera recommendations user actually made — CloudVPS 6 recommended (shot on VPS 4), 24-month package = 20% discount (~$126 total), small models crash on complex builds
 
+**Session 21 — GLM Short script rewritten + Pi v27 LONG package built (2026-09-08):**
+- Short rewritten (short-glm-vs-gpt6.md): full spoken script in 7 numbered cards (SAY + SHOW + TEXT), per user request — was beat-table only
+- Pi trend refresh run (Explore agent, Sept 8): Sept 15 still press-reported (NOT official-confirmed; Core Team Sept 5 post = dev tools only); node-on-VPS lane still empty; checklist angle still open; DEX-live claims UNVERIFIED; must-cover news compiled
+- Pi LONG package built: `youtube-fixes/video-content-pi-v27.md` (deadline-checklist structure, 5 chapters, honest confirmed-vs-hype chapter, Contabo node-prep chapter, full captions)
+- Skills: content-creator + content-marketer (package format + captions)
+
 **Session 20 — OpenClaw SHORT built + LONG updated to v2026.9.2 (2026-09-07):**
 - URGENT Short built: `youtube-fixes/short-openclaw-swarm.md` — "OpenClaw just turned swarm agents ON. By default." 45s screen-recording short (5-shot list, needs ~5 min capture), riding the Sept 8 plugin-alias deprecation deadline. Publish TODAY/tomorrow; feeds the OpenClaw long video
 - Long package updated in place (video-content-openclaw2.md): trend basis → v2026.9.2 (Sept 5: swarm default, GPT-6 Astra support, reply persistence; + v2026.9.1 Sept 3); Title 1 → swarm-lockdown angle; Hook 1 → swarm angle; Ch2 lists the 2.x release line; Ch6 adds swarm blast-radius callout; Ch9 adds `openclaw update` rollback-safe; description intro + tags updated (swarm, gpt-6 astra)
