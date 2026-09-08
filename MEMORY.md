@@ -473,6 +473,13 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 - Remaining for this video: thumbnail, cards, end screen, pinned comment (in the package), social captions posting
 - NOTE for future: on-camera recommendations user actually made — CloudVPS 6 recommended (shot on VPS 4), 24-month package = 20% discount (~$126 total), small models crash on complex builds
 
+**Session 23 — Pi package REBUILT from official sources (2026-09-08):**
+- User: build better Pi content using minepi.com/pi-node directly. Fetched official node page + the linked Google Doc (Pi's official Protocol Upgrade doc)
+- MAJOR CORRECTION: the Sept 15 v27.1 deadline is OFFICIAL (doc: "All nodes are required to be on version 27.1 by 09/15/2026", status = Upgrade in progress) — previous package wrongly hedged it as press-reported. Also new: official `pi-node` Linux CLI (2026) with one-command upgrade `pi-node update-protocol`; Docker image `pinetwork/pi-node-docker:organization-mainnet-v1.0-p27.1.0`; verify via `watch pi-node status` until state = "Synced", or legacy path compare ingest_latest_ledger (curl localhost:31401) vs api.mainnet.minepi.com; downtime <5 min; 28.0 = DO NOT START; missed steps may need resync from scratch
+- Node page facts: v0.6.2 latest; 3 node roles (Computer App/Node/SuperNode); NO RAM/CPU numbers on page (specs = image — show, don't state); Docker not mentioned on node page itself; one account = one node; Testnet nodes earn no mining rewards; SuperNode = Core Team selected, needs 24/7 + open ports
+- Package rebuilt (video-content-pi-v27.md): titles/hooks lead with CONFIRMED official deadline; 7 chapter cards incl. 3 node-type split (Desktop auto / pi-node CLI / legacy Docker) + optional new-node VPS segment; description carries official commands; publish by Sept 12 (3 days pre-deadline = peak search)
+- Content Mission note: one-command CLI + VPS-uptime fit = strong DIY story; referral links description-only per hero rule
+
 **Session 22 — OpenClaw SHORT script rewritten + SHOOT GUIDE added (2026-09-08):**
 - User: script not catchy + no shooting guide. Rewrote all 5 SAY lines punchier (cold open, one-breath lines, flat "tomorrow" delivery note), added FEEL + CUT direction per beat (hard cuts, one-frame black, no-cut money shot, channel-name end hold)
 - Added SHOOT GUIDE section (per user request): setup checklist, record-beats-out-of-order plan (terminal audit first — single clean take), vertical 9:16 rules, punch-in rule for flubs
