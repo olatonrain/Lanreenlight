@@ -1,6 +1,6 @@
 import { createServer } from 'node:http';
 import { readFile, writeFile, mkdir, readdir } from 'node:fs/promises';
-import { existsSync } from 'node:fs';
+import { existsSync, statSync } from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -32,10 +32,14 @@ const startServer = () =>
             try {
                 const pathname = decodeURIComponent(new URL(req.url, ORIGIN).pathname);
                 let file = path.join(DIST, pathname);
-                if (!existsSync(file) || file.endsWith(path.sep)) {
-                    file = existsSync(path.join(file, 'index.html'))
-                        ? path.join(file, 'index.html')
-                        : path.join(DIST, 'index.html');
+                // dist/<route>/ may already exist as a directory from an earlier prerender
+                // (e.g. /blog). Reading a directory throws EISDIR → 500 → Chrome saves its
+                // own error page as the prerendered output. Serve the directory's index.html.
+                if (existsSync(file) && statSync(file).isDirectory()) {
+                    file = path.join(file, 'index.html');
+                }
+                if (!existsSync(file)) {
+                    file = path.join(DIST, 'index.html');
                 }
                 const body = await readFile(file);
                 res.writeHead(200, { 'content-type': MIME[path.extname(file)] || 'application/octet-stream' });
@@ -203,7 +207,12 @@ const run = async () => {    if (!existsSync(DIST)) {
 
         for (const route of routes) {
             try {
-                await page.goto(`${ORIGIN}${route}`, { waitUntil: 'networkidle2', timeout: 60000 });
+                const response = await page.goto(`${ORIGIN}${route}`, { waitUntil: 'networkidle2', timeout: 60000 });
+                // A non-200 (e.g. the file server's empty 500) makes Chrome render its own
+                // error page, which page.content() would happily save as "prerendered" HTML.
+                if (!response || response.status() !== 200) {
+                    throw new Error(`main response status ${response ? response.status() : 'null'}`);
+                }
                 await revealAllFadeIns();
                 await new Promise(r => setTimeout(r, 400));
 

@@ -15,6 +15,7 @@
 
 ## Blog
 
+- [OpenClaw 2.0 Secure Install on a $5 VPS — Private Access, Free Models, 24/7 Uptime](https://lanreenlight.com/blog/openclaw-2-0-secure-install-5-vps-tailscale): Tailscale Serve for private HTTPS access (zero open ports), security audit, free models via OmniRoute, and systemd linger for always-on operation — [markdown](https://lanreenlight.com/blog/openclaw-2-0-secure-install-5-vps-tailscale.md)
 - [Blog index](https://lanreenlight.com/blog/): Deep dives into automation, node infrastructure, and market mechanics
 - [Self-Host n8n and OmniRoute on a $5 VPS: The Complete 2026 Guide](https://lanreenlight.com/blog/self-host-n8n-and-omniroute-on-a-vps): Full walkthrough — one-click n8n on Contabo, OmniRoute Docker install, $175 AgentRouter credit, free providers, and combos for automatic model fallback
 - [n8n AI Assistant Builds Workflows For You — Self-Hosted on a $5 VPS](https://lanreenlight.com/blog/n8n-ai-assistant-builds-workflows-vps): The 2.37 AI Assistant setup — sandbox service deployment, SearXNG web search, free models via OmniRoute, full command list

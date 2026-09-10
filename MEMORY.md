@@ -6,7 +6,31 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 
 ---
 
-## 2026-09-04 — Portfolio: unauthorized push reverted + FULL rebuild from published Canva site (AWAITING review)
+## 2026-09-10 — OpenClaw blog post + /blog prerender corruption ROOT-FIXED (AWAITING review)
+
+### Last Session
+2026-09-06 — Portfolio deploy (blocked by HestiaCP redirect)
+
+### Done
+- **OpenClaw 2.0 blog post created end-to-end:** `data/posts/openclaw-2-0-secure-install-5-vps-tailscale.json` (~918 words, steps 1-7: SSH hardening → official installer → Tailscale Serve → security audit → free models via OmniRoute → loginctl linger 24/7 → WhatsApp/Telegram/plugins, cost table, CTA). Wired into `data/blog.ts` (position 0), `public/sitemap.xml` (lastmod 2026-09-10), `public/llms.txt`. `youtubeId` wired 2026-09-10 — user supplied https://youtu.be/d8D4s0fdvUU; iframe embed verified in prerendered post HTML
+- **ROOT CAUSE FIXED — /blog/ prerendered as a Chrome error page:** `dist/blog/index.html` contained Chromium's network-error page (title "127.0.0.1", 185KB of error stylesheet). Root cause: in `scripts/prerender.mjs`'s file server, `path.join(DIST, '/blog')` → `dist/blog` exists as a DIRECTORY (the script's own special-case mkdir creates it after the first pass) → `existsSync` true → fallback branch skipped → `readFile()` on a directory throws EISDIR → `catch` → empty 500 → Chrome renders its error page → `page.content()` silently saved it as "successful" prerender. Same error class as the /portfolio incident (2026-09-04) — that one was patched by renaming a directory; this is the systemic fix
+- **Two-part fix in `scripts/prerender.mjs`:** (1) file server now checks `statSync().isDirectory()` and serves the directory's `index.html` (also removed the dead `file.endsWith(path.sep)` branch — path.join strips trailing slashes so it never fired); (2) every route's main response must be HTTP 200 or the route FAILS the run — a Chrome error page can never again be written as a successful prerender
+- Verified after rebuild: all 29 routes ✓; `/blog/` has real title "Blog — AI Automation, VPS & Trading Deep Dives | Lanre", canonical `https://lanreenlight.com/blog/`, zero "127.0.0.1" remnants, no noindex, JSON-LD present; openclaw post listed exactly once (card link + JSON-LD CollectionPage entry); "Read Article" count = 16 = posts in data/blog.ts; new post page has unique title/self-canonical/no noindex/JSON-LD; 16 .md mirrors generated
+- **Killed 2 orphaned `vite preview` processes** (PIDs 24915, 60623) from earlier sessions — one held port 4173, which would have broken the next prerender's local server (EADDRINUSE)
+- Video package `youtube-fixes/video-content-openclaw2.md` updated earlier in session: viral-optimized titles from competitor tag mining (NetworkChuck 1.08M / Sonny 91K / Hostinger 48.7K), competitor-derived TAGS block, hashtag bank, real recording timestamps (video recorded Sept 10)
+
+### Decisions
+- Fixed the file server at the root (directory-aware) rather than renaming directories again — the script itself creates `dist/blog/` and `dist/guides/`, so any rename-based workaround would recur
+- Added the 200-status gate as defense-in-depth so silent corruption of ANY route becomes a loud build failure (matches the "prerender failures are fatal" philosophy from commit 2a28d33)
+
+### Next Steps
+- USER: review locally (start `npm run preview`, check `/blog/` lists the OpenClaw post and the post page itself, video embed plays) → approve push to main
+- After deploy: run `node scripts/request-indexing.mjs` + GSC sitemap resubmission (Indexing API alone is not proof of indexing)
+
+### Blockers & Open Questions
+- Portfolio page still shadowed by the HestiaCP `/portfolio` → canva.site server-level redirect (from 2026-09-06 entry, unchanged)
+
+---
 
 ### Last Session
 2026-09-04 — Portfolio first build (2 case studies, placeholders) — superseded by this entry

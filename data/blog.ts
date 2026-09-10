@@ -25,8 +25,19 @@ import post12 from './posts/self-hosted-coding-agents-mainstream-2026.json';
 import post13 from './posts/self-host-n8n-and-omniroute-on-a-vps.json';
 import post14 from './posts/n8n-ai-assistant-builds-workflows-vps.json';
 import post15 from './posts/run-glm-5-3-flash-free-24-7-on-a-5-vps.json';
+import post16 from './posts/openclaw-2-0-secure-install-5-vps-tailscale.json';
 
 export const BLOG_POSTS: BlogPost[] = [
+    {
+        id: post16.id,
+        title: post16.title,
+        date: post16.date,
+        category: post16.category || 'Automation',
+        excerpt: post16.excerpt,
+        imageUrl: post16.imageUrl,
+        youtubeId: post16.youtubeId || '',
+        content: post16.content,
+    },
     {
         id: post15.id,
         title: post15.title,
