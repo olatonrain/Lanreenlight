@@ -6,7 +6,7 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 
 ---
 
-## 2026-09-10 — OpenClaw blog post + /blog prerender corruption ROOT-FIXED (AWAITING review)
+## 2026-09-10 — OpenClaw blog post DEPLOYED (commit 5d1324f, CI 34538560020) + /blog prerender corruption ROOT-FIXED
 
 ### Last Session
 2026-09-06 — Portfolio deploy (blocked by HestiaCP redirect)
@@ -24,8 +24,10 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 - Added the 200-status gate as defense-in-depth so silent corruption of ANY route becomes a loud build failure (matches the "prerender failures are fatal" philosophy from commit 2a28d33)
 
 ### Next Steps
-- USER: review locally (start `npm run preview`, check `/blog/` lists the OpenClaw post and the post page itself, video embed plays) → approve push to main
-- After deploy: run `node scripts/request-indexing.mjs` + GSC sitemap resubmission (Indexing API alone is not proof of indexing)
+- DEPLOYED 2026-09-10 (user-approved "go live"): commit 5d1324f pushed to main, CI Deploy-to-HestiaCP run 34538560020 SUCCESS
+- **Post-deploy verification ALL PASS (live):** post URL 200 w/ unique title, self-canonical, video embed d8D4s0fdvUU, 0 noindex; blog index 200 real title, "Read Article" = 16 = post count (dedupe intact), 0 error-page remnants; soft-404 check → real 404; robots.txt unchanged (all AI crawlers Allow, Sitemap line present); sitemap 29 locs incl. new post; Googlebot-UA homepage → 200, no bad cache/cookie headers
+- Indexing ping run: Indexing API 200-but-NOT-registered for 0/29 (known trap, unverified as always); **Search Console sitemap resubmit → 204 success** (the reliable re-crawl signal)
+- USER: post socials (LinkedIn/Twitter/TikTok/Facebook/Instagram captions ready in youtube-fixes/video-content-openclaw2.md) + newsletter + YouTube description/pin
 
 ### Blockers & Open Questions
 - Portfolio page still shadowed by the HestiaCP `/portfolio` → canva.site server-level redirect (from 2026-09-06 entry, unchanged)

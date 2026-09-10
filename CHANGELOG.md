@@ -4,6 +4,19 @@ Date-based, category-tagged entries. Categories: Added, Fixed, Changed, Removed.
 
 ---
 
+2026-09-10
+
+Added
+- Blog post "OpenClaw 2.0 Secure Install on a $5 VPS — Tailscale Serve, Free Models, 24/7 Uptime" (`data/posts/openclaw-2-0-secure-install-5-vps-tailscale.json`) with embedded video d8D4s0fdvUU — wired into blog.ts (position 0), sitemap.xml (lastmod 2026-09-10), llms.txt; deployed in commit 5d1324f (CI run 34538560020)
+
+Fixed
+- `/blog/` prerender corruption root cause: the prerender file server read `dist/blog` (a directory) → EISDIR → empty 500 → Chrome rendered its own error page, which was silently saved as the prerendered output. Server now serves a directory's `index.html`; every route's main response must be HTTP 200 or the build fails — error pages can never ship again
+
+Changed
+- Post-deploy verification (all pass): live post 200/unique title/canonical/embed, blog index 200 with 16 posts listed once each, real 404 on unknown URLs, robots.txt unchanged, sitemap 29 locs, Googlebot-UA clean; Search Console sitemap resubmit 204
+
+---
+
 2026-08-30
 
 Added
