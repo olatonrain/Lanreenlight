@@ -6,6 +6,34 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 
 ---
 
+## 2026-09-10 — Trend sweep (Wednesday special): 4-niche bank compiled, Pi deadline video confirmed as #1
+
+### Last Session
+2026-09-10 — OpenClaw blog post deploy + Pi v27 package rebuild (same day, above)
+
+### Done
+- User-requested full multi-niche trend sweep (4 parallel research agents: trading/Deriv, crypto/airdrops, AI/self-hosting, webdev/hosting). Bank saved: `youtube-fixes/trending-ideas-bank-2026-09-10.md` (TIER 1/2/3 + SKIP + short-form + queue)
+- TIER 1: (1) Pi v27.1 VPS deadline video — ALREADY PACKAGED (rebuilt today), 8+ outlets confirmed Sept 15 mainnet this week, small channels 1.3K-9K views on Protocol 27, VPS+deadline combo still unclaimed; record by Sept 12. (2) MT5 Build 6180 AI Assistant as EA QA-engineer — STILL near-zero competition on day 7 (1T-token usage stat, ~3-week build cycle resets novelty). (3) 9Chain node/LOVE9 — hottest small-channel demand of the week (44.6K/3d, 28K/5d, 19.8K/5d, 18.3K/6d), zero press, node-tutorial gap open; MLM-caution flagged. (4) Cursor Self-Hosted Machines VPS guide — zero competition (top result 40 views), Sept 10 "Projects" adds a second hook. (5) Nigerian SEC FX/CFD explainer — carried over, news STILL hot (Finance Magnates opinion piece today), still no YouTube explainer
+- TIER 2: Asentum testnet Season 1 starts Sept 17 (validator explicitly VPS-deployable, announced Sept 9, zero tutorials, presale-caution); FLOP VPS (still zero VPS videos, Q4 airdrop); Supabase self-host w/ Coolify (official video 68K/13d, gap narrowing); GPT-6 Astra/DeepSeek v4.1 as 24/7 VPS automation brain (demand explosive, review-lane saturated); Kimi K3 no-GPU SSD-streaming on VPS (HN 277pts, zero YouTube coverage)
+- Re-verifications: OmniRoute v3.8.51 STILL untagged (hold release video); OpenClaw shipped v2026.9.3/9.4 + v2026.6.35 this week (channel's own secure-install video already recorded — no new package needed); n8n 2.39.x = bug-fix releases (no hook); NotebookLM alternatives CONFIRMED filled (Elestio 49.4K/13d); Grok-bot wave confirmed dead; Grass has no dated hook
+- Short-form ideas included (5): Pi countdown Short, 9Chain teaser, MT5 6180 demo, GPT-6 price-reversal (needs GLM video public), SEC 45s explainer
+
+### Decisions
+- Pi v27.1 stays #1 in the queue — it's the only Tier 1 item with the package already built; everything else needs a package first
+- 9Chain held behind a vetting caveat (tokenomics UNVERIFIED, one #mlm tag) — frame as DYOR if covered
+- Evidence caveat recorded in the bank: agents used Bing video vertical/scrapes/HN Algolia; view counts observed Sept 10-11; "no videos found" = not surfaced, not guaranteed absent
+
+### Next Steps
+- USER picks from the bank; recommended order: Pi video (by Sept 12) → MT5 6180 or 9Chain this week → Cursor VPS guide within ~5 days → Asentum prep Sept 14-15
+- Publish the PRIVATE GLM video (PsVYU-MjBYU) to catch the GPT-6/DeepSeek "free models" spillover
+- Watch "Prometheus AI trading bot" autocomplete cluster (possible scam cycle) — do NOT cover without vetting
+
+### Blockers & Open Questions
+- DeepSeek v4.1 Flash parameter size UNVERIFIED (decides whether a $5 VPS holds it locally — verify before scripting)
+- Reddit/Product Hunt unreachable this sweep; some YouTube counts via Bing vertical only (marked in bank)
+
+---
+
 ## 2026-09-10 — OpenClaw blog post DEPLOYED (commit 5d1324f, CI 34538560020) + /blog prerender corruption ROOT-FIXED
 
 ### Last Session
@@ -17,6 +45,8 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 - **Two-part fix in `scripts/prerender.mjs`:** (1) file server now checks `statSync().isDirectory()` and serves the directory's `index.html` (also removed the dead `file.endsWith(path.sep)` branch — path.join strips trailing slashes so it never fired); (2) every route's main response must be HTTP 200 or the route FAILS the run — a Chrome error page can never again be written as a successful prerender
 - Verified after rebuild: all 29 routes ✓; `/blog/` has real title "Blog — AI Automation, VPS & Trading Deep Dives | Lanre", canonical `https://lanreenlight.com/blog/`, zero "127.0.0.1" remnants, no noindex, JSON-LD present; openclaw post listed exactly once (card link + JSON-LD CollectionPage entry); "Read Article" count = 16 = posts in data/blog.ts; new post page has unique title/self-canonical/no noindex/JSON-LD; 16 .md mirrors generated
 - **Killed 2 orphaned `vite preview` processes** (PIDs 24915, 60623) from earlier sessions — one held port 4173, which would have broken the next prerender's local server (EADDRINUSE)
+- **Pi v27 package restructured (user request):** video-content-pi-v27.md now STARTS from fresh Linux install → one-command upgrade → legacy Docker/migrate → ports/security → wrap. All commands verbatim from official sources (research-pi-node-linux-install.md): apt.minepi.com repo flow, pi-node initialize flags, PiCoreTeam/pi-node-docker repo (pi-apps URL is 404), ports 31401/31402/31403, specs 150GB/4vCPU/4GB (text on Linux page — old "don't state specs" rule corrected), software v0.6.3. Record by Sept 12
+- **Pi v27 package: WHY/journey/vision/earnings chapter added (user request, same day):** new chapter 3 "WHY PI?" at 2:30 (package now 9 chapters) + description journey/rewards blocks + research file research-pi-vision-node-rewards.md. All facts official-verbatim: whitepaper at minepi.com/white-paper/ (hyphen — /whitepaper redirects to marketing homepage), mission/vision quotes, journey Dec 2018 alpha → Mar 2019 launch → Feb 20 2025 Open Network (19M KYC'd/10.14M migrated/100+ apps), quotable numbers 60M+ Pioneers (May 2026 blog) + 350K testnet nodes/17.5M KYC'd/15.8M migrated (Dec 2025 recap). **Rewards honesty block is the trust moment:** whitepaper node bonus = mining-rate multiplier up to 10x (N(I) formula), security circle +20% capped 5, 65B pool; NO official Mainnet per-node payout exists — never state one; "no mining rewards for Testnet Nodes" verbatim. Hook 3 now cites the verified 350K figure; checklist splits quotable vs forbidden numbers; tags 29→32
 - Video package `youtube-fixes/video-content-openclaw2.md` updated earlier in session: viral-optimized titles from competitor tag mining (NetworkChuck 1.08M / Sonny 91K / Hostinger 48.7K), competitor-derived TAGS block, hashtag bank, real recording timestamps (video recorded Sept 10)
 
 ### Decisions
