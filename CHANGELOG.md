@@ -4,6 +4,16 @@ Date-based, category-tagged entries. Categories: Added, Fixed, Changed, Removed.
 
 ---
 
+2026-09-12
+
+Added
+- Blog post "Install a Pi Node on Linux From Scratch — Synced Before the Sept 15 Deadline" (`data/posts/install-pi-node-linux-v27-deadline.json`, 1,650 words, embeds video xlMssyv5q6U) — apt.minepi.com install, both v27.1 upgrade paths (docker-compose image edit as shown in the video + `pi-node update-protocol`), upgrade chain + 3 rules, ufw port commands, legacy Docker migration, honest rewards section — wired into blog.ts (position 0), sitemap.xml (lastmod 2026-09-11), llms.txt
+
+Fixed
+- Prerender `.md` mirror pipeline dropped all `<pre><code>` and `<table>` content (every mirror lost its command blocks) — `scripts/prerender.mjs` extractMarkdown() now emits fenced code blocks and pipe tables; verified on all 5 posts with code
+
+---
+
 2026-09-10
 
 Added

@@ -6,6 +6,41 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 
 ---
 
+## 2026-09-11 — Pi v27 video recorded: package ID-wired + blog post built + package matched to the real recording via local transcription
+
+> 2026-09-12 (2) — blog post commands aligned with the package: added the upgrade chain + 3 rules to the deadline section, replaced the CLI-only Step 3 with both official paths (docker-compose image edit `organization-mainnet-v1.0-p27.1.0` + `docker compose up -d` FIRST as shown in the video, then `pi-node update-protocol`), added the 3-step sanity check (Synced / ingest_latest_ledger vs api.mainnet.minepi.com / no jumping to 28.0), ufw commands for 31401-31403, and a new "Not on Linux?" section with the official get.docker.com Method C block. Excerpt de-claimed "one-command upgrade" (docker-compose path isn't one). Word count now 1,650. ALSO FIXED a prerender pipeline bug found during verification: scripts/prerender.mjs extractMarkdown() had no PRE/TABLE branch, so every .md mirror silently dropped ALL code blocks and tables (GEO surface). Mirrors now emit fenced code blocks + pipe tables — verified across all 5 posts with code. Build passes; preview serves the commands; blog index dedup intact (17); sitemap loc count unchanged (30); zero noindex.
+
+> 2026-09-12 UPDATE — user's draft script merged into the package, corrected to official sources. Stacked 5-block hook opening (loss-aversion → contradiction → specificity → stakes → promise) replaced the 3 old hooks. Description restructured as Method A (Desktop) / Method B (Linux VPS apt.minepi.com flow, shown in video) / Method C (low-power x64 box via official get.docker.com), plus a new "UPGRADE CHAIN — NO SKIPPING" block (19.1→…→27.1→28.0) and the 3 rules (no skipping / stagger nodes / official channels only), plus ufw port commands and the 3-step sanity check (Synced, ingest_latest_ledger vs api.mainnet.minepi.com, no jumping to 28.0). CORRECTIONS vs the draft: dropped August Protocol-26 disconnection claim, "eleventh mandatory upgrade", "rolling out on testnet" framing (all unverified); specs stay 150GB/300GB (not 100GB/250GB); ports stay 31401/31402/31403 (not 31400-31409 — description now warns against the older range); script's `git clone pi-node-official/pi-node` repo named in the rules as an untrusted source. All saved in `youtube-fixes/video-content-pi-v27.md`; description apply still needs go-ahead.
+
+### Last Session
+2026-09-10 — Trend sweep + Pi package why-chapter (below)
+
+### Done
+- User uploaded the recorded Pi v27 video as https://youtu.be/xlMssyv5q6U
+- `youtube-fixes/video-content-pi-v27.md` updated: header flipped from "Video NOT shot yet" to recorded state; all 3 `[YOUTUBE LINK]` caption placeholders (LinkedIn / Twitter-X / Facebook) replaced with the real URL (4 ID occurrences, verified by grep)
+- User exported the video audio (`/Users/user/Downloads/Pi Network/Pi Network.MP3`, 37:18) → transcribed locally with whisper.cpp base.en → `youtube-fixes/pi-v27-transcript.srt` (451 cues)
+- Package REBUILT to match the real recording: chapter guide now 18 as-recorded sections with real timestamps, description carries 17 real chapters, captions/pinned-comment claims corrected (the recorded upgrade path is the docker-compose image edit P26→P27 + `docker compose up -d`, NOT `pi-node update-protocol`; no discrete WHY-PI journey chapter was recorded — the "why" is woven through 0:31-13:54 and the honest-rewards reflection is at 35:00), pre-public checklist updated to post-recording items (cards at 14:10/21:40, end screen 36:40, Short cut lists, description apply via youtube-update.mjs)
+- Blog post created: `data/posts/install-pi-node-linux-v27-deadline.json` (1,354 words, Crypto, youtubeId xlMssyv5q6U). Content = package's verified flow incl. honest-rewards section, legacy Docker migration, FAQ (protocol v27.1 vs software 0.6.3), /cheapestvps + /guides/crypto-node-ops internal links
+- Wired into `data/blog.ts` (post17, newest first), `public/sitemap.xml` (lastmod 2026-09-11), `public/llms.txt` (Blog section top, with .md mirror link)
+- `npm run build` passes; preview verified at http://localhost:4173/blog/install-pi-node-linux-v27-deadline
+
+### Decisions
+- Chapter timestamps in the video package stay as ESTIMATES: the video is still PRIVATE, no transcript could be pulled
+- Blog post publishes with the embed wired while the video is private (same pattern as the GLM post) — embed activates on flip
+- No invented numbers: no Contabo price quoted for the 150GB/4vCPU/4GB spec tier; cost table points to /cheapestvps comparison instead
+
+### Next Steps
+- USER reviews the blog post locally (http://localhost:4173/blog/install-pi-node-linux-v27-deadline), then commit + push (push = deploy) → run `node scripts/request-indexing.mjs`
+- Apply the updated description (17 real chapters) via `youtube-update.mjs` (backup → apply → verify) after user go-ahead
+- Flip the video to public by Sept 12 (deadline video: Sept 15 cutoff); remaining checklist: thumbnail, cards at 14:10/21:40, end screen 36:40, pinned comment, social captions, Short cuts (0:00-0:30, 26:00-28:30, 30:12-32:00)
+- Still open: GLM video PsVYU-MjBYU remains private (blog embed dormant)
+
+### Blockers & Open Questions
+- RESOLVED: YouTube transcript access on the private video (baoyu path + yt-dlp with Chrome cookies both failed) — solved by transcribing the user-exported audio locally with whisper.cpp
+- The journey/vision numbers (60M Pioneers, Open Network milestones) were never spoken in the recording — they live in the description; consider a pinned-comment mention so the verified numbers reach viewers
+
+---
+
 ## 2026-09-10 — Trend sweep (Wednesday special): 4-niche bank compiled, Pi deadline video confirmed as #1
 
 ### Last Session

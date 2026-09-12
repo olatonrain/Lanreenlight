@@ -131,6 +131,19 @@ const extractMarkdown = () =>
                     lines.push('');
                 } else if (tag === 'IFRAME' && child.src) {
                     lines.push(`[Embedded video](${child.src})\n`);
+                } else if (tag === 'PRE') {
+                    const code = (child.textContent || '').replace(/\s+$/, '');
+                    if (code) lines.push(`\n\`\`\`\n${code}\n\`\`\`\n`);
+                } else if (tag === 'TABLE') {
+                    const rows = [...child.querySelectorAll('tr')];
+                    if (rows.length) {
+                        const cells = row => [...row.querySelectorAll('th,td')].map(c => inline(c).replace(/\|/g, '\\|'));
+                        const head = cells(rows[0]);
+                        lines.push(`\n| ${head.join(' | ')} |`);
+                        lines.push(`| ${head.map(() => '---').join(' | ')} |`);
+                        rows.slice(1).forEach(row => lines.push(`| ${cells(row).join(' | ')} |`));
+                        lines.push('');
+                    }
                 } else {
                     walk(child);
                 }

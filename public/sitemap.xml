@@ -61,6 +61,12 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://lanreenlight.com/blog/install-pi-node-linux-v27-deadline</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://lanreenlight.com/blog/openclaw-2-0-secure-install-5-vps-tailscale</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>weekly</changefreq>
