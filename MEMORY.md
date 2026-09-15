@@ -8,6 +8,9 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 
 ## 2026-09-15 — Biweekly trend sweep (Tuesday): 4-niche bank compiled — Asentum + Pi repair lane + Cloud-in-a-Bottle are the plays
 
+> 2026-09-15 (2) — User picked 4 ideas from the bank; full packages + Shorts written (4 parallel verification agents ran first — every command/figure from primary sources). Packages: `video-content-asentum-validator.md` (VERIFIED one-liner `curl -fsSL https://testnet.asentum.com/install/validator | bash` — script requires bash though docs page says sh; 4c/4GB/40GB SSD, Pi-4 floor, chain 1418, faucet 1,000 test ASE/24h, 500-ASE bond, Season 1 Sept 17 16:00 UTC CONFIRMED; presale-closed-vs-active page contradiction scripted as an on-camera caution, token never promoted), `video-content-mt5-6180-qa.md` (6180 = still latest, AI Assistant free in MetaEditor Tools\Options\AI Assistant, Ctrl+Alt+\, security toggle chapter; ⚠️ Deriv symbol strings + Contabo Windows pricing were unreachable — verify before shoot), `video-content-9chain-legit-check.md` (walkthrough + 7-point red-flag checklist built ENTIRELY on the project's own verbatim disclaimers — "simulated node, not a validator", points "no monetary value", "does not sell, does not list", no TGE date exists, no app in either store, Nigeria NOT in geo-block list, Terms contain "[lawyer to confirm]"; wave crested Sept 3-6 so framed as evergreen trust play), `video-content-sec-nigeria-rules.md` (COMMENT DEADLINE RESOLVED: "two weeks from exposure" = TODAY Sept 15 — video is time-critical; capital ladder ₦2bn/₦3bn/₦5bn + IB ₦30m/₦150m from PDF Rule 6, leverage table incl. crypto CFD 1:2, banned referral inducements + influencer clause Rule 9/16 with self-aware /forexbroker disclosure beat). All awaiting the user's shoot.
+
+
 ### Last Session
 2026-09-12 — Pi blog post published (commits 5bdfdf8/83ed985) + md-mirror fix
 
