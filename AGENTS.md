@@ -348,3 +348,7 @@ Background leftovers eat RAM and CPU and make the machine lag. Whatever an agent
 ## English Only (ENFORCED)
 
 All agent output the user reads must be in English, always — even if the user writes in another language. Mechanically enforced: a per-prompt hook injects the directive and a stop-gate hook scans the response for non-English scripts and blocks turn end until it's rewritten in English (config: `~/.zcode/cli/config.json` -> `hooks`; gate: `~/.zcode/hooks/english-gate.py`). Code identifiers and quoted source text stay as-is.
+
+## Be Brief (ENFORCED)
+
+Conversational replies: the answer first, then only what changes the next action. Short, plain, no recap, no padding, no unasked explanation — the user asks if they want depth. Written deliverables (docs/READMEs/reports) stay complete. A per-prompt hook injects this; details: global AGENTS.md §12.

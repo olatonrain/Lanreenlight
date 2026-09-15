@@ -6,6 +6,35 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 
 ---
 
+## 2026-09-15 — Biweekly trend sweep (Tuesday): 4-niche bank compiled — Asentum + Pi repair lane + Cloud-in-a-Bottle are the plays
+
+### Last Session
+2026-09-12 — Pi blog post published (commits 5bdfdf8/83ed985) + md-mirror fix
+
+### Done
+- Standing biweekly sweep (4 parallel research agents: trading/Deriv, crypto nodes/airdrops, AI/self-hosting, webdev/hosting). Bank: `youtube-fixes/trending-ideas-bank-2026-09-15.md` (TIER 1/2/3 + SKIP + short-form + queue; all view counts observed live Sept 15 via YouTube scrapes, Reddit 403-marked)
+- TIER 1: (1) Asentum Season 1 testnet opens Sept 17 4pm UTC — validator command-line "for VPS deployments" per official PR, ZERO tutorials exist, first-mover window 48-72h. (2) Pi POST-deadline repair lane ("did your node survive Protocol 27 / fix + re-qualify") — hype lane saturated (channel's own deadline video: 9 views/3d) but fix lane bare (best match = 5-month-old video; CryptoJar fix-video precedent 30-120K evergreen); wait 24-72h for real failure reports. (3) Cloud in a Bottle — new self-hosted cloud panel (HN 653 pts Sept 6, 1.1K stars), no install tutorial exists. (4) n8n Assistant self-hosted BYO-keys (official blog Sept 9, missed by the Sept 10 sweep) — English tutorial lane open, Contabo+AgentRouter double. (5) ACTION: publish the recorded OpenClaw 2.0 video THIS WEEK — install wave peaked (131K/5d, 62K/1d), competition forming daily. (6) Deriv Crash Boom Flip Indices — 43-view lane, first-mover EA/VPS but PRE-demand keyword (title must carry "Boom and Crash").
+- TIER 2 highlights: Cursor Self-Hosted Machines STILL zero competition 13d later (42-view best); SEC Nigeria rules = answer-content play now (no new action Sept 8-15, news channels only); FTMO Futures forming fast (9K/12d) — only the from-Nigeria funding angle open; MT5 6180 native AI-Assistant EA-audit framing (external MCP framing is DEAD — 19 views/11h on new posts); Hermes Agent 245K stars VPS lane thin; Bolt Forge (Sept 14, 50x-free-until-Oct-14 training-data opt-in, zero videos); Lovable Sept 5+11 outages → export-to-VPS lane thin; WordPress.com exodus tutorial lane's best video is 13 years old.
+- SKIP list: 9CHAIN (crested Sept 6-8, in-app tap simulator not infrastructure, empty autocomplete, MLM flag pages), Circle Arc (permissioned Wall Street validators — can't run one for money), GPT-6 standalone, DeepSeek V4.1 reviews (214K cluster), external-MCP-to-MT5, generic flip-challenge format (decaying), OmniRoute v3.8.51 untagged 3rd sweep.
+- Evidence honesty flags: "421,000 nodes forced to upgrade" = UNVERIFIED unofficial snippet, not quotable; Reddit thread counts UNVERIFIED (403); Kimi K3 SSD angle needs ~1.45TB — NOT a $5 VPS, verify Contabo large-SSD pricing before scripting.
+
+### Decisions
+- Pi lane pivot: follow-up (repair/rename) beats another pre-deadline hype video; the deadline video's 9 views/3d confirms saturation
+- Asentum = the one package worth building immediately (hard Sept 17 date, zero competition, VPS-native official wording)
+- Asentum presale link NOT promoted (unvetted) — validator tutorial only, per Content Mission (referrals never hero, DIY-first)
+
+### Next Steps
+- USER picks from the bank; recommended: publish OpenClaw video NOW → record/publish Asentum by Sept 16-17 → Pi repair video ~Sept 17-18 → n8n Assistant + Cloud-in-a-Bottle this week
+- Standing: GLM video PsVYU-MjBYU still private; Pi video xlMssyv5q6U public state + description apply still open items
+- Re-verify Asentum testnet actually opened + operator docs/commands from official sources before packaging (commands MUST be fetched, not inferred)
+
+### Blockers & Open Questions
+- Asentum node install commands UNVERIFIED so far (only PR wording) — official docs needed before a package
+- Pi enforcement outcome (disconnects/resync reports) — needs 24-72h of real operator chatter
+- r/selfhosted + r/Deriv blocked this sweep (403) — manual spot-check recommended before packaging the Deriv Flip item
+
+---
+
 ## 2026-09-11 — Pi v27 video recorded: package ID-wired + blog post built + package matched to the real recording via local transcription
 
 > 2026-09-12 (3) — PUBLISHED. Commit 5bdfdf8 pushed to main; deploy verified live: post returns 200 with unique title "| Lanre", self-canonical, zero noindex, command blocks present (docker-compose p27.1.0 tag, ufw), .md mirror 200, blog index dedup intact (17 Read Article = 17 posts), sitemap 30 locs, robots permissive, soft-404 returns real 404, Googlebot-UA check 200 with no set-cookie/cache anomalies. Indexing script: 0/30 registered via Indexing API (all 200-but-NOT-registered, incl. the new post — known best-effort-only behavior per AGENTS.md); sitemap resubmit via Search Console API returned 204 (the reliable signal). Left UNSTAGED/untracked: automation/ + content-automation-pipeline-handoff.md (another task's leftovers, not part of this publish).
