@@ -6,6 +6,34 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 
 ---
 
+## 2026-09-22 — Biweekly trend sweep (Tuesday, DELTA week): Asentum relaunch-window + Laya-on-VPS lead the queue
+
+### Last Session
+2026-09-15 — 4 video packages built from the sweep (Asentum / MT5 6180 / 9Chain / SEC) + format fixes
+
+### Done
+- Standing biweekly sweep (4 parallel agents, window Sept 15-22, delta-focused). Bank: `youtube-fixes/trending-ideas-bank-2026-09-22.md` (TIER 1/2/3 + SKIP + short-form + queue + a "what changed since Sept 15" block). Evidence caveats recorded: one agent used the Invidious mirror (native YouTube search blocked), Reddit via safereddit (no scores), Reddit API 403 again
+- TIER 1: (1) ASENTUM — launched Sept 17 16:00 UTC and launch week was MESSY: ~23h chain stall (block 15914 frozen from Sept 17 21:58 UTC, explorer issue #5), open bug queue Sept 21-22 (installer sync gate #12, bond gas buffer #13, wallet-link #18), docs UPDATED Sept 18 with the VPS one-liner, airdrop dashboard live (airdrop.asentum.com — validator bond 5,000 XP + permanent x1.2, referrals 5%, stake tiers x2-x10), ASE trading ~$0.0019 (mcap ~$806K, say honestly). ZERO validator tutorials still; competitor ceiling 695-1,984 views. Package exists → REFRESH with launch-week-scars chapter. (2) LAYA/OpenJev on a $5 Contabo VPS + AgentRouter — Jev wave HN 1,950 pts, giants 125-520K views; Laya = Apache-2.0, 0.4B, CPU-runnable (193-464ms), VPS-specific English coverage ZERO; urgency HIGH (5K-view local-install video appeared 9h pre-sweep). (3) Pi post-deadline reality check — mainnet STILL protocol 26/27-supported Sept 21 (flip staged, slipped past Sept 15); node-guide videos 1.5K-2.1K/3-5d; repair lane STILL empty since April (1,197-view video). (4) Cursor Self-Hosted Machines VPS — zero competition 2 sweeps running. (5) Bolt Forge export-to-VPS (8 tiny videos in-window, all FREE/50x hype; none connect to hosting; deadline Oct 14). (6) SEC Nigeria follow-up — story CONTINUED: Punch Sept 22 + Nnametrics/Vanguard/Guardian Sept 21, Regulation Forum at Lagos Finance Summit Oct 14-16 = next dated catalyst; broker reactions still absent
+- TIER 2 highlights: n8n Gateway credits official post Sept 17 says SELF-HOSTED cannot use them "in this release" (new workaround-video hook + AgentRouter); Cloud in a Bottle still zero tutorials; Grey Network validator nodes launched Sept 20-21 ($50-$1,000 tiers, Nigerian channels active, operator software NOT shipped → pre-position); MT5 6180 still latest build, zero audit videos; Cloudflare Quick Tunnels reality-check (HN 836); "everything on ONE VPS" category demand peaking (149K/6d); Hister (HN 734); OpenClaw security audit published Sept 21 (Trail of Bits: 0 critical/2 high/16 medium/6 low) + v2026.9.5
+- SKIP: Hermes install lane (crowded — 18K-view beginner tutorial in 3 days), 9CHAIN (cooling, 0-91 views on newest vs 28K peak), Crash Boom Flip BY NAME (zero autocomplete demand — generic Boom & Crash only), DeepSeek reviews, GPT Astra/Jev closed-model lanes, Kimi K3 (cooling), OmniRoute (v3.8.51 STILL untagged, 4th sweep — release branches active, hold and film within 24h of tag)
+
+### Decisions
+- Asentum keeps #1 despite the messy launch — the stall + bug list is BETTER content (honest, demonstrable) than launch-day hype, and the tutorial lane is still empty
+- Laya is the one time-critical film (install lane filling hourly); Cursor/Bolt can wait behind it
+- OpenClaw: if the recorded video is still unpublished, the install lane has saturated — re-cut the intro around the Sept 21 security audit rather than publish the old framing
+
+### Next Steps
+- USER picks; recommended: refresh+film Asentum → Laya on VPS (2-3 days) → Pi reality-check → Cursor VPS → Bolt Forge before Oct 14 → SEC refresh (Oct 14-16 catalyst)
+- OmniRoute v3.8.51 tag watch (film within 24h)
+- Standing: GLM video PsVYU-MjBYU private; Pi video xlMssyv5q6U description apply; 4 built packages (MT5/9Chain/SEC/Asentum) awaiting shoot
+
+### Blockers & Open Questions
+- Asentum chain recovery after Sept 18 UNVERIFIED (no resolution note; independent status endpoint 404s) — demonstrate live status on camera, never claim "stable"
+- Grey Network reward amounts + VPS-installability officially undisclosed; Interlink node program UNVERIFIED (community videos only)
+- Laya CPU throughput on a Contabo 4-8GB tier needs a live test before scripting the benchmark claim
+
+---
+
 ## 2026-09-15 — Biweekly trend sweep (Tuesday): 4-niche bank compiled — Asentum + Pi repair lane + Cloud-in-a-Bottle are the plays
 
 > 2026-09-15 (2) — User picked 4 ideas from the bank; full packages + Shorts written (4 parallel verification agents ran first — every command/figure from primary sources). Packages: `video-content-asentum-validator.md` (VERIFIED one-liner `curl -fsSL https://testnet.asentum.com/install/validator | bash` — script requires bash though docs page says sh; 4c/4GB/40GB SSD, Pi-4 floor, chain 1418, faucet 1,000 test ASE/24h, 500-ASE bond, Season 1 Sept 17 16:00 UTC CONFIRMED; presale-closed-vs-active page contradiction scripted as an on-camera caution, token never promoted), `video-content-mt5-6180-qa.md` (6180 = still latest, AI Assistant free in MetaEditor Tools\Options\AI Assistant, Ctrl+Alt+\, security toggle chapter; ⚠️ Deriv symbol strings + Contabo Windows pricing were unreachable — verify before shoot), `video-content-9chain-legit-check.md` (walkthrough + 7-point red-flag checklist built ENTIRELY on the project's own verbatim disclaimers — "simulated node, not a validator", points "no monetary value", "does not sell, does not list", no TGE date exists, no app in either store, Nigeria NOT in geo-block list, Terms contain "[lawyer to confirm]"; wave crested Sept 3-6 so framed as evergreen trust play), `video-content-sec-nigeria-rules.md` (COMMENT DEADLINE RESOLVED: "two weeks from exposure" = TODAY Sept 15 — video is time-critical; capital ladder ₦2bn/₦3bn/₦5bn + IB ₦30m/₦150m from PDF Rule 6, leverage table incl. crypto CFD 1:2, banned referral inducements + influencer clause Rule 9/16 with self-aware /forexbroker disclosure beat). All awaiting the user's shoot.
