@@ -6,6 +6,35 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 
 ---
 
+## 2026-10-02 — Biweekly trend sweep (Friday, 10-day delta): Clef-on-VPS + Pi Oct-16 deadline + OmniRoute 3.8.51 lead the queue
+
+### Last Session
+2026-09-22 — Channel diagnosis (743 subs; 20-500 views on 23-53 min videos = duration + wrong-audience subs + zero Shorts) + trend sweep
+
+### Done
+- Standing biweekly sweep (4 parallel agents, window Sept 22 - Oct 2, delta-focused). Bank: `youtube-fixes/trending-ideas-bank-2026-10-02.md`. NEW: format rule locked into the bank header — every idea scoped as 10-12 min + Shorts (post-diagnosis constraint)
+- TIER 1: (1) CLEF (Cloudflare, Oct 1, HN 493 pts — open-weight decision models, Apache-2.0, Qwen3.8-27B finetune) on a $5 VPS + AgentRouter — VPS-specific coverage ZERO, local/GPU cuts filling hourly (film 24-48h). (2) PI v28: mainnet Oct 13 + NODE COMPLIANCE DEADLINE OCT 16; v27 flip completed mid-Sept; official blog silent; ZERO fresh node videos (evergreen node videos 44K-236K views; channel's own 37-min Pi video: 32 views). (3) OMNIROUTE v3.8.51 FINALLY TAGGED Sept 30 ("2,022 documented changes"; v3.8.52 already validating) — no release video exists; channel has its own OmniRoute VPS video to sequel. (4) MT5 BUILD 6230 shipped Sept 24 (AI can now PREP EAs for Strategy Tester, launch/remove EAs on charts, read Economic Calendar) — 6180 framing stale, 6230 videos ZERO → refresh package. (5) HERMES on a $5 Contabo VPS — 124K-view demand video Sept 25, no VPS-specific video in last 7 days. (6) DERIV BankOnlineNG (Deriv's own channel Oct 1, 8-16 views; Nigerian bank-transfer rail) — ZERO third-party coverage; strongest affiliate-conversion fit
+- TIER 2: Asentum VPS refresh (chain producing again — chainId 1423, ~324K blocks; generic tutorials appeared ceiling 3,134 views but VPS slot still empty; all 25 GitHub issues still open, maintainer claims untracked fixes); AI-site→$5 VPS (ChatGPT Sites lane 26-68K views, nobody takes output to a VPS); Bolt Forge deadline Oct 14 (lane cooling, 28/8-view in-window uploads); FTMO Nigeria; SEC second wave; $5-VPS+Deriv-EA bundle (still empty); VeryChat VPS activation; Nigerian website cost (#1 autocomplete "nigeria", no fresh video); OpenClaw Enterprise (Sept 29-30); n8n 2.42 + Gateway-credits workaround; Derived-indices myth-bust (Deriv blog Sept 24, no coverage)
+- SKIP: herdr VPS (lane FILLED — 12K/11K-view videos in 5 days; 3-sweep gap missed), Cloud in a Bottle (soft demand ~350 total + science-experiment name trap), DeepSeek Harness, GPT-6.1 Sol/Astra closed lanes, 9Chain/FLOP/Interlink (quiet), Pangolin/Apprise (YouTube mature)
+- Evidence caveats: Reddit 403 all agents again; one agent on Invidious mirror (approximate ages); several news items RSS-title-only. Lagos Finance Summit Oct 14-16 dates NOT re-verified this pass
+
+### Decisions
+- Format rule now part of every future bank: 10-12 min + Shorts until the channel averages 1K+ views (the old 23-53 min format is retired)
+- Clef = the time-critical film (24-48h); Pi Oct-16 = the deadline film; OmniRoute + MT5 = low-effort refreshes of existing assets (best effort/reward ratio of the sweep)
+- Known gap pattern confirmed: herdr went from "zero competition, 3 sweeps" to filled in 5 days — for AI-tool gaps, the window is ~2 weeks max; film fast or drop
+
+### Next Steps
+- USER picks; recommended: Clef (24-48h) → Pi Oct-16 video this weekend → OmniRoute v3.8.51 update + MT5 6230 refresh next week → Hermes + Deriv BankOnlineNG
+- Watch: OmniRoute v3.8.52, Bolt Forge deadline Oct 5-14, Pi mainnet flip Oct 13 (react same day), Contabo Black Friday (none yet), Hermes VPS lane (filling)
+- Standing: GLM video private; OpenClaw 2.0 video unpublished (Sept 10 recording); 4 built packages (MT5/9Chain/SEC/Asentum) awaiting shoot
+
+### Blockers & Open Questions
+- Asentum: maintainer says "a bunch are already fixed", tracker shows all 25 issues open — demonstrate chain/bond status live before claiming anything works
+- Clef small-variant runtime on a Contabo 4-8GB tier UNVERIFIED (test before scripting, same rule as Laya)
+- Deriv promotions page unreachable this sweep (promo status UNVERIFIED); BankOnlineNG fee/limit details need the official page before scripting
+
+---
+
 ## 2026-09-22 — Biweekly trend sweep (Tuesday, DELTA week): Asentum relaunch-window + Laya-on-VPS lead the queue
 
 ### Last Session
