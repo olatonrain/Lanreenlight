@@ -6,6 +6,35 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 
 ---
 
+## 2026-10-04 — Clef video package built (user picked from Oct 2 bank): primary-source verified, honest angle = the size split
+
+### Last Session
+2026-10-02 — Biweekly trend sweep (Clef was TIER 1 #1)
+
+### Done
+- Package: `youtube-fixes/video-content-clef-vps.md` (10-12 min + 3 Shorts, per format rule). Two verification agents ran first (one hit a concurrency limit, retried).
+- MODEL-SIZE RESOLVED (secondary sources conflicted): Clef = 27B (frozen Qwen3.8-27B + rank-256 LoRA, 54.7 GB disk), Clef-flash = 9B (Qwen3.5-9B, 18.8 GB) — both Apache-2.0, multimodal in HF cards. "38ms" = Clef-flash median 38.8 ms on Cloudflare's benchmark (hardware UNSTATED — never claim as VPS latency; Laya beats it at 5.8 ms, quote it for trust)
+- FITS A €4.40 CONTABO CLOUD VPS 4 (4 vCPU/8GB/100GB, €4.40 excl VAT/€5.50 incl first 24mo): ONLY Clef-flash Q4_K_M — ggml-org 6.49 GB or bartowski 5.84 GB. Clef 27B smallest GGUF = 19.2 GB → needs 24 GB+ tier (the honest differentiator chapter)
+- OFFICIAL COMMANDS verified: `ollama run hf.co/ggml-org/Clef-Flash-GGUF:Q4_K_M` (ggml-org card) · `llama serve -hf ggml-org/Clef-Flash-GGUF:Q4_K_M` (llama.cpp PR #29831 merged Oct 3, TEXT-ONLY) · Ollama 0.35.1+ required · hosted: `@cf/cloudflare/clef` $0.24/M input, flash $0.09/M, free tier 10,000 Neurons/day
+- Competition snapshot Oct 2-4: VPS-specific Clef videos ZERO confirmed; local lane exploding (Prism Labs 11,032 views/Oct 1, 4.32K subs; Fahd Mirza ~5.2K; Prompt Engineer 48 ~4K). Autocomplete: only "cloudflare clef → clef vs jev"
+- AgentRouter: base URL https://agentrouter.org/v1 (per Fares-Nosair/opencode-agentrouter-support README); key from console; ⚠️ env-var pattern + console URL UNVERIFIED (agentrouter.org is a JS SPA; /api/status confirms new-api gateway). n8n custom base URL = community guidance only, NOT in official docs
+- Windows add-on on Contabo exists, license fee UNVERIFIED (~€4.99 third-party claim)
+
+### Decisions
+- The honest spine IS the differentiator: lead with "27B doesn't fit, 9B does" against the week's 11K-view hype video; benchmark honesty (Laya is faster, CPU latency ≠ 38ms) as the trust beat
+- Package flagged 2 rehearsal-critical items: self-hosted request JSON shape (state + typed questions — rehearse from HF card helpers, never improvise on camera) and Ollama installer command (verify on ollama.com/download — agent didn't fetch it directly)
+
+### Next Steps
+- USER films TODAY/tomorrow (window: local lane exploding, VPS lane still zero); competition check "clef vps" on publish day
+- Then: Pi Oct-16 deadline video (from the Oct 2 bank — mainnet Oct 13, node deadline Oct 16)
+- Standing: OmniRoute v3.8.51 + MT5 6230 refreshes; Hermes VPS; Deriv BankOnlineNG
+
+### Blockers & Open Questions
+- Ollama-side request shape for decision models UNVERIFIED (Workers AI's `{state, questions}` is documented; self-hosted may differ — test live before scripting that beat)
+- GGUF path is text-only (no vision) — all multimodal claims restricted to the hosted path in the package
+
+---
+
 ## 2026-10-02 — Biweekly trend sweep (Friday, 10-day delta): Clef-on-VPS + Pi Oct-16 deadline + OmniRoute 3.8.51 lead the queue
 
 ### Last Session
