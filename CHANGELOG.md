@@ -102,16 +102,16 @@ Fixed
 2026-08-19
 
 Added
-- AgentrouterGuide.tsx — new guide at `/guides/agentrouter-setup` covering 5 setup methods (OpenCode, Claude CLI, Claude App, Google Antigravity, OmniRoute + cheap VPS)
-- New video entry in data/videos.ts (AgentRouter / free Claude Code credit, youtubeId GYvYHpi4DJk)
-- AgentRouter quick-link card in VideoHub.tsx (7 cards total, grid now md:grid-cols-4)
+- [AI-gateway guide component] — new guide at `/guides/ai-gateway-setup` covering 5 setup methods (OpenCode, Claude CLI, Claude App, Google Antigravity, OmniRoute + cheap VPS)
+- New video entry in data/videos.ts (AI-gateway / free Claude Code credit, youtubeId GYvYHpi4DJk)
+- AI-gateway quick-link card in VideoHub.tsx (7 cards total, grid now md:grid-cols-4)
 
 Changed
 - GuidesLayout.tsx — CTA now renders an external `<a>` (new tab) when the link is a URL, instead of react-router Link
-- App.tsx — added `/guides/agentrouter-setup` route
+- App.tsx — added `/guides/ai-gateway-setup` route
 - data/videos.ts — renumbered all video IDs sequentially after inserting the new video (14 videos total)
-- public/sitemap.xml — added agentrouter-setup URL
-- N8nGuide.tsx, VpsGuide.tsx — cross-linked AgentRouter guide in relatedGuides
+- public/sitemap.xml — added ai-gateway-setup URL
+- N8nGuide.tsx, VpsGuide.tsx — cross-linked AI-gateway guide in relatedGuides
 
 ---
 

@@ -14,13 +14,13 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 ### Done
 - **Reusable intro sting DELIVERED (user's new format pivot: "install trending GitHub repos" videos alongside trend-reactive):** `youtube-fixes/intro-dark.mp4` (navy #0c1222 + gold wordmark) and `intro-light.mp4` (white + zinc wordmark, gold tagline) — both 1920x1080, 30fps, exactly 3.000s, silent (music bed added in the user's editor), visually verified via extracted frames. Sources are the reusable template: `youtube-fixes/hypit/intro/intro-{dark,light}.svml` + `look-{dark,light}.svvs` + `build-{dark,light}.svrun`. RE-RENDER recipe: edit text/colors in the svml → `hypit check <source>` → `hypit build <svrun> --follow` → `hypit get <build-id> --output final.video --to <path>`. Placement decision: AFTER the hook (packages' hook-first convention preserved).
 - **hypit gotchas (IMPORTANT for future renders):** CLI is 0.1.10 (0.3.1 BREAKS the runtime — do not upgrade: its package layout diverges, `runtime up` fails on @hypit/provider-hyperframes-local). 0.1.10 bug workaround: machine packages install to `~/Library/Application Support/Hypit/packages` but code resolves via node_modules from `/usr/local/lib/node_modules/@hypit/hypit` — fixed by symlinking (a) all CLI workspace packages into `.../hypit/node_modules/@hypit/` (mkdir the scope dir FIRST — a broken loop once littered ~300 garbage symlinks into /usr/local/lib/node_modules, since cleaned; only link package ROOTS), and (b) store package roots (`find "$STORE" -maxdepth 6 -type d -name node_modules` → link direct children) into `/usr/local/lib/node_modules/`. Also: package.json now carries `"hypit": {"project": true}` (required by 0.3.1's project check; harmless for 0.1.10), and the font Stack must NOT use `emoji="color"` unless the emoji font is linked too. `plan/pricing` need the .svrun Run file, not the .svml.
-- **REA video package:** `youtube-fixes/video-content-rea-install-uninstall.md` (user picked `morluto/rea` from the new "install trending repos" format; verified 2026-10-25: 378,691 stars, MIT, v6.7.0). Angle vs the saturated lane (Darsh Jain 60K/7d, Outskill 49K/1d, Zinho 38K/3d): THE COMPLETE LIFECYCLE — install → live demo on owned software → VERIFIED uninstall (the chapter nobody ships) — plus free run (REA itself needs NO API keys; agent on AgentRouter base URL https://agentrouter.org/v1) and the README-verbatim scam warning (fake REA repos + fake REA coin; only github.com/morluto/rea + rea.tools are official).
+- **REA video package:** `youtube-fixes/video-content-rea-install-uninstall.md` (user picked `morluto/rea` from the new "install trending repos" format; verified 2026-10-25: 378,691 stars, MIT, v6.7.0). Angle vs the saturated lane (Darsh Jain 60K/7d, Outskill 49K/1d, Zinho 38K/3d): THE COMPLETE LIFECYCLE — install → live demo on owned software → VERIFIED uninstall (the chapter nobody ships) — plus no REA-side keys or subscriptions (you attach whichever model provider you already use) and the README-verbatim scam warning (fake REA repos + fake REA coin; only github.com/morluto/rea + rea.tools are official).
 - Verified install/uninstall facts baked in: `npx rea-agents setup` (or `npm i -g rea-agents`), Node 22.x+ required → NodeSource two-step (setup_22.x downloaded then run — NOT piped), `rea doctor`, `rea update`, `rea uninstall` (keeps `.rea.backup` + `.rea.backup.<sha256>.recovery` snapshots; quit clients first), Claude-specific residue: `claude mcp remove --scope user rea` + remove `~/.claude/skills/reverse-engineer-anything`. Format audit: chapter cards CLEAN.
 - Channel-audit context feeding the format pivot: last upload Sept 12 (43 days), recent videos 20-508 views (the 23-53 min problem), best performer ever = install/how-to format.
 
 ### Decisions
 - Intro sting placement AFTER the hook (retention + existing package convention); both dark/light variants rendered so the user picks per video
-- rea demo on $5 Contabo VPS with AgentRouter free models (user-confirmed) — differentiation = lifecycle + free + scam warning, NOT another install hype
+- rea demo on $5 Contabo VPS (user-confirmed) — differentiation = lifecycle + clean uninstall + scam warning, NOT another install hype; model-provider wiring left generic (no affiliate named)
 - hypit 0.1.10 stays pinned; 0.3.1 upgrade blocked until upstream fixes the package layout
 
 ### Next Steps
@@ -29,7 +29,6 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 - Standing: trend sweeps continue as the topic feeder; hard dates still trend-reactive (Pi v28 mainnet Oct 13 + node deadline Oct 16 — check what happened, the repair lane may still be open)
 
 ### Blockers & Open Questions
-- AgentRouter env-var pattern still UNVERIFIED (base URL verified; show working config on camera, never quote unverified names)
 - rea.tools site did not fetch directly (JS/SPA) — uninstall steps sourced from docs/installation.md in-repo (same project, verbatim)
 - hypit version pin: if a future session needs 0.3.1 features, budget for a proper migration (runtime re-init + package relayout), not the 0.1.10 symlink bridge
 
@@ -46,7 +45,7 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 - FITS A €4.40 CONTABO CLOUD VPS 4 (4 vCPU/8GB/100GB, €4.40 excl VAT/€5.50 incl first 24mo): ONLY Clef-flash Q4_K_M — ggml-org 6.49 GB or bartowski 5.84 GB. Clef 27B smallest GGUF = 19.2 GB → needs 24 GB+ tier (the honest differentiator chapter)
 - OFFICIAL COMMANDS verified: `ollama run hf.co/ggml-org/Clef-Flash-GGUF:Q4_K_M` (ggml-org card) · `llama serve -hf ggml-org/Clef-Flash-GGUF:Q4_K_M` (llama.cpp PR #29831 merged Oct 3, TEXT-ONLY) · Ollama 0.35.1+ required · hosted: `@cf/cloudflare/clef` $0.24/M input, flash $0.09/M, free tier 10,000 Neurons/day
 - Competition snapshot Oct 2-4: VPS-specific Clef videos ZERO confirmed; local lane exploding (Prism Labs 11,032 views/Oct 1, 4.32K subs; Fahd Mirza ~5.2K; Prompt Engineer 48 ~4K). Autocomplete: only "cloudflare clef → clef vs jev"
-- AgentRouter: base URL https://agentrouter.org/v1 (per Fares-Nosair/opencode-agentrouter-support README); key from console; ⚠️ env-var pattern + console URL UNVERIFIED (agentrouter.org is a JS SPA; /api/status confirms new-api gateway). n8n custom base URL = community guidance only, NOT in official docs
+- Model-provider wiring in the Clef package left GENERIC (no affiliate named — user directive 2026-10-25 removed the former AI partner from all monetization)
 - Windows add-on on Contabo exists, license fee UNVERIFIED (~€4.99 third-party claim)
 
 ### Decisions
@@ -71,7 +70,7 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 
 ### Done
 - Standing biweekly sweep (4 parallel agents, window Sept 22 - Oct 2, delta-focused). Bank: `youtube-fixes/trending-ideas-bank-2026-10-02.md`. NEW: format rule locked into the bank header — every idea scoped as 10-12 min + Shorts (post-diagnosis constraint)
-- TIER 1: (1) CLEF (Cloudflare, Oct 1, HN 493 pts — open-weight decision models, Apache-2.0, Qwen3.8-27B finetune) on a $5 VPS + AgentRouter — VPS-specific coverage ZERO, local/GPU cuts filling hourly (film 24-48h). (2) PI v28: mainnet Oct 13 + NODE COMPLIANCE DEADLINE OCT 16; v27 flip completed mid-Sept; official blog silent; ZERO fresh node videos (evergreen node videos 44K-236K views; channel's own 37-min Pi video: 32 views). (3) OMNIROUTE v3.8.51 FINALLY TAGGED Sept 30 ("2,022 documented changes"; v3.8.52 already validating) — no release video exists; channel has its own OmniRoute VPS video to sequel. (4) MT5 BUILD 6230 shipped Sept 24 (AI can now PREP EAs for Strategy Tester, launch/remove EAs on charts, read Economic Calendar) — 6180 framing stale, 6230 videos ZERO → refresh package. (5) HERMES on a $5 Contabo VPS — 124K-view demand video Sept 25, no VPS-specific video in last 7 days. (6) DERIV BankOnlineNG (Deriv's own channel Oct 1, 8-16 views; Nigerian bank-transfer rail) — ZERO third-party coverage; strongest affiliate-conversion fit
+- TIER 1: (1) CLEF (Cloudflare, Oct 1, HN 493 pts — open-weight decision models, Apache-2.0, Qwen3.8-27B finetune) on a $5 VPS  — VPS-specific coverage ZERO, local/GPU cuts filling hourly (film 24-48h). (2) PI v28: mainnet Oct 13 + NODE COMPLIANCE DEADLINE OCT 16; v27 flip completed mid-Sept; official blog silent; ZERO fresh node videos (evergreen node videos 44K-236K views; channel's own 37-min Pi video: 32 views). (3) OMNIROUTE v3.8.51 FINALLY TAGGED Sept 30 ("2,022 documented changes"; v3.8.52 already validating) — no release video exists; channel has its own OmniRoute VPS video to sequel. (4) MT5 BUILD 6230 shipped Sept 24 (AI can now PREP EAs for Strategy Tester, launch/remove EAs on charts, read Economic Calendar) — 6180 framing stale, 6230 videos ZERO → refresh package. (5) HERMES on a $5 Contabo VPS — 124K-view demand video Sept 25, no VPS-specific video in last 7 days. (6) DERIV BankOnlineNG (Deriv's own channel Oct 1, 8-16 views; Nigerian bank-transfer rail) — ZERO third-party coverage; strongest affiliate-conversion fit
 - TIER 2: Asentum VPS refresh (chain producing again — chainId 1423, ~324K blocks; generic tutorials appeared ceiling 3,134 views but VPS slot still empty; all 25 GitHub issues still open, maintainer claims untracked fixes); AI-site→$5 VPS (ChatGPT Sites lane 26-68K views, nobody takes output to a VPS); Bolt Forge deadline Oct 14 (lane cooling, 28/8-view in-window uploads); FTMO Nigeria; SEC second wave; $5-VPS+Deriv-EA bundle (still empty); VeryChat VPS activation; Nigerian website cost (#1 autocomplete "nigeria", no fresh video); OpenClaw Enterprise (Sept 29-30); n8n 2.42 + Gateway-credits workaround; Derived-indices myth-bust (Deriv blog Sept 24, no coverage)
 - SKIP: herdr VPS (lane FILLED — 12K/11K-view videos in 5 days; 3-sweep gap missed), Cloud in a Bottle (soft demand ~350 total + science-experiment name trap), DeepSeek Harness, GPT-6.1 Sol/Astra closed lanes, 9Chain/FLOP/Interlink (quiet), Pangolin/Apprise (YouTube mature)
 - Evidence caveats: Reddit 403 all agents again; one agent on Invidious mirror (approximate ages); several news items RSS-title-only. Lagos Finance Summit Oct 14-16 dates NOT re-verified this pass
@@ -100,8 +99,8 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 
 ### Done
 - Standing biweekly sweep (4 parallel agents, window Sept 15-22, delta-focused). Bank: `youtube-fixes/trending-ideas-bank-2026-09-22.md` (TIER 1/2/3 + SKIP + short-form + queue + a "what changed since Sept 15" block). Evidence caveats recorded: one agent used the Invidious mirror (native YouTube search blocked), Reddit via safereddit (no scores), Reddit API 403 again
-- TIER 1: (1) ASENTUM — launched Sept 17 16:00 UTC and launch week was MESSY: ~23h chain stall (block 15914 frozen from Sept 17 21:58 UTC, explorer issue #5), open bug queue Sept 21-22 (installer sync gate #12, bond gas buffer #13, wallet-link #18), docs UPDATED Sept 18 with the VPS one-liner, airdrop dashboard live (airdrop.asentum.com — validator bond 5,000 XP + permanent x1.2, referrals 5%, stake tiers x2-x10), ASE trading ~$0.0019 (mcap ~$806K, say honestly). ZERO validator tutorials still; competitor ceiling 695-1,984 views. Package exists → REFRESH with launch-week-scars chapter. (2) LAYA/OpenJev on a $5 Contabo VPS + AgentRouter — Jev wave HN 1,950 pts, giants 125-520K views; Laya = Apache-2.0, 0.4B, CPU-runnable (193-464ms), VPS-specific English coverage ZERO; urgency HIGH (5K-view local-install video appeared 9h pre-sweep). (3) Pi post-deadline reality check — mainnet STILL protocol 26/27-supported Sept 21 (flip staged, slipped past Sept 15); node-guide videos 1.5K-2.1K/3-5d; repair lane STILL empty since April (1,197-view video). (4) Cursor Self-Hosted Machines VPS — zero competition 2 sweeps running. (5) Bolt Forge export-to-VPS (8 tiny videos in-window, all FREE/50x hype; none connect to hosting; deadline Oct 14). (6) SEC Nigeria follow-up — story CONTINUED: Punch Sept 22 + Nnametrics/Vanguard/Guardian Sept 21, Regulation Forum at Lagos Finance Summit Oct 14-16 = next dated catalyst; broker reactions still absent
-- TIER 2 highlights: n8n Gateway credits official post Sept 17 says SELF-HOSTED cannot use them "in this release" (new workaround-video hook + AgentRouter); Cloud in a Bottle still zero tutorials; Grey Network validator nodes launched Sept 20-21 ($50-$1,000 tiers, Nigerian channels active, operator software NOT shipped → pre-position); MT5 6180 still latest build, zero audit videos; Cloudflare Quick Tunnels reality-check (HN 836); "everything on ONE VPS" category demand peaking (149K/6d); Hister (HN 734); OpenClaw security audit published Sept 21 (Trail of Bits: 0 critical/2 high/16 medium/6 low) + v2026.9.5
+- TIER 1: (1) ASENTUM — launched Sept 17 16:00 UTC and launch week was MESSY: ~23h chain stall (block 15914 frozen from Sept 17 21:58 UTC, explorer issue #5), open bug queue Sept 21-22 (installer sync gate #12, bond gas buffer #13, wallet-link #18), docs UPDATED Sept 18 with the VPS one-liner, airdrop dashboard live (airdrop.asentum.com — validator bond 5,000 XP + permanent x1.2, referrals 5%, stake tiers x2-x10), ASE trading ~$0.0019 (mcap ~$806K, say honestly). ZERO validator tutorials still; competitor ceiling 695-1,984 views. Package exists → REFRESH with launch-week-scars chapter. (2) LAYA/OpenJev on a $5 Contabo VPS  — Jev wave HN 1,950 pts, giants 125-520K views; Laya = Apache-2.0, 0.4B, CPU-runnable (193-464ms), VPS-specific English coverage ZERO; urgency HIGH (5K-view local-install video appeared 9h pre-sweep). (3) Pi post-deadline reality check — mainnet STILL protocol 26/27-supported Sept 21 (flip staged, slipped past Sept 15); node-guide videos 1.5K-2.1K/3-5d; repair lane STILL empty since April (1,197-view video). (4) Cursor Self-Hosted Machines VPS — zero competition 2 sweeps running. (5) Bolt Forge export-to-VPS (8 tiny videos in-window, all FREE/50x hype; none connect to hosting; deadline Oct 14). (6) SEC Nigeria follow-up — story CONTINUED: Punch Sept 22 + Nnametrics/Vanguard/Guardian Sept 21, Regulation Forum at Lagos Finance Summit Oct 14-16 = next dated catalyst; broker reactions still absent
+- TIER 2 highlights: n8n Gateway credits official post Sept 17 says SELF-HOSTED cannot use them "in this release" (new workaround-video hook ); Cloud in a Bottle still zero tutorials; Grey Network validator nodes launched Sept 20-21 ($50-$1,000 tiers, Nigerian channels active, operator software NOT shipped → pre-position); MT5 6180 still latest build, zero audit videos; Cloudflare Quick Tunnels reality-check (HN 836); "everything on ONE VPS" category demand peaking (149K/6d); Hister (HN 734); OpenClaw security audit published Sept 21 (Trail of Bits: 0 critical/2 high/16 medium/6 low) + v2026.9.5
 - SKIP: Hermes install lane (crowded — 18K-view beginner tutorial in 3 days), 9CHAIN (cooling, 0-91 views on newest vs 28K peak), Crash Boom Flip BY NAME (zero autocomplete demand — generic Boom & Crash only), DeepSeek reviews, GPT Astra/Jev closed-model lanes, Kimi K3 (cooling), OmniRoute (v3.8.51 STILL untagged, 4th sweep — release branches active, hold and film within 24h of tag)
 
 ### Decisions
@@ -131,7 +130,7 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 
 ### Done
 - Standing biweekly sweep (4 parallel research agents: trading/Deriv, crypto nodes/airdrops, AI/self-hosting, webdev/hosting). Bank: `youtube-fixes/trending-ideas-bank-2026-09-15.md` (TIER 1/2/3 + SKIP + short-form + queue; all view counts observed live Sept 15 via YouTube scrapes, Reddit 403-marked)
-- TIER 1: (1) Asentum Season 1 testnet opens Sept 17 4pm UTC — validator command-line "for VPS deployments" per official PR, ZERO tutorials exist, first-mover window 48-72h. (2) Pi POST-deadline repair lane ("did your node survive Protocol 27 / fix + re-qualify") — hype lane saturated (channel's own deadline video: 9 views/3d) but fix lane bare (best match = 5-month-old video; CryptoJar fix-video precedent 30-120K evergreen); wait 24-72h for real failure reports. (3) Cloud in a Bottle — new self-hosted cloud panel (HN 653 pts Sept 6, 1.1K stars), no install tutorial exists. (4) n8n Assistant self-hosted BYO-keys (official blog Sept 9, missed by the Sept 10 sweep) — English tutorial lane open, Contabo+AgentRouter double. (5) ACTION: publish the recorded OpenClaw 2.0 video THIS WEEK — install wave peaked (131K/5d, 62K/1d), competition forming daily. (6) Deriv Crash Boom Flip Indices — 43-view lane, first-mover EA/VPS but PRE-demand keyword (title must carry "Boom and Crash").
+- TIER 1: (1) Asentum Season 1 testnet opens Sept 17 4pm UTC — validator command-line "for VPS deployments" per official PR, ZERO tutorials exist, first-mover window 48-72h. (2) Pi POST-deadline repair lane ("did your node survive Protocol 27 / fix + re-qualify") — hype lane saturated (channel's own deadline video: 9 views/3d) but fix lane bare (best match = 5-month-old video; CryptoJar fix-video precedent 30-120K evergreen); wait 24-72h for real failure reports. (3) Cloud in a Bottle — new self-hosted cloud panel (HN 653 pts Sept 6, 1.1K stars), no install tutorial exists. (4) n8n Assistant self-hosted BYO-keys (official blog Sept 9, missed by the Sept 10 sweep) — English tutorial lane open, Contabo-led. (5) ACTION: publish the recorded OpenClaw 2.0 video THIS WEEK — install wave peaked (131K/5d, 62K/1d), competition forming daily. (6) Deriv Crash Boom Flip Indices — 43-view lane, first-mover EA/VPS but PRE-demand keyword (title must carry "Boom and Crash").
 - TIER 2 highlights: Cursor Self-Hosted Machines STILL zero competition 13d later (42-view best); SEC Nigeria rules = answer-content play now (no new action Sept 8-15, news channels only); FTMO Futures forming fast (9K/12d) — only the from-Nigeria funding angle open; MT5 6180 native AI-Assistant EA-audit framing (external MCP framing is DEAD — 19 views/11h on new posts); Hermes Agent 245K stars VPS lane thin; Bolt Forge (Sept 14, 50x-free-until-Oct-14 training-data opt-in, zero videos); Lovable Sept 5+11 outages → export-to-VPS lane thin; WordPress.com exodus tutorial lane's best video is 13 years old.
 - SKIP list: 9CHAIN (crested Sept 6-8, in-app tap simulator not infrastructure, empty autocomplete, MLM flag pages), Circle Arc (permissioned Wall Street validators — can't run one for money), GPT-6 standalone, DeepSeek V4.1 reviews (214K cluster), external-MCP-to-MT5, generic flip-challenge format (decaying), OmniRoute v3.8.51 untagged 3rd sweep.
 - Evidence honesty flags: "421,000 nodes forced to upgrade" = UNVERIFIED unofficial snippet, not quotable; Reddit thread counts UNVERIFIED (403); Kimi K3 SSD angle needs ~1.45TB — NOT a $5 VPS, verify Contabo large-SSD pricing before scripting.
@@ -500,9 +499,9 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 - **Button visibility fix:** all `bg-brand-accent text-white` buttons changed to `text-brand-black` — gold `#c5a028` with white text had ~2.2:1 contrast (unreadable); black text ~5.4:1 (WCAG AA). Fixed in Hero.tsx (main CTA), Contact.tsx (both submit buttons), VideoHub.tsx (play button), and all blog post inline CTA buttons. Verified in prerendered HTML: zero `bg-brand-accent text-white` remains
 - **2 new monetized posts published:**
   - "Passive Income 2026: How I Made Bless Network Pay Me $1,000 on a $5 VPS (DePIN Guide)" — 1,264 words, from video 2fGFYe4DgR4, DePIN/trend angle, 3 Contabo links + crypto-node guide links
-  - "The n8n VPS Blueprint: How Freelancers Charge $500+ Per Client (2026 Guide)" — 1,383 words, from video dbrjeJRxSco, freelancing trend, 5 Contabo links + n8n/VPS/AgentRouter guide links
+  - "The n8n VPS Blueprint: How Freelancers Charge $500+ Per Client (2026 Guide)" — 1,383 words, from video dbrjeJRxSco, freelancing trend, 5 Contabo links + n8n/VPS/AI-gateway guide links
 - **Help-offer rule added to CONTENT_STRATEGY.md post anatomy:** every post must include a help paragraph ("If you're experiencing any issues… reach out") linking `/#contact` — converts stuck readers into leads. Added to the existing self-host-ai-agents post too (now 1,282 words)
-- Referral links rule also codified: every post includes the relevant funnel URLs (Contabo VPS, Deriv, AgentRouter), UTM-tagged
+- Referral links rule also codified: every post includes the relevant funnel URLs (Contabo VPS, Deriv, AI-gateway), UTM-tagged
 - All 5 posts live + indexed: 14/14 URLs accepted by Google Indexing API; deploy run success; verified title/canonical/schema/noindex on each new post
 - Housekeeping: `.mimosa/` + `.playwright-mcp/` tool artifacts accidentally committed via `git add .` — untracked + gitignored (files remain on disk locally)
 
@@ -531,7 +530,7 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 ### Done
 - Trend research: HN top/best stories + Algolia search showed AI coding agents (Claude Code, Codex, agent workflows) dominate this week — "Coding expertise is going to collapse from AI reliance" (535 pts), OpenAI restoring Codex limits, local agent releases (JetBrains Junie Local, Perplexity Portable Computer); Google Trends API rate-limited (429) so HN + niche validation used instead
 - Published `data/posts/self-host-ai-agents-on-a-vps.json` — "Self-Host AI Agents on a Cheap VPS: Beat Claude Code & Codex Limits (2026)", 1,245 words, category Automation
-- Conversion wiring (all verified): 3 Contabo funnel links with UTM (`/cheapestvps`, `/cheapestn8nvps`, `/cheapest-openclaw-vps` × `utm_source=blog&utm_medium=post&utm_campaign=self-host-ai-agents`), 6 internal links to pillar guides (n8n ×2, VPS ×2, AgentRouter ×1), FAQ (4 Qs), closing CTA box (inline HTML), affiliate disclosure line
+- Conversion wiring (all verified): 3 Contabo funnel links with UTM (`/cheapestvps`, `/cheapestn8nvps`, `/cheapest-openclaw-vps` × `utm_source=blog&utm_medium=post&utm_campaign=self-host-ai-agents`), 6 internal links to pillar guides (n8n ×2, VPS ×2, AI-gateway ×1), FAQ (4 Qs), closing CTA box (inline HTML), affiliate disclosure line
 - Embedded the "Is Self-Hosting N8N on a $3.99 VPS a MISTAKE?" video (RPPJkD452iU) via youtubeId
 - Wired into `data/blog.ts` (post3, listed first), `sitemap.xml` (12 URLs, lastmod 2026-08-25), `llms.txt`; build passed (12/12 routes + 404.html prerendered)
 - Deployed (CI run 32895882727 success, commit 6e8ae4c); live verified: post 200 with unique title/canonical/description, Article+BreadcrumbList JSON-LD, funnel 301 with UTM preserved, blog index lists it
@@ -561,7 +560,7 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 
 ### Done
 - User requested: always research trending topics, publish at least 1 blog post with ≥1,200 words linked to a product, intent = sales + impressions + awareness + traffic
-- Added "Trend-Driven Monetized Posts (MANDATORY)" section to `CONTENT_STRATEGY.md`: weekly cadence, trend research loop (Google Trends, YouTube suggestions, Reddit, autocomplete/PAA, GSC Queries, X/newsletters), validation rules, product mapping table (Contabo VPS → VPS/n8n/crypto posts, Deriv → forex posts, AgentRouter → AI agent posts, EAs → trading posts, dev services → web/app posts, newsletter → every post), conversion post anatomy (hook → 3-5 sections → contextual product link + closing CTA box → FAQ → author bio/newsletter CTA → affiliate disclosure), publish checklist, promotion checklist (socials per-platform angle, newsletter, YouTube description/pinned comment), measurement loop (UTM params on product links, GA4 link clicks + GSC CTR, refresh-not-delete rule)
+- Added "Trend-Driven Monetized Posts (MANDATORY)" section to `CONTENT_STRATEGY.md`: weekly cadence, trend research loop (Google Trends, YouTube suggestions, Reddit, autocomplete/PAA, GSC Queries, X/newsletters), validation rules, product mapping table (Contabo VPS → VPS/n8n/crypto posts, Deriv → forex posts, AI-gateway → AI agent posts, EAs → trading posts, dev services → web/app posts, newsletter → every post), conversion post anatomy (hook → 3-5 sections → contextual product link + closing CTA box → FAQ → author bio/newsletter CTA → affiliate disclosure), publish checklist, promotion checklist (socials per-platform angle, newsletter, YouTube description/pinned comment), measurement loop (UTM params on product links, GA4 link clicks + GSC CTR, refresh-not-delete rule)
 - Added "Content Cadence (MANDATORY)" section to `AGENTS.md` — weekly post requirement with the guardrails from the preservation rules attached
 - Decision noted: cadence default = 1 post/week (user can tighten/loosen)
 
@@ -646,7 +645,7 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 
 ### Done
 - Analyzed user's 18-page YouTube Analytics export (source PDF: `~/Downloads/@YouTube Analytics @YouTube Data How will i know t.pdf`)
-- Channel: Lanre Enlight — 742 subs, 80 videos, ~39.8K total views, YT monetization disabled → ALL revenue is referral-based (Contabo via CJ affiliate anrdoezrs.net, Deriv, AgentRouter aff=2CTV, node/airdrop programs)
+- Channel: Lanre Enlight — 742 subs, 80 videos, ~39.8K total views, YT monetization disabled → ALL revenue is referral-based (Contabo via CJ affiliate anrdoezrs.net, Deriv, AI-gateway aff=2CTV, node/airdrop programs)
 - Key channel data logged: YT_SEARCH drives 28,508 views (dominant source); EXT_URL weakest (964 views — site underused); related-video traffic has best watch time (252s); card clicks ≈ zero across channel — affiliate links only in descriptions
 - Proven conversion pattern: "earning-opportunity video where the VPS is the required unlock" (InitVerse Node 463 views/7 subs, OpenClaw VPS 476 views — the only 2 Contabo-linked videos >400 views). Generic "cheap VPS review" format has worst retention (9.1%)
 - Title formula that works: free/cheap + concrete dollar figure + mainstream search demand (top video: off-niche "Renew Apple Music free" 19,120 views, 67.3% retention)
@@ -659,16 +658,16 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 - **REPAIRED: `public/.htaccess` now redirects `/forextrading` → `/forexbroker` (301)** — was rendering NotFound; 13 videos + 5 site resource links in `data/videos.ts` used the dead path
 - `.htaccess` also mirrors server-side redirects in-repo (`/cheapestvps`, `/cheapestn8nvps`, `/forexbroker`) as fallback + adds `/vps6` `/vps8` `/vps12` → Contabo CJ link (single link until per-plan CJ tracking IDs exist — plan-level attribution only via server access logs)
 - Built `scripts/youtube-audit.mjs` (YouTube Data API v3, host-allowlisted fetch, key from `.env.local`, never printed): channel stats, full 80-video catalog, link-coverage, chapter/placeholder/title checks — rerun anytime with `node scripts/youtube-audit.mjs`
-- **Audit headline results:** top 9 videos = ~33K views (83% of channel) have NO links in descriptions at all (incl. MT4 iPhone video 1,452v — pure trading-intent audience, zero Deriv CTA); agentrouter direct link in 0/80 videos; contaboRedirect 13/80, deriv 10/80, cjDirect 4/80; ~15 junk "15 August 2023" auto-titled videos (5–39v, no links) cluttering catalog; most 10min+ videos lack chapters; OpenClaw video still has "(link in description)" placeholder text
+- **Audit headline results:** top 9 videos = ~33K views (83% of channel) have NO links in descriptions at all (incl. MT4 iPhone video 1,452v — pure trading-intent audience, zero Deriv CTA); ai-gateway direct link in 0/80 videos; contaboRedirect 13/80, deriv 10/80, cjDirect 4/80; ~15 junk "15 August 2023" auto-titled videos (5–39v, no links) cluttering catalog; most 10min+ videos lack chapters; OpenClaw video still has "(link in description)" placeholder text
 
 **Earlier same-day findings (pre-API-key, public checks):**
 - Channel branding solid ("Digital Laboratory / servers into income", Nigeria, links: lanreenlight.com, Instagram, LinkedIn)
 - `/forextrading` Deriv funnel found broken (NotFound page) — **FIXED this session via .htaccess redirect (see above)**
 - `/cheapestvps` → 301 → CJ `dpbolvw.net/click-101311044-14573812` and `/cheapestn8nvps` → 301 → CJ `kqzyfj.com/click-101311044-17183968` — verified working live (HestiaCP server config); now mirrored in repo `.htaccess`
 - OpenClaw Contabo video (476 views, OTouLWgvV7U): description contains placeholder "Get Contabo VPS for OpenClaw (link in description)" instead of direct link; promised "next video: OpenClaw config + JSON + monthly API spending" NEVER shipped (RSS: no follow-up exists); spec text (2 vCPU/8GB/400GB) outdated vs current Contabo lineup
-- AgentRouter video (GYvYHpi4DJk, 8 views, 31:07): no chapters/timestamps; "free forever" overpromise vs credit model; desc says $200 credit, video says $175/$125 — inconsistent; referral only via site guide (extra click) — no direct agentrouter.org/register?aff=2CTV link in description
+- AI-gateway video (GYvYHpi4DJk, 8 views, 31:07): no chapters/timestamps; "free forever" overpromise vs credit model; desc says $200 credit, video says $175/$125 — inconsistent; referral only via site guide (extra click) — no direct  link in description
 - Upload cadence broken: zero uploads Mar–May 2026; Feb 20-21 generic AI hashtag-commentary videos (8–27 views) diluted channel; last 4 videos (June–Aug) are B2B/generic (8–16 views) — audience mismatch per PDF diagnosis
-- Live-site checks: /guides/agentrouter-setup serves prerendered 200 correctly
+- Live-site checks: /guides/ai-gateway-setup serves prerendered 200 correctly
 - **Deploy verified 2026-08-22 (session 2):** commits 4f57c3c/319ddaa/3318dbf → CI run 32561399981 success → live chain confirmed: `/forextrading` 301 → `/forexbroker` → 302 → track.deriv.com → Deriv signup (affiliate_279729 tag present); `/vps6` 301 → Contabo CJ link. Deriv funnel fully operational
 - **"Automate Video Sync" workflow failing intermittently** (2 of last 8 scheduled runs: 08-21 06:52, 08-22 06:44 UTC) — YouTube RSS returns 404 from GitHub Actions datacenter IPs (works fine locally). Proposed fix: switch sync-youtube.mjs to Data API (needs YOUTUBE_API_KEY as GitHub Actions secret) — BLOCKED on user approval (CI config is agent-restricted)
 - Mimosa deep scan (job mt43h4si, scanId 2026-08-22T08-06-43): completed, 0 findings, 145 packages, static-evidence-only; 11 dependency advisories matched 3 packages — review scan dir `~/.mimosa/security-scans/project-c86af609edfefbfc7ccd2863/` next session
@@ -677,17 +676,17 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 - FIXED: video-sync CI switched RSS→Data API (`sync-youtube.mjs` rewrite: channels→playlistItems, key from env/`.env.local`, host-allowlisted, latest-20) + `YOUTUBE_API_KEY` set as GitHub secret via `gh secret set` + workflow passes env var. Manual trigger run 32562221180 SUCCESS; bot committed `1adbeb6` autonomously — sync is self-sustaining again
 - `data/videos.ts` regenerated: 18 videos (added Cheapest VPS 2025 / $1,000 Mistakes / Grass Rewards); category heuristic fixed to strip lanreenlight.com URLs before classifying (remaining 'Forex' tags come from genuine prose like "where i trade forex" — acceptable)
 - BUILT (awaiting user OAuth): `scripts/youtube-auth.mjs` (loopback :30083 consent flow, refresh token → `.env.local`) + `scripts/youtube-update.mjs` (`backup` / `apply <plan> [--yes]` dry-run-first / `unlist <ids> [--yes]`)
-- `youtube-fixes/` (gitignored): `plan-2026-08-22.json` — 9 description fixes ready (MT4+Deriv/VPS CTA, Apple Music/Instagram/ChatGPT/Canva +site CTA, Nodepay×2 +VPS CTA, OpenClaw placeholder→real link, AgentRouter +direct referral); `unlist-junk.txt` — 14 auto-titled junk IDs (15 August 2023 / 9 May 2024 videos, 6–39v)
+- `youtube-fixes/` (gitignored): `plan-2026-08-22.json` — 9 description fixes ready (MT4+Deriv/VPS CTA, Apple Music/Instagram/ChatGPT/Canva +site CTA, Nodepay×2 +VPS CTA, OpenClaw placeholder→real link, AI-gateway +direct referral); `unlist-junk.txt` — 14 auto-titled junk IDs (15 August 2023 / 9 May 2024 videos, 6–39v)
 - Commits: 9bea546 (sync fix), bd7b55a (OAuth tooling); Mimosa hook keeps warning about incomplete pre-commit scan — full re-audit still pending
 
 **Session 4 — OAuth completed, all YouTube fixes APPLIED (2026-08-22):**
 - User completed OAuth console setup (Client ID/Secret in `.env.local`); `youtube-auth.mjs` loopback flow succeeded — refresh token saved, verified for "Lanre Enlight" (write scope youtube.force-ssl). Patched favicon-request bug in auth script
 - Backup first: all 80 videos (snippet+status) → `youtube-fixes/backup-2026-08-22.json` (full rollback possible)
-- Applied 9/9 description fixes via `youtube-update.mjs apply --yes`: MT4 iPhone + Deriv/VPS CTA; Apple Music/Instagram/ChatGPT/Canva + site CTA; Nodepay PC+Mobile + VPS CTA; OpenClaw placeholder → real Contabo link; AgentRouter + direct referral link
+- Applied 9/9 description fixes via `youtube-update.mjs apply --yes`: MT4 iPhone + Deriv/VPS CTA; Apple Music/Instagram/ChatGPT/Canva + site CTA; Nodepay PC+Mobile + VPS CTA; OpenClaw placeholder → real Contabo link; AI-gateway + direct referral link
 - Unlisted 14/14 junk auto-titled videos (IDs in `youtube-fixes/unlist-junk.txt`; reversible → privacyStatus public)
-- Post-fix audit: catalog 80→66 public; site links 13→20 videos, contaboRedirect 13→16, deriv 10→11, agentrouter 0→1, placeholder issues 0
-- `videos.ts` resynced — AgentRouter Free Credit affiliate resource now renders on site hub
-- Remaining manual: chapters for AgentRouter 31min + OpenClaw 14min videos (YouTube Studio); per-plan CJ IDs; GA4 real ID
+- Post-fix audit: catalog 80→66 public; site links 13→20 videos, contaboRedirect 13→16, deriv 10→11, ai-gateway 0→1, placeholder issues 0
+- `videos.ts` resynced — AI-gateway Free Credit affiliate resource now renders on site hub
+- Remaining manual: chapters for AI-gateway 31min + OpenClaw 14min videos (YouTube Studio); per-plan CJ IDs; GA4 real ID
 
 **Session 5 — affiliate-link clarification + GA4 instructions (2026-08-22):**
 - USER CLARIFIED: all Contabo VPS plans share ONE destination — there are NO per-plan links. Differentiation is by use-case paths, each with its own CJ link ID (attribution works per-link in CJ): `/cheapestvps` → dpbolvw 14573812 (generic), `/cheapestn8nvps` → kqzyfj 17183968, `/cheapest-openclaw-vps` → kqzyfj 17245853. "Per-plan CJ tracking IDs" next-step is MOOT — removed
@@ -707,9 +706,9 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 
 **Session 7l — n8n AI Assistant video LIVE: real-package applied (2026-08-31):**
 - Video published: https://youtu.be/YM4JlBPruN0 — "This New N8N AI Assistant Builds Workflows FOR You -" (public 2026-08-31 06:46, 23:08, had boilerplate-only description)
-- Transcript pulled via baoyu-youtube-transcript skill (chrome-cookie fallback) — actual video flow: intro hook → assistant explainer → why self-host → Contabo one-click signup incl. 24-month discount advice → provider+model setup (free models via AgentRouter, GLM-5.3) → SSH + sandbox service deployment (folder, docker network ls, compose via nano, hex tokens via notepad, docker compose up, healthz) → sandbox URL+key into n8n UI → Brave option + SearXNG build (settings.yml, secret via openssl, compose, docker ps) → base URL into n8n → live chat test + web-search test → second-workflow examples (lead scorer, telegram agent) → closing warning: small model crashed on a complex build, use a smarter model
+- Transcript pulled via baoyu-youtube-transcript skill (chrome-cookie fallback) — actual video flow: intro hook → assistant explainer → why self-host → Contabo one-click signup incl. 24-month discount advice → provider+model setup (free models via AI-gateway, GLM-5.3) → SSH + sandbox service deployment (folder, docker network ls, compose via nano, hex tokens via notepad, docker compose up, healthz) → sandbox URL+key into n8n UI → Brave option + SearXNG build (settings.yml, secret via openssl, compose, docker ps) → base URL into n8n → live chat test + web-search test → second-workflow examples (lead scorer, telegram agent) → closing warning: small model crashed on a complex build, use a smarter model
 - video-content-n8n-agent.md updated: real video ID, REAL chapter timestamps from transcript (0:00/0:39/2:05/2:39/5:44/8:14/15:58/20:00/21:41/22:36), description rewritten to match what was actually demonstrated
-- DESCRIPTION APPLIED to the live video via youtube-update.mjs (mode:set) — verified live: hook + 10 real-timestamp chapters + AgentRouter link (1796 chars, backup-2026-08-22.json has the old version)
+- DESCRIPTION APPLIED to the live video via youtube-update.mjs (mode:set) — verified live: hook + 10 real-timestamp chapters  link (1796 chars, backup-2026-08-22.json has the old version)
 - Remaining for this video: thumbnail, cards, end screen, pinned comment (in the package), social captions posting
 - NOTE for future: on-camera recommendations user actually made — CloudVPS 6 recommended (shot on VPS 4), 24-month package = 20% discount (~$126 total), small models crash on complex builds
 
@@ -761,7 +760,7 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 **Session 17 — Scheduled trend sweep Fri Sept 4 (automation run):**
 - Bank saved: `youtube-fixes/trending-ideas-bank-2026-09-04.md` (3 parallel Explore agents)
 - TIER 1: (1) PUBLISH the recorded GLM-5.3 video NOW — sweep re-confirmed zero dedicated GLM self-host videos; GPT-6 Astra (Sept 3, 1,709 HN pts, $10/$50 per M, closed weights) is pushing free-alternative demand; (2) FLOP Fuel VPS automation — NEW finding: official guide says missions can be "signed through your own compatible agent or script" + per-IP 429 limits = one-DID-per-Contabo story; demand proof Crypto1O1 9.5K/6d; VPS angle still zero; (3) n8n + trading bot on VPS — "n8n trading bot" has zero dedicated videos (all 30 results are generic courses) while related-search demand is live; sequel to the AI Assistant video; (4) OpenClaw 2.x secure VPS — package built, refresh version to v2026.9.1 (two more releases this week), still no install tutorials
-- TIER 2: Pi node v27 prep before Sept 15 (time-boxed), MT5 Build 6180 AI Assistant (Sept 3 news, zero videos), Canopy submission window live (deadline pressure), Deriv CEO news-jack, OmniRoute v3.8.51 HOLD (tag imminent — AgentRouter SSE fix + STRICT_ZERO_COST headline), K2 Horizon 7B on small VPS (first-mover bet)
+- TIER 2: Pi node v27 prep before Sept 15 (time-boxed), MT5 Build 6180 AI Assistant (Sept 3 news, zero videos), Canopy submission window live (deadline pressure), Deriv CEO news-jack, OmniRoute v3.8.51 HOLD (tag imminent — AI-gateway SSE fix + STRICT_ZERO_COST headline), K2 Horizon 7B on small VPS (first-mover bet)
 - SKIP: Grok Bot (wave dead — zero demand AND zero competition now), Surge AI (rumor), Wager Predict (no news), Postiz, Qwen 3.8
 - QUEUE: publish GLM video → FLOP VPS automation → Pi v27 prep (by Sept 10) → n8n trading bot → OpenClaw secure → v3.8.51 release video when tagged
 
@@ -790,7 +789,7 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 **Session 13 — Privacy Policy + Terms pages added (2026-09-01):**
 - Neither existed (all path variants 404 live). Needed for: GA4 disclosure, affiliate programs (Pinterest business account just opened + CJ/MyAffiliates reviews check for linked policies), NDPR/GDPR
 - Built: components/LegalLayout.tsx (shared legal template w/ Seo) + PrivacyPolicy.tsx + TermsOfService.tsx; routes /privacy-policy + /terms (lazy, like guides); sitemap entries (lastmod 2026-09-01, priority 0.3, yearly)
-- Privacy covers: GA4, cookies, YouTube embeds, Contabo hosting logs, affiliate networks (Contabo CJ/AgentRouter/Deriv), data retention, NDPR/GDPR rights, 30-day response, no-data-selling. Terms covers: educational-only + NOT financial advice, no-results-guarantee, affiliate relationships, acceptable use, IP/third-party trademarks, liability limitation, Nigeria governing law
+- Privacy covers: GA4, cookies, YouTube embeds, Contabo hosting logs, affiliate networks (Contabo CJ/AI-gateway/Deriv), data retention, NDPR/GDPR rights, 30-day response, no-data-selling. Terms covers: educational-only + NOT financial advice, no-results-guarantee, affiliate relationships, acceptable use, IP/third-party trademarks, liability limitation, Nigeria governing law
 - Footer added to Contact section end: © year + Privacy Policy + Terms links (programs verify policies are LINKED). Browser-verified both pages (0 hidden blocks, titles, canonicals) + footer links on homepage
 - Deployed f783e3f, live 200s verified, sitemap resubmitted via Search Console API (204)
 - Content note: privacy policy says contact via /#contact — the Contact form posts to a webhook; if the user wants a visible email address on legal pages instead, add it later
@@ -799,24 +798,24 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 - User chose Play A: OpenClaw 2.0 first (bigger search wave), ZCode CLI + GLM-5.3-Flash on VPS 4 as the follow-up "budget edition" video (1-2 weeks later)
 - Package: `youtube-fixes/video-content-openclaw2.md` — 3 titles + thumbnails (security-first hero), 3 hooks (prompt-laundering angle recommended), 11 chapter cards, description, 25 tags, 5 social captions, pinned comment, checklist
 - Commands verified against OFFICIAL docs.openclaw.ai: install.sh one-liner (provisions Node), hardened baseline config from gateway/security.md (loopback + token auth + tools messaging profile + exec deny/ask), `openclaw security audit/--deep/--fix`, `openclaw gateway install/start/status` (systemd, port 18789 loopback), models.providers custom baseUrl config for OmniRoute free models (omniroute/deepseek-v4-flash style refs — verify IDs at recording)
-- Hero framing check passed: title/thumbnail/hooks lead with viewer outcome (24/7 assistant, SAFE setup); AgentRouter absent entirely from package (OmniRoute is the model path — genuinely used on screen; referral links only in description/pinned comment/cards)
+- Hero framing check passed: title/thumbnail/hooks lead with viewer outcome (24/7 assistant, SAFE setup); AI-gateway absent entirely from package (OmniRoute is the model path — genuinely used on screen; referral links only in description/pinned comment/cards)
 - Key differentiator chapters: SAFE config (6), security audit on camera (7), reboot test (9) — none of the existing 91K-1.08M-view tutorials show these
 
 **Session 11 — Referral-hero ban locked in (2026-09-01):**
-- USER DIRECTIVE: stop making AgentRouter the hero/priority in videos. Root cause: AgentRouter-as-subject = zero search volume (the Aug 19 video's 15 views proved it); the hero must be the viewer outcome (Claude Code free, free models, the workflow)
-- AGENTS.md updated: Content Mission point 4 — referral links (AgentRouter/Contabo/Deriv) live in description/pinned comment/cards ONLY, never title/thumbnail/hook/subject; in-video mentions only when the tool is genuinely used on screen; exception = dedicated program video the user explicitly chooses. Format item 2: link order now "guide + official docs FIRST, affiliates after"
-- Audited all 4 active packages: all comply (heroes = viewer outcomes; AgentRouter only in link slots). Removed one redundant standalone promo line from the n8n package description (link remains in LINKS block)
+- USER DIRECTIVE: stop making AI-gateway the hero/priority in videos. Root cause: AI-gateway-as-subject = zero search volume (the Aug 19 video's 15 views proved it); the hero must be the viewer outcome (Claude Code free, free models, the workflow)
+- AGENTS.md updated: Content Mission point 4 — referral links (Contabo/Deriv) live in description/pinned comment/cards ONLY, never title/thumbnail/hook/subject; in-video mentions only when the tool is genuinely used on screen; exception = dedicated program video the user explicitly chooses. Format item 2: link order now "guide + official docs FIRST, affiliates after"
+- Audited all 4 active packages: all comply (heroes = viewer outcomes; AI-gateway only in link slots). Removed one redundant standalone promo line from the n8n package description (link remains in LINKS block)
 - Skills: content-marketer + seo-fundamentals (search-demand rationale)
 
-**Session 10 — AgentRouter video rescue (GYvYHpi4DJk, 2026-09-01):**
-- User reported the Aug 19 AgentRouter video underperforming: 15 views/13d, 0 likes/comments — invisible in search
-- Root causes diagnosed: (a) title targeted zero-volume "Agentrouter" + generic listicle framing vs the proven pain formula (WebSite Learners' "STOP Paying $200/m" = 416K); (b) 31-min video with NO chapters (flagged Aug 22, never done); (c) junk tags ("ai asmr", "aik mohabbat aur", forex/crypto stuffing); (d) keyword-salad description opening; (e) $200-vs-$175 credit inconsistency; (f) "100% free forever" overpromise
+**Session 10 — AI-gateway video rescue (GYvYHpi4DJk, 2026-09-01):**
+- User reported the Aug 19 AI-gateway video underperforming: 15 views/13d, 0 likes/comments — invisible in search
+- Root causes diagnosed: (a) title targeted zero-volume "AI-gateway" + generic listicle framing vs the proven pain formula (WebSite Learners' "STOP Paying $200/m" = 416K); (b) 31-min video with NO chapters (flagged Aug 22, never done); (c) junk tags ("ai asmr", "aik mohabbat aur", forex/crypto stuffing); (d) keyword-salad description opening; (e) $200-vs-$175 credit inconsistency; (f) "100% free forever" overpromise
 - FIXED via youtube-update.mjs (extended to support title + tags updates — commands block):
   - Title → "Stop Paying $200/mo for Claude Code — 5 Free Methods (2026)"
   - 8 chapters with REAL timestamps from transcript: 0:00 intro, 1:20 signup, 5:46 OpenCode, 7:30 CLI, 8:40 Antigravity, 12:35 any-platform, 18:33 OmniRoute+VPS, 24:42 combo test, 28:53 wrap
   - 21 clean tags (removed junk/irrelevant)
   - Description: pain-formula hook + chapters + guide-first link order
-- Verified live via API. Backup of old metadata in youtube-fixes/fix-agentrouter-video.json (plan) + earlier backup-2026-08-22.json
+- Verified live via API. Backup of old metadata in youtube-fixes/fix-ai-gateway-video.json (plan) + earlier backup-2026-08-22.json
 - REMAINING (user action): thumbnail still needs the formula — "CLAUDE CODE FREE" + "$200/MO → $0" visual; watch CTR in Studio over 7 days
 - Transcript skill note: yt-dlp+Chrome-cookies path worked again for GYvYHpi4DJk
 
@@ -824,7 +823,7 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 - Bank saved: `youtube-fixes/trending-ideas-bank-2026-09-01.md` (3 parallel Explore agents: trading, crypto, AI/hosting)
 - TIER 1: (1) OpenClaw 2.0 secure VPS install — 2.0 shipped Aug 31 (388K stars), ZERO fresh tutorials, 1.x ceiling 91K-1.08M, window closes in days; (2) Grok Bot on Contabo VPS — $20 price cut + free X API credits, 388K/3d hype video, 37K/3d trading test, "grok bot vps" = zero results; (3) Supabase self-host — official "Don't pay" video 45.6K/2d (5x since Aug 29), third-party tutorials all 6+ months old; (4) FLOP Technocore DID automation on VPS — still zero VPS videos, but "51.2% miners" figure corrected to UNVERIFIED (~20% testnet participants is the verifiable number)
 - TIER 2: Deriv Flip Indices bundle STILL 100% open (re-verified); GLM-5.3 open-weight (HN 800pts, 160K/1d reviews, zero self-host tutorials); FREE AI trading bot for Deriv (Pocket Option formula does 15-27K/day, Deriv-side underserved); Pi Sept 15 mainnet checklist; Grass claim+Coinbase+farm; Postiz
-- HOLD: OmniRoute v3.8.51 release video (not shipped; AgentRouter SSE fix in branch = headline when it tags). SKIP: OpenRAG (filled, 15.1K/3d), Qwen 3.8 (saturated), Surge AI (unverified)
+- HOLD: OmniRoute v3.8.51 release video (not shipped; AI-gateway SSE fix in branch = headline when it tags). SKIP: OpenRAG (filled, 15.1K/3d), Qwen 3.8 (saturated), Surge AI (unverified)
 - QUEUE: next = OpenClaw 2.0 (or Grok Bot) → Supabase → FLOP DID + Pi checklist parallel → Flip Indices before it fills
 
 **Session 8 — n8n AI Assistant blog post + site-wide fixes (2026-08-31):**
@@ -862,7 +861,7 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 - 3 hooks added to n8n AI Assistant package (video-content-n8n-agent.md): bold-claim+instant-proof / pain-reversal / curiosity-gap+urgency
 - baoyu-youtube-transcript skill installed at ~/.zcode/skills/baoyu-youtube-transcript/ (manual clone+copy — the `npx skills add` CLI is interactive/TUI and hangs in this env). Direct InnerTube path hit YouTube 429 bot-block; yt-dlp fallback with YOUTUBE_TRANSCRIPT_COOKIES_FROM_BROWSER=chrome worked (Keychain prompt)
 - OAuth captions.download path does NOT work for auto-generated captions (AU-prefixed tracks) — browser-cookie fallback is the way
-- Blog post created from the OmniRoute video transcript: `data/posts/self-host-n8n-and-omniroute-on-a-vps.json` (id self-host-n8n-and-omniroute-on-a-vps, category Automation, youtubeId p6GlZLl5b6c, ~7.7K chars HTML following the video's 10-step flow incl. combo feature + $175 AgentRouter GitHub detail). Wired: blog.ts (newest first), sitemap.xml (lastmod 2026-08-29), llms.txt. Build verified: prerendered HTML + .md mirror, unique title, canonical, video embed. AWAITING user review at localhost:4173 before push (Local Review Gate)
+- Blog post created from the OmniRoute video transcript: `data/posts/self-host-n8n-and-omniroute-on-a-vps.json` (id self-host-n8n-and-omniroute-on-a-vps, category Automation, youtubeId p6GlZLl5b6c, ~7.7K chars HTML following the video's 10-step flow incl. combo feature + $175 AI-gateway GitHub detail). Wired: blog.ts (newest first), sitemap.xml (lastmod 2026-08-29), llms.txt. Build verified: prerendered HTML + .md mirror, unique title, canonical, video embed. AWAITING user review at localhost:4173 before push (Local Review Gate)
 
 **Session 7e — Video package format: Chapter Guide added + n8n topic corrected (2026-08-29):**
 - USER CORRECTION: the trending n8n topic is the NEW n8n AI ASSISTANT feature (2.37, Aug 25 — builds workflows from prompts, explains nodes, fixes errors, session traces), NOT generic "n8n AI agent" tutorials. Package rewritten: `youtube-fixes/video-content-n8n-agent.md` now titled around the AI Assistant; free-models (DeepSeek/GLM via OmniRoute) kept as the "power it free" chapter
@@ -927,7 +926,7 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 
 ### Next Steps
 - **User action: complete OAuth setup** (console.cloud.google.com, same project as API key): OAuth consent screen (External, test user olatonrainyt@gmail.com) → Create OAuth client ID (Desktop app) → add `YOUTUBE_CLIENT_ID` + `YOUTUBE_CLIENT_SECRET` to `.env.local` → tell agent → agent runs `node scripts/youtube-auth.mjs` (user clicks Google login themselves) → then agent applies: backup → `apply plan-2026-08-22.json` → `unlist` the 14 junk IDs → re-run audit
-- Chapters for 31-min AgentRouter video + 14-min OpenClaw video still need manual timestamps in YouTube Studio (agent has no caption/timestamp data — user action, ~10 min)
+- Chapters for 31-min AI-gateway video + 14-min OpenClaw video still need manual timestamps in YouTube Studio (agent has no caption/timestamp data — user action, ~10 min)
 - Per-plan CJ tracking IDs for /vps6 /vps8 /vps12 — user action in CJ dashboard
 - Replace GA4 placeholder (`GA_ID` in index.html) — funnel measurement still blind without it
 - Site: OmniRoute companion guide + email capture/lead magnets (from earlier plan)
@@ -945,7 +944,7 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 ## 2026-08-22 — SEO/AEO/GEO unblock: prerendering + per-page meta + structured data
 
 ### Last Session
-2026-08-19 — AgentRouter guide + video hub entry
+2026-08-19 — AI-gateway guide + video hub entry
 
 ### Done
 - Diagnosed 0 SEO/AEO/GEO visibility: SPA served empty `#root` HTML to non-JS crawlers, JS-only canonicals, single global title/description, no robots.txt/llms.txt, no structured data
@@ -971,7 +970,7 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 - Submit sitemap in Google Search Console + URL-inspect/request indexing for all 11 URLs
 - Replace GA4 placeholder (`GA_ID` in index.html) with real measurement ID and link GSC ↔ GA4
 - Validate schema in Google Rich Results Test (FAQPage on guides)
-- Monitor GSC impressions over 2–4 weeks; target first impressions on "n8n tutorial", "cheapest VPS", "agentrouter" clusters
+- Monitor GSC impressions over 2–4 weeks; target first impressions on "n8n tutorial", "cheapest VPS", "ai-gateway" clusters
 - Tailwind/Font Awesome CDN → self-hosted builds (LCP improvement)
 
 ### Blockers & Open Questions
@@ -984,38 +983,38 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 
 ---
 
-## 2026-08-19 — AgentRouter guide + video hub entry
+## 2026-08-19 — AI-gateway guide + video hub entry
 
 ### Last Session
 2026-08-12 — Two new pillar pages (Web/App Dev) + canonical duplicate fix + SEO/AEO/GEO docs
 
 ### Done
-- Built `AgentrouterGuide.tsx` (`/guides/agentrouter-setup`) — pillar-style guide covering 5 setup methods (OpenCode, Claude CLI, Claude App, Google Antigravity, OmniRoute on a cheap VPS), what AgentRouter is, method-selection guidance, security/cost reality check
-- CTA on guide links to user's AgentRouter referral: `https://agentrouter.org/register?aff=2CTV`
-- Added video to `data/videos.ts` (youtubeId GYvYHpi4DJk, category AI Automation) with AgentRouter affiliate + 3 lanreenlight affiliate resources — renumbered all video IDs sequentially (now 14 videos)
-- Added route `/guides/agentrouter-setup` to `App.tsx`
+- Built `[AI-gateway guide component]` (`/guides/ai-gateway-setup`) — pillar-style guide covering 5 setup methods (OpenCode, Claude CLI, Claude App, Google Antigravity, OmniRoute on a cheap VPS), what AI-gateway is, method-selection guidance, security/cost reality check
+- CTA on guide links to user's AI-gateway referral: ``
+- Added video to `data/videos.ts` (youtubeId GYvYHpi4DJk, category AI Automation) with AI-gateway affiliate + 3 lanreenlight affiliate resources — renumbered all video IDs sequentially (now 14 videos)
+- Added route `/guides/ai-gateway-setup` to `App.tsx`
 - Updated `GuidesLayout.tsx` CTA to render external `<a>` links (was react-router Link only — couldn't open external URLs)
-- Added AgentRouter quick-link card in `VideoHub.tsx` (7 cards, grid `md:grid-cols-4`)
-- Cross-linked AgentRouter guide in `N8nGuide.tsx` + `VpsGuide.tsx` relatedGuides
-- Updated `public/sitemap.xml` with agentrouter-setup URL
+- Added AI-gateway quick-link card in `VideoHub.tsx` (7 cards, grid `md:grid-cols-4`)
+- Cross-linked AI-gateway guide in `N8nGuide.tsx` + `VpsGuide.tsx` relatedGuides
+- Updated `public/sitemap.xml` with ai-gateway-setup URL
 - Build passes cleanly (`npm run build` successful)
 
 ### Decisions
-- AgentRouter guide NOT added to navbar dropdown — reachable via video hub quick link + internal cross-links (user preference)
+- AI-gateway guide NOT added to navbar dropdown — reachable via video hub quick link + internal cross-links (user preference)
 - Guide CTA uses external anchor (new tab) for the referral link
 - Video category set to AI Automation (coding agents/gateway routing)
-- AgentRouter guide relatedGuides point to AI Automation, VPS, Web Dev, App Dev — no reciprocal nav entry
+- AI-gateway guide relatedGuides point to AI Automation, VPS, Web Dev, App Dev — no reciprocal nav entry
 
 ### Next Steps
 - Push to main to trigger GitHub Actions deploy
-- Submit sitemap.xml to Google Search Console (includes new agentrouter-setup URL)
-- Request indexing for `/guides/agentrouter-setup`
-- Monitor Search Console for the AgentRouter page impressions (target: "agentrouter", "free claude code credit", "agentrouter opencode")
+- Submit sitemap.xml to Google Search Console (includes new ai-gateway-setup URL)
+- Request indexing for `/guides/ai-gateway-setup`
+- Monitor Search Console for the AI-gateway page impressions (target: "ai-gateway", "free claude code credit", "ai-gateway opencode")
 
 ### Blockers & Open Questions
 - n8n webhook for blog publishing: posts in `public/posts/` — can't verify webhook is active
 - GA4 tracking ID is a placeholder
-- AgentRouter guide content based on video description + public docs — unverified against full transcript
+- AI-gateway guide content based on video description + public docs — unverified against full transcript
 - No test or lint scripts exist in package.json
 
 ---

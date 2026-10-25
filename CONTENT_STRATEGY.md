@@ -31,7 +31,7 @@ These rules prevent repeating a real industry incident: bulk edits and careless 
 - **Internal link floor — every blog post must contain:**
   1. at least one link to a hub/service page (`/guides/*` pillar or `/#contact`),
   2. at least one link to another blog post,
-  3. at least one link to a relevant product page (Contabo/Deriv/AgentRouter funnel or affiliate link).
+  3. at least one link to a relevant product page (Contabo or Deriv funnel or affiliate link).
 - Audit the floor before deploys: the new post's prerendered HTML must contain `href="/guides/`, at least one other `/blog/<slug>` href, and at least one affiliate/funnel href. Weak internal linking is why 10 posts sat in "Crawled - currently not indexed" (diagnosed 2026-08-30) — the homepage now links the 3 latest posts via `LatestPosts`, and the floor keeps every future post from repeating that.
 
 ## Current State (2026-07-11)
@@ -47,7 +47,7 @@ These rules prevent repeating a real industry incident: bulk edits and careless 
 | `/guides/crypto-node-ops` | Pillar | Crypto Node Guide (DePIN, blockchain nodes) |
 | `/guides/web-development` | Pillar | Full-Stack Web Development Guide |
 | `/guides/app-development` | Pillar | App Development Guide (React Native, PWA, ASO) |
-| `/guides/agentrouter-setup` | Guide | AgentRouter Setup Guide (free Claude Code credit, AI gateway, 5 methods) |
+| `/guides/ai-gateway-setup` | Guide | LEGACY page (live; removal pending decision 2026-10-25 — needs a 301 plan per SEO rules) |
 | `/blog` | Listing | Blog post listing (static import from `data/posts/`) |
 | `/blog/:id` | Article | Individual blog post (loaded by ID from `data/posts/`) |
 
@@ -113,7 +113,7 @@ Four natural topic clusters emerge from existing content:
 | P1 | How to Use n8n Free Forever — Self-Hosted Guide | Video #8 (SvipG4uv0E4) | Getting started guide |
 | P1 | n8n + AI: Building Intelligent Workflows with LLMs | Expertise section + videos | AI integration deep-dive |
 | P2 | Your AI Agent Said "Done" — But Did It Actually Do Anything? | Video #4 (Gf6wQzVN2jg) | AI reliability in automation |
-| P0 | AgentRouter Setup — Free Claude Code Credit (5 Methods) | Video #14 (GYvYHpi4DJk) | AI gateway routing for coding agents |
+| P0 | [retired 2026-10-25] legacy AI-gateway guide/video | Video #14 (GYvYHpi4DJk) | no longer part of the monetization mix |
 
 ### Cluster 2: VPS & Cloud Infrastructure
 
@@ -323,7 +323,7 @@ Pick topics where a product maps naturally. A trend with no monetizable angle go
 |---|---|---|
 | VPS, self-hosting, n8n hosting, crypto nodes | Contabo VPS (affiliate) | `/cheapestvps`, `/cheapestn8nvps`, `/cheapest-openclaw-vps` (or `/vps6` / `/vps8` / `/vps12`) |
 | Forex, trading bots, prop firms | Deriv (affiliate) | `/forexbroker` |
-| AI coding agents, Claude Code, AI gateways | AgentRouter (affiliate) | affiliate link from `data/videos.ts` |
+| AI coding agents, Claude Code, AI gateways | — | affiliate removed 2026-10-25; no active partner |
 | Trading, EA comparisons | Expert Advisors (own products) | Algorithms section + trading guide |
 | Web/app builds, tooling | Web/App dev services | `/guides/web-development`, `/guides/app-development` |
 | Any post | Newsletter (Scalability Weekly) | Contact section on home |
@@ -339,7 +339,7 @@ Every post links to at least one product mid-content and repeats the CTA in a cl
 - **FAQ (3–5 questions):** feeds AEO and featured snippets, catches buyers late in the funnel
 - **Author bio + newsletter CTA** at the end — own the audience, don't rent it from Google
 - **Affiliate disclosure:** one clear line near the first product link ("Some links are affiliate links — I may earn a commission at no cost to you."). Required for trust and compliance, and it keeps citation quality clean for AEO/GEO.
-- **Referral links rule:** every post must include the relevant funnel URLs — Contabo VPS (`/cheapestvps`, `/cheapestn8nvps`, `/cheapest-openclaw-vps`), Deriv (`/forexbroker`), AgentRouter (affiliate link from `data/videos.ts`), Expert Advisors — matched to the post topic, UTM-tagged.
+- **Referral links rule:** every post must include the relevant funnel URLs — Contabo VPS (`/cheapestvps`, `/cheapestn8nvps`, `/cheapest-openclaw-vps`), Deriv (`/forexbroker`), Expert Advisors — matched to the post topic, UTM-tagged.
 
 ### 5. Publish correctly
 

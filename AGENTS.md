@@ -150,9 +150,9 @@ The mission behind every piece of content: **subscribers and visitors learn to D
 1. **DIY-first:** every topic is framed as "here's how YOU do it yourself, free or cheap" — self-hosted, on cheap hardware, with free tiers wherever possible
 2. **Self-managed:** teach ownership (their own VPS, their own data, their own stack) — not dependence on paid subscriptions
 3. **Services last:** hiring Lanre is the LAST option in the funnel ("which is the least") — never the pitch. If a viewer wants done-for-you help, the door is open, but content always teaches them to fish
-4. **Referral programs are never the hero (user directive 2026-09-01):** AgentRouter, Contabo, and Deriv links live in the description, pinned comment, and cards — NEVER in the title, thumbnail, hook, or as the video's subject/priority. The hero is always the viewer's desired outcome (Claude Code free, free AI models, the workflow). In-video mentions only when the tool is genuinely used on screen. The one exception: a dedicated video about the program itself that the user explicitly chooses to make
+4. **Referral programs are never the hero (user directive 2026-09-01):** Contabo and Deriv links live in the description, pinned comment, and cards — NEVER in the title, thumbnail, hook, or as the video's subject/priority. The hero is always the viewer's desired outcome (Claude Code free, free AI models, the workflow). In-video mentions only when the tool is genuinely used on screen. The one exception: a dedicated video about the program itself that the user explicitly chooses to make
 
-Practical implications: research and topic selection favor "how to self-host X free/cheap on a VPS" angles; descriptions and posts emphasize free tiers, open-source tools, and cost breakdowns; affiliate links are for tools the viewer installs themselves (Contabo, AgentRouter); never frame content as "this is hard, hire me instead."
+Practical implications: research and topic selection favor "how to self-host X free/cheap on a VPS" angles; descriptions and posts emphasize free tiers, open-source tools, and cost breakdowns; affiliate links are for tools the viewer installs themselves (Contabo); never frame content as "this is hard, hire me instead."
 
 ## Content Cadence (MANDATORY)
 
@@ -323,9 +323,9 @@ CI/CD exists at `.github/workflows/deploy.yml` — document its actual steps. Do
 - At the end of every task: append dated observations to `Lanreenlight` (`add_observations`) — what was done, decisions and why, gotchas, pending items. Also append the same summary to this project's `MEMORY.md` — append-only, never overwrite.
 - Never store secrets (API keys, tokens, passwords, real user identifiers) in the graph or memory files.
 
-## Skill Loading (ENFORCED)
+## Skill Loading (MAXIMUM 10 — NO MINIMUM)
 
-Skill loading is mechanically enforced, not just documented: a global hook injects the skill-protocol reminder on every prompt, and a stop-gate hook blocks turn end until a Skill tool invocation is recorded for the session (config: `~/.zcode/cli/config.json` -> `hooks`; scripts: `~/.zcode/hooks/`). Load 2-10 relevant skills (minimum 2) before acting — every task, no exceptions.
+Skill loading is capped, not required: load the skills that genuinely serve the task, up to a maximum of 10. There is no minimum — a task that no skill serves should load none, and loading filler to hit a quota is worse than loading nothing. A global hook injects a reminder on every prompt and suggests companion skills when one loads, but nothing blocks a turn for skipping skills.
 
 ## Ask First — Don't Guess, Don't Hunt (MANDATORY)
 

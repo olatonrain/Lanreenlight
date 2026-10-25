@@ -11,7 +11,7 @@
 | Element | Value |
 |---------|-------|
 | **Contabo VPS 6 referral link** | `https://lanreenlight.com/cheapestvps` |
-| **OmniRoute repo** | `https://github.com/agentrouter/omnroute` (verify) |
+| **OmniRoute repo** | `https://github.com/[repo-link removed 2026-10-25]` (verify) |
 | **Key port** | 20128 (OmniRoute) |
 | **Free providers to demo** | Kiro, Qoder, Pollinations, NVIDIA NIM, Cloudflare AI |
 | **n8n port (optional part)** | 5678 |
@@ -122,7 +122,7 @@ version: '3.8'
 
 services:
   omnroute:
-    image: ghcr.io/agentrouter/omnroute:latest   # verify current tag
+    image: [image removed 2026-10-25]   # verify current tag
     container_name: omnroute
     restart: unless-stopped
     ports:
@@ -254,7 +254,7 @@ docker compose up -d
 | Chapter markers | YouTube Studio | One per phase (phases double as chapters) |
 | Command overlays | DaVinci/CapCut | Monospace, semi-transparent black bg |
 | Zoom on JSON output | Keyframes | When `/v1/models` responds |
-| End screen | YouTube Studio | Link to AgentRouter video + VPS guide |
+| End screen | YouTube Studio | Link to the latest related video + VPS guide |
 | Pinned comment | YouTube Studio | Paste command reference + both links |
 | Description | YouTube Studio | Use the block below |
 
@@ -297,7 +297,7 @@ curl -fsSL https://get.docker.com | sh && sudo usermod -aG docker $USER && newgr
 version: '3.8'
 services:
   omnroute:
-    image: ghcr.io/agentrouter/omnroute:latest
+    image: [image removed 2026-10-25]
     container_name: omnroute
     restart: unless-stopped
     ports: ["20128:20128"]
@@ -319,8 +319,9 @@ curl -X POST http://YOUR_VPS_IP:20128/v1/chat/completions \
 ## 🔗 Links
 - Written guide: https://lanreenlight.com/guides/omnroute-vps-setup
 - VPS referral: https://lanreenlight.com/cheapestvps
-- AgentRouter referral: https://agentrouter.org/register?aff=2CTV
-- OmniRoute repo: https://github.com/agentrouter/omnroute
+- [AI-gateway referral removed 2026-10-25]
+
+- OmniRoute repo: https://github.com/[repo-link removed 2026-10-25]
 ````
 
 ---
@@ -334,7 +335,7 @@ Built after the video is recorded:
 - Docker Compose file download
 - Troubleshooting FAQ (port conflicts, Docker permission denied, empty model list)
 - Email capture: "Get the `docker-compose.yml` → enter email" (lead magnet)
-- Related guides sidebar: AgentRouter Setup, n8n Automation, VPS Hosting Guide
+- Related guides sidebar: n8n Automation, VPS Hosting Guide
 
 ---
 

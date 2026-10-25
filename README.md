@@ -70,7 +70,7 @@ npm run preview
 │   ├── CryptoNodeGuide.tsx  # Crypto Node Operations pillar page
 │   ├── WebDevelopmentGuide.tsx # Full-Stack Web Development pillar page
 │   ├── AppDevelopmentGuide.tsx # App Development pillar page
-│   ├── AgentrouterGuide.tsx    # AgentRouter setup guide (free Claude Code credit)
+│   ├── [AI-gateway guide component]    # legacy guide page (removal pending decision 2026-10-25)
 │   └── CanonicalLink.tsx    # Dynamic per-route canonical tag
 ├── data/
 │   ├── videos.ts            # YouTube video data (auto-synced)
@@ -97,7 +97,7 @@ npm run preview
 - **Video Hub** — Curated YouTube videos with resource links (affiliate) + quick links to pillar guides
 - **Expert Advisors** — Algorithmic trading systems (Flux Scalper Pro, Orbit Swing, Prop Guard v2)
 - **Blog** — Full blog with dynamic posts from n8n webhook
-- **Pillar Guides** — 7 SEO-optimized authority pages: AI Automation, VPS Hosting, Algorithmic Trading, Crypto Node Operations, Web Development, App Development, AgentRouter Setup
+- **Pillar Guides** — 7 authority pages: AI Automation, VPS Hosting, Algorithmic Trading, Crypto Node Operations, Web Development, App Development (+ one legacy AI-gateway page pending removal decision 2026-10-25)
 - **SPA Routing** — React Router with Apache `.htaccess` fallback
 - **SEO** — Open Graph / Twitter meta tags, sitemap.xml with all routes, dynamic canonical tags per route
 - **Analytics** — GA4 tracking (placeholder — replace ID in `index.html`)
