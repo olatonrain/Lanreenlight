@@ -6,6 +6,35 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 
 ---
 
+## 2026-10-25 — Intro sting rendered (hypit, both variants) + REA full-lifecycle package built
+
+### Last Session
+2026-10-04 — Clef video package built from primary sources
+
+### Done
+- **Reusable intro sting DELIVERED (user's new format pivot: "install trending GitHub repos" videos alongside trend-reactive):** `youtube-fixes/intro-dark.mp4` (navy #0c1222 + gold wordmark) and `intro-light.mp4` (white + zinc wordmark, gold tagline) — both 1920x1080, 30fps, exactly 3.000s, silent (music bed added in the user's editor), visually verified via extracted frames. Sources are the reusable template: `youtube-fixes/hypit/intro/intro-{dark,light}.svml` + `look-{dark,light}.svvs` + `build-{dark,light}.svrun`. RE-RENDER recipe: edit text/colors in the svml → `hypit check <source>` → `hypit build <svrun> --follow` → `hypit get <build-id> --output final.video --to <path>`. Placement decision: AFTER the hook (packages' hook-first convention preserved).
+- **hypit gotchas (IMPORTANT for future renders):** CLI is 0.1.10 (0.3.1 BREAKS the runtime — do not upgrade: its package layout diverges, `runtime up` fails on @hypit/provider-hyperframes-local). 0.1.10 bug workaround: machine packages install to `~/Library/Application Support/Hypit/packages` but code resolves via node_modules from `/usr/local/lib/node_modules/@hypit/hypit` — fixed by symlinking (a) all CLI workspace packages into `.../hypit/node_modules/@hypit/` (mkdir the scope dir FIRST — a broken loop once littered ~300 garbage symlinks into /usr/local/lib/node_modules, since cleaned; only link package ROOTS), and (b) store package roots (`find "$STORE" -maxdepth 6 -type d -name node_modules` → link direct children) into `/usr/local/lib/node_modules/`. Also: package.json now carries `"hypit": {"project": true}` (required by 0.3.1's project check; harmless for 0.1.10), and the font Stack must NOT use `emoji="color"` unless the emoji font is linked too. `plan/pricing` need the .svrun Run file, not the .svml.
+- **REA video package:** `youtube-fixes/video-content-rea-install-uninstall.md` (user picked `morluto/rea` from the new "install trending repos" format; verified 2026-10-25: 378,691 stars, MIT, v6.7.0). Angle vs the saturated lane (Darsh Jain 60K/7d, Outskill 49K/1d, Zinho 38K/3d): THE COMPLETE LIFECYCLE — install → live demo on owned software → VERIFIED uninstall (the chapter nobody ships) — plus free run (REA itself needs NO API keys; agent on AgentRouter base URL https://agentrouter.org/v1) and the README-verbatim scam warning (fake REA repos + fake REA coin; only github.com/morluto/rea + rea.tools are official).
+- Verified install/uninstall facts baked in: `npx rea-agents setup` (or `npm i -g rea-agents`), Node 22.x+ required → NodeSource two-step (setup_22.x downloaded then run — NOT piped), `rea doctor`, `rea update`, `rea uninstall` (keeps `.rea.backup` + `.rea.backup.<sha256>.recovery` snapshots; quit clients first), Claude-specific residue: `claude mcp remove --scope user rea` + remove `~/.claude/skills/reverse-engineer-anything`. Format audit: chapter cards CLEAN.
+- Channel-audit context feeding the format pivot: last upload Sept 12 (43 days), recent videos 20-508 views (the 23-53 min problem), best performer ever = install/how-to format.
+
+### Decisions
+- Intro sting placement AFTER the hook (retention + existing package convention); both dark/light variants rendered so the user picks per video
+- rea demo on $5 Contabo VPS with AgentRouter free models (user-confirmed) — differentiation = lifecycle + free + scam warning, NOT another install hype
+- hypit 0.1.10 stays pinned; 0.3.1 upgrade blocked until upstream fixes the package layout
+
+### Next Steps
+- USER films: rea video (intro-dark.mp4 drops in after the hook) — competition recheck "rea install" on publish day
+- Next repo-install episodes from GitHub weekly trending (verified Oct 25 #1 = cloudflare/security-audit-skill +11,223/wk; stablyai/orca +9,545 — agent-fleet VPS lane; heygen-com/hyperframes +5,553; Graphify-Labs/graphify +6,875)
+- Standing: trend sweeps continue as the topic feeder; hard dates still trend-reactive (Pi v28 mainnet Oct 13 + node deadline Oct 16 — check what happened, the repair lane may still be open)
+
+### Blockers & Open Questions
+- AgentRouter env-var pattern still UNVERIFIED (base URL verified; show working config on camera, never quote unverified names)
+- rea.tools site did not fetch directly (JS/SPA) — uninstall steps sourced from docs/installation.md in-repo (same project, verbatim)
+- hypit version pin: if a future session needs 0.3.1 features, budget for a proper migration (runtime re-init + package relayout), not the 0.1.10 symlink bridge
+
+---
+
 ## 2026-10-04 — Clef video package built (user picked from Oct 2 bank): primary-source verified, honest angle = the size split
 
 ### Last Session
