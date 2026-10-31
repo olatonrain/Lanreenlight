@@ -6,6 +6,64 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 
 ---
 
+## 2026-10-31 — Biweekly sweep (Friday, 4-week delta): Pi v28 repair lane + skills-wave repos + TradingAgents bridge lead
+
+### Last Session
+2026-10-25 — /masterclass sales page + intro sting/REA package
+
+### Done
+- Standing biweekly sweep (4 agents, window Oct 2-31) + GitHub trending pull (daily+weekly parsed). Bank: `youtube-fixes/trending-ideas-bank-2026-10-31.md`. Evidence caveats: YouTube views mostly UNVERIFIED (JS-only fetchers), Reddit 403; GitHub/HN/status pages verified against source
+- GITHUB'S WEEK = AGENT SKILLS: cloudflare/security-audit-skill +12.8K/wk (#1), pbakaus/impeccable +11.3K/wk, ECC +6.5K/wk, obra/superpowers +5.5K/wk, TradingAgents +5.5K/wk, claude-seo +4.5K/wk, karpathy CLAUDE.md +4.2K/wk. Daily leaders: claude-mem 1,140/day, impeccable 2,300/day
+- TIER 1: (1) Pi v28 survival/repair — v28 activated Oct 16 (upgrade deadline Oct 13; P26 precedent = hard disconnections); Reddit pain threads (stuck "Catching up" 10 days); ZERO dedicated node-repair videos; Desktop 0.6.4 (Oct 22) = SoloHost no-port-forward; Ecosystem Summit Nov 17-19 next spike. (2) claude-seo skill (26 skills + 19 agents, +4.5K/wk) — ZERO videos, free Google keys. (3) TradingAgents on a $5 VPS (~118.8K stars, Apache-2.0, DeepSeek-cheapest or FREE via Ollama README-confirmed; CLI+backtest/cron VPS-shaped) — ZERO tutorials, forex/Deriv symbols unclaimed = the trading+AI bridge video. (4) PHP2Shell (CVE-2026-109618/109619, CISA KEV Oct 21) — patch PHP on your VPS; updating WordPress does NOT fix it; TIME-CRITICAL, zero VPS tutorials. (5) ChatGPT Sites → own VPS (no export button, Oct 29-30 push, workaround documented). (6) Clef-omni (30B, Oct 9 + Ollama Oct 20) — VPS lane still zero; sequel to the packaged Clef video
+- TIER 2: OmniRoute v3.8.52 (Oct 19, zero videos; Codex quota CUT Oct 30 = demand driver); Asentum VPS (still zero tutorials; devlog quiet — honesty flag); FLOP testnet target NOV 3 (4.4B genesis airdrop; 300GB NVMe = bigger Contabo tier; zero videos); "What I self-host" 28-services rebuild (HN 675pts Oct 15 + "$5 VPS 24/7" Ask HN 435pts Oct 6 — the lane's literal zeitgeist, zero video coverage); MT5 6230 full EA-audit walkthrough (lane zero→one narrow video Oct 10); SEC/Lagos summit outcome (held Oct 14-16, NO recap coverage 2 weeks later); BankOnlineNG (zero coverage + 5-15 working day honesty angle); Cloud in a Bottle (still zero); OpenClaw HARDENING (6 CVEs, 824 malicious skills, 42K exposed, v2026.10.9 security fixes — install lane saturated, security angle open); VeryChat Nov 1 payout + X1 bonus Shorts; ECC install walkthrough; Contabo Black Friday prep ($5.28/mo promo live, BF page "Coming Soon", codes late Nov)
+- SKIP: Bolt Forge (offer died Oct 14, no extension), security-audit-skill installs (crowded ~6 videos), superpowers/mattpocock/anthropics/karpathy skills (covered), OpenClaw installs (saturated), DeepSeek V4.1 Flash "1017" (156GB — API-only)
+- Codex quota CUT effective Oct 30 (20x→10x Plus) = demand driver for self-hosted router content
+
+### Decisions
+- PHP2Shell = this weekend's film (time-critical security, evergreen after); Pi repair = the proven-demand retry; TradingAgents = the bridge video but ONLY after verifying the Ollama-free claim on camera
+- Skills-wave repos: cover the EMPTY ones (claude-seo, TradingAgents, ECC, impeccable) — skip the covered ones (superpowers, anthropics, karpathy, security-audit-skill installs)
+- OpenClaw 2.0 recorded video: publish ONLY with the hardening angle folded in (install lane saturated)
+
+### Next Steps
+- USER picks; recommended: PHP2Shell (weekend) → Pi repair → TradingAgents (after on-camera free-run proof) → claude-seo → ChatGPT Sites → Clef-omni
+- Watch: FLOP Nov 3 (react if it slips), VeryChat payout Nov 1, Contabo BF codes (late Nov), Pi Ecosystem Summit Nov 17-19
+- Standing: OpenClaw 2.0 + Clef + REA packages filmed or awaiting shoot; GLM video private
+
+### Blockers & Open Questions
+- YouTube view counts mostly UNVERIFIED this sweep (JS-only fetchers); Reddit 403 — demand evidenced via HN/news/autocomplete
+- TradingAgents "runs free on Ollama" = README claim — live test needed before scripting (same rule as Laya/Clef)
+- FLOP Nov 3 is a stated target, not fixed; validators need 300GB NVMe = NOT the $5 tier
+- GitHub trending parser: first href in article blocks was login/sponsors — must extract from h2 blocks (parser fixed this sweep, keep for next)
+
+---
+
+## 2026-10-25 — /masterclass sales page built (aiagentsmastery.me structure, Lanre brand) — awaiting user fill-ins + review gate
+
+### Last Session
+2026-10-25 — Intro sting rendered (hypit) + REA lifecycle package built
+
+### Done
+- **New route `/masterclass`** (`components/MasterclassPage.tsx`, lazy-loaded in App.tsx): full clone of aiagentsmastery.me's 14-section direct-response structure — hero story → public-proof anchors → problem ("renting AI") → proof (real builds) → honest-check diagnostic → renting-vs-owning comparison → 3-evening curriculum → deliverables → social-proof frame → qualification IS/NOT → pricing card with live countdown → FAQ accordion → final CTA → footer → registration modal (name+email → payment link with prefilled `?email=`).
+- **Proof layer added same day (user request: "more proof it works, people talking about AI automation"):** new cited "AI Automation Is Already Working" section — 6 stat cards (88% orgs use AI, $2.6T–$4.4T gen-AI value, 62%→23% agent-scaling gap = McKinsey State of AI 2025 + 2023 report; 208k+ stars, 200k+ community, 500+ integrations, Fortune 500 = n8n.io official), Huel 1,000-hrs + Vodafone £2.2M official n8n case-study cards, linked sources footnote. Agent-gap stat also woven into Problem closer + "rare skill" card. Proof strip now 4 links (added retainer playbook). All facts verified against primary sources 2026-10-25; aggregator-blog stats deliberately rejected.
+- All event facts live in the `EVENT` const at the top of the file with a FILL-IN CHECKLIST comment: dates, session time, deadline (drives countdown), price (₦10,000→₦15,000 mirrored from reference, unconfirmed), `paymentLink: 'REPLACE_WITH_PAYMENT_LINK'`. The modal FAILS SAFE while the link is a placeholder (error message points to the checklist).
+- Event + FAQ JSON-LD: new `eventSchema` export in `data/schema.ts`; both schemas verified in prerendered HTML. `public/sitemap.xml` +masterclass (lastmod 2026-10-25 — diff verified purely additive, 30→31 locs). `public/llms.txt` +Masterclass section.
+- Copy discipline (humanizer + uncertainty rule): reference page's claims NOT copied; hero limited to what Lanre's own posts prove ("My Entire AI Stack Runs on One $5 VPS"); proof section links real blog posts (GLM-free-24-7, n8n cloud-vs-selfhost math, Bless $1000); testimonials are empty TODO frames — section must be filled with REAL messages or deleted before launch.
+
+### Decisions
+- Page deliberately uses NO FadeIn (zero opacity-0 anywhere) — immune to the invisible-content bug class; H1 paints in first render.
+- Navbar NOT touched (site-wide visible change needs sign-off); page reachable by URL until a nav badge/link is approved.
+
+### Next Steps
+- USER fills the 8-item checklist (top of MasterclassPage.tsx): payment link, real dates/time, deadline, pricing mechanics, event name if different, real testimonials, any personal numbers.
+- USER reviews locally (http://localhost:4173/masterclass), then approves → commit+push (auto-deploy) → run `node scripts/request-indexing.mjs`.
+- Optional later: navbar CTA badge, blog-post cross-links into /masterclass, sticky mobile CTA bar.
+
+### Blockers & Open Questions
+- Payment link + event facts unknown until user provides them.
+- vite preview serves 200 for nonexistent URLs (SPA catch-all is a preview artifact); prod soft-404 comes from Apache `.htaccess`, which was NOT touched.
+
+---
+
 ## 2026-10-25 — Intro sting rendered (hypit, both variants) + REA full-lifecycle package built
 
 ### Last Session
