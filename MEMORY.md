@@ -6,6 +6,35 @@ Newest entries first. See MEMORY_ARCHIVE.md for older sessions.
 
 ---
 
+## 2026-11-01 — MT5 VPS Part 2 video recorded (23:34): package rebuilt to match the real recording
+
+### Last Session
+2026-10-31 — Biweekly sweep (Pi v28 repair + skills-wave + TradingAgents bank)
+
+### Done
+- User recorded the MT5-on-VPS video (audio `/Users/user/Downloads/Mt5 2/Mt5 2.MP3` 23:34; full MP4 1.5GB in same folder). Transcribed locally with whisper.cpp base.en → `youtube-fixes/mt5-vps-part2-transcript.srt` (908 lines)
+- The recording is NOT the old 6180-AI-Assistant video: it's "Part 2" of the Pi series — installing MT5 on a Linux Contabo VPS via the USER'S OWN menu-driven installer script (Option 1 MT5+Wine in an MC5 folder / Option 2 Tailscale approve-the-VPS flow / Option 3 xRDP), then connecting from PC and phone via the Windows App. Angle: signal-selling automation ("signal sellers aren't typing 24/7"), $5.50/mo, no Windows license (skips the paid Windows Server add-on), Tailscale security beat ("even with my IP + password you can't reach my MT5"). Ends teasing Part 3: broker link + Telegram signal alerts + AI-built Expert Advisor
+- NEW package: `youtube-fixes/video-content-mt5-vps-part2.md` (format audit CLEAN; 9 chapters with REAL timestamps from the transcript; 3 Shorts cut lists with source beats). The old `video-content-mt5-6180-qa.md` stays valid as a SEPARATE future video — do not merge
+- Recording facts logged: pricing as spoken (1mo ≈ $6.60, 12mo ≈ $27.32, 24mo ≈ $126; 100GB SSD vs competitors' 30GB/1GB); user's server had prior installs (MT5 "newest version already", xRDP detected as "not owned by this tool") — fresh-server flow narrated from the README
+- Caption guard flagged: whisper heard "paper" for PayPal and "wind/MC5" for Wine/MT5 — captions must use the real words
+
+### Decisions
+- Package written for the AS-RECORDED video, not the planned one (same rule as the Pi video session)
+- Intro sting placement: after the hook, ~0:11-0:30 (before "click the link in the description")
+- Broker link in description = Deriv (/forexbroker) per channel monetization, but flagged for user confirmation since the recording says "the broker that I make use of"
+
+### Next Steps
+- USER: upload the video, then give me the videoId — I wire it into the package + captions placeholders and prepare the youtube-update.mjs apply (backup → apply → verify) after their go-ahead
+- USER MUST FILL before publish: installer script URL (the "my websites" link shown at 10:40) + broker link — both marked [INSTALLER URL]/[BROKER LINK] in the package
+- Shorts: 3 cut lists ready (signal-seller hook / Tailscale lock / no-Windows-tax) — cut from the MP4
+- Part 3 to plan after this publishes: broker + Telegram alerts + AI-built EA (ties into the MT5 6230 AI-Assistant package already built)
+
+### Blockers & Open Questions
+- Installer script itself never inspected by the agent (hosted on the user's site) — commands in the description are menu-option descriptions, not verbatim shell lines; if the user wants exact commands in the description, paste them from the README page
+- Windows App link in the description is the Microsoft Store URL — verify region availability for Nigerian users before publish
+
+---
+
 ## 2026-10-31 — Biweekly sweep (Friday, 4-week delta): Pi v28 repair lane + skills-wave repos + TradingAgents bridge lead
 
 ### Last Session
